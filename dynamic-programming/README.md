@@ -1,0 +1,56 @@
+# Dynamic Programming
+
+## 什麼是Dynamic Programming \(動態規劃\)？
+
+所謂的動態規劃 DP，就是利用**memoize數組**來記錄已計算過的結果。但要如何知道什麼時候要記錄呢？  
+此時我們發現，當一個題目可以**“把大問題化成小問題"**，小問題化成小小問題，以此類推，利用重複計算的特性，就可以用動態規劃來解決。
+
+DP求解方式分兩種：  
+\(1\) 從小到大\(Bottom-Up\)，從小到大遞推。  
+\(2\) 從大到小\(Top-Down\)，從大到小記憶化搜索。  
+  
+DP，自底向上。當我們不知道如何求解時，看**最後一步**，一步一步從底向上推。
+
+DP方法自下而上Bottom-Up: f\[0\], f\[1\], ..., f\[N\]  
+記憶化方法自上而下Top-Down:  f\(N\), f\(N-1\), ...  
+  
+Sometimes you do not need to store the whole DP table in memory, the last two values or the last two rows of the matrix will suffice.  
+
+
+## DFS 和 DP 的區別
+
+對於DFS的問題，通常都是subproblem沒有交集，所以大部分用Recursion或Binary Search解決。ex: Binary Tree's Subproblem  
+然而，對於DP的問題，**subproblem有交集**，可以從大問題化成和大問題有交集的小問題而解決。
+
+## DP 類型
+
+### \(1\) Sequence DP -- 40%
+
+* Climbing Stairs \(Easy\)
+* Jump Game \(Medium\)
+* Longest Increasing Subsequence \(Medium\)
+* Decode Ways \(Medium\)
+* House Robber \(Easy\)
+* House Robber II \(Medium\)
+* Word Break \(Medium\)
+* Palindrome Partitioning II \(Hard\)
+
+### \(2\) Matrix DP -- 10%
+
+* Unique Paths \(Medium\)
+* Maximum Product Subarray \(Medium\)
+* Unique Paths II
+* Minimum Paths Sum
+
+### \(3\) Two Sequence DP -- 40%
+
+* Longest Common Subsequence \(Medium\)
+* Edit Distance \(Hard\)
+
+### \(4\) Coin & Backpack DP -- 10%
+
+* Coin Change \(Medium\)
+* 01 Backpack \(Medium\)
+
+###  
+

@@ -1,4 +1,4 @@
-# Initial page
+# Search Range In Binary Search Tree
 
 ## Getting Super Powers
 
