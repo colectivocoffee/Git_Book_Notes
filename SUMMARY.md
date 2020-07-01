@@ -34,7 +34,5 @@
 
 ## 算法技巧
 
-* [Untitled](suan-fa-ji-qiao/untitled.md)
-
 ## Basics <a id="basics-1"></a>
 
