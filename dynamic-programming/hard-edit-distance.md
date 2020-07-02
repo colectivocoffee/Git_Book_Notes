@@ -24,5 +24,7 @@ rose -> ros (remove 'e')
 
 ## Thought Process
 
+Similar to LCS thought process, so we should use two sequences DP.
+
 ## Full Implementation
 

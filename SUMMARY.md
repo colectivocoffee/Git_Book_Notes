@@ -1,8 +1,12 @@
 # Table of contents
 
 * [Initial page](README.md)
-* [Basics](basics/README.md)
-  * [算法導讀](basics/suan-fa-dao-du.md)
+
+## Basics <a id="basics-1"></a>
+
+* [算法導讀](basics-1/suan-fa-dao-du.md)
+
+## 算法技巧
 
 ## BST
 
@@ -31,8 +35,4 @@
 * [\[Easy\] House Robber](multiple-solutions/easy-house-robber.md)
 * [\[Medium\] Longest Increasing Subsequence](multiple-solutions/medium-longest-increasing-subsequence.md)
 * [\[Medium\] Jump Game](multiple-solutions/medium-jump-game.md)
-
-## 算法技巧
-
-## Basics <a id="basics-1"></a>
 
