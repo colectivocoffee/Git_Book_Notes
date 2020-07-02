@@ -17,6 +17,14 @@
 
 ## DP
 
+## Multiple Solutions
+
+* [\[Easy\] Best Time to Buy and Sell Stock](multiple-solutions/easy-best-time-to-buy-and-sell-stock.md)
+* [\[Easy\] Climbing Stairs](multiple-solutions/easy-climbing-stairs.md)
+* [\[Easy\] House Robber](multiple-solutions/easy-house-robber.md)
+* [\[Medium\] Longest Increasing Subsequence](multiple-solutions/medium-longest-increasing-subsequence.md)
+* [\[Medium\] Jump Game](multiple-solutions/medium-jump-game.md)
+
 ---
 
 * [Dynamic Programming](dynamic-programming/README.md)
@@ -27,12 +35,4 @@
   * [\[Medium\] Decode Ways](dynamic-programming/medium-decode-ways.md)
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
-
-## Multiple Solutions
-
-* [\[Easy\] Best Time to Buy and Sell Stock](multiple-solutions/easy-best-time-to-buy-and-sell-stock.md)
-* [\[Easy\] Climbing Stairs](multiple-solutions/easy-climbing-stairs.md)
-* [\[Easy\] House Robber](multiple-solutions/easy-house-robber.md)
-* [\[Medium\] Longest Increasing Subsequence](multiple-solutions/medium-longest-increasing-subsequence.md)
-* [\[Medium\] Jump Game](multiple-solutions/medium-jump-game.md)
 
