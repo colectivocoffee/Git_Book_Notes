@@ -29,8 +29,31 @@ Output: false
 
 ### \(1\) Brute Force DFS
 
-Time Complexity: O\( $$2^n$$ \) such as s = "aaaaaaaaaaab", dict = {"a", "aa", "aaa", ...., "aaaaaaaaa"}  
-Space Complexity: O\( $$n$$ \) where n is the depth of the recursion
+用DFS枚舉所有可能性。意即，如果找到符合的word，就用**DFS** **Recursion** move on to the next one，直到所有的index都看過為止。  
+  
+**Brute Force DFS寫法：** 
+
+```text
+Define DFS
+    (1)DFS Exit:
+        start_i == len(s), 並返回True
+        
+    (2)Recursion Split: yes, no  (for word in wordDict)
+        (3)Yes:  
+            if start_i 在s的尾端，則continue。
+        (4)No:
+            if not s尾端，繼續尋找
+            (5) 如果找到s[end:start] == word
+                 則繼續用DFS判斷剩下的是否可以 (if self.DFS(start+len(word))
+                 return True
+     
+     (6)找完所有可能但不能找到，return False
+```
+
+Time Complexity: O\(2^n\), such as s = "aaaaaaaaaaab", dict = {"a", "aa", "aaa", ...., "aaaaaaaaa"}  
+Space Complexity: O\(n\), where n is the depth of the recursion  
+  
+會造成Time Limit Exceeded \(TLE\)
 
 ### \(2\) DP
 
@@ -80,6 +103,41 @@ answer: `f[len(s)]` or `f[-1]`
 {% tab title="Python" %}
 ```python
 def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    
+    if not s:
+        return True
+    if not wordDict:
+        return False
+    
+    return self.dfs(0, s, wordDict)
+    
+# define recursion of dfs            
+def dfs(self, start_i, s, wordDict):
+    
+    # recursion exit
+    if start_i == len(s):
+        return True
+    
+    # recursion split
+    for word in wordDict:
+        
+        # no
+        if start_i + len(word) > len(s):
+            continue
+        
+        # yes
+        end_i = start_i + len(word)
+        if s[end_i:start_i] == word:
+            # if s[end_i:start_i] is the word, 
+            # then take it out (move start_i to start_i + len(word)) 
+            # and check the next one to see if it satisfy.
+            if self.dfs(end_i, s, wordDict) 
+                return True
+    
+    # if start_i reaches the end of the index and still cannot find anything,
+    # then return False 
+    return False
+
 ```
 {% endtab %}
 {% endtabs %}
