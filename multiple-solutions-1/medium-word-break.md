@@ -27,7 +27,12 @@ Output: false
 
 根據題意，"determine if _s_ can be segmented into..." 代表找DP的可行性，因此可以使用DP求解。
 
-### \(1\) DP
+### \(1\) Brute Force DFS
+
+Time Complexity: O\( $$2^n$$ \) such as s = "aaaaaaaaaaab", dict = {"a", "aa", "aaa", ...., "aaaaaaaaa"}  
+Space Complexity: O\( $$n$$ \) where n is the depth of the recursion
+
+### \(2\) DP
 
 此題為**Sequence DP**。  
 既然用DP，則此問題可以化為subProblem，即`applepenapple` can be sliced into `apple/pen/apple`。這裡的subProblem就是：如何判斷在s裡面，當`apple`已在wordDict裡，接下來的`pen`是否也在wordDict裡，此時如何正確地slicing變得很重要。  
@@ -44,19 +49,36 @@ Output: false
 
 #### 2. Transfer Function:
 
-
+`f[i] = f[j] && s[j:i] in wordDict`  
 
 #### 3. Init State and Set Boundaries:
 
-#### 4. Calculate Sequence: 
+Init State: `f[0] == True`  
+Boundaries: `i = 1, ..., len(s)+1` and `j = maxLen-i, ..., i` where `j < i`
 
-### \(2\) DP + 剪枝
+#### 4. Calculate Sequence:
 
-### \(3\) DFS
+f\[0\], f\[1\], ... f\[len\(s\)\]  
+answer: `f[len(s)]` or `f[-1]`
+
+**Time Complexity: O\(**$$n^2$$**\)**   
+**Space Complexity: O\(** $$n$$ **\)**
+
+#### 如何優化？
+
+由於在for loop的時候有很多從0開始的重複計算，而這些可以省去，因為word不可能比任何一個在wordDict裡面最長的字還長，可以少掉一些計算。因此可以用`i - maxLen`來節省計算。
+
+### \(3\) DP + 剪枝
+
+利用`i-maxLen`來簡化計算。`maxLen = max([len(word) for word in wordDict])`
 
 ## Full Implementation
 
-#### \(1\) DP
+#### \(1\) Brute Force DFS
+
+
+
+#### \(2\) DP
 
 {% tabs %}
 {% tab title="Python" %}
@@ -89,7 +111,7 @@ def wordBreak(self, s: str, wordDict: List[str]) -> bool:
 {% endtab %}
 {% endtabs %}
 
-#### \(2\) DP + 剪枝
+#### \(3\) DP + 剪枝
 
 {% tabs %}
 {% tab title="Python" %}
