@@ -25,7 +25,7 @@ Output: false
 
 ## Thought Process
 
-根據題意，"determine if _s_ can be segmented into..." 代表找DP的可行性，因此可以使用DP求解。
+根據題意，"determine if _s_ can be segmented into..." 代表找DP的可行性\(Yes/No\)，因此可以使用DP求解。
 
 ### \(1\) Brute Force DFS
 
