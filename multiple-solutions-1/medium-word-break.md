@@ -76,7 +76,13 @@ answer: `f[len(s)]` or `f[-1]`
 
 #### \(1\) Brute Force DFS
 
-
+{% tabs %}
+{% tab title="Python" %}
+```python
+def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+```
+{% endtab %}
+{% endtabs %}
 
 #### \(2\) DP
 
