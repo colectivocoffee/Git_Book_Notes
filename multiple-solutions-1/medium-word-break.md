@@ -29,7 +29,28 @@ Output: false
 
 ### \(1\) DP
 
-### \(2\) DP + optimization
+此題為**Sequence DP**。  
+既然用DP，則此問題可以化為subProblem，即`applepenapple` can be sliced into `apple/pen/apple`。這裡的subProblem就是：如何判斷在s裡面，當`apple`已在wordDict裡，接下來的`pen`是否也在wordDict裡，此時如何正確地slicing變得很重要。  
+
+
+#### 1.Define the State:
+
+**最後一步**：  
+有別於其他的DP題，這題的最後一步是看 "是否能把s裡所有chars組合安全地slicing然後map到wordDict裡"，因此直接從頭開始slice。  
+**SubProblem**：  
+原來的找`applepenapple`是否在wordDict，則可化為`"apple + penapple"` 找`"penapple"`是否在wordDict。
+
+![](../.gitbook/assets/wordbreak.jpg)
+
+#### 2. Transfer Function:
+
+
+
+#### 3. Init State and Set Boundaries:
+
+#### 4. Calculate Sequence: 
+
+### \(2\) DP + 剪枝
 
 ### \(3\) DFS
 
@@ -64,6 +85,39 @@ def wordBreak(self, s: str, wordDict: List[str]) -> bool:
                 break
             
      return f[-1]
+```
+{% endtab %}
+{% endtabs %}
+
+#### \(2\) DP + 剪枝
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    
+    if not s:
+        return True
+        
+    if not wordDict:
+        return False
+        
+    # find the longest word within wordDict.
+    # why? Because we can skip the checking steps when iterating in j for loop. 
+    # Those steps are longer than max length, which are not possible.
+    maxLen = max([len(word) for word in wordDict(wordDict)])
+    
+    f = [False for i in range(len(s) + 1)]
+    
+    for i in range(1, len(s)+1):
+        # "i - maxLen" can skip words are longer than maxLen
+        for j in range(i-maxLen, i):
+            
+            if f[j] and s[j:i] in wordDict:
+                f[i] = True
+                break
+    
+    return f[-1]
 ```
 {% endtab %}
 {% endtabs %}
