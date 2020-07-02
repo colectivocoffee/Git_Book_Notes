@@ -4,6 +4,14 @@
 
 ## Thought Process
 
+### \(1\) Recursion\(Top-Down\)
+
+### \(2\) DP
+
+### \(3\) DP + Sliding Window
+
+
+
 ## Full Implementation
 
 #### \(1\) Recursion \(Top-down\)
@@ -27,7 +35,7 @@ def robbing(self, nums, i):
 {% endtab %}
 {% endtabs %}
 
-#### \(3\) DP
+#### \(2\) DP
 
 {% tabs %}
 {% tab title="Python" %}
