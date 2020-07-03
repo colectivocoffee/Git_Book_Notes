@@ -34,4 +34,5 @@
   * [\[Easy\] House Robber](multiple-solutions-1/easy-house-robber.md)
   * [\[Easy\] Climbing Stairs](multiple-solutions-1/easy-climbing-stairs.md)
   * [\[Easy\] Best Time to Buy and Sell Stock](multiple-solutions-1/easy-best-time-to-buy-and-sell-stock.md)
+* [\[Easy\] Two Sum](easy-two-sum.md)
 

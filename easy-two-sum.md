@@ -1,0 +1,35 @@
+# \[Easy\] Two Sum
+
+[Two Sum](https://leetcode.com/problems/two-sum/)  
+Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.  
+You may assume that each input would have _**exactly**_ one solution, and you may not use the _same_ element twice.
+
+#### Example
+
+```text
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+```
+
+## Thought Process
+
+### Category: Array
+
+經典的Coding題。最容易想到的就是暴力解，用for i & for j，雙重for loop來看 nums\[i\] + nums\[j\] == target，Time Complexity O\(n^2\)。但這有兩個問題：1. for loop會重複算同樣的nums\[i\] which is not allowed，2. O\(n^2\)太大。  
+  
+由於題意說“have _**exactly**_ one solution, and you may not use the _same_ element twice."，我們可以知道利用加法原理 `x + y = sum` --&gt; `y = sum - x`來替換第二個變量。題意又說，既然同一個數字不能使用兩次，我們可以用dictionary來記錄第一次出現的數字的index \( `(key,value) = (nums[i], i)` \)，我們就可以用一次的for loop來判斷`target - nums[i]` 是否在dictionary裡，這樣我們在`target - nums[i]`出現時，就可以知道已符合條件即可返回。
+
+```python
+dictionary = {} # (key, value) = (nums[i], i)
+
+for i in len(nums):
+    用target - nums[i]判斷是否
+```
+
+```text
+def twoSum(self, nums, target):
+
+```
+
