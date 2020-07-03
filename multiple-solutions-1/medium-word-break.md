@@ -127,11 +127,11 @@ def dfs(self, start_i, s, wordDict):
         
         # yes
         end_i = start_i + len(word)
-        if s[end_i:start_i] == word:
-            # if s[end_i:start_i] is the word, 
+        if s[start_i:end_i] == word:
+            # if s[start_i:end_i] is the word, 
             # then take it out (move start_i to start_i + len(word)) 
             # and check the next one to see if it satisfy.
-            if self.dfs(end_i, s, wordDict) 
+            if self.dfs(start_i+len(word), s, wordDict) 
                 return True
     
     # if start_i reaches the end of the index and still cannot find anything,
