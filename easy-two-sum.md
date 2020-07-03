@@ -22,14 +22,29 @@ return [0, 1].
 由於題意說“have _**exactly**_ one solution, and you may not use the _same_ element twice."，我們可以知道利用加法原理 `x + y = sum` --&gt; `y = sum - x`來替換第二個變量。題意又說，既然同一個數字不能使用兩次，我們可以用dictionary來記錄第一次出現的數字的index \( `(key,value) = (nums[i], i)` \)，我們就可以用一次的for loop來判斷`target - nums[i]` 是否在dictionary裡，這樣我們在`target - nums[i]`出現時，就可以知道已符合條件即可返回。
 
 ```python
+定義邊界條件 
+
 dictionary = {} # (key, value) = (nums[i], i)
 
 for i in len(nums):
-    用target - nums[i]判斷是否
+    定義second_num為target - nums[i]
+    
+    用second_num判斷是否在dictionary裡，
+        如果符合，則返回兩數之index，即 [i, dictionary[second_num]]
+    
+    不符合，則把dictionary[nums[i]] = i 加到dictionary裡
+    
+邊界條件2，如果沒找到，返回None
 ```
 
-```text
+## Code
+
+{% tabs %}
+{% tab title="Python" %}
+```python
 def twoSum(self, nums, target):
 
 ```
+{% endtab %}
+{% endtabs %}
 
