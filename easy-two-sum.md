@@ -20,7 +20,7 @@ return [0, 1].
 經典的Coding題。最容易想到的就是暴力解，用for i & for j，雙重for loop來看 nums\[i\] + nums\[j\] == target，Time Complexity O\(n^2\)。但這有兩個問題：1. for loop會重複算同樣的nums\[i\] which is not allowed，2. O\(n^2\)太大。  
 
 
-### \(1\) Dictionary\(Hashmap\)
+### \(1\) Dictionary \(Hashmap\)
 
 **Time Complexity O\(n\)  
 Space Complexity O\(n\)**  
