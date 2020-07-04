@@ -4,7 +4,13 @@
 
 * Last element in a sequence: `arr[-1]`
 * Reversing from end to start: `arr[::-1]`
-* s
+* 建一個新的list並且保存其sort之前的index:  1. `arr = enumerate(arr)`  --&gt; 先化成\(index, item\)的表示法 2. `new_arr = sorted(arr, key=lambda x: x[1])`  --&gt; sort array放到new\_arr裡, 並且保存舊有的index，意即按照arr tuple裡的第二個item排序。
+
+> Note: `key=lambda x: x[1]` 在這表示按照x \(tuple裡第二個item x\[1\]做事\)，即  
+> def anonymous function \(x\):  
+>       return x\[1\]
+
+
 
 ## Time Complexity
 
