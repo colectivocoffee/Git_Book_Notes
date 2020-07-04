@@ -43,7 +43,21 @@ for i in len(nums):
 邊界條件2，如果沒找到，返回None
 ```
 
-### \(2\) Two Pointers
+### \(2\) Two Pointers \(同向雙指針\)
+
+**Time Complexity: O\(nlogn\)  
+Space Complexity: O\(n\)**
+
+由於只有唯一解，我們發現此題如果排序後，用兩個同向雙指針：pointers Left & Right，L往右移，R往左移，就可以找到target sum。  
+1. 先把nums sorted，並且用`(key, value) pair`的方式儲存其值和原始index。  
+2. 開始比較。當while L &lt; R 時一直比，直到兩個指針相交，結束比較。  
+3. if `nums[L][1] + nums[R][1] == target`時，返回原來的index，即 `[nums[L][0], nums[R][0]]`。  
+4. 如果 nums\[L\]\[1\] + nums\[R\]\[1\] `> target`，則要 R -= 1  
+5. 如果 `< target`，則 L += 1
+
+延伸題型：  
+3 Sum  
+4 Sum 
 
 ## Code
 
@@ -55,7 +69,7 @@ for i in len(nums):
 def twoSum(self, nums, target):
 
     if not nums or len(nums) == 0:
-        return None
+        return [-1, -1]
     
     dictionary = {}
     
@@ -69,10 +83,45 @@ def twoSum(self, nums, target):
         #(No) does not meet the status, then add it to dictionary
         dictionary[nums[i]] = i    
         
-    return None
+    return [-1, -1]
 ```
 {% endtab %}
 {% endtabs %}
 
 #### \(2\) Two Pointers
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def twoSum(self, nums, target):
+    
+    if not nums or len(nums) == 0:
+        return [-1, -1]
+    
+    # 用(key,value)pair 存其原始index，放在key上。
+    # 並且排序。
+    # ex: [2,3,2,5] --> [(0, 2), (2, 2), (1, 3), (3, 5)]
+    nums = enumerate(nums)
+    nums = sorted(nums, key=lambda x: x[1])
+    
+    L, R = 0, len(nums)-1
+    while L < R:
+          
+          # 用nums[L][1]來取value
+          total = nums[L][1]+nums[R][1]
+          if total == target:
+              # 用nums[L][0]來取原始index
+              return [nums[L][0], nums[R][0]]
+          elif total < target:
+              L += 1
+          else:
+              R -= 1
+      
+      return [-1, -1]
+                      
+```
+{% endtab %}
+{% endtabs %}
+
+
 
