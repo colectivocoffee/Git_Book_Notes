@@ -15,7 +15,7 @@ return [0, 1].
 
 ## Thought Process
 
-### Category: Array
+### Category: Array/TwoSum
 
 經典的Coding題。最容易想到的就是暴力解，用for i & for j，雙重for loop來看 nums\[i\] + nums\[j\] == target，Time Complexity O\(n^2\)。但這有兩個問題：1. for loop會重複算同樣的nums\[i\] which is not allowed，2. O\(n^2\)太大。  
 
@@ -42,6 +42,10 @@ for i in len(nums):
     
 邊界條件2，如果沒找到，返回None
 ```
+
+{% hint style="info" %}
+**Cons:** 當nums裡有重複的數時\(ex: \[-1,-1,-1,-1,2\] \)，此解法就會有問題。因此需要用Two Pointers來過濾重複的答案。
+{% endhint %}
 
 ### \(2\) Two Pointers \(同向雙指針\)
 
