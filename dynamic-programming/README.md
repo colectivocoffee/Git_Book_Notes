@@ -14,6 +14,8 @@ DP，自底向上。當我們不知道如何求解時，看**最後一步**，�
 DP方法自下而上Bottom-Up: f\[0\], f\[1\], ..., f\[N\]  
 記憶化方法自上而下Top-Down:  f\(N\), f\(N-1\), ...  
   
+More Info [Here](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.)  
+  
 Sometimes you do not need to store the whole DP table in memory, the last two values or the last two rows of the matrix will suffice.  
 
 
