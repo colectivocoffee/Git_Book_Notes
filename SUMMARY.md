@@ -15,10 +15,13 @@
   * [\[Easy\] Closest Binary Search Tree Value](bst/bst/closest-binary-search-tree-value.md)
   * [\[Easy\] Two Sum IV - Input is a BST](bst/bst/two-sum-iv-input-is-a-bst.md)
 
-## DP
+## 算法
 
 ---
 
+* [Two Pointers](two-pointers/README.md)
+  * [\[Medium\] 3 Sum](two-pointers/medium-3-sum.md)
+  * [\[Easy\] Two Sum](two-pointers/easy-two-sum.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [\[Hard\] Edit Distance](dynamic-programming/hard-edit-distance.md)
   * [\[Medium\] Longest Common Subsequence \(LCS\)](dynamic-programming/medium-longest-common-subsequence-lcs.md)
@@ -34,6 +37,4 @@
   * [\[Easy\] House Robber](multiple-solutions-1/easy-house-robber.md)
   * [\[Easy\] Climbing Stairs](multiple-solutions-1/easy-climbing-stairs.md)
   * [\[Easy\] Best Time to Buy and Sell Stock](multiple-solutions-1/easy-best-time-to-buy-and-sell-stock.md)
-* [Two Pointers](two-pointers/README.md)
-  * [\[Easy\] Two Sum](two-pointers/easy-two-sum.md)
 
