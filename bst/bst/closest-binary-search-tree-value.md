@@ -1,13 +1,11 @@
 # \[Easy\] Closest Binary Search Tree Value
 
-### **Question** 
+### \*\*\*\*[**Closest Binary Search Tree Value**](https://www.lintcode.com/problem/closest-binary-search-tree-value/description)\*\*\*\*
 
 Given a non-empty binary search tree and a target value, find the value in the BST that is closest to the target.
 
 * Given target value is a floating point.
 * You are guaranteed to have only one unique value in the BST that is closest to the target.
-
-Code Testbed can be found here: [https://www.lintcode.com/problem/closest-binary-search-tree-value/description](https://www.lintcode.com/problem/closest-binary-search-tree-value/description)
 
 ### **Example**
 
@@ -41,7 +39,7 @@ node.val > target  -> move to node.left
 
  3.. 最後，我們找到upper和lower分別為兩個node, 我們要比較哪個比較靠近target
 
-### Full Implementation
+### Code
 
 {% tabs %}
 {% tab title="Python" %}
