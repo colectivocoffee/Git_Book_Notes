@@ -11,5 +11,5 @@ Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)�
 ## 題目
 
 * [Two Sum](https://leetcode.com/problems/two-sum/)
-* Three Sum
+* [Three Sum](https://leetcode.com/problems/3sum/)
 
