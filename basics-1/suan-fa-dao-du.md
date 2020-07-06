@@ -10,7 +10,23 @@
 > def anonymous function \(x\):  
 >       return x\[1\]
 
+* Remove duplicates from a list of lists: 有三種方法 \(1\) set \(2\) itertools.groupby \(3\) if element not in new\_list
 
+```python
+(1) set
+nums = [tuple(i) for i in nums] #convert to tuple
+nums = set(nums) # remove duplicates
+nums = [list(i) for i in nums] #convert back to list
+
+(2)itertools.groupby(nums)
+nums = sorted(nums)
+nums = list(nums for nums,_ in itertools.groupby(nums)) #need nums,_ for this
+
+(3)not_in_new_list
+for item in nums:
+    if item not in new_list
+        new_list.append()
+```
 
 ## Time Complexity
 
