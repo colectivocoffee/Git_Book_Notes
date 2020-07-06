@@ -20,7 +20,7 @@ Output: true
 這題的two pointer on valid palindrome思維，可以用在很多不同的題型上。（用同向雙指針）  
 唯一的難點就是在remove punctuation & spaces & lower case。這題的話可以用`isalnum() + lower()`來解決。
 
-## Code 
+## Code
 
 {% tabs %}
 {% tab title="Python" %}
