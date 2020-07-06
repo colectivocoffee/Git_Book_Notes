@@ -42,6 +42,13 @@ answer: `max(f)`
 
 ### 2. DP2 \(Optimize Space\): O\(n\)/O\(1\)
 
+由上一個解法我們可以發現，其實並不需要一整個f\[n\]，我們可以用兩個變量代替: 1. global\_max   
+2. local\_max，並且用max\(a,b\)來比較它們。當找到更大的max的時候，就update變量。當然，transfer function還是一樣的，只是變成了global\_max & local\_max。  
+Transfer Function: `local_max = max(local_max + nums[i], nums[i])`
+
+> 注意：\(1\)初始值 `global_max = local_max = nums[0]` 為 init state f\[0\]，  
+> \(2\)邊界條件 i 為 range\(1, len\(nums\)\)
+
 ### 3. Binary Search
 
 ### 4. Greedy
@@ -50,7 +57,49 @@ answer: `max(f)`
 
 #### 1.DP \(Sequence DP\)
 
+{% tabs %}
+{% tab title="Python" %}
+```python
+def maxSubArray(self, nums: List[int]) -> int:
+    
+    if not nums or len(nums) == 0:
+        return 0
+        
+    f = [0 for i in range(len(nums))]
+    
+    for i in range(len(nums)):
+        f[i] = max(f[i-1] + nums[i], nums[i]) # local_max = f[i]
+        # or this way -> f[i] = f[i-1] + max(0, nums[i]) 
+    
+    return max(f) # global_max
+    
+```
+{% endtab %}
+{% endtabs %}
+
 #### 2. DP\(Space Optimized\)
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def maxSubArray(self, nums: List[int]) -> int:
+    
+    if not nums or len(nums) == 0:
+        return 0
+    
+    #init state: nums[0]
+    global_max = local_max = nums[0]
+    
+    # boundaries: range(1, len(nums))
+    for i in range(1, len(nums)):
+        local_max = max(local_max + nums[i], nums[i])
+        global_max = max(global_max, local_max)
+    
+    return global_max
+    
+```
+{% endtab %}
+{% endtabs %}
 
 #### 3. Binary Search
 
