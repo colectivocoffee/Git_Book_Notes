@@ -48,3 +48,13 @@ Hashmaps are probably the most commonly used data structure for algorithm questi
 
 If you are cutting corners in your code, state that out loud to your interviewer and say what you would do in a non-interview setting \(no time constraints\). E.g., I would write a regex to parse this string rather than using `split()` which may not cover all cases.
 
+
+
+## 如何確定要用哪種算法？
+
+### 1. Divide and Conquer -&gt; Binary Search
+
+> 如果題目要求要用Divide and Conquer求解，可以推斷用Binary Search。Time Complexity: O\(logn\)
+
+### 2. 
+
