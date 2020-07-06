@@ -8,6 +8,8 @@ The solution set must not contain duplicate triplets.
 
 ## Thought Process
 
+### Two Pointers \(L-&gt;/&lt;-R\)
+
 1.由`a + b + c = 0`我們可以想到轉化為`a + b = -c`，因此，我們可以發現其可以轉化a + b為 two sum來求解，而`-c` 就由for loop的`nums[i]`來代替。  
 2.另外，由於nums裡的element有可能重複\(ex: `(-1) + (-1) + 2 = 0`\) ，我們可以利用對nums“排序”來處理結果，使得在加和時比較方便，又排序需要O\(nlogn\)時間，比起此題two pointer的O\(n^2\)並不會增加複雜度。  
 3. 最後要注意的是，結果也有可能重複\(\[-1,-1,2\] == \[-1,2,-1\]\)，因此我們需要再remove result's duplicates。  
