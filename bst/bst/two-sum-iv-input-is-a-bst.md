@@ -36,7 +36,7 @@ self.inOrderTraversal(node.right, result)
 result.append(node.val)
 ```
 
-### **Full Implementation**
+### Code
 
 ```python
 class TreeNode:
