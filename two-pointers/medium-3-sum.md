@@ -17,7 +17,7 @@ The solution set must not contain duplicate triplets.
 
 {% hint style="info" %}
 注意: \(1\)兩重loop，一個`-c，`另一個是two pointers L,R  
-\(2\)邊界條件：-c \(0 -&gt; len\(\) -2\), L = i + 1, R = len\(\) -1  
+\(2\)邊界條件：-c \(0 -&gt; **len\(\)-2**\), L = **i + 1**, R = **len\(\) -1**  
 \(3\)remove duplicates：如果找到sum = 0時，還要用新的while loop繼續移動 L, R，  
 即nums\[L\] == nums\[L-1\] L++, nums\[R\] == nums\[R+1\] R--  
 \(4\)最後一步要remove result's duplicates
@@ -46,6 +46,10 @@ while L < R:
 return result
 ```
 
+#### Remove Duplicates in List of Lists
+
+
+
 ## Code
 
 {% tabs %}
@@ -58,9 +62,13 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
     if not nums:
         return result
     
+    # sort nums to make calc easier
+    nums = sorted(nums)
+    
+    # -c
     for i in range(len(nums)-2):
         
-        # two pointers
+        # a+b
         L, R = i+1 , len(nums)-1
         while L < R:
         
@@ -70,7 +78,7 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
                 L += 1
                 R -= 1
                 
-                # if there are duplicated values, 
+                # if there are duplicated values, [-3,-2,-2,-2,1]
                 # then keep move pointer forward/backward
                 while L < R and nums[L] == nums[L-1]:
                     L += 1
@@ -91,4 +99,6 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
