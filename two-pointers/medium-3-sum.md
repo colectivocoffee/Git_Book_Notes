@@ -46,9 +46,9 @@ while L < R:
 return result
 ```
 
-#### Remove Duplicates in List of Lists
+#### Remove Duplicates from a List of Lists
 
-
+Refer to [this](https://app.gitbook.com/@iscolectivo/s/algonote/~/drafts/-MBWtajXsJQVkkuDbqkO/basics-1/suan-fa-dao-du) page.
 
 ## Code
 
