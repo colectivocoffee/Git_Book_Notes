@@ -15,10 +15,18 @@ Output: true
 
 ## Thought Process
 
-### Two Pointers \(L-&gt;/&lt;-R\)
+### 1. Two Pointers \(L-&gt;/&lt;-R\)
 
 這題的two pointer on valid palindrome思維，可以用在很多不同的題型上。（用同向雙指針）  
 唯一的難點就是在remove punctuation & spaces & lower case。這題的話可以用`isalnum() + lower()`來解決。
+
+**Time Complexity: O\(n\)  
+Space Complexity: O\(1\)**
+
+### **2. Brute Force \(Two For Loops\)**
+
+**Time complexity: O\(n^2\)  
+Space complexity: O\(n\)**
 
 ## Code
 
