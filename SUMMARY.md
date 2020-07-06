@@ -32,6 +32,7 @@
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
 * [Multiple Solutions](multiple-solutions-1/README.md)
+  * [\[Easy\] Maximum Subarray](multiple-solutions-1/easy-maximum-subarray.md)
   * [\[Medium\] Word Break](multiple-solutions-1/medium-word-break.md)
   * [\[Medium\] Jump Game](multiple-solutions-1/medium-jump-game.md)
   * [\[Medium\] Longest Increasing Subsequence](multiple-solutions-1/medium-longest-increasing-subsequence.md)
