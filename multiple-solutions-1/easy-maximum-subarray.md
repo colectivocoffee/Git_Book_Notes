@@ -58,6 +58,8 @@ Transfer Function: `local_max = max(local_max + nums[i], nums[i])`
 
 ### 4. Greedy: O\(n\)/O\(1\)
 
+見下解。
+
 ## Code
 
 #### 1.DP \(Sequence DP\)
