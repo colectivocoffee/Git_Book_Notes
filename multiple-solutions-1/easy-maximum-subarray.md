@@ -126,8 +126,10 @@ def maxSubArray(self, nums: List[int]) -> int:
     for num in nums:
         localMax = localMax + num
         globalMax = max(localMax, globalMax)
-        localMax = max(0, localMax) #why 0? 
-        #because there's a chance localMax could be negative, to clear it up.
+        localMax = max(0, localMax) 
+        # why 0 on max(0, localMax)? 
+        # because there's a chance localMax could be negative, 
+        # there's no reason to add this number 'num', so to clear it up become 0.
     
     return globalMax
 
