@@ -42,5 +42,6 @@
 
 ## 數據結構
 
-* [Array](shu-ju-jie-gou/array.md)
+* [Array](shu-ju-jie-gou/array/README.md)
+  * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
 
