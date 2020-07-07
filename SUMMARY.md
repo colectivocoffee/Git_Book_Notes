@@ -40,3 +40,7 @@
   * [\[Easy\] Climbing Stairs](multiple-solutions-1/easy-climbing-stairs.md)
   * [\[Easy\] Best Time to Buy and Sell Stock](multiple-solutions-1/easy-best-time-to-buy-and-sell-stock.md)
 
+## 數據結構
+
+* [Array](shu-ju-jie-gou/array.md)
+
