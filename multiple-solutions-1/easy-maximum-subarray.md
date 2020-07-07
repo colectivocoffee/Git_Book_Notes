@@ -56,7 +56,7 @@ Transfer Function: `local_max = max(local_max + nums[i], nums[i])`
 依照follow up要求，如果要divide and conquer，那大概只有Binary Search可以用了。一般來說Binary Search可以讓Time Complexity: O\(logn\)，但是此題還是要遍歷一整個list，因此還是O\(n\)。  
 [Binary Search 參考答案](https://leetcode.com/problems/maximum-subarray/discuss/20371/Java-Dynamic-Programming-or-Binary-Search)
 
-### 4. Greedy
+### 4. Greedy: O\(n\)/O\(1\)
 
 ## Code
 
@@ -107,4 +107,29 @@ def maxSubArray(self, nums: List[int]) -> int:
 {% endtabs %}
 
 #### 3. Binary Search
+
+#### 4. Greedy
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def maxSubArray(self, nums: List[int]) -> int:
+
+    if not nums:
+        return 0
+    
+    localMax = 0
+    globalMax = float('-inf') # can't be 0, because max could possibly be 0.
+    
+    for num in nums:
+        localMax = localMax + num
+        globalMax = max(localMax, globalMax)
+        localMax = max(0, localMax) #why 0? 
+        #because there's a chance localMax could be negative, to clear it up.
+    
+    return globalMax
+
+```
+{% endtab %}
+{% endtabs %}
 
