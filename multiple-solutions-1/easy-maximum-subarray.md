@@ -53,6 +53,9 @@ Transfer Function: `local_max = max(local_max + nums[i], nums[i])`
 
 ### 3. Binary Search
 
+依照follow up要求，如果要divide and conquer，那大概只有Binary Search可以用了。一般來說Binary Search可以讓Time Complexity: O\(logn\)，但是此題還是要遍歷一整個list，因此還是O\(n\)。  
+[Binary Search 參考答案](https://leetcode.com/problems/maximum-subarray/discuss/20371/Java-Dynamic-Programming-or-Binary-Search)
+
 ### 4. Greedy
 
 ## Code
