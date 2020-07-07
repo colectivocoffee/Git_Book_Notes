@@ -42,6 +42,8 @@ answer: `max(f)`
 
 ### 2. DP2 \(Optimize Space\): O\(n\)/O\(1\)
 
+#### a.k.a. [Kadane's algorithm](https://en.wikipedia.org/wiki/Maximum_subarray_problem) 
+
 由上一個解法我們可以發現，其實並不需要一整個f\[n\]，我們可以用兩個變量代替: 1. global\_max   
 2. local\_max，並且用max\(a,b\)來比較它們。當找到更大的max的時候，就update變量。當然，transfer function還是一樣的，只是變成了global\_max & local\_max。  
 Transfer Function: `local_max = max(local_max + nums[i], nums[i])`
