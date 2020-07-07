@@ -1,6 +1,21 @@
 # Array
 
-基本上是考察對於list, array這種類型的數據結構掌握度。
+基本上是考察對於list, array這種類型的數據結構掌握度。  
+  
+例如 [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) \(Easy\)  
+Given an array of integers, find if the array contains any duplicates.
+
+```text
+Example 1:
+Input: [1,2,3,1]
+Output: true
+
+Example 2:
+Input: [1,2,3,4]
+Output: false
+```
+
+就可以先排序 nums = sorted\(nums\)。
 
 ## 常考類型
 
@@ -47,7 +62,7 @@ Merge Two Sorted Arrays
 
 * Empty array: `if not nums or len(nums) == 0`
 * Contain Duplicates: `sorted -> remove duplicates` or `nums[i] == nums[i-1]`
-* Array with 1 element \(boundary\): `len(nums) == 1`
+* Array with 1 element \(boundary\): `if len(nums) == 1`
 
 
 
