@@ -31,6 +31,8 @@
   * [\[Medium\] Decode Ways](dynamic-programming/medium-decode-ways.md)
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
+* [Binary Search](binary-search/README.md)
+  * [\[Medium\] Find Minimum in Rotated Sorted Array](binary-search/medium-find-minimum-in-rotated-sorted-array.md)
 * [Multiple Solutions](multiple-solutions-1/README.md)
   * [\[Easy\] Maximum Subarray](multiple-solutions-1/easy-maximum-subarray.md)
   * [\[Medium\] Word Break](multiple-solutions-1/medium-word-break.md)
