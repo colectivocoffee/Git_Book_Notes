@@ -13,7 +13,7 @@ Subproblem:
 firstHalf transfer function: `first[i] = first[i-1] + nums[i-1]`  
 secondHalf transfer function: `second[i] = second[i+1] + nums[i+1]`
 
-iterate from start to end很好寫，但如果要寫from end to start，就要注意boundaries和for loop寫法。此題from end to start 寫法有三種：
+iterate from start to end很好寫，但如果要寫from end to start，就要注意boundaries和for loop寫法。此題from end to start 寫法有三種index + 一種element：
 
 ```python
 nums = [ 1, 2, 3, 4]
@@ -25,7 +25,10 @@ for i in ranage(len(nums)-2, -1, -1)
 #2. range(start, stop). stop at len(nums)-1 to skip last one.
 for i in reversed(range(0,len(nums)-1))
 
-#3. list[start:stop:step]. But this iterate thru element 
+#3. use [::-1] to reverse traversal
+for i in range(0,len(nums)-1)[::-1]
+
+#4. list[start:stop:step]. But this iterate thru element 
 for element in nums[len(nums)-1:-1:-1]
 ```
 
