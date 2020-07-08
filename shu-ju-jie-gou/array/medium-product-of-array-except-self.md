@@ -5,6 +5,30 @@ Given an array `nums` of _n_ integers where _n_ &gt; 1, return an array `output`
 
 ## Thought Process
 
+### 1. DP:
+
+分成三步驟。一從i把這個list批成兩半，左半和右半。二，計算左半每個的product，再計算右半每個的product。三最後把左半i和右半i乘起來，即是答案 \(因為不包含自己\)。  
+  
+Subproblem:   
+firstHalf transfer function: `first[i] = first[i-1] + nums[i-1]`  
+secondHalf transfer function: `second[i] = second[i+1] + nums[i+1]`
+
+iterate from start to end很好寫，但如果要寫from end to start，就要注意boundaries和for loop寫法。此題from end to start 寫法有三種：
+
+```python
+nums = [ 1, 2, 3, 4]
+         ^  ^  ^
+     -1  0  1  len(nums)-2
+#1. start, stop, step. Start from len(nums)-2
+for i in ranage(len(nums)-2, -1, -1)
+
+#2. range(start, stop). stop at len(nums)-1 to skip last one.
+for i in reversed(range(0,len(nums)-1))
+
+#3. list[start:stop:step]. But this iterate thru element 
+for element in nums[len(nums)-1:-1:-1]
+```
+
 ## Code
 
 #### 1. DP: O\(n\)/O\(n\)
