@@ -22,13 +22,15 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
     # need 1 instead of 0, because 1*x = x
     firstHalf = [1 for i in range(len(nums))]
     # be extra cautious about the range, since i=i-1 could cause out of range.
+    # here we skip the first element because of product itself.
     for i in range(1, len(nums)):
         # transfer function: f[i] = f[i-1] + nums[i-1]
         firstHalf[i] = firstHalf[i-1] + nums[i-1]
         
     secondHalf = [1 for i in range(len(nums))]
-    # range(0, len(nums)) for i = i+1
-    for i in range(0, len(nums)):
+    # reversed(range(0, len(nums)-1)) for i = i+1
+    # here we skip the last element
+    for i in reversed(range(0, len(nums)-1)):
         # transfer function: f[i] = f[i+1] + nums[i+1]
         secondhalf[i] = secondHalf[i+1] + nums[i+1]
     

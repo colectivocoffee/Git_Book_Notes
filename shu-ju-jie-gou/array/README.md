@@ -46,11 +46,17 @@ Merge Two Sorted Arrays
 
 ## 常用工具
 
+### 1. Problem Solving Techniques
+
 * **Binary Search: O\(logn\)**
 * **Two Pointers: O\(n\)**
 * **Sliding Window: O\(n\)**
 
-有的時候可以使用`[::-1]`來iterate from end to start。
+### 2. 如何遍歷
+
+* Iterate From End to Start 有三種方法 iterate thru index \(1\) `for i in range(len(nums)-1, -1, -1)` start, stop, step/ len\(nums\)-1 is the last element, stop at -1 \(2\) `for i in reversed(range(0, len(nums)-1))` iterate thru element \(3\) `for element in nums[::-1]` list\[start : stop : step\]
+
+#### 
 
 ## 易錯點
 
