@@ -9,9 +9,20 @@ You may assume no duplicate exists in the array.
 
 ### Binary Search
 
-如果題意說是Sorted Array/Rotated Sorted Array，通常這種題目都是可以利用Binary Search來達到O\(logn\)的複雜度。
+如果題意說是Sorted Array/Rotated Sorted Array，通常這種題目都是可以利用Binary Search來達到O\(logn\)的複雜度。  
+  
+Rotated Sorted Array只有以下三種方式：
 
-![\(b\)\(c\) Rotated Sorted Array &#x53EF;&#x80FD;&#x51FA;&#x73FE;&#x60C5;&#x6CC1;](../.gitbook/assets/rotated-sorted-array.jpg)
+![\(a\)\(b\)\(c\) Rotated Sorted Array &#x53EF;&#x80FD;&#x51FA;&#x73FE;&#x60C5;&#x6CC1;](../.gitbook/assets/rotated-sorted-array.jpg)
+
+又如果要找minimum，就是以下的Binary Search縮小範圍方法
+
+![](../.gitbook/assets/rotated-sorted-array-min-%20%281%29.jpg)
+
+\(a\) \(c\) 符合 `nums[mid] < nums[end]`  
+因此可以縮小範圍至`end = mid`，把平滑上升的mid-end部分划掉  
+\(b\) 符合 `nums[mid] >= nums[end]`  
+縮小範圍至`start = mid`，把平滑上升的start-mid部分划掉
 
 Time Complexity: O\(logn\)  
 Space Complexity: O\(1\)
