@@ -13,11 +13,12 @@ You may assume no duplicate exists in the array.
 
 ![\(b\)\(c\) Rotated Sorted Array &#x53EF;&#x80FD;&#x51FA;&#x73FE;&#x60C5;&#x6CC1;](../.gitbook/assets/rotated-sorted-array.jpg)
 
-
+Time Complexity: O\(logn\)  
+Space Complexity: O\(1\)
 
 ## Code
 
-#### 1. Binary Search
+#### 1. Binary Search: O\(logn\)/O\(1\)
 
 思路請見Binary Search模板
 
