@@ -7,6 +7,10 @@ You may assume no duplicate exists in the array.
 
 ## Thought Process
 
+### Binary Search
+
+如果題意說是Sorted Array/Rotated Sorted Array，通常這種題目都是可以利用Binary Search來達到O\(logn\)的複雜度。
+
 ![\(b\)\(c\) Rotated Sorted Array &#x53EF;&#x80FD;&#x51FA;&#x73FE;&#x60C5;&#x6CC1;](../.gitbook/assets/rotated-sorted-array.jpg)
 
 
