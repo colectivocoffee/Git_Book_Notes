@@ -5,3 +5,42 @@ Suppose an array sorted in ascending order is rotated at some pivot unknown to y
 Find the minimum element.  
 You may assume no duplicate exists in the array.
 
+## Thought Process
+
+![\(b\)\(c\) Rotated Sorted Array &#x53EF;&#x80FD;&#x51FA;&#x73FE;&#x60C5;&#x6CC1;](../.gitbook/assets/rotated-sorted-array.jpg)
+
+
+
+## Code
+
+#### 1. Binary Search
+
+思路請見Binary Search模板
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def findMin(self, nums: List[int]) -> int:
+    
+    if not nums:
+        return -1
+        
+    start, end = 0, len(nums)-1
+    
+    while start + 1 < end:
+        
+        mid = start + (end-start)//2
+        
+        if nums[mid] < nums[end]:
+            end = mid
+        else:
+            start = mid
+    
+    if nums[start] < nums[end]:
+        return nums[start]
+    
+    return nums[end]
+```
+{% endtab %}
+{% endtabs %}
+
