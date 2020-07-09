@@ -20,6 +20,7 @@
 ---
 
 * [Two Pointers](two-pointers/README.md)
+  * [\[Medium\] Container With Most Water](two-pointers/medium-container-with-most-water.md)
   * [\[Easy\] Valid Palindrome](two-pointers/easy-valid-palindrome.md)
   * [\[Medium\] 3 Sum](two-pointers/medium-3-sum.md)
   * [\[Easy\] Two Sum](two-pointers/easy-two-sum.md)
