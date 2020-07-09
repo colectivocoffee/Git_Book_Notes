@@ -26,7 +26,7 @@ You may assume no duplicate exists in the array.
 ```python
 def findMin(self, nums: List[int]) -> int:
     
-    if not nums:
+    if not nums or len(nums) == 0:
         return -1
         
     start, end = 0, len(nums)-1
