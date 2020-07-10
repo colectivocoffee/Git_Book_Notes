@@ -19,6 +19,7 @@
   * [\[Easy\] Climbing Stairs](suan-fa/multiple-solutions-1/easy-climbing-stairs.md)
   * [\[Easy\] Best Time to Buy and Sell Stock](suan-fa/multiple-solutions-1/easy-best-time-to-buy-and-sell-stock.md)
 * [Binary Search](suan-fa/binary-search/README.md)
+  * [\[Medium\] Search in Rotated Sorted Array](suan-fa/binary-search/medium-search-in-rotated-sorted-array.md)
   * [\[Medium\] Find Minimum in Rotated Sorted Array](suan-fa/binary-search/medium-find-minimum-in-rotated-sorted-array.md)
 * [Dynamic Programming](suan-fa/dynamic-programming/README.md)
   * [\[Hard\] Edit Distance](suan-fa/dynamic-programming/hard-edit-distance.md)
