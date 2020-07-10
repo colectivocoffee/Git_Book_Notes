@@ -8,41 +8,36 @@
 
 ## 算法技巧
 
-## BST
-
-* [Binary Search Tree](bst/bst/README.md)
-  * [Search Range In Binary Search Tree](bst/bst/search-range-in-binary-search-tree.md)
-  * [\[Easy\] Closest Binary Search Tree Value](bst/bst/closest-binary-search-tree-value.md)
-  * [\[Easy\] Two Sum IV - Input is a BST](bst/bst/two-sum-iv-input-is-a-bst.md)
-
 ## 算法
 
----
-
-* [Two Pointers](two-pointers/README.md)
-  * [\[Medium\] Find K Closest Elements](two-pointers/medium-find-k-closest-elements.md)
-  * [\[Medium\] Container With Most Water](two-pointers/medium-container-with-most-water.md)
-  * [\[Easy\] Valid Palindrome](two-pointers/easy-valid-palindrome.md)
-  * [\[Medium\] 3 Sum](two-pointers/medium-3-sum.md)
-  * [\[Easy\] Two Sum](two-pointers/easy-two-sum.md)
-* [Dynamic Programming](dynamic-programming/README.md)
-  * [\[Hard\] Edit Distance](dynamic-programming/hard-edit-distance.md)
-  * [\[Medium\] Longest Common Subsequence \(LCS\)](dynamic-programming/medium-longest-common-subsequence-lcs.md)
-  * [\[Hard\] Palindrome Partitioning II](dynamic-programming/medium-palindrome-partitioning-ii.md)
-  * [\[Medium\] House Robber II](dynamic-programming/medium-house-robber-ii.md)
-  * [\[Medium\] Decode Ways](dynamic-programming/medium-decode-ways.md)
-  * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
-  * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
-* [Binary Search](binary-search/README.md)
-  * [\[Medium\] Find Minimum in Rotated Sorted Array](binary-search/medium-find-minimum-in-rotated-sorted-array.md)
-* [Multiple Solutions](multiple-solutions-1/README.md)
-  * [\[Easy\] Maximum Subarray](multiple-solutions-1/easy-maximum-subarray.md)
-  * [\[Medium\] Word Break](multiple-solutions-1/medium-word-break.md)
-  * [\[Medium\] Jump Game](multiple-solutions-1/medium-jump-game.md)
-  * [\[Medium\] Longest Increasing Subsequence](multiple-solutions-1/medium-longest-increasing-subsequence.md)
-  * [\[Easy\] House Robber](multiple-solutions-1/easy-house-robber.md)
-  * [\[Easy\] Climbing Stairs](multiple-solutions-1/easy-climbing-stairs.md)
-  * [\[Easy\] Best Time to Buy and Sell Stock](multiple-solutions-1/easy-best-time-to-buy-and-sell-stock.md)
+* [Multiple Solutions](suan-fa/multiple-solutions-1/README.md)
+  * [\[Easy\] Maximum Subarray](suan-fa/multiple-solutions-1/easy-maximum-subarray.md)
+  * [\[Medium\] Word Break](suan-fa/multiple-solutions-1/medium-word-break.md)
+  * [\[Medium\] Jump Game](suan-fa/multiple-solutions-1/medium-jump-game.md)
+  * [\[Medium\] Longest Increasing Subsequence](suan-fa/multiple-solutions-1/medium-longest-increasing-subsequence.md)
+  * [\[Easy\] House Robber](suan-fa/multiple-solutions-1/easy-house-robber.md)
+  * [\[Easy\] Climbing Stairs](suan-fa/multiple-solutions-1/easy-climbing-stairs.md)
+  * [\[Easy\] Best Time to Buy and Sell Stock](suan-fa/multiple-solutions-1/easy-best-time-to-buy-and-sell-stock.md)
+* [Binary Search](suan-fa/binary-search/README.md)
+  * [\[Medium\] Find Minimum in Rotated Sorted Array](suan-fa/binary-search/medium-find-minimum-in-rotated-sorted-array.md)
+* [Dynamic Programming](suan-fa/dynamic-programming/README.md)
+  * [\[Hard\] Edit Distance](suan-fa/dynamic-programming/hard-edit-distance.md)
+  * [\[Medium\] Longest Common Subsequence \(LCS\)](suan-fa/dynamic-programming/medium-longest-common-subsequence-lcs.md)
+  * [\[Hard\] Palindrome Partitioning II](suan-fa/dynamic-programming/medium-palindrome-partitioning-ii.md)
+  * [\[Medium\] House Robber II](suan-fa/dynamic-programming/medium-house-robber-ii.md)
+  * [\[Medium\] Decode Ways](suan-fa/dynamic-programming/medium-decode-ways.md)
+  * [\[Medium\] Coin Change](suan-fa/dynamic-programming/medium-coin-change.md)
+  * [\[Medium\] Maximum Product Subarray](suan-fa/dynamic-programming/medium-maximum-product-subarray.md)
+* [Two Pointers](suan-fa/two-pointers/README.md)
+  * [\[Medium\] Find K Closest Elements](suan-fa/two-pointers/medium-find-k-closest-elements.md)
+  * [\[Medium\] Container With Most Water](suan-fa/two-pointers/medium-container-with-most-water.md)
+  * [\[Easy\] Valid Palindrome](suan-fa/two-pointers/easy-valid-palindrome.md)
+  * [\[Medium\] 3 Sum](suan-fa/two-pointers/medium-3-sum.md)
+  * [\[Easy\] Two Sum](suan-fa/two-pointers/easy-two-sum.md)
+* [Binary Search Tree\(BST\)](suan-fa/bst/README.md)
+  * [Search Range In Binary Search Tree](suan-fa/bst/search-range-in-binary-search-tree.md)
+  * [\[Easy\] Closest Binary Search Tree Value](suan-fa/bst/closest-binary-search-tree-value.md)
+  * [\[Easy\] Two Sum IV - Input is a BST](suan-fa/bst/two-sum-iv-input-is-a-bst.md)
 
 ## 數據結構
 

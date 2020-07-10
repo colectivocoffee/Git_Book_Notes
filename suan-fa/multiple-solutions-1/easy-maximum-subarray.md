@@ -38,7 +38,7 @@ Boundaries: 0~len\(nums\)
 f\[0\], f\[1\], ..., f\[len\(nums\)\]  
 answer: `max(f)`
 
-![last state of this problem](../.gitbook/assets/1.jpg)
+![last state of this problem](../../.gitbook/assets/1.jpg)
 
 ### 2. DP2 \(Optimize Space\): O\(n\)/O\(1\)
 
