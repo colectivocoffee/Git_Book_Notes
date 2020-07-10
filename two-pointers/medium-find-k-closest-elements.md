@@ -31,7 +31,10 @@ if abs(arr[left]-x) > abs(arr[right]-x):
     
 ```
 
+**Time Complexity: O\(n\) arr的長度  
+Space Complexity: O\(1\) left, right, remove\_length變量**
 
+### 2. Binary Search: O\(logn\)/O\(1\)
 
 ## Code
 
@@ -40,7 +43,24 @@ if abs(arr[left]-x) > abs(arr[right]-x):
 ```python
  def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
  
-    if not nums:
-     
+    if not arr or len(arr) == 0:
+          return []
+    
+    # left and right both move from the opposite side
+    # remove_length gives you number of elements remaining need to be removed
+    left, right = 0, len(arr)-1
+    remove_length = len(arr)-k
+    
+    while remove_length > 0:
+          
+          if abs(arr[left]-x) > abs(arr[right]-x):
+                left += 1
+                remove_length -= 1
+          else:
+                right -= 1
+                remove_length -= 1
+    
+    #[start:stop]
+    return arr[left:right+1]
 ```
 
