@@ -12,6 +12,9 @@
 
 ## Binary Search 模板
 
+a. 通過`while loop (start + 1 < end)`，將start/end範圍縮小到n=2，即`[start, end]`。  
+b. 在第二步`if nums[start]/nums[end] == target`來判斷屬於start還是end，如果都不符合則返回-1。 
+
 ### \(1\) While Loop \(start/end\)
 
 ```python
@@ -75,6 +78,14 @@ if nums[end] == target:
 # can't find result
 return -1
 ```
+
+### \(3\) Recursion 模板
+
+## 模板FAQ:
+
+#### Q1. 為什麼用start + 1 &lt; end? 
+
+為了避免dead lock。這樣做的好處是讓範圍縮小至\[start,end\]，而不是可能的\[target\]無限循環。
 
 ## Exponential Backoff 倍增法
 
