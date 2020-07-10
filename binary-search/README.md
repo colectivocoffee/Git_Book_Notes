@@ -1,5 +1,15 @@
 # Binary Search
 
+如果題目說要O\(logn\)的複雜度，有很大機率是用Binary Search \(二分法\) 求解。
+
+## While Loop or Recursion?
+
+不要自行判斷，先跟面試官討論！
+
+判斷是否用Binary Search Recursion的條件：  
+\(1\) Recursion深度是否會很深  
+\(2\) 是否面試官要求不能用Recursion
+
 ## Binary Search 模板
 
 ### \(1\) While Loop \(start/end\)
@@ -65,4 +75,8 @@ if nums[end] == target:
 # can't find result
 return -1
 ```
+
+## Exponential Backoff 倍增法
+
+使用到Exponential backoff的場景 \(1\) ArrayList in Java \(2\) 網路重試
 
