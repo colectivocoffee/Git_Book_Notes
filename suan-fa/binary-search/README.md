@@ -113,7 +113,7 @@ def binarySearch(self, nums, start, end, target):
 
 #### Q1. 為什麼用start + 1 &lt; end? 
 
-為了避免dead lock。這樣做的好處是讓範圍縮小至\[start,end\]，而不是可能的\[target\]無限循環。
+為了避免dead lock。這樣做的好處是讓範圍縮小至\[start,end\]讓start,end在不同的index，而不是可能的\[target\]無限循環。ex: \[1,1\] 就永遠跳不出去。
 
 ## Exponential Backoff 倍增法
 
