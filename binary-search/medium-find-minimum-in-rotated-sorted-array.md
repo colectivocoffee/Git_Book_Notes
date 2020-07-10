@@ -27,6 +27,11 @@ Rotated Sorted Array只有以下三種方式：
 Time Complexity: O\(logn\)  
 Space Complexity: O\(1\)
 
+## Follow Up: What if this array has lots of duplicates? 
+
+Ex: \[1,1,1,1,1,1 ....,0,1\] only has one zero here.   
+Then we could not ensure the binary search will give you O\(logn\) time, instead, it will be down to O\(n\) time. 
+
 ## Code
 
 #### 1. Binary Search: O\(logn\)/O\(1\)
