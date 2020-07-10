@@ -102,10 +102,6 @@ def binarySearch(self, nums, start, end, target):
     # > target
     return self.binarySearch(nums, start, mid-1, target)
         
-    
-        
-
-    
 ```
 
 ## 模板FAQ:
