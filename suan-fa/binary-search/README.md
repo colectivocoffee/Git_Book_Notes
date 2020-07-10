@@ -81,6 +81,33 @@ return -1
 
 ### \(3\) Recursion 模板
 
+```python
+def findIndex(self, nums, target):
+    return self.binarySearch(nums, 0, len(nums)-1, target)
+
+# define recursion (nums, start, end, target)
+def binarySearch(self, nums, start, end, target):
+    
+    # recursion exit
+    if start > end:
+        return -1
+    
+    mid = (start+end)//2
+    # == target
+    if nums[mid] == target:
+        return mid
+    # < target
+    if nums[mid] < target:
+        return self.binarySearch(nums, mid+1, end, target)
+    # > target
+    return self.binarySearch(nums, start, mid-1, target)
+        
+    
+        
+
+    
+```
+
 ## 模板FAQ:
 
 #### Q1. 為什麼用start + 1 &lt; end? 
