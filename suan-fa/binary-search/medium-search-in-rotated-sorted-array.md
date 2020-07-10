@@ -28,5 +28,56 @@ Output: 4
 
 結束判斷後，由於\[start, end\]是在隔壁，我們需要再用`if nums[start] == target -> return start`and `if nums[end] == target -> return end`來看最後要start or end。
 
+剩餘的用Binary Search \(target\) Template完成即可。
+
 ## Code
+
+#### Binary Search
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def search(self, nums: List[int], target: int) -> int:
+    
+    if not nums or len(nums) == 0:
+        return -1
+    
+    start, end = 0, len(nums)-1
+    
+    while start + 1 < end:
+    
+        mid = start + (end-start)//2
+        # equals to target
+        if nums[mid] == target:
+            return mid
+        
+        # start - [target] - mid .... end
+        if nums[start] < nums[mid]:
+            # (1)
+            if nums[start] <= target and target <= nums[mid]:
+                end = mid
+            # (2)
+            else:
+                start = mid 
+            
+        #                ... mid - [target] - end
+        elif nums[mid] < nums[end]:
+            # (3)
+            if nums[mid] <= target and target <= nums[end]:
+                start = mid
+            # (4)
+            else:
+                end = mid
+        
+    # determine target is start or end
+    if nums[start] == target:
+        return start
+    if nums[end] == target:
+        return end
+    
+    return -1
+    
+```
+{% endtab %}
+{% endtabs %}
 
