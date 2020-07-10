@@ -16,7 +16,7 @@ Output: [1,2,3,4]
 
 ### 1. Two Pointers \(-&gt; / &lt;-\): O\(n\)/O\(1\)
 
-我們可以利用一個variable `remove_length` 來動態地確認還需要多少個數，當remove\_length == 0時即達到題目的k個數要求便結束。
+我們可以利用一個variable `remove_length` 來動態地確認還需要多少個數，當remove\_length == 0時即達到題目的k個數要求便結束。Left, Right 為在arr左右兩邊的兩個pointers並且向中間移動。當remove\_length == 0時，left&right代表的是arr的start&top position。
 
 另外，`length = abs(arr[current_index]-x)`來決定，並且比較左右兩邊，看哪一個跟x target比距離遠。因此可以寫成以下的if statement：
 
