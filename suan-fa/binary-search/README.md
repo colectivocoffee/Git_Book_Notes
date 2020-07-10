@@ -97,9 +97,14 @@ def binarySearch(self, nums, start, end, target):
     if nums[mid] == target:
         return mid
     # < target
+    # start ..... mid+1 - [target] - end
+    # meaning on the 'Right', then make start -> 'mid+1'
     if nums[mid] < target:
         return self.binarySearch(nums, mid+1, end, target)
+        
     # > target
+    # start - [target] - mid-1 ..... end
+    # meaning on the 'Left', then make 'mid-1' <- end 
     return self.binarySearch(nums, start, mid-1, target)
         
 ```
