@@ -26,7 +26,7 @@ Output: 4
 
 ![](../../.gitbook/assets/1-2.jpg)
 
-結束判斷後，由於\[start, end\]是在隔壁，我們需要再用`if nums[start] == target -> return start`and `if nums[end] == target -> return end`來看最後要start or end。
+結束判斷後，由於\[start, end\]是在隔壁，我們需要再用`if nums[start] == target -> return start`and `if nums[end] == target -> return end`來看最後要選start還是end。
 
 剩餘的用Binary Search \(target\) Template完成即可。
 
