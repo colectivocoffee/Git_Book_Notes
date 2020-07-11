@@ -90,7 +90,7 @@ def findMin(self, nums: List[int]) -> int:
         mid = start + (end-start)//2
         
         ### check for mid <= end  and then-> end = mid
-        if nums[mid] <= nums[end]:
+        if nums[mid] < nums[end]:
             end = mid
         else:
             start = mid
