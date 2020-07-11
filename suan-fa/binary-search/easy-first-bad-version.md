@@ -30,7 +30,7 @@ def firstBadVersion(self, n):
     if not n:
         return False
         
-    start, end = 0, n
+    start, end = 0, n # use n we don't need len()
     
     while start + 1 < end:
         
