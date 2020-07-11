@@ -14,6 +14,10 @@ Input: nums = [4,5,6,7,0,1,2], target = 0
 Output: 4
 ```
 
+#### Follow-Up
+
+What if it contains duplicates? [Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii)
+
 ## Thought Process
 
 題意要求要time complexity O\(logn\)，代表的是只能用Binary Search來達到。
