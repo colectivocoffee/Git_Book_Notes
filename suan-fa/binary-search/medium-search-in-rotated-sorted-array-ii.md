@@ -26,7 +26,7 @@ Output: true
 
 #### Follow-Up: Would allow duplicates affecting the runtime complexity and why? 
 
-Without duplicates, it will be O\(logn\) for runtime complexity. However, if we allow duplicates and there are many of them \(ex: `[3,1,1,1,1,....,1,2]`\), it will come down to **O\(n\) since we have traversed every duplicates element.** 
+Without duplicates, it will be O\(logn\) for runtime complexity. However, if we allow duplicates and there are many of them \(ex: `[3,1,1,1,1,....,1,2]`\), it will come down to **O\(n\) since we have to traverse every duplicated elements.** 
 
 ## Code
 
