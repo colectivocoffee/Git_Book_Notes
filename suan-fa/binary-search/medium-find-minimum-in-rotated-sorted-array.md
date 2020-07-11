@@ -24,11 +24,16 @@ Rotated Sorted Array只有以下三種方式：
 \(b\) 符合 `nums[mid] >= nums[end]`  
 縮小範圍至`start = mid`，把平滑上升的start-mid部分划掉
 
+{% hint style="info" %}
+易錯點：這裡先用的是nums\[mid\] &lt; nums\[end\]:  **end = mid** \(划掉mid-end\)
+{% endhint %}
+
 Time Complexity: O\(logn\)  
 Space Complexity: O\(1\)
 
-## Follow Up: What if this array has lots of duplicates? 
+### Follow Up: What if this array has lots of duplicates?  
 
+[Search in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)  
 Ex: \[1,1,1,1,1,1 ....,0,1\] only has one zero here.   
 Then we could not ensure the binary search will give you O\(logn\) time, instead, it will be down to O\(n\) time. 
 
