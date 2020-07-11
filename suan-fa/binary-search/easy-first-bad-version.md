@@ -36,9 +36,13 @@ def firstBadVersion(self, n):
         
         mid = start + (end-start)//2
         
+#        [F,F,F,T,T,T,T,T,T]
+#    (start)      ^       (end)
         if isBadVersion(mid) == True:
             end = mid
         
+#        [F,F,F,F,F,T,T,T,T]
+#    (start)      ^        (end)        
         elif isBadVersion(mid) == False:
             start = mid
     
