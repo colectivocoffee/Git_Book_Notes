@@ -24,6 +24,10 @@ Output: true
 先check當`start + 1 < end and nums[index] == nums[index+1]` ，如果符合，把index += 1即可。  
 另外，這題要求返回的True/False而不是array。
 
+#### Follow-Up: Would allow duplicates affecting the runtime complexity and why? 
+
+Without duplicates, it will be O\(logn\) for runtime complexity. However, if we allow duplicates and there are many of them \(ex: `[3,1,1,1,1,....,1,2]`\), it will come down to **O\(n\) since we have traversed every duplicates element.** 
+
 ## Code
 
 {% tabs %}
