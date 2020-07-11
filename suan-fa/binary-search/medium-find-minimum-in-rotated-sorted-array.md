@@ -25,7 +25,7 @@ Rotated Sorted Array只有以下三種方式：
 縮小範圍至`start = mid`，把平滑上升的start-mid部分划掉
 
 {% hint style="info" %}
-易錯點：這裡先用的是nums\[mid\] &lt; nums\[end\]:  **end = mid** \(划掉mid-end\)
+易錯點：這裡先用的是nums\[mid\] &lt;= nums\[end\]:  **end = mid** \(划掉mid-end\)
 {% endhint %}
 
 Time Complexity: O\(logn\)  
@@ -57,7 +57,7 @@ def findMin(self, nums: List[int]) -> int:
         
         mid = start + (end-start)//2
         
-        if nums[mid] < nums[end]:
+        if nums[mid] <= nums[end]:
             end = mid
         else:
             start = mid
@@ -69,4 +69,34 @@ def findMin(self, nums: List[int]) -> int:
 ```
 {% endtab %}
 {% endtabs %}
+
+#### Code for Array Has Duplicates \(search in rotated sorted array II\)
+
+```python
+def findMin(self, nums: List[int]) -> int:
+
+    if not nums or len(nums) == 0:
+        return -1
+    
+    start, end = 0, len(nums)-1
+    
+    while start + 1 < end:
+        
+        while start + 1 < end and nums[start] == nums[start+1]:
+            start += 1
+        while start + 1 < end and nums[end] == nums[end-1]:
+            end -= 1
+            
+        mid = start + (end-start)//2
+        
+        ### check for mid <= end  and then-> end = mid
+        if nums[mid] <= nums[end]:
+            end = mid
+        else:
+            start = mid
+    
+    if nums[start] < nums[end]:
+        return nums[start]
+    return nums[end]
+```
 
