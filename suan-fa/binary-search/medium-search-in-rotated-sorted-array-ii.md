@@ -20,7 +20,8 @@ Output: true
 
 那我們要如何處理duplicates呢？
 
-很簡單，就check當`start + 1 < end and nums[index] == nums[index+1]` 時，把index += 1即可。  
+很簡單，在比start target mid end 大小之前，  
+先check當`start + 1 < end and nums[index] == nums[index+1]` ，如果符合，把index += 1即可。  
 另外，這題要求返回的True/False而不是array。
 
 ## Code
@@ -40,7 +41,7 @@ def search(self, nums: List[int], target: int) -> bool:
         # if we see duplicates, then move index. 
         while start + 1 < end and nums[start] == nums[start + 1]:
             start += 1
-        while start + 1 < end and nums[end] == nums[end - 1]:
+        while start + 1 < end and nums[end] == nums[end - 1]: #end-1
             end -= 1
             
         mid = start + (end-start)//2
@@ -64,7 +65,6 @@ def search(self, nums: List[int], target: int) -> bool:
             #(4)
             else:
                 end = mid
-    
             
     # finalize start/end
     if nums[start] == target or nums[end] == target:
