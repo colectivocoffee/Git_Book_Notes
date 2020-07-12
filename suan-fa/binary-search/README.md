@@ -28,6 +28,7 @@ while start + 1 < end:
     
     mid = start + (end-start)//2
     
+    # mid < end && mid > start
     if nums[mid] < nums[end]:
         end = mid
     elif nums[mid] > nums[start]:
