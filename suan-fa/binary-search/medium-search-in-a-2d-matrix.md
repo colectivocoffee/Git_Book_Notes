@@ -15,7 +15,7 @@ Search in Sorted Array --&gt; 用Binary Search。
 \(1\)定義col, row的長度:  `row, col = len(matrix), len(matrix[0])`  
 \(2\)總長度\(end\): `end =  row*col -1`  
 \(3\)位置上的值：`matrix[i][j] = matrix[position//col][position%col]`   
-where position is the index in 1D array. 
+where the position is the index in 1D array. 
 
 {% hint style="info" %}
 易錯點：如何找到`Matrix[i][j]`？  
