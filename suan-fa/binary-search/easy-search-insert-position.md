@@ -6,7 +6,7 @@ You may assume no duplicates in the array.
 
 ## Thought Process
 
-### Binary Search
+### Binary Search: O\(logn\)
 
 跟Template沒什麼不同，唯一要判斷的是最後要放在哪個位置。
 
