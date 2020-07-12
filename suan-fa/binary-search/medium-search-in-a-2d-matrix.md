@@ -4,7 +4,7 @@
 Write an efficient algorithm that searches for a value in an _m_ x _n_ matrix. This matrix has the following properties:
 
 * Integers in each row are sorted from left to right.
-* The first integer of each row is greater than the last integer of the previous row. 
+* The first integer of each row is greater than the last integer of the previous row.
 
 ## Thought Process
 
