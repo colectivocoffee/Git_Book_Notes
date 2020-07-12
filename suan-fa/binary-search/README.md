@@ -1,7 +1,7 @@
 # Binary Search
 
 如果題目說  
-\(1\)要O\(logn\)的複雜度，有很大機率是用Binary Search \(二分法\) 求解。
+\(1\)要O\(logn\)的複雜度，有很大機率是用Binary Search \(二分法\) 求解。當然，如果array裡都是duplicates，就會從O\(logn\) -&gt; O\(n\)，因為需要遍歷所有elements。
 
 \(2\)array是排序的，即Rotated Sorted Array/Sorted Array，又要求fast/efficient，那就是BinarySearch。
 
