@@ -62,7 +62,7 @@ def searchInsert(self, nums: List[int], target: int) -> int:
          return start
      elif nums[start] < target < nums[end]:
          return end
-     elif nums[end] > target:
+     elif nums[end] < target:
          return end + 1
      return 0 
 ```
