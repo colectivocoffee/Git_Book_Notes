@@ -40,7 +40,8 @@ def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
     row = len(matrix)
     col = len(matrix[0])
     
-    start, end = 0, len(matrix)-1
+    #len of entire list is 'row*col' 
+    start, end = 0, row*col-1
     
     while start + 1 < end:
          mid = start + (end-start)//2
