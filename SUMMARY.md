@@ -23,6 +23,7 @@
   * [\[Medium\] Find Minimum in Rotated Sorted Array](suan-fa/binary-search/medium-find-minimum-in-rotated-sorted-array.md)
   * [\[Medium\] Search in Rotated Sorted Array](suan-fa/binary-search/medium-search-in-rotated-sorted-array.md)
   * [\[Medium\] Search in Rotated Sorted Array II](suan-fa/binary-search/medium-search-in-rotated-sorted-array-ii.md)
+  * [\[Medium\] Search In a 2D Matrix](suan-fa/binary-search/medium-search-in-a-2d-matrix.md)
 * [Dynamic Programming](suan-fa/dynamic-programming/README.md)
   * [\[Hard\] Edit Distance](suan-fa/dynamic-programming/hard-edit-distance.md)
   * [\[Medium\] Longest Common Subsequence \(LCS\)](suan-fa/dynamic-programming/medium-longest-common-subsequence-lcs.md)
