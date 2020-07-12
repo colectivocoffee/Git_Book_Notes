@@ -8,7 +8,7 @@ Write an efficient algorithm that searches for a value in an _m_ x _n_ matrix. T
 
 ## Thought Process
 
-### Binary Search
+### Binary Search: O\(logm + logn\)/O\(1\)
 
 Search in Sorted Array --&gt; 用Binary Search。   
 有幾個眉角要注意：  
@@ -29,6 +29,8 @@ row \[  \[ 1 , 3 , ****_**5**_ , 7 \],  &lt;--- 5的位置為`matrix[0][2], 即 
 row    \[10,11,16,20\],  
 row    \[23,30,34,50\]\]  
 {% endhint %}
+
+Time Complexity: O\($$logm + logn$$\) or O\( $$log(row) + log(col)$$\)
 
 ## Code
 
