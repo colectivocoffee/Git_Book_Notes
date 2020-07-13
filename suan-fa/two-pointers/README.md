@@ -40,3 +40,11 @@ for (int i = 0, j = nums.size()-1; i < j; i++, j--)
 * [Two Sum](https://leetcode.com/problems/two-sum/)
 * [Three Sum](https://leetcode.com/problems/3sum/)
 
+
+
+* [ ] Two Sum
+* [ ] Three Sum
+* [ ] Valid Palindrome
+* [ ] Container With Most Water
+* [ ] Find K Closest Elements
+
