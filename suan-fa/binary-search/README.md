@@ -123,7 +123,7 @@ def binarySearch(self, nums, start, end, target):
 
 使用到Exponential backoff的場景 \(1\) ArrayList in Java \(2\) 網路重試
 
-## 練習
+## 題目
 
 * [ ] First Bad Version
 * [ ] Search Insert Position

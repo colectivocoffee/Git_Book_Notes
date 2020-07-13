@@ -54,7 +54,7 @@ Sometimes you do not need to store the whole DP table in memory, the last two va
 * Coin Change \(Medium\)
 * 01 Backpack \(Medium\)
 
-## 練習
+## 題目
 
 * [ ] Best Time to Buy and Sell Stock
 * [ ] Edit Distance
