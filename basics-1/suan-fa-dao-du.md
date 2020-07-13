@@ -30,7 +30,11 @@ for item in nums:
 
 ## Time Complexity
 
-[https://wiki.python.org/moin/TimeComplexity](https://wiki.python.org/moin/TimeComplexity)
+#### 各Data Structure的Time Complexity
+
+{% embed url="https://wiki.python.org/moin/TimeComplexity" %}
+
+Time Complexity是跟最內層的循環次數有關，跟有幾層for loop/while loop沒有必然相關。
 
 ## Time/Space Complexity Trade-offs
 

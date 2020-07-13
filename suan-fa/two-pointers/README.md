@@ -4,9 +4,18 @@
 
 Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)，保證區間滿足特定的條件。
 
-### 1. 同向指針\( L-&gt;/R-&gt;\)
+## 1. 同向指針\( L-&gt;/R-&gt;\): O\(n\)
 
-### 2. 相向指針\(L-&gt;/&lt;-R\)
+同向指針模板
+
+### **\(1\) Sliding Window**
+
+### **\(2\) Fast & Slow Pointers**
+
+#### 相關題目
+
+* [ ] 
+## 2. 相向指針\(L-&gt;/&lt;-R\): O\(n\)
 
 相向指針模板  
 \(1\) While Loop 
@@ -34,6 +43,14 @@ while L < R:
 ```java
 for (int i = 0, j = nums.size()-1; i < j; i++, j--)
 ```
+
+#### 相關題
+
+* [ ] \*\*\*Two Sum & Related 
+* [ ] \*\*Partition xxx & Related
+* [ ] \*Reverse xxx & Related
+* [ ] Longest Palindromic Substring
+* [ ] Find K Closest Elements
 
 ## 題目
 
