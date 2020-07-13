@@ -54,5 +54,24 @@ Sometimes you do not need to store the whole DP table in memory, the last two va
 * Coin Change \(Medium\)
 * 01 Backpack \(Medium\)
 
-###  
+## 練習
+
+## 練習
+
+* [ ] Best Time to Buy and Sell Stock
+* [ ] Edit Distance
+* [ ] Decode Ways
+* [ ] Coin Change
+* [ ] Maximum Subarray
+* [ ] Maximum Product Subarray
+* [ ] Word Break
+* [ ] Longest Common Subsequence
+* [ ] Longest Increasing Subsequence
+* [ ] Palindrome Partitioning II
+* [ ] House Robber
+* [ ] House Robber II
+* [ ] Jump Game
+* [ ] Climbing Stairs
+
+
 
