@@ -123,3 +123,16 @@ def binarySearch(self, nums, start, end, target):
 
 使用到Exponential backoff的場景 \(1\) ArrayList in Java \(2\) 網路重試
 
+## 練習
+
+* [ ] First Bad Version
+* [ ] Search Insert Position
+* [ ] Find Minimum in Rotated Sorted Array
+* [ ] Find Minimum in Rotated Sorted Array II
+* [ ] Search In Rotated Sorted Array
+* [ ] Search In Rotated Sorted Array II
+* [ ] Search In 2D Matrix
+* [ ] Search In 2D Matrix II
+
+
+
