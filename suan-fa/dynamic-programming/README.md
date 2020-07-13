@@ -56,8 +56,6 @@ Sometimes you do not need to store the whole DP table in memory, the last two va
 
 ## 練習
 
-## 練習
-
 * [ ] Best Time to Buy and Sell Stock
 * [ ] Edit Distance
 * [ ] Decode Ways
