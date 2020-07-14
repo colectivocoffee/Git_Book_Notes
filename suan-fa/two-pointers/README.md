@@ -12,9 +12,18 @@ Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)�
 
 ### **\(2\) Fast & Slow Pointers**
 
+#### 題目類型
+
+1. Remove Duplicates
+2. Sliding Window
+3. Middle of Linked List
+4. Two Difference
+5. Circle in a Linked List
+
 #### 相關題目
 
-* [ ] 
+* [ ] Longest Substring Without Repeating Characters
+* [ ] * [ ] 
 ## 2. 相向指針\(L-&gt;/&lt;-R\): O\(n\)
 
 相向指針模板  
