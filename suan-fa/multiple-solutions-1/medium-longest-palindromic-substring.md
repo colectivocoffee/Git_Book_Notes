@@ -11,9 +11,10 @@ Given a string **s**, find the longest palindromic substring in **s**. You may a
 
 那left & right的範圍要如何確定呢？由於right不可能比left還左邊，因此只需要從left起始位置開始出發。我們的for loop可以定義為：
 
-```text
-for left in range(len(s)):
-    for right in range(left, len(s)):
+```python
+for left in range(n):
+    for right in range(left, n):
+	    use two pointers to check whether s(left, right) is palindromic
 ```
 
 ### 2. DP + Memoization: O\(n^2\)/O\(n\)
@@ -23,7 +24,7 @@ for left in range(len(s)):
 * Set the is Palindrome check along with dp\[i\]\[j\] check to update result。
 * return the result with s\[start:start+max\_len\]
 
-### 3. Manchester Algorithm: O\(n\)/O\(n\)
+### 3. Manachers Algorithm: O\(n\)/O\(n\)
 
 ## Code
 
