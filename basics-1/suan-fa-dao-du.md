@@ -30,7 +30,7 @@ for item in nums:
 
 ## Time Complexity
 
-#### 各Data Structure的Time Complexity
+#### 各種Data Structure的Time Complexity
 
 {% embed url="https://wiki.python.org/moin/TimeComplexity" %}
 

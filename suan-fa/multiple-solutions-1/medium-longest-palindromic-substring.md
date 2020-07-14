@@ -1,0 +1,74 @@
+# \[Medium\] Longest Palindromic Substring
+
+[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)  
+Given a string **s**, find the longest palindromic substring in **s**. You may assume that the maximum length of **s** is 1000.
+
+## Thought Process
+
+### 1. Brute Force with isPalindrome: O\(n^3\)/O\(1\)
+
+由兩根指針`left & right`來確定current\_length的長度，並且以`s[left:right+1]`作為此長度下的substring。
+
+那left & right的範圍要如何確定呢？由於right不可能比left還左邊，因此只需要從left起始位置開始出發。我們的for loop可以定義為：
+
+```text
+for left in range(len(s)):
+    for right in range(left, len(s)):
+```
+
+### 2. DP + Memoization: O\(n^2\)/O\(n\)
+
+### 3. Manchester Algorithm: O\(n\)/O\(n\)
+
+## Code
+
+#### 1. Brute Force with PalindromeCheck: O\(n^3\)/O\(1\)
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def longestPalindrome(self, s: str) -> str:
+
+    if not s:
+        return ''
+
+    max_len = 0
+    result = ''
+    
+    # range is always like this:
+    #        [b a b a r]
+    # left:   0         len(s)
+    # right:(left)      len(s)
+    #
+    # c_len = |__|      (right-left+1)
+    for left in range(len(s)):
+        for right in range(left, len(s)):
+        
+            current_len = right - left + 1
+            
+            # 優化：如果len比max_len短，沒必要算下去。
+            # 並且可以讓isPalindrome只增加max_len時的result
+            if current_len <= max_len:
+                continue
+                
+            # current s = s[left:right+1]          
+            if self.isPalindrome(s[left:right+1]):
+                max_len = current_len
+                result = s[left:right+1]           
+    
+    return result
+    
+# utility method to check isPalindrome or not.
+def isPalindrome(self, s):
+    
+    for i in range(len(s)):
+        reversed_s = s[::-1]
+        if s[i] == reversed_s[i]:
+            return True
+    
+    return False    
+
+```
+{% endtab %}
+{% endtabs %}
+

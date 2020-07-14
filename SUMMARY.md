@@ -11,6 +11,7 @@
 ## 算法
 
 * [Multiple Solutions](suan-fa/multiple-solutions-1/README.md)
+  * [\[Medium\] Longest Palindromic Substring](suan-fa/multiple-solutions-1/medium-longest-palindromic-substring.md)
   * [\[Easy\] Maximum Subarray](suan-fa/multiple-solutions-1/easy-maximum-subarray.md)
   * [\[Medium\] Word Break](suan-fa/multiple-solutions-1/medium-word-break.md)
   * [\[Medium\] Jump Game](suan-fa/multiple-solutions-1/medium-jump-game.md)
