@@ -6,9 +6,56 @@ Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)�
 
 ## 1. 同向指針\( L-&gt;/R-&gt;\): O\(n\)
 
-#### 同向指針模板
+### **\(1\) Sliding Window 模板**
 
-#### isPalindrome Method:
+{% tabs %}
+{% tab title="Python" %}
+```python
+    [a b c] a b c b b
+     d   |
+(left)-> |
+       char
+     (right) ->   
+def slidingWindow(self, s):
+    
+    window = {}
+    left, right = 0, 0
+    result = 0
+    # 0.右指針開始往右走
+    while right < len(s):
+        # char
+        char = s[right]
+        window[char] add ...
+        #1.右指針右移
+        right += 1
+        
+            #2.收縮窗口
+        while window[char] > 1:
+            # d
+            d = s[left]
+            window remove ...
+            # 3.左指針右移
+            left += 1 
+        
+        #4.更新答案 
+        result = ....
+```
+{% endtab %}
+{% endtabs %}
+
+* [ ] Minimum Window Substring
+* [x] Longest Substring Without Repeating Characters
+* [ ] Longest Substring with At Most K Distinct Characters
+* [ ] Minimum Size Subarray Sum
+* [ ] Remove Nth Node From End of List
+
+### **\(2\) Fast & Slow Pointers**
+
+* [ ] Find the Middle of Linked List
+* [ ] Linked List Cycle
+* [ ] Linked List Cycle II
+
+### \(3\)同向指針 isPalindrome 模板
 
 {% tabs %}
 {% tab title="Python" %}
@@ -33,20 +80,6 @@ def isPalindrome(self, s):
 ```
 {% endtab %}
 {% endtabs %}
-
-### **\(1\) Sliding Window**
-
-* [ ] Minimum Window Substring
-* [ ] Longest Substring Without Repeating Characters
-* [ ] Longest Substring with At Most K Distinct Characters
-* [ ] Minimum Size Subarray Sum
-* [ ] Remove Nth Node From End of List
-
-### **\(2\) Fast & Slow Pointers**
-
-* [ ] Find the Middle of Linked List
-* [ ] Linked List Cycle
-* [ ] Linked List Cycle II
 
 ## 題目類型
 
