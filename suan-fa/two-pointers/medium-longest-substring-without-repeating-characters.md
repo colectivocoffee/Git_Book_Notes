@@ -15,15 +15,30 @@ Explanation: The answer is "abc", with the length of 3.
 
 ### 1. Two Pointers\(-&gt;/-&gt;\) + Hashset: O\(n^2\)/O\( $$\Sigma \ charset$$ \)
 
-### 2. Sliding Window: O\(?\)/O\(1\)
+### 2. Sliding Window + Dictionary: O\(n\)/O\(dict size\)
+
+由上面的Two Pointers 解法我們可以發現，如果已經看到目前max\_len of window，其實left pointer並不需要重複看right pointer已經走過的路，可以直接透過收縮window來跳過那些已經看過的值。
+
+![](../../.gitbook/assets/longest_substring.jpg)
+
+Sliding Window 模板如下
 
 ```go
- // 滑动窗口核心点：
- 1、右指针右移 
- 2、根据题意收缩窗口 
- 3、左指针右移更新窗口 
- 4、根据题意计算结果
+ // 滑動窗口核心四要素：
+ 1、右指針右移 
+    2、根據題意收缩窗口 
+    3、左指針右移更新窗口 
+ 4、根據題意計算结果
 ```
+
+{% hint style="info" %}
+易錯點：  
+1. 用dictionary來記錄char的出現次數，跟hashset不一樣（當然也可以用hashset作為window，就是用curr\_len & max\_len來update）  
+2. 第二層window shrink的範圍是`window[char] > 1`  
+3. 最後的calculate `max_len = max(right-left, max_len)`，這裡是**`right-left`**
+{% endhint %}
+
+
 
 ## Code
 
@@ -54,7 +69,7 @@ def lengthOfLongestSubstring(self, s: str) -> int:
 {% endtab %}
 {% endtabs %}
 
-#### 2. Sliding Window: O\(n\)/O\(dict size\)
+#### 2. Sliding Window + dictionary: O\(n\)/O\(dict size\)
 
 ```python
 #1.右指針右移
