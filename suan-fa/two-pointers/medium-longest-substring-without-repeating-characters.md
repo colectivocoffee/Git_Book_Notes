@@ -57,6 +57,10 @@ def lengthOfLongestSubstring(self, s: str) -> int:
 #### 2. Sliding Window: O\(n\)/O\(dict size\)
 
 ```python
+#1.右指針右移
+#   2.根據題意收縮window
+#   3.左指針右移
+#4.根據題意計算結果
 def lengthOfLongestSubstring(self, s: str) -> int:
 
     if not s or len(s) <= 1:
@@ -66,16 +70,15 @@ def lengthOfLongestSubstring(self, s: str) -> int:
     left, right = 0, 0
     max_len = 1
     
-    #1.右指針右移
-    #   2.根據題意收縮window
-    #   3.左指針右移
-    #4.根據題意計算結果
+    # right: 0 -> len(s)
     while right < len(s):
         
         char = s[right]
+        # .get(char,0)+1 provides default value 0 if not exist. 
         window[char] = window.get(char,0)+1
         right += 1
         
+        # sliding window shrink
         while window[char] > 1:
             
             del_char = s[left]
