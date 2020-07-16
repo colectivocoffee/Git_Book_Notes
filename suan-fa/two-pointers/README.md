@@ -6,13 +6,49 @@ Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)�
 
 ## 1. 同向指針\( L-&gt;/R-&gt;\): O\(n\)
 
-同向指針模板
+#### 同向指針模板
+
+#### isPalindrome Method:
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# s can be already sliced string like s[start:end]
+def isPalindrome(self, s):
+    i, j = 0, len(s)-1
+    while i < j:
+        if s[i] != s[j]:
+            return False
+        i += 1
+        j -= 1
+    return True
+
+
+def isPalindrome(self, s):    
+    reversed_s = s[::-1] #reverse s
+    for i in range(len(s)):
+        if s[i] != reversed_s[i]:
+            return False
+    return True
+```
+{% endtab %}
+{% endtabs %}
 
 ### **\(1\) Sliding Window**
 
+* [ ] Minimum Window Substring
+* [ ] Longest Substring Without Repeating Characters
+* [ ] Longest Substring with At Most K Distinct Characters
+* [ ] Minimum Size Subarray Sum
+* [ ] Remove Nth Node From End of List
+
 ### **\(2\) Fast & Slow Pointers**
 
-#### 題目類型
+* [ ] Find the Middle of Linked List
+* [ ] Linked List Cycle
+* [ ] Linked List Cycle II
+
+## 題目類型
 
 1. Remove Duplicates
 2. Sliding Window
@@ -20,14 +56,11 @@ Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)�
 4. Two Difference
 5. Circle in a Linked List
 
-#### 相關題目
+#### 
 
-* [ ] Longest Substring Without Repeating Characters
-* [ ] * [ ] 
 ## 2. 相向指針\(L-&gt;/&lt;-R\): O\(n\)
 
-相向指針模板  
-\(1\) While Loop 
+#### 相向指針模板 \(1\) While Loop 
 
 ```python
 L, R = 0, len(nums)-1
@@ -47,13 +80,13 @@ while L < R:
     R -= 1
 ```
 
-\(2\) For Loop
+#### \(2\) For Loop
 
 ```java
 for (int i = 0, j = nums.size()-1; i < j; i++, j--)
 ```
 
-#### 相關題
+#### 相關題目
 
 * [ ] \*\*\*Two Sum & Related 
 * [ ] \*\*Partition xxx & Related
@@ -61,13 +94,10 @@ for (int i = 0, j = nums.size()-1; i < j; i++, j--)
 * [ ] Longest Palindromic Substring
 * [ ] Find K Closest Elements
 
-## 題目
+## 練習
 
 * [Two Sum](https://leetcode.com/problems/two-sum/)
 * [Three Sum](https://leetcode.com/problems/3sum/)
-
-
-
 * [ ] Two Sum
 * [ ] Three Sum
 * [ ] Valid Palindrome
