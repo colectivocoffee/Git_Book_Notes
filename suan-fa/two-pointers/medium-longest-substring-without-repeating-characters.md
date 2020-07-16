@@ -15,6 +15,11 @@ Explanation: The answer is "abc", with the length of 3.
 
 ### 1. Two Pointers\(-&gt;/-&gt;\) + Hashset: O\(n^2\)/O\( $$\Sigma \ charset$$ \)
 
+用兩個pointers i, j來比較`s[i:j]`裡面是否有repeating chars。如果在Hashset裡發現和`s[j]`相同的重複字母，則break結束比較；反之如果沒發現`s[j]`重複字母，則加入字母到Hashset裡並且update max length。
+
+這裡`for i in range(0,len(s))，for j in range(i, len(s))`  
+
+
 ### 2. Sliding Window + Dictionary: O\(n\)/O\(dict size\)
 
 由上面的Two Pointers 解法我們可以發現，如果已經看到目前max\_len of window，其實left pointer並不需要重複看right pointer已經走過的路，可以直接透過收縮window來跳過那些已經看過的值。
