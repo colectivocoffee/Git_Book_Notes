@@ -19,6 +19,8 @@ Explanation: The answer is "abc", with the length of 3.
 
 由上面的Two Pointers 解法我們可以發現，如果已經看到目前max\_len of window，其實left pointer並不需要重複看right pointer已經走過的路，可以直接透過收縮window來跳過那些已經看過的值。
 
+這裡的sliding window就是max\_len & 字母不重複的狀態。
+
 ![](../../.gitbook/assets/longest_substring.jpg)
 
 Sliding Window 模板如下
