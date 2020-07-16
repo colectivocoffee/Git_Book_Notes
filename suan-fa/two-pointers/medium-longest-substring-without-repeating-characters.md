@@ -83,7 +83,7 @@ def lengthOfLongestSubstring(self, s: str) -> int:
             left += 1
             
         # here we get max_len from 'right-left'
-        max_len = max(max_len, len(window))
+        max_len = max(max_len, right-left)
     
     return max_len
 ```
