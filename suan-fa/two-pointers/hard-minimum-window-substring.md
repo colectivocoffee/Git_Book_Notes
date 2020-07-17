@@ -66,6 +66,8 @@ def minWindow(self, s: str, t: str) -> str:
             right += 1
             
             #2-1 shrink window
+            #這裡我們用match==len(need)比較而非len(t),因為match是跟著前面的need變化。
+            #（和find all anagram題比較） 
             while match == len(need):
                 
                 #3-1 left pointer

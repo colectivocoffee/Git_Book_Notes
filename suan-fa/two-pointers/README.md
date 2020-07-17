@@ -4,7 +4,7 @@
 
 Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)，保證區間滿足特定的條件。
 
-## 1. 同向指針\( L-&gt;/R-&gt;\): O\(n\)
+## 1. 同向指針\(L-&gt;/R-&gt;\): O\(n\)
 
 ### **\(1\) Sliding Window 模板**
 
@@ -29,21 +29,39 @@ def slidingWindow(self, s):
         #1-2.右指針右移
         right += 1
         
-            #2.判斷條件 收縮窗口
+        #2.判斷條件 收縮窗口
         while window[char] > 1:
+            #4.符合條件時更新答案
+            if ....
+                result = 
+            
             #3-1.更新數據 DELETE left d
             d = s[left]
             window remove d ...
             #3-2.左指針右移
             left += 1 
-        
-        #4.更新答案 
+                 
+        #4.或是在這更新答案 
         result = ....
 ```
 {% endtab %}
 {% endtabs %}
 
-* [ ] Minimum Window Substring
+![Sliding WIndow Conecpt](../../.gitbook/assets/sliding-window.png)
+
+The Sliding Window pattern is used to perform a required operation on a specific window size of a given array or linked list, such as finding the longest subarray containing all 1s. Sliding Windows start from the 1st element and keep shifting right by one element and adjust the length of the window according to the problem that you are solving. In some cases, the window size remains constant and in other cases, the sizes grow or shrink.
+
+**Following are some ways you can identify that the given problem might require a sliding window**:
+
+* The problem input is a linear data structure such as a linked list, array, or string
+* You’re asked to find the longest/shortest substring, subarray, or the desired value
+
+Common problems you use the sliding window pattern with:
+
+* Maximum sum subarray of size ‘K’ \(easy\)
+* Longest substring with ‘K’ distinct characters \(medium\)
+* String anagrams \(hard\) 
+* [x] Minimum Window Substring
 * [x] Longest Substring Without Repeating Characters
 * [ ] Longest Substring with At Most K Distinct Characters
 * [ ] Minimum Size Subarray Sum
