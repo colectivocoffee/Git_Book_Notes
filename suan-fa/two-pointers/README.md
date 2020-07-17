@@ -23,18 +23,18 @@ def slidingWindow(self, s):
     result = 0
     # 0.右指針開始往右走
     while right < len(s):
-        # char
+        #1-1.更新數據 ADD right char
         char = s[right]
         window[char] add ...
-        #1.右指針右移
+        #1-2.右指針右移
         right += 1
         
-            #2.收縮窗口
+            #2.判斷條件 收縮窗口
         while window[char] > 1:
-            # d
+            #3-1.更新數據 DELETE left d
             d = s[left]
-            window remove ...
-            # 3.左指針右移
+            window remove d ...
+            #3-2.左指針右移
             left += 1 
         
         #4.更新答案 
@@ -55,32 +55,6 @@ def slidingWindow(self, s):
 * [ ] Linked List Cycle
 * [ ] Linked List Cycle II
 
-### \(3\)同向指針 isPalindrome 模板
-
-{% tabs %}
-{% tab title="Python" %}
-```python
-# s can be already sliced string like s[start:end]
-def isPalindrome(self, s):
-    i, j = 0, len(s)-1
-    while i < j:
-        if s[i] != s[j]:
-            return False
-        i += 1
-        j -= 1
-    return True
-
-
-def isPalindrome(self, s):    
-    reversed_s = s[::-1] #reverse s
-    for i in range(len(s)):
-        if s[i] != reversed_s[i]:
-            return False
-    return True
-```
-{% endtab %}
-{% endtabs %}
-
 ## 題目類型
 
 1. Remove Duplicates
@@ -88,8 +62,6 @@ def isPalindrome(self, s):
 3. Middle of Linked List
 4. Two Difference
 5. Circle in a Linked List
-
-#### 
 
 ## 2. 相向指針\(L-&gt;/&lt;-R\): O\(n\)
 
@@ -118,6 +90,32 @@ while L < R:
 ```java
 for (int i = 0, j = nums.size()-1; i < j; i++, j--)
 ```
+
+### \(3\)-&gt;/&lt;-指針 isPalindrome 模板
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# s can be already sliced string like s[start:end]
+def isPalindrome(self, s):
+    i, j = 0, len(s)-1
+    while i < j:
+        if s[i] != s[j]:
+            return False
+        i += 1
+        j -= 1
+    return True
+
+
+def isPalindrome(self, s):    
+    reversed_s = s[::-1] #reverse s
+    for i in range(len(s)):
+        if s[i] != reversed_s[i]:
+            return False
+    return True
+```
+{% endtab %}
+{% endtabs %}
 
 #### 相關題目
 
