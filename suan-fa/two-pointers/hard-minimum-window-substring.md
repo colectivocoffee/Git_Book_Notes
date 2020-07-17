@@ -17,6 +17,8 @@ Output: "BANC"
 
 ### Sliding Window: O\(n\)/O\(n\)
 
+![](../../.gitbook/assets/min_window_substring%20%281%29.jpg)
+
 ## Code
 
 #### Sliding Window
