@@ -20,6 +20,8 @@ Output: False
 
 ### Sliding Window: O\(n\)/O\(n\)
 
+思維和find anagram幾乎一樣，可以用sliding window求解。由於sliding window的特性，可以自動排除像example2 這種b...a的情況。
+
 ## Code
 
 {% tabs %}
