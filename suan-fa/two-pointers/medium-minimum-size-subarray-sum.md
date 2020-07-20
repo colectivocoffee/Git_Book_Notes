@@ -15,6 +15,14 @@ Explanation: the subarray [4,3] has the minimal length under the problem constra
 
 ### 1. Sliding Window\(-&gt;/-&gt;\): O\(n\)/O\(n\)
 
+Sliding Window template的簡易版。唯一需要注意的地方是要如何'update window'。原來update window的方法是  
+`char = s[right]  
+window[char] = window.get(char,0)+1  
+right += 1`  
+然而，在這裡不需要這麼複雜，我們先right +=1，並且即時update sub\_sum即可，這裡的sub\_sum就是前面的window。  
+`right += 1  
+sub_sum = sum(nums[left:right])`
+
 ### 2. Binary Search: O\(logn\)
 
 ## Code
