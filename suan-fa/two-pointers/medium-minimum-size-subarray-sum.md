@@ -15,6 +15,8 @@ Explanation: the subarray [4,3] has the minimal length under the problem constra
 
 ### 1. Sliding Window\(-&gt;/-&gt;\): O\(n\)/O\(n\)
 
+### 2. Binary Search: O\(logn\)
+
 ## Code
 
 #### 1. Sliding Window
