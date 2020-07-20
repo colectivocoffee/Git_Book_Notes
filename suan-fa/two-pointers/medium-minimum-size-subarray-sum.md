@@ -23,7 +23,7 @@ right += 1`
 `right += 1  
 sub_sum = sum(nums[left:right])`
 
-### 2. Binary Search: O\(logn\)
+### 2. Binary Search: O\(nlogn\)
 
 ## Code
 
