@@ -49,11 +49,15 @@ def slidingWindow(self, s):
 
 ![Sliding WIndow Conecpt](../../.gitbook/assets/sliding-window.png)
 
+要如何判斷這題是否可以用Sliding Window解題呢？
+
+很多sliding window的題，都是在linear data structure的框架下，並且答案是要求要contigous或是其他黏在一起的組合\(substring, subarray, anagram, permutation...\)
+
 The Sliding Window pattern is used to perform a required operation on a specific window size of a given array or linked list, such as finding the longest subarray containing all 1s. Sliding Windows start from the 1st element and keep shifting right by one element and adjust the length of the window according to the problem that you are solving. In some cases, the window size remains constant and in other cases, the sizes grow or shrink.
 
 **Following are some ways you can identify that the given problem might require a sliding window**:
 
-* The problem input is a linear data structure such as a linked list, array, or string
+* The problem input is a **linear data structure** such as a linked list, array, or string
 * You’re asked to find the longest/shortest substring, subarray, or the desired value
 
 Common problems you use the sliding window pattern with:
