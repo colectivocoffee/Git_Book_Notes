@@ -68,7 +68,7 @@ Common problems you use the sliding window pattern with:
 * [x] Minimum Window Substring
 * [x] Longest Substring Without Repeating Characters
 * [ ] Longest Substring with At Most K Distinct Characters
-* [ ] Minimum Size Subarray Sum
+* [x] Minimum Size Subarray Sum
 * [ ] Remove Nth Node From End of List
 
 ### **\(2\) Fast & Slow Pointers**
