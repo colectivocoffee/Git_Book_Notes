@@ -69,11 +69,13 @@ Common problems you use the sliding window pattern with:
 * [x] Longest Substring Without Repeating Characters
 * [ ] Longest Substring with At Most K Distinct Characters
 * [x] Minimum Size Subarray Sum
-* [ ] Remove Nth Node From End of List
 
 ### **\(2\) Fast & Slow Pointers**
 
+Fast & Slow Pointer通常都跟Linked List有關。而且題目會要求 `'Could you do this in one pass?'`，基本上就是要求用Fast&Slow Pointer + Linked List這種組合。
+
 * [ ] Find the Middle of Linked List
+* [ ] Remove Nth Node From End of List
 * [ ] Linked List Cycle
 * [ ] Linked List Cycle II
 
@@ -141,10 +143,11 @@ def isPalindrome(self, s):
 
 #### 相關題目
 
-* [ ] \*\*\*Two Sum & Related 
+* [x] \*\*\*Two Sum & Related 
 * [ ] \*\*Partition xxx & Related
 * [ ] \*Reverse xxx & Related
-* [ ] Longest Palindromic Substring
+* [x] Longest Palindromic Substring
+* [x] Palindromic Substring
 * [ ] Find K Closest Elements
 
 ## 練習
