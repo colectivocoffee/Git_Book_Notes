@@ -1,4 +1,4 @@
-# \[Medium\]
+# \[Medium\] Remove Nth Node From End of List
 
 [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)  
 Given a linked list, remove the _n_-th node from the end of list and return its head.
