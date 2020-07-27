@@ -13,11 +13,14 @@ After removing the second node from the end, the linked list becomes 1->2->3->5.
 
 ## Thought Process
 
+因為只能one pass, 因此使用 Fast & Slow Pointers 來幫助達到只遍歷一次就能找到Nth Node。  
+那怎麼做呢？當fast pointer到達最後時，slow pointer指的就是Nth Node。
+
 1. **Move Pointers:** move fast pointers forwarded by n steps
 2. **Check Null:** check if fast has `fast.next`, if not then return `head.next`
 3. **Move Pointers:** move both slow&fast pointers until fast pointers reach at the end of the list
 4. **Perform the Action**: Delete Nth node
-5. return head
+5. return modified head
 
 ## Code
 
@@ -29,7 +32,7 @@ After removing the second node from the end, the linked list becomes 1->2->3->5.
 #         self.next = next
 def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         
-        ### Key Idea: Use fast&slow pointers to move at the same time ###
+        ### Key Idea: Use fast&slow pointers to move them at the same time. ###
         ### if fast reaches to the end, then slow is at the Nth node. ###
         # init
         slow = fast = head
