@@ -38,7 +38,6 @@
   * [\[Medium\] Coin Change](suan-fa/dynamic-programming/medium-coin-change.md)
   * [\[Medium\] Maximum Product Subarray](suan-fa/dynamic-programming/medium-maximum-product-subarray.md)
 * [Two Pointers](suan-fa/two-pointers/README.md)
-  * [\[Medium\] Remove Nth Node From End of List](suan-fa/two-pointers/medium.md)
   * [\[Medium\] Minimum Size Subarray Sum](suan-fa/two-pointers/medium-minimum-size-subarray-sum.md)
   * [\[Medium\] Permutation in String](suan-fa/two-pointers/medium-permutation-in-string.md)
   * [\[Medium\] Find All Anagram in a String](suan-fa/two-pointers/medium-find-all-anagram-in-a-string.md)
@@ -56,6 +55,9 @@
 
 ## 數據結構
 
+* [Linked List](shu-ju-jie-gou/linked-list/README.md)
+  * [\[Easy\] Linked List Cycle & \[Medium\] Linked List Cycle II](shu-ju-jie-gou/linked-list/easy-linked-list-cycle-and-medium-linked-list-cycle-ii.md)
+  * [\[Medium\] Remove Nth Node From End of List](shu-ju-jie-gou/linked-list/medium.md)
 * [Array](shu-ju-jie-gou/array/README.md)
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
 

@@ -87,10 +87,16 @@ When should I use Fast&Slow pointers over the Two Pointer method mentioned above
 
 ![](../../.gitbook/assets/fast-and-slowpointer.jpg)
 
+#### Linked List常用技巧：
+
+* `slow.next = slow.next.next` \(slow pointer跳過下一位\)
+* `fast = fast.next` \(fast pointer往後移一位，通常會放在for/while loop裡\)
+* `if fast.next == None`, then `return head.next` \(fast.next == None代表fast指的是最後一個\)
+
 
 
 * [ ] Find the Middle of Linked List
-* [ ] Remove Nth Node From End of List
+* [x] Remove Nth Node From End of List
 * [ ] Linked List Cycle
 * [ ] Linked List Cycle II
 * Linked List Cycle \(easy\)
