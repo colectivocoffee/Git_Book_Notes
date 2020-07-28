@@ -97,7 +97,7 @@ When should I use Fast&Slow pointers over the Two Pointer method mentioned above
 
 * [ ] Find the Middle of Linked List
 * [x] Remove Nth Node From End of List
-* [ ] Linked List Cycle
+* [x] Linked List Cycle
 * [ ] Linked List Cycle II
 * Linked List Cycle \(easy\)
 * Palindrome Linked List \(medium\)
