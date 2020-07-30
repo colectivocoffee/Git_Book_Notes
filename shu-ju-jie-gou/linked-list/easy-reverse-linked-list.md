@@ -1,5 +1,20 @@
 # \[Easy\] Reverse Linked List & \[Medium\] Reverse Linked List II
 
+#### Reverse Linked List 核心要素：
+
+* 取dummy node \(ListNode\(0\)\)
+* 建curr&prev，分別代表改前&改後
+* curr.next --&gt; prev.next
+* 用temp一個一個移動到prev
+
+```python
+模板：
+     temp = curr.next   #       tmp   curr.next
+curr.next = temp.next   # curr.next
+temp.next = prev.next   #             prev.next
+prev.next = temp        # prev.next   tmp
+```
+
 ## [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 Reverse a singly linked list.
@@ -54,6 +69,29 @@ def reverseList(self, head: ListNode) -> ListNode:
          
 ```
 
+```python
+def reverseList(self, head: ListNode) -> ListNode:
+    if head == None:
+        return head
+    
+    # init dummy head Null, then point head -> Null
+    dummy = ListNode(0)
+    dummy.next = head
+    
+    # init curr, prev to preserve head, reverse_head
+    curr, prev = head, dummy
+    
+    # the reason of using temp is to preserve the .next value & remaining pieces
+    # while doing curr->prev move 
+    while head != None and head.next != None:
+        temp = curr.next
+        curr.next = temp.next # curr.next
+        temp.next = prev.next #            -> prev.next
+        prev.next = temp      # reconnect temp to prev.next
+    
+    return dummy.next
+```
+
 #### 2. Recursive Version: O\(n\)/O\(1\)
 
 ## [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) 
@@ -62,5 +100,53 @@ def reverseList(self, head: ListNode) -> ListNode:
 
 Find linked list \[m,n\], reverse it. Then connect m with n+1, connect n with m-1.
 
+1. **Init dummy node:** dummy = ListNode\(0\) and link it to head
+2. **Create curr & prev:** curr represents unreversed linkedList, prev represent reversed linkedList
+3. **Fast forward curr&prev to m-1**
+4. **Reverse curr's List Node between \[m,n\]** 4-1. **Take curr.next out:** temp = curr.next 4-2. **Move from curr.next to prev.next** 4-3. **Attach temp back to prev.next:** prev.next = temp
+5. Get result from dummy.next
+
 ### Code
+
+```python
+def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
+    if head == None:
+        return head
+    # init dummy node 0
+    dummy = ListNode(0)
+    dummy.next = head
+    # init curr, prev as head, dummy
+    #                 curr (1)->2->3->4->5->Null
+    # Null<-5<-...<-1<-(0) prev
+    curr, prev = head, dummy
+    # move curr, prev forward until m-1 (regular)
+    for _ in range(m-1):
+        curr = curr.next
+        prev = prev.next
+    #             curr (2)->3->4->5
+    # 5<-4<-3<-2<-(1) prev
+    
+    # between [m,n] reverse linked list using temp
+    #    curr (2)->[3]->4->5
+    #        temp [(3)]->2->4...
+    #     5<-4<-2<-[3]<-(1) prev  
+    #
+    #    curr (2)->[4]->5
+    #        temp [(4)]->3->2...
+    #     5<-2<-3<-[4]<-(1) prev
+    i = m
+    while head != None and i < n:
+        temp = curr.next
+        curr.next = temp.next
+        temp.next = prev.next
+        prev.next = temp
+        i += 1
+    
+    # we don't need to care the remaining of [n,end] 
+    # because the position won't change during that reverse process
+    
+    # dummy is pointing to 0 as head, so we need to get dummy.next
+    return dummy.next
+    
+```
 
