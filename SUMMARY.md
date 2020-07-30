@@ -56,7 +56,7 @@
 ## 數據結構
 
 * [Linked List](shu-ju-jie-gou/linked-list/README.md)
-  * [\[Easy\] Reverse Linked List](shu-ju-jie-gou/linked-list/easy-reverse-linked-list.md)
+  * [\[Easy\] Reverse Linked List & \[Medium\] Reverse Linked List II](shu-ju-jie-gou/linked-list/easy-reverse-linked-list.md)
   * [\[Easy\] Linked List Cycle & \[Medium\] Linked List Cycle II](shu-ju-jie-gou/linked-list/easy-linked-list-cycle-and-medium-linked-list-cycle-ii.md)
   * [\[Medium\] Remove Nth Node From End of List](shu-ju-jie-gou/linked-list/medium.md)
 * [Array](shu-ju-jie-gou/array/README.md)

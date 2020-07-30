@@ -1,4 +1,4 @@
-# \[Easy\] Reverse Linked List
+# \[Easy\] Reverse Linked List & \[Medium\] Reverse Linked List II
 
 ## [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
@@ -23,6 +23,8 @@ Step3. **Override Head**：移動new\_head到原head的位置。
 Step4. **恢復原始temp**：提取step1的temp值，移動head到temp。 
 
 ![](../../.gitbook/assets/reverselinkedlist.jpg)
+
+![](../../.gitbook/assets/reversedlinkedlist.jpg)
 
 ### Code
 
@@ -53,4 +55,12 @@ def reverseList(self, head: ListNode) -> ListNode:
 ```
 
 #### 2. Recursive Version: O\(n\)/O\(1\)
+
+## [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) 
+
+### Thought Process
+
+Find linked list \[m,n\], reverse it. Then connect m with n+1, connect n with m-1.
+
+### Code
 
