@@ -15,6 +15,8 @@ temp.next = prev.next   #             prev.next
 prev.next = temp        # prev.next   tmp
 ```
 
+![](../../.gitbook/assets/reversedlinkedlist.jpg)
+
 ## [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 Reverse a singly linked list.
@@ -38,8 +40,6 @@ Step3. **Override Head**：移動new\_head到原head的位置。
 Step4. **恢復原始temp**：提取step1的temp值，移動head到temp。 
 
 ![](../../.gitbook/assets/reverselinkedlist.jpg)
-
-![](../../.gitbook/assets/reversedlinkedlist.jpg)
 
 ### Code
 
@@ -93,6 +93,18 @@ def reverseList(self, head: ListNode) -> ListNode:
 ```
 
 #### 2. Recursive Version: O\(n\)/O\(1\)
+
+```python
+def reverseList(self, head: ListNode) -> ListNode:
+    return self.helper(head, None)
+    
+def helper(self, head, node):
+    if not head:
+        return node
+    temp = head.next
+    head.next = node
+    return self.helper(temp, head)
+```
 
 ## [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) 
 
