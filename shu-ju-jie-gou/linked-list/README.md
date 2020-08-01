@@ -2,6 +2,8 @@
 
 ## Linked List核心技巧
 
+Linked List Traversal/Insert的性質
+
 * Linked List是一串葡萄，只要拿head就會有所有的elements。
 * 維持 head & head.next 的關係
 * Linked List頭部（即`ListNode(0)`）需要有Dummy Node來當Reference。 ex: **`0 ->`** 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; Null 寫法： `Dummy = ListNode(0) Dummy.next = Head .....`

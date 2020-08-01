@@ -2,7 +2,7 @@
 
 #### Reverse Linked List 核心要素：
 
-* 取dummy node \(ListNode\(0\)\)
+* 取dummy node \(ListNode\(0\)\)，防止m=1翻轉時，沒有前面的node狀況。
 * 建curr&prev，分別代表改前&改後
 * curr.next --&gt; prev.next
 * 用temp一個一個移動到prev
@@ -117,6 +117,8 @@ Find linked list \[m,n\], reverse it. Then connect m with n+1, connect n with m-
 3. **Fast forward curr&prev to m-1**
 4. **Reverse curr's List Node between \[m,n\]** 4-1. **Take curr.next out:** temp = curr.next 4-2. **Move from curr.next to prev.next** 4-3. **Attach temp back to prev.next:** prev.next = temp
 5. Get result from dummy.next
+
+![](../../.gitbook/assets/reverselinkedlist_ii.jpg)
 
 ### Code
 
