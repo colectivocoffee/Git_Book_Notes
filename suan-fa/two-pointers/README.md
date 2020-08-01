@@ -8,6 +8,8 @@ Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)�
 
 ### **\(1\) Sliding Window 模板**
 
+使用Sliding Window必要條件：數據如果是Int, 必須都是positive Integers
+
 {% tabs %}
 {% tab title="Python" %}
 ```python

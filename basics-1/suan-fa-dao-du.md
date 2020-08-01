@@ -59,16 +59,24 @@ If you are cutting corners in your code, state that out loud to your interviewer
 
 
 
-## 如何確定要用哪種算法？
+## 如何確定要用哪種算法？ 
+
+### 1. 找題目裡的Keywords
+
+* "Searching" xxx --&gt; Binary Search/Two Pointers
+* "Explore" island --&gt; BFS/DFS
+* Find "Combinations" --&gt; Recursions
+
+### 2. 看題目的Time Complexity
 
 通常都是可以**用Time Complexity來倒推算法**。  
 例如O\(logn\)的算法，就可以幾乎確定是Binary Search。
 
-### 1. Divide and Conquer -&gt; Binary Search
+#### \(1\) Divide and Conquer -&gt; Binary Search
 
 > 如果題目要求要用Divide and Conquer求解，可以推斷用Binary Search。Time Complexity: O\(logn\)
 
-### 2. 
+### 
 
 
 
