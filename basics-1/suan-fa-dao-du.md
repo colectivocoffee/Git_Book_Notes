@@ -28,6 +28,11 @@ for item in nums:
         new_list.append()
 ```
 
+## Advanced Python
+
+* [ ] lambda用法
+* [ ] zip用法
+
 ## Time Complexity
 
 #### 各種Data Structure的Time Complexity
