@@ -80,8 +80,6 @@ Exponential  > Polynomial(cubic/quadratic) > linearithmic >  Linear  >  Log  > C
 2^n/Recursion               n^3 -> n^2         nlogn           n       logn     1
 ```
 
-
-
 ## 準備 System Design
 
 在面試的時候，很有可能會同一個題目往不同的面向發展。
