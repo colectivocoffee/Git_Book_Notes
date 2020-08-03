@@ -2,17 +2,16 @@
 
 ## Linked List核心技巧
 
-Linked List Traversal/Insert的性質
+下面是Linked List Traversal/Insert的性質
 
-* Linked List是一串葡萄，只要拿head就會有所有的elements。
+* Linked List是一串葡萄，只要拿head就會得到從head開始，所有的elements。
 * 維持 head & head.next 的關係
-* Linked List頭部（即`ListNode(0)`）需要有Dummy Node來當Reference。 ex: **`0 ->`** 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; Null 寫法： `Dummy = ListNode(0) Dummy.next = Head .....`
-* **skip/remove duplicates** : `node.next = node.next.next`
+* **DummyNode** Linked List頭部（即`ListNode(0)`）需要有Dummy Node來當Reference。這樣在return結果時，就可以用dummy.next直接回到Linked List的最頭部。 ex: **`0 ->`** 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; Null 寫法： `Dummy = ListNode(0) Dummy.next = Head .....`
+* **Skip/Remove Duplicates** : `node.next = node.next.next`
 * **i += 1** :  `node = node.next` 
-* **assign pointers**: 由於Linked List沒有index，因此需要新建立variables，來建立它和原始head的關係 `odd = head even = odd.next ....`
+* **Assign Pointers**: 由於Linked List沒有index，因此需要新建立variables，來建立它和原始head的關係 `odd = head even = odd.next ....`
+* **Reverse Linked List 模板:**  `temp = curr.next curr.next = temp.next temp.next = prev.next prev.next = temp`
 * ssss
-
-
 
 ## 基本概念
 
