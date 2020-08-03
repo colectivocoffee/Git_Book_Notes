@@ -56,6 +56,7 @@
 ## 數據結構
 
 * [Linked List](shu-ju-jie-gou/linked-list/README.md)
+  * [\[Hard\] Reverse Nodes in k-Group](shu-ju-jie-gou/linked-list/hard-reverse-nodes-in-k-group.md)
   * [\[Medium\] Swap Nodes in Pairs](shu-ju-jie-gou/linked-list/medium-swap-nodes-in-pairs.md)
   * [\[Medium\] Odd Even Linked List](shu-ju-jie-gou/linked-list/medium-odd-even-linked-list.md)
   * [\[Easy\] Remove Duplicates from Sorted List](shu-ju-jie-gou/linked-list/easy-remove-duplicates-from-sorted-list.md)
