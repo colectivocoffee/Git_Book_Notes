@@ -56,6 +56,7 @@
 ## 數據結構
 
 * [Linked List](shu-ju-jie-gou/linked-list/README.md)
+  * [\[Medium\] Swap Nodes in Pairs](shu-ju-jie-gou/linked-list/medium-swap-nodes-in-pairs.md)
   * [\[Medium\] Odd Even Linked List](shu-ju-jie-gou/linked-list/medium-odd-even-linked-list.md)
   * [\[Easy\] Remove Duplicates from Sorted List](shu-ju-jie-gou/linked-list/easy-remove-duplicates-from-sorted-list.md)
   * [\[Easy\] Reverse Linked List & \[Medium\] Reverse Linked List II](shu-ju-jie-gou/linked-list/easy-reverse-linked-list.md)
