@@ -40,36 +40,57 @@ Linked List Traversal/Insert的性質
 
 ```text
 Head->Head
-(1) -> 2 -> 3 -> 4 -> 5   head = head.next
+(1) -> 2 -> 3 -> 4 -> 5 -> None  head = head.next
        
-      (2)-> 3 -> 4 -> 5
+      (2)-> 3 -> 4 -> 5 -> None
 ```
 
 \(2\) Skip/Remove Duplicates 跳過，直接往下下一格走
 
 ```text
 Head     ->Head
-(1) -> 2 -> 3 -> 4 -> 5   head.next = head.next.next
+(1) -> 2 -> 3 -> 4 -> 5 -> None  head.next = head.next.next
        
-           (3)-> 4 -> 5
+           (3)-> 4 -> 5 -> None
 ```
 
 \(3\) 把B LinkedList 黏到 A 上
 
 ```text
-node A: (1) -> 3 -> 5
-node B: (2) -> 4             A.next = B
+node A: (1) -> 3 -> 5 -> None
+node B: (2) -> 4 -> None         A.next = B
 
-(1) -> 3 -> 5 -> 2 -> 4
+(1) -> 3 -> 5 -> 2 -> 4 -> None
 ```
 
 \(4\) 在head最前面加上一個dummy node
 
 ```text
      Head 
-      (1) -> 2 -> 3 -> 4 -> 5    dummy = ListNode(0)
-dummy                            dummy.next = head
-(0) -> 1 -> 2 -> 3 -> 4 -> 5 
+      (1) -> 2 -> 3 -> 4 -> 5 -> None   dummy = ListNode(0)
+dummy                                   dummy.next = head
+(0) -> 1 -> 2 -> 3 -> 4 -> 5 -> None
+```
+
+\(5\) 在原來的LinkedList上，建立一個新的pointer  
+      注意：原始的Head並沒有變，只有在odd.next = odd.next.next這種方式時才會變。
+
+```text
+       Head 
+       (1) -> 2 -> 3 -> 4 -> 5 -> None    odd = head
+  odd: (1) -> 2 -> 3 -> 4 -> 5 -> None    
+       Head                               odd = odd.next
+       (1) -> 2 -> 3 -> 4 -> 5 -> None
+  odd:      (2) -> 3 -> 4 -> 5 -> None 
+```
+
+```text
+       Head 
+       (1) -> 2 -> 3 -> 4 -> 5 -> None    odd = head
+  odd: (1) -> 2 -> 3 -> 4 -> 5 -> None    
+            Head                          odd.next = odd.next.next
+            (1) -> 3 -> 4 -> 5 -> None
+  odd:      (1) -> 3 -> 4 -> 5 -> None 
 ```
 
 
