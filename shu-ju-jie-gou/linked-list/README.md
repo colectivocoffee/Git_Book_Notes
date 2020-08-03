@@ -57,12 +57,13 @@ Head     ->Head
 
 ```text
 node A: (1) -> 3 -> 5 -> None
-node B: (2) -> 4 -> None         A.next = B
+node B: (2) -> 4 -> None           A.next = B
 
 (1) -> 3 -> 5 -> 2 -> 4 -> None
 ```
 
-\(4\) 在head最前面加上一個dummy node
+\(4\) 在head最前面加上一個dummy node  
+      dummyNode的目的在於，讓我們方便回到原來head。
 
 ```text
      Head 
