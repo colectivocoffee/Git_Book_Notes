@@ -9,6 +9,8 @@ Linked List Traversal/Insert的性質
 * Linked List頭部（即`ListNode(0)`）需要有Dummy Node來當Reference。 ex: **`0 ->`** 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; Null 寫法： `Dummy = ListNode(0) Dummy.next = Head .....`
 * **skip/remove duplicates** : `node.next = node.next.next`
 * **i += 1** :  `node = node.next` 
+* **assign pointers**: 由於Linked List沒有index，因此需要新建立variables，來建立它和原始head的關係 `odd = head even = odd.next ....`
+* ssss
 
 
 
@@ -71,8 +73,6 @@ dummy                            dummy.next = head
 ```
 
 
-
-## Fast & Slow Pointers
 
 ## Reverse Linked List \(In-Place\)
 
