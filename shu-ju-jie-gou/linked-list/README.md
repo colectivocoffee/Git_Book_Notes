@@ -73,7 +73,7 @@ dummy                                   dummy.next = head
 ```
 
 \(5\) 在原來的LinkedList上，建立一個新的pointer  
-      注意：原始的Head並沒有變，只有在odd.next = odd.next.next這種方式時才會變。
+      注意：原始的Head並沒有變，Head只有在odd.next = odd.next.next這種skip方式時才會跟著變化。
 
 ```text
        Head 
@@ -81,7 +81,7 @@ dummy                                   dummy.next = head
   odd: (1) -> 2 -> 3 -> 4 -> 5 -> None    
        Head                               odd = odd.next
        (1) -> 2 -> 3 -> 4 -> 5 -> None
-  odd:      (2) -> 3 -> 4 -> 5 -> None 
+  odd:       (2)-> 3 -> 4 -> 5 -> None 
 ```
 
 ```text
