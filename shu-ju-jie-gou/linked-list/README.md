@@ -10,6 +10,8 @@ Linked List Traversal/Insert的性質
 * **skip/remove duplicates** : `node.next = node.next.next`
 * **i += 1** :  `node = node.next` 
 
+
+
 ## 基本概念
 
 ![Array vs Linked List](../../.gitbook/assets/array-vs-linked-list.png)
@@ -30,7 +32,45 @@ Linked List Traversal/Insert的性質
 
 由於Linked List取值只能用`node.next`來取。在解題時，需要實時地maintain \(1\)`head` \(2\) `head.next` 這兩者的關係。
 
-LLiLLLidfhsdfkhafkhLisfhsfdkhaf
+### 3. Linked List Basic Operations
+
+\(1\) 往後移一格
+
+```text
+Head->Head
+(1) -> 2 -> 3 -> 4 -> 5   head = head.next
+       
+      (2)-> 3 -> 4 -> 5
+```
+
+\(2\) Skip/Remove Duplicates 跳過，直接往下下一格走
+
+```text
+Head     ->Head
+(1) -> 2 -> 3 -> 4 -> 5   head.next = head.next.next
+       
+           (3)-> 4 -> 5
+```
+
+\(3\) 把B LinkedList 黏到 A 上
+
+```text
+node A: (1) -> 3 -> 5
+node B: (2) -> 4             A.next = B
+
+(1) -> 3 -> 5 -> 2 -> 4
+```
+
+\(4\) 在head最前面加上一個dummy node
+
+```text
+     Head 
+      (1) -> 2 -> 3 -> 4 -> 5    dummy = ListNode(0)
+dummy                            dummy.next = head
+(0) -> 1 -> 2 -> 3 -> 4 -> 5 
+```
+
+
 
 ## Fast & Slow Pointers
 
