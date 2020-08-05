@@ -35,6 +35,10 @@ How to identify the Subsets pattern:
 * Subsets With Duplicates \(easy\)
 * String Permutations by changing case \(medium\)
 
+此題存在4種解法。  
+\(1\) Backtracking/DFS \( +Recursion \)  
+\(2\) BFS
+
 
 
 #### 題目
