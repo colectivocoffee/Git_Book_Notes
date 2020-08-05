@@ -11,6 +11,7 @@
 
 ## 算法
 
+* [Backtracking](suan-fa/backtracking.md)
 * [Multiple Solutions](suan-fa/multiple-solutions-1/README.md)
   * [\[Medium\] Palindromic Substring](suan-fa/multiple-solutions-1/medium-palindromic-substring.md)
   * [\[Medium\] Longest Palindromic Substring](suan-fa/multiple-solutions-1/medium-longest-palindromic-substring.md)
