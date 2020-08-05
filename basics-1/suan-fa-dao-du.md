@@ -30,7 +30,7 @@ for item in nums:
 
 ## Advanced Python
 
-* [ ] lambda用法
+* [ ] lambda用法  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
 * [ ] zip用法
 
 ## Time Complexity
