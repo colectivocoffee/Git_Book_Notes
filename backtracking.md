@@ -10,7 +10,7 @@ Backtracking（回溯法）常用於traverse列表內的所有Subsets。通常�
 
 ```python
 result = []
-while backtrac(選擇列表,路徑):
+while backtrack(選擇列表,路徑):
     if 滿足結束條件:
         result.add(路徑）
         return
@@ -21,6 +21,21 @@ while backtrac(選擇列表,路徑):
 ```
 
 ### 1. Subsets
+
+A huge number of coding interview problems involve dealing with Permutations and Combinations of a given set of elements. The pattern Subsets describes an efficient Breadth First Search \(BFS\) approach to handle all these problems.
+
+![](.gitbook/assets/subsets.jpg)
+
+
+
+How to identify the Subsets pattern:
+
+* Problems where you need to find the combinations or permutations of a given set
+* Problems featuring Subsets pattern:
+* Subsets With Duplicates \(easy\)
+* String Permutations by changing case \(medium\)
+
+
 
 #### 題目
 

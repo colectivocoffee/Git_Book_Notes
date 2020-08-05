@@ -23,7 +23,7 @@ The substring with start index = 6 is "bac", which is an anagram of "abc".
 
 ### Sliding Window\(-&gt;/-&gt;\): O\(n\)/O\(n\)
 
-![](../../.gitbook/assets/find_all_anagram.jpg)
+![](../.gitbook/assets/find_all_anagram.jpg)
 
 ## Code
 

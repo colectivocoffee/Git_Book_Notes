@@ -49,7 +49,7 @@ def slidingWindow(self, s):
 {% endtab %}
 {% endtabs %}
 
-![Sliding WIndow Conecpt](../../.gitbook/assets/sliding-window.png)
+![Sliding WIndow Conecpt](../.gitbook/assets/sliding-window.png)
 
 要如何判斷這題是否可以用Sliding Window解題呢？
 
@@ -87,7 +87,7 @@ When should I use Fast&Slow pointers over the Two Pointer method mentioned above
 
 * There are some cases where you shouldn’t use the Two Pointer approach such as in a singly linked list where you can’t move in a backwards direction. An example of when to use the Fast and Slow pattern is when you’re trying to determine if a linked list is a palindrome.
 
-![](../../.gitbook/assets/fast-and-slowpointer.jpg)
+![](../.gitbook/assets/fast-and-slowpointer.jpg)
 
 #### Linked List常用技巧：
 

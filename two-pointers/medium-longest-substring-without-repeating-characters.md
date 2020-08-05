@@ -26,7 +26,7 @@ Explanation: The answer is "abc", with the length of 3.
 
 這裡的sliding window就是max\_len & 字母不重複的狀態。
 
-![](../../.gitbook/assets/longest_substring.jpg)
+![](../.gitbook/assets/longest_substring.jpg)
 
 Sliding Window 模板如下
 

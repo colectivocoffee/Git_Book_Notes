@@ -23,9 +23,9 @@ could be produced using 1 cut.
      "subproblem + last palindrome"  
 
 
-![&#x6700;&#x5F8C;&#x7684;palindrome \(aba\)](../../.gitbook/assets/screen-shot-2020-06-29-at-9.10.13-pm.png)
+![&#x6700;&#x5F8C;&#x7684;palindrome \(aba\)](../.gitbook/assets/screen-shot-2020-06-29-at-9.10.13-pm.png)
 
-![](../../.gitbook/assets/img_0814.jpg)
+![](../.gitbook/assets/img_0814.jpg)
 
 **state:** `f[i]`，代表`前i個chars (s[0,...,i-1])`需要最少幾次的cut才能有palindrome。  
 **function:** $$f[i] = min(f[j]+1 | s[j, i-1] )$$   

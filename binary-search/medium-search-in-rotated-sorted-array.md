@@ -28,7 +28,7 @@ What if it contains duplicates? [Search in Rotated Sorted Array II](https://leet
 
 由下圖我們可以知道，在第一次判斷中，去除掉target == mid這種情況，target只有可能在 `start-[target]-mid` 或 `mid-[target]-end` 中間。在第二次判斷中，target有四種可能\(1\)\(2\)\(3\)\(4\)，因此兩邊還各需要一個if/else statement來區分。
 
-![](../../.gitbook/assets/1-2.jpg)
+![](../.gitbook/assets/1-2.jpg)
 
 結束判斷後，由於\[start, end\]是在隔壁，我們需要再用`if nums[start] == target -> return start`and `if nums[end] == target -> return end`來看最後要選start還是end。
 

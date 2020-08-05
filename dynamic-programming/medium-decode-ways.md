@@ -21,7 +21,7 @@ Given a **non-empty** string containing only digits, determine the total number 
 另外我們知道，A-Z 有26種對應方式，可以區分為`1-9` and `10-26`兩種不同類別。  
    
 **&lt;方式1&gt; 1-9                                     &lt;方式2&gt; 10-26**  
-![](../../.gitbook/assets/screen-shot-2020-06-24-at-9.22.33-pm.png) ![](../../.gitbook/assets/screen-shot-2020-06-24-at-9.22.47-pm.png)   
+![](../.gitbook/assets/screen-shot-2020-06-24-at-9.22.33-pm.png) ![](../.gitbook/assets/screen-shot-2020-06-24-at-9.22.47-pm.png)   
 1. **確定狀態**：  
     我們可以從**最後一個**環節開始拆分。因為最後也只有兩種可能 1--9 or 10--26，因此  
     **\(1\) 最後一步**：either 1--9 or 10--26    

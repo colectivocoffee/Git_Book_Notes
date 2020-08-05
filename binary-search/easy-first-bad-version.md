@@ -14,7 +14,7 @@ You are given an API `bool isBadVersion(version)` which will return whether `ver
 由題意要求從一個arraylist \[1,2,3...,n\] 裡面找badVersion，我們可以想到最快找到badVersion的辦法是Binary Search。如果找到即`badVersion(mid) == True`則`end=mid`，反之==False則`start=mid`。  
 剩下的還是就用模板來完成。
 
-![](../../.gitbook/assets/firstbadversion.jpg)
+![](../.gitbook/assets/firstbadversion.jpg)
 
 ## Code
 

@@ -33,7 +33,14 @@
 
 由於Linked List取值只能用`node.next`來取。在解題時，需要實時地maintain \(1\)`head` \(2\) `head.next` 這兩者的關係。
 
-### 3. Linked List Basic Operations
+### 3. 為什麼需要DummyNode
+
+ `Dummy  
+  [X] -> Head -> node -> node -> ....`
+
+DummyNode 一般不存儲有意義的值，而是用於`佔位`。這樣的好處是，我們會比較方便對Head進行Insert/Delete等操作而又可以保持原始的Linked List狀態。
+
+### 4. Linked List Basic Operations
 
 \(1\) 往後移一格
 

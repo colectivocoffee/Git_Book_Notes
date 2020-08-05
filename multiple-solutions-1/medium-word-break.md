@@ -68,7 +68,7 @@ Space Complexity: O\(n\), where n is the depth of the recursion
 **SubProblem**：  
 原來的找`applepenapple`是否在wordDict，則可化為`"apple + penapple"` 找`"penapple"`是否在wordDict。
 
-![](../../.gitbook/assets/wordbreak.jpg)
+![](../.gitbook/assets/wordbreak.jpg)
 
 #### 2. Transfer Function:
 

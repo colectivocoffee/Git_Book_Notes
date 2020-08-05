@@ -26,7 +26,7 @@ Space Complexity: O\($$n$$\) : dp array f.
 Space Complexity: O\( $$n$$ \) : Depth of the recursion tree.    
   
 
-![](../../.gitbook/assets/70_climbing_stairs_rt.jpg)
+![](../.gitbook/assets/70_climbing_stairs_rt.jpg)
 
 ### \(3\) Recursion + Memoization
 
