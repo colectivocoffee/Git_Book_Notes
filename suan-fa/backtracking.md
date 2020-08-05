@@ -10,7 +10,14 @@ Backtracking（回溯法）常用於traverse列表內的所有Subsets。通常�
 
 ```python
 result = []
-while backtrac(選擇列表,
+while backtrac(選擇列表,路徑):
+    if 滿足結束條件:
+        result.add(路徑）
+        return
+    for 選擇 in 選擇列表:
+        做選擇
+        backtrack(選擇列表,路徑)
+        撤銷選擇
 ```
 
 ### 1. Subsets
