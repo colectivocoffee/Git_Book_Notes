@@ -13,7 +13,13 @@ Given 1->2->3->4, you should return the list as 2->1->4->3.
 
 ### Thought Process
 
+####     1.Iterative Method
+
 ![](../../.gitbook/assets/swapnodes.jpg)
+
+####     2.Recursion Method 
+
+
 
 ### Code
 
