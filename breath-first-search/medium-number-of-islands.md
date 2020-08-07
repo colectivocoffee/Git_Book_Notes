@@ -21,6 +21,8 @@ dfs(grid, x, y+1)
 dfs(grid, x-1, y)  
 dfs(grid, x, y-1)`
 
+每一次我們call bfs/dfs這些search function時，它會一直search相鄰的所有neighbors，直到所有`neighbor == '1'`的節點都已經看完為止。
+
 ### 1. BFS
 
 推薦用BFS
