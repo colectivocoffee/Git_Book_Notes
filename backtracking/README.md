@@ -24,7 +24,7 @@ while backtrack(選擇列表,路徑):
 
 A huge number of coding interview problems involve dealing with Permutations and Combinations of a given set of elements. The pattern Subsets describes an efficient Breadth First Search \(BFS\) approach to handle all these problems.
 
-![](.gitbook/assets/subsets.jpg)
+![](../.gitbook/assets/subsets.jpg)
 
 
 

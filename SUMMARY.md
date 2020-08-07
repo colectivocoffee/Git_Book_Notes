@@ -13,8 +13,10 @@
 
 ---
 
-* [Breath First Search](breath-first-search.md)
-* [Backtracking](backtracking.md)
+* [BFS/DFS](breath-first-search/README.md)
+  * [\[Medium\] Number of Islands](breath-first-search/medium-number-of-islands.md)
+* [Backtracking](backtracking/README.md)
+  * [\[Medium\] Subsets](backtracking/medium-subsets.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [\[Hard\] Edit Distance](dynamic-programming/hard-edit-distance.md)
   * [\[Medium\] Longest Common Subsequence \(LCS\)](dynamic-programming/medium-longest-common-subsequence-lcs.md)
