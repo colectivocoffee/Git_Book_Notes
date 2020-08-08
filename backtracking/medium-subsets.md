@@ -16,5 +16,7 @@ Given a set of **distinct** integers, _nums_, return all possible subsets \(the 
 
 ## Code
 
+[https://leetcode.com/problems/subsets/discuss/27301/Python-easy-to-understand-solutions-\(DFS-recursively-Bit-Manipulation-Iteratively\).](https://leetcode.com/problems/subsets/discuss/27301/Python-easy-to-understand-solutions-%28DFS-recursively-Bit-Manipulation-Iteratively%29.)
+
 
 
