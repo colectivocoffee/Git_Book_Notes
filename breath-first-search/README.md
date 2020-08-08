@@ -1,8 +1,8 @@
 # BFS/DFS
 
-## Stack and Queue \(棧和隊列\)
-
 ![](../.gitbook/assets/bfs_and_dfs.jpeg)
+
+## Stack and Queue \(棧和隊列\)
 
 ## Stack
 
