@@ -25,10 +25,10 @@ queue = dequeue()
 visited = []
 
 while len(queue)不為0:
-    node = queue.pop()
-    for node in 所有和node相鄰節點：
-        if node 未訪問過：
-            queue.push(node)
+    node = queue.pop()       # .popleft()
+    for neighbor in 所有和node相鄰節點：
+        if neighbor 未訪問過：
+            queue.push(node) # .append()
             在visited紀錄此節點已被訪問
 ```
 
