@@ -14,6 +14,7 @@
 ---
 
 * [BFS/DFS](breath-first-search/README.md)
+  * [\[Medium\] Word Ladder](breath-first-search/medium-word-ladder.md)
   * [\[Medium\] Clone Graph](breath-first-search/medium-clone-graph.md)
   * [\[Medium\] Number of Islands](breath-first-search/medium-number-of-islands.md)
 * [Backtracking](backtracking/README.md)
