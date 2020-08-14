@@ -77,6 +77,21 @@ while len(stack) != 0:
             在visited記錄此neighbor節點已被訪問
 ```
 
+## Topological Sorting
+
+1.統計所有點的In-degree，並初始化Topological序列為空。  
+2.將所有In-degree = 0的點，也就是沒有任何依賴的點，放到BFS Queue中。  
+3.將Queue中所有的點一個一個放出來，放到Topological序列中，每次釋放出某個點curr的時候，就訪問`curr`的相鄰點`neighbor`（即所有A指向的點），並把這些點的`In-degree - 1`。  
+4.如果發現某個點的 `In-degree - 1 == 0`，則放入Queue中。  
+5.直到`len(Queue) == 0`時，算法結束。 
+
+While the graph is not empty :  
+    0. Check if the graph has no cycle  
+    1. Find all nodes that have no arrows going into them \(In-degree = 0\)  O\(N+E\)  
+    2. Delete it, output it until all the nodes are gone.
+
+
+
 * [x] Clone Graph
 * [ ] Word Ladder
 * [ ] Word Ladder II

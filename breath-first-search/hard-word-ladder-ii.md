@@ -18,7 +18,13 @@ Note:
 
 ### 1. BFS
 
+why should we use localVisited?
+
+It is used to guarantee words in one level can visit some common words in the next level. For example, in the 4th level, the words are \[dog, log\], the last level is \[cog\]. In the first iteration, 'dog' goes to 'cog', localvisited will go from \[\] to \[cog\], but visited remains \[\]. In the second iteration, 'log' goes to 'cog', localvisited will go from \[\] to \[cog\]. Only after finishing these two iterations, visited will be updated to \[cog\]. So in a word, with localvisited, we can visit the next level several times and get several paths, without it, we can only get one path.
+
 ### 2. BFS + DFS
+
+### 3. Bi-directional BFS
 
 
 
@@ -55,9 +61,11 @@ def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List
         for _ in range(len(queue)):
             word, path = queue.popleft()
             for i in range(len(word)):
-                # possible_words[....] 易錯點
+                # 易錯點
+                # intermediate word = word[:i] + '*' + word[i+1:]
+                # possible_words[intermediate_word]
                 for neighbor in possible_words[word[:i] + '*' + word[i+1:]]:
-                    # the path has been found, then exit 
+                    # if the full path has been found, then exit 
                     if neighbor == endWord:
                         ans.append(path + [endWord])
                     # BFS traversal
@@ -70,7 +78,7 @@ def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List
     return ans
     
     
-# utility method to construct possible words like below
+# utility method to construct intermediate words like below
 # w*rd, wo*rd, ....    
 def get_possible_words(self, wordList, possible_words):
     
@@ -78,5 +86,13 @@ def get_possible_words(self, wordList, possible_words):
         for i in range(len(word)):
             possible_words[word[:i] + '*' + word[i+1:]].append(word)
     
+```
+
+#### 2. BFS + DFS
+
+```python
+def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+
+        
 ```
 
