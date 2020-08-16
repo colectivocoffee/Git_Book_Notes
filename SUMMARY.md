@@ -9,6 +9,8 @@
 
 ## 算法技巧
 
+* [Solving Patterns](suan-fa-ji-qiao/solving-patterns.md)
+
 ## 算法
 
 ---
