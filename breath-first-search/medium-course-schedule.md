@@ -31,11 +31,15 @@ deque([0,1])
 
 ## Thought Process
 
-題目問說"Given number of courses and prerequisites, is it possible to finish all courses?"，言外之意，就是要找課程間**是否有cycle**。
+題目問說"Given number of courses and prerequisites, is it possible to finish all courses?"，言外之意，就是要找課程間**是否有cycle，即判定是否為DAG \(有向無環圖 Directed Acyclic Graph\)**。
 
 這些courses和prerequisites可以簡化成Graph。而每一個course是個Node，每一個prerequisites pair的關係 ex: \[2,1\] \( if you `take 2`, you `need 1` as prereq \)，可以看成是 `2 <- 1` 的關係。因此我們可以把整個prerequisites畫成一個完整的Graph。
 
 另外我們可以用Topological Sort來看整個Graph是否有Cycle。
+
+> 拓扑排序 = 顶点染色 + 记录顺序
+
+
 
 ### 1. BFS + Topological Sort: O\(V+E\)
 
@@ -62,9 +66,11 @@ for ind, node in prerequisites:
 #   otherwise there is cycle   
 ```
 
-### 2. DFS + Topological Sort: O\(\)
+### 2. DFS - Topological Sort \(92ms 98.39%\): O\(V+E\)
 
+解法和BFS幾乎一樣，就是把queue換成stack。
 
+### 3. DFS - Topological Sort + OO Style: O\(V+E\)
 
 ## Code
 
@@ -118,7 +124,42 @@ def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
     
 ```
 
+#### 2. DFS + Topological Sort:
 
+```python
+def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+    
+    # init indegree & graph
+    indegree = [0 for _ in range(numCourses)]
+    graph = [[] for _ in range(numCourses)] 
+    
+    # construct relationship between nodes
+    for ind,node in prerequisites:
+        indegree[ind] += 1
+        graph[node].appen(ind)
+        
+    # add indegree == 0 node to stack
+    stack = []
+    for i in range(numCourses):
+        if indegree[i] == 0:
+            stack.append(i)
+    
+    # init count, and do DFS
+    count = 0
+    while len(stack) != 0:
+        curr = stack.pop()
+        count += 1
+        for neighbor in graph[curr]:
+            indegree[neighbor] -= 1
+            if indegree[neighbor] == 0:
+                stack.append(neighbor)
+    
+    if count < numCourses:
+        return False
+    else:
+        return True
+    
+```
 
 
 
