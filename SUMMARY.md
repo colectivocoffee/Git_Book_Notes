@@ -16,6 +16,7 @@
 ---
 
 * [BFS/DFS](breath-first-search/README.md)
+  * [\[Medium\] Course Schedule II](breath-first-search/medium-course-schedule-ii.md)
   * [\[Medium\] Course Schedule](breath-first-search/medium-course-schedule.md)
   * [\[Hard\] Word Ladder II](breath-first-search/hard-word-ladder-ii.md)
   * [\[Medium\] Word Ladder](breath-first-search/medium-word-ladder.md)
