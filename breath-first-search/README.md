@@ -85,6 +85,33 @@ while len(stack) != 0:
 4.如果發現某個點的 `In-degree - 1 == 0`，則放入Queue中。  
 5.直到`len(Queue) == 0`時，算法結束。 
 
+```python
+1. indegree = [0 for _ in range(all nodes)]
+   graph = [[] for _ in range(all nodes)]
+   
+   for ind,node in range(node-dependency):
+      indegree[ind] ++
+      graph[node].append(ind) # add dependency
+
+2. for i in range(all nodes)
+      if indegree[i] == 0:
+         add to queue
+
+3. Do BFS
+   result = xxx
+   while len(queue) != 0:
+      curr = queue.popleft() # pop an element out from queue
+      result.add             # add result
+      # explore neighbor from graph
+      for neighbor in graph[curr]:
+         # indegree - 1
+         indegree[neighbor] --
+         4. if indegree[neighbor] == 0:
+            add to queue
+            
+ 5. Output result 
+```
+
 While the graph is not empty :  
     0. Check if the graph has no cycle  
     1. Find all nodes that have no arrows going into them \(In-degree = 0\)  O\(N+E\)  
