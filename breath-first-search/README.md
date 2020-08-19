@@ -63,7 +63,7 @@ while len(queue) 不為0 :
 
 Stack 用於DFS
 
-### DFS 模板
+### Iterative DFS 模板
 
 ```python
 stack []
@@ -120,15 +120,17 @@ While the graph is not empty :
 
 
 * [x] Clone Graph
-* [ ] Word Ladder
-* [ ] Word Ladder II
+* [x] Word Ladder
+* [x] Word Ladder II
 * [x] Number of Islands
 * [ ] Binary Tree Level Order Traversal
 * [ ] Search Graph Nodes
-* [ ] Course Schedule II
+* [x] Course Schedule
+* [x] Course Schedule II
 * [ ] Knight Shortest Path
 * [ ] Zombie in Matrix
 * [ ] Graph Valid Tree
 * [ ] Binary Tree Serialization
 * [ ] Build Post Office II
+* [ ] Alien Dictionary
 
