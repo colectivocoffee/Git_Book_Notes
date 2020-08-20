@@ -33,7 +33,10 @@ space complexity是跟著queue size走的，所以如果grid本身全是'1'的�
 
 ### 2. DFS
 
-用DFS容易使Recursion深度太深，造成Stack Overflow。
+用DFS Recursion 版本容易深度太深，造成Stack Overflow。
+
+Time Complexity: O\(m\*n\) we are visiting each element in the 2D array once  
+Space complexity: O \(m\*n\) in the case whole grid is filled with ‘1’.
 
 ### 3. Union Find
 
