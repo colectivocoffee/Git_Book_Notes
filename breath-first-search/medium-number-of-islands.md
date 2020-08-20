@@ -23,9 +23,13 @@ dfs(grid, x, y-1)`
 
 每一次我們call bfs/dfs這些search function時，它會一直search相鄰的所有neighbors，直到所有`neighbor == '1'`的節點都已經看完為止。
 
-### 1. BFS
+### 1. BFS:  O\(m\*n\)/O\(min\(m,n\)\)
 
 推薦用BFS
+
+Time Complexity: O\(m\*n\)  
+Space Complexity: O\(min\(m,n\)\)  
+space complexity是跟著queue size走的，所以如果grid本身全是'1'的情況下，queue的最大size就是 min\(m,n\)
 
 ### 2. DFS
 
@@ -35,7 +39,7 @@ dfs(grid, x, y-1)`
 
 ## Code
 
-#### 1. BFS + boolean matrix: O\(m\*n\) / O\(m\*n\) \(Recommend\)
+#### 1. BFS + boolean matrix: O\(m\*n\) / O\(min\(m,n\)\) \(Recommend\)
 
 ```python
 #     col0,1,2 
@@ -84,7 +88,7 @@ def bfs(self, grid, x, y, visited):
                     visited[next_x][next_y] = True  # mark as visited
 ```
 
-#### 2. BFS + boolean set : O\(m\*n\)/O\(1\)
+#### 2. BFS + boolean set : O\(m\*n\)/O\(min\(m,n\)\)
 
 needs to revisit
 
