@@ -31,7 +31,7 @@ Time Complexity: O\(m\*n\)
 Space Complexity: O\(min\(m,n\)\)  
 space complexity是跟著queue size走的，所以如果grid本身全是'1'的情況下，queue的最大size就是 min\(m,n\)
 
-### 2. DFS
+### 2. DFS: O\(m\*n\)/O\(m\*n\)
 
 用DFS Recursion 版本容易深度太深，造成Stack Overflow。
 
