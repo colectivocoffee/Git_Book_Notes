@@ -39,6 +39,14 @@ Output: [3, 4]
 * According to the [definition of tree on Wikipedia](https://en.wikipedia.org/wiki/Tree_%28graph_theory%29): “a tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.”
 * The **height of a rooted tree** is the **number of edges on the longest downward path between the root and a leaf**.
 
+## Thought Process
+
+由上面的Tree & height of a rooted tree定義，我們可以知道Minimum Height Tree是由“不斷地砍去leaves，直到最後只剩最短枝幹”所造，也就是從中點到枝葉最長距離 -- 其他次長的枝葉。因此我們可以用類似Topological Sort的方式求解。
+
+唯一不同的是，Topological Sort是一層一曾向外推，而我們的解法是從最外的leaves開始一層一層向內推。`leaves = [i for i in range(n) if len(graph[i]) <= 1]`
+
+
+
 ## Code
 
 > 思路：Reversed Topological Sort \(由外而內剪leaves\) + prev\_leaves, leaves 來存舊枝葉
