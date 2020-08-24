@@ -16,6 +16,7 @@
 ---
 
 * [BFS/DFS](breath-first-search/README.md)
+  * [\[Medium\] Minimum Height Trees](breath-first-search/medium-minimum-height-trees.md)
   * [\[Medium\] Course Schedule II](breath-first-search/medium-course-schedule-ii.md)
   * [\[Medium\] Course Schedule](breath-first-search/medium-course-schedule.md)
   * [\[Hard\] Word Ladder II](breath-first-search/hard-word-ladder-ii.md)
