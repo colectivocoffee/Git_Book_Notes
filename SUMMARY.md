@@ -7,10 +7,6 @@
 * [算法導讀](basics-1/suan-fa-dao-du.md)
 * [面試準備技巧](basics-1/zhun-bei-ji-qiao.md)
 
-## 算法技巧
-
-* [Solving Patterns](suan-fa-ji-qiao/solving-patterns.md)
-
 ## 算法
 
 ---
@@ -80,4 +76,6 @@
 * [Array](shu-ju-jie-gou/array/README.md)
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
 * [Heap](shu-ju-jie-gou/heap.md)
+* [Binary Tree](shu-ju-jie-gou/binary-tree/README.md)
+  * [\[Medium\] Binary Tree Level Order Traversal](shu-ju-jie-gou/binary-tree/medium-binary-tree-level-order-traversal.md)
 
