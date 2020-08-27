@@ -2,9 +2,9 @@
 
 ## Code
 
-#### 1. BFS + Level Order\(curr\_level\): O\(logn\)
+#### 1. BFS Iterative + Level Order\(curr\_level\): O\(logn\) / \(Recommend\)
 
-> 思路：用Queue來記錄這一層即將要掃的nodes，當掃完之後把下一層元素curr添加到curr\_level中。
+> 思路：用Queue來記錄這一層除了curr之外，即將要掃的所有left&right nodes都放到裡面。當掃到curr node時，把curr添加到curr\_level中。
 
 ```python
 # Definition for a binary tree node.
@@ -46,7 +46,7 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
     return result
 ```
 
-#### 2. DFS
+#### 2. DFS Recursive + PreOrder Traversal: 
 
 
 

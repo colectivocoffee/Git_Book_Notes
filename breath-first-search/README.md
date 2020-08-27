@@ -123,7 +123,7 @@ While the graph is not empty :
 * [x] Word Ladder
 * [x] Word Ladder II
 * [x] Number of Islands
-* [ ] Binary Tree Level Order Traversal
+* [x] Binary Tree Level Order Traversal
 * [ ] Search Graph Nodes
 * [x] Course Schedule
 * [x] Course Schedule II
