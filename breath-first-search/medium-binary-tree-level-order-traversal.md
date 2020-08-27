@@ -134,6 +134,8 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
         result[level].append(curr.val)
         # 注意，這裡是先right後left
         # 因為 stack.pop()是LIFO 
+        # 這樣才能    In: right->left 
+        #           Out:        left -> right 
         if curr.right != None:
             stack.append((curr.right, level+1))
         if curr.left != None:
