@@ -1,10 +1,25 @@
 # \[Medium\] Binary Tree Level Order Traversal
 
+[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)  
+3307 / 78  
+Given a binary tree, return the level order traversal of its nodes' values. \(ie, from left to right, level by level\).
+
+**Example**
+
+```text
+    3             [ 
+   / \              [3],
+  9  20     ==>    [9,20],
+    /  \           [15,7]
+   15   7         ]
+```
+
 ## Code
 
 #### 1. BFS Iterative + Level Order\(curr\_level\): O\(logn\) / \(Recommend\)
 
-> 思路：用Queue來記錄這一層除了curr之外，即將要掃的所有left&right nodes都放到裡面。當掃到curr node時，把curr添加到curr\_level中。
+> 思路：Top-Down Approach  
+> 用Queue來記錄這一層除了curr之外，即將要掃的所有left&right nodes都放到裡面。當掃到curr node時，把curr添加到curr\_level中。
 
 ```python
 # Definition for a binary tree node.
@@ -47,6 +62,56 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
 ```
 
 #### 2. DFS Recursive + PreOrder Traversal: 
+
+> 思路：Top-Down Approach，一層一層往下掃。  
+> 由於是Binary Tree，  
+> dfs\(level+1, curr.left\)  
+> dfs\(level+1, curr.right\)  
+> 會先把同一層的左右nodes都掃完後，才會繼續往下一層走。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    result = []
+    self.dfs()
+    return result
+    
+def dfs(self, level, curr, result):
+    # 遞歸出口，即後面沒有node了
+    if not curr:
+        return 
+    # 到了下一層發現還沒有curr_level，新增一個 []
+    if level == len(result):
+        result.append([])
+    
+    #    3
+    #   / \
+    #  9  20
+    #    /  \
+    #   15   7
+    #[[]]
+    #[[3]] 3
+    #[[3], []]
+    #[[3], [9]] 9
+    #[[3], [9, 20]] 20
+    #[[3], [9, 20], []]
+    #[[3], [9, 20], [15]] 15
+    #[[3], [9, 20], [15, 7]] 7
+    # Add curr to curr_level
+    result[level].append(curr.val)
+    self.dfs(level+1, curr.left, result)
+    self.dfs(level+1, curr.right, result)    
+    
+```
+
+#### 3. Bottom-Up Approach DFS
+
+#### 4. Bottom-Up Approach BFS
 
 
 
