@@ -109,6 +109,39 @@ def dfs(self, level, curr, result):
     
 ```
 
+### 3. DFS Iterative:
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    
+    result = []
+    if not root:
+        return result
+    
+    stack = []
+    stack.append((root,0))
+    while len(stack) != 0:
+        curr, level = stack.pop()  # pop the last item on right
+        if level == len(result):
+            result.append([])
+        
+        result[level].append(curr.val)
+        # 注意，這裡是先right後left
+        # 因為 stack.pop()是LIFO 
+        if curr.right != None:
+            stack.append((curr.right, level+1))
+        if curr.left != None:
+            stack.append((curr.left, level+1))
+    
+    return result
+```
+
 #### 3. Bottom-Up Approach DFS
 
 #### 4. Bottom-Up Approach BFS
