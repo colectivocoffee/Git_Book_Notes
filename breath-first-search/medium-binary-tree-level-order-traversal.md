@@ -16,7 +16,7 @@ Given a binary tree, return the level order traversal of its nodes' values. \(ie
 
 ## Code
 
-#### 1. BFS Iterative + Level Order\(curr\_level\): O\(logn\) / \(Recommend\)
+### 1. BFS Iterative + Level Order\(curr\_level\): O\(logn\) / \(Recommend\)
 
 > 思路：Top-Down Approach  
 > 用Queue來記錄這一層除了curr之外，即將要掃的所有left&right nodes都放到裡面。當掃到curr node時，把curr添加到curr\_level中。
@@ -61,7 +61,7 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
     return result
 ```
 
-#### 2. DFS Recursive + PreOrder Traversal: 
+### 2. DFS Recursive + PreOrder Traversal: 
 
 > 思路：Top-Down Approach，一層一層往下掃。  
 > 由於是Binary Tree，  
