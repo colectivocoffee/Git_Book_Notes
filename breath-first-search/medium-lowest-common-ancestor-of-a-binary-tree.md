@@ -37,7 +37,8 @@ Space Complexity: O\(n\)
 > \(1\) p,q 分別在`左右子樹`   
 > \(2\) p,q 都在`右子樹`   
 > \(3\) p,q 都在`左子樹`  
-> 所以，用DFS Recursive來找是最容易的方法。
+> 所以，用DFS Recursive來找是最容易的方法。  
+> 當我們DFS Recursion完後，左右分別都回到root節點3，在Ex2情況下，root左邊返回5，root右邊返回None，而p,q自己就是LCA。
 
 ```python
 # Definition for a binary tree node.
