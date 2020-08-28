@@ -71,10 +71,6 @@ def dfs(self, root, p, q):
     # 如果p,q不在右子樹 => p,q都在左子樹 => root.left為最小LCA
     if not right:
         return left
-        
-    
-    
-
 
 ```
 
