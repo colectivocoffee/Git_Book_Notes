@@ -79,5 +79,6 @@
 * [Array](shu-ju-jie-gou/array/README.md)
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
 * [Heap](shu-ju-jie-gou/heap.md)
-* [Binary Tree](shu-ju-jie-gou/binary-tree.md)
+* [Binary Tree](shu-ju-jie-gou/binary-tree/README.md)
+  * [\[Medium\] Validate Binary Search Tree](shu-ju-jie-gou/binary-tree/medium-validate-binary-search-tree.md)
 
