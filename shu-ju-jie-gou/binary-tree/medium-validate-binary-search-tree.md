@@ -47,6 +47,9 @@ Space Complexity: O\(n\) Recursive call stack
 #         self.right = right
 def isValidBST(self, root: TreeNode) -> bool:
     
+    if not root:
+        return True
+    
     # to keep a list of visited nodes to compare values later 
     visited = []
     
@@ -71,4 +74,6 @@ def dfs(self, curr, visited):
     self.dfs(curr.right, visited)    
     
 ```
+
+### 2. DFS Iterative
 
