@@ -33,6 +33,17 @@ Explanation: The root node's value is 5 but its right child's value is 4.
 
 ## Code
 
+> 思路：想想BST的特性，節點值由小到大依序為“`左 -> curr -> 右`”。  
+> 因此，我們可以用BST In-order Traversal的方式來遍歷所有的節點，並且依序放到visited list裡面。  
+> 如果發現到visited list裡面有不符合小至大的順序者\(ex: \[1,5,3,4,6\]\)，則 return False，全符合則 return True。   
+>   
+> In-Order Traversal Recursive寫法：  
+> `dfs(curr, visited):  
+>      dfs(curr.left, visited)  
+>      visited.append(curr.val)  
+>      dfs(curr.right, visited)`  
+> s
+
 ### 1. DFS Recursive \(In-order Traversal\)
 
 Time Complexity: O\(n\)  
@@ -76,4 +87,43 @@ def dfs(self, curr, visited):
 ```
 
 ### 2. DFS Iterative
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+def isValidBST(self, root: TreeNode) -> bool:
+
+    if not root:
+        return True
+        
+    stack = []
+    visited = [] # In-order traversal. Represents the order of the visited nodes.
+    curr = root
+    
+    while len(stack) != 0 or curr != None:
+        # in-order traversal: left -> curr -> right 
+        # 1.LEFT: add all left nodes
+        while curr != None:
+            stack.append(curr)
+            curr = curr.left
+            
+        # 2.CURR: pop from stack and mark as visited 
+        curr = stack.pop()    
+        visited.append(curr.val)
+        
+        # 3.RIGHT: move to right node
+        curr = curr.right
+        
+    # check validity  
+    for i in range(1, len(stack)):
+        if stack[i] <= stack[i-1]:
+            return False
+    return True
+            
+    
+```
 
