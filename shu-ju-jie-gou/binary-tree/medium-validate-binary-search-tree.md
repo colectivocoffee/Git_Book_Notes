@@ -42,7 +42,7 @@ Explanation: The root node's value is 5 but its right child's value is 4.
 >      dfs(curr.left, visited)  
 >      visited.append(curr.val)  
 >      dfs(curr.right, visited)`  
-> s
+> --
 
 ### 1. DFS Recursive \(In-order Traversal\)
 
@@ -87,6 +87,9 @@ def dfs(self, curr, visited):
 ```
 
 ### 2. DFS Iterative
+
+> 思路：和DFS Recursive同樣的思維。不同的是，需要在這裡用stack來記錄需要處理的nodes。  
+> 還是依照In-Order Traversal的順序"`左 -> curr -> 右`"遍歷，因此我們先把所有curr.left的所有nodes append\(\)到stack，再依序pop\(\)並且放到visited，最後再移動到curr.right。
 
 ```python
 # Definition for a binary tree node.
