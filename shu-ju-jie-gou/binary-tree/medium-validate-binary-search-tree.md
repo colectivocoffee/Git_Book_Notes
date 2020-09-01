@@ -8,7 +8,7 @@ Assume a BST is defined as follows:
 * The right subtree of a node contains only nodes with keys **greater than** the node's key.
 * Both the left and right subtrees must also be binary search trees.
 
-Example 
+**Example** 
 
 ```text
     2
