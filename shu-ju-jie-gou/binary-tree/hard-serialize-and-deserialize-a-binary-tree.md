@@ -21,3 +21,48 @@ as "[1,2,3,null,null,4,5]"
 
 ## Code
 
+### 1. BFS Iterative: O\(n\)/O\(n\)
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Codec:
+
+def serialize(self, root):
+"""Encodes a tree to a single string.
+:type root: TreeNode
+:rtype: str
+"""
+        if not root:
+                return
+                 
+        result = []
+        queue = deque()
+        queue.append(root)
+        
+        while len(queue) != 0:
+                curr = queue.popleft()
+                # curr is not null
+                if curr != None:
+                        result.append(curr.val)
+                                                
+
+
+
+def deserialize(self, data):
+"""Decodes your encoded data to tree.        
+:type data: str
+:rtype: TreeNode
+"""
+```
+
+>
+{% endtab %}
+{% endtabs %}
+

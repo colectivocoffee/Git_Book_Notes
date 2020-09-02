@@ -77,7 +77,7 @@ while len(stack) != 0:
             在visited記錄此neighbor節點已被訪問
 ```
 
-## Topological Sorting
+## Topological Sort
 
 1.統計所有點的In-degree，並初始化Topological序列為空。  
 2.將所有In-degree = 0的點，也就是沒有任何依賴的點，放到BFS Queue中。  
