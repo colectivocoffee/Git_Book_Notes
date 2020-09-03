@@ -25,12 +25,28 @@ as "[1,2,3,null,null,4,5]"
 
 ### 1. BFS Iterative: O\(n\)/O\(n\)
 
-> Serialization: binary tree nodes -&gt; data \(list\)  
-> ssss
+> **Serialization**: binary tree nodes -&gt; data \(list\)  
+> 用Pre-order Traversal的方式遍歷"`curr -> curr.left -> curr.right`"：  
+> `result.append(curr.val)  
+> queue.append(curr.left)  
+> queue.append(curr.right)`
 
 > **Deserialization: data -&gt; binary tree nodes**  
-> 用BFS可以一層一層放node。用  
-> “`curr -> curr.left (put_left == True) -> curr.right (put_left == False)`" 的順序放。
+> 用BFS可以一層一層放node。用Pre-order Traversal的方式從1-&gt;len\(all\_nodes\)遍歷。  
+> “`curr -> curr.left (put_left == True) -> curr.right (put_left == False)`" 的順序放。  
+> 由於是用中-&gt;左-&gt;右的順序放，我們需要一個額外put\_Left的boolean來決定，是否要放在左邊，還是右邊。每一次放完後，就**Flip** put\_left = not put\_left。這裡有一點需要注意：  
+> \(1\) curr = queue.popleft\(\) 只有在put\_left == True時才需要
+>
+> ```python
+> while len(queue)不為0:
+>     depth += 1
+>     n = queue中元素的個數
+>     for 循環 n 次：              ==>    for _ in range(1, len(all_nodes))
+>         node = queue.popleft()             if put_left == True: 
+>                                                curr = queue.popleft()
+>                                                curr.left = ....
+>                                                # put curr.left into the queue
+> ```
 
 ```python
 # Definition for a binary tree node.
@@ -55,7 +71,7 @@ class Codec:
         while len(queue) != 0:
             curr = queue.popleft()
             
-            # NOTE: in-order traversal
+            # NOTE: pre-order traversal
             # 中-left-right
             if curr != None:
                 result.append(curr.val) # 易錯點: convert to str 
@@ -124,5 +140,23 @@ class Codec:
         else:
             return TreeNode(int(s))
                 
+```
+
+### 2. BFS Recursive
+
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Codec:
+    def serialize(self, root):
+        
+        
+
+    def deserialize(self, data):
+        
 ```
 
