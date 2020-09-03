@@ -14,6 +14,8 @@ Note: A leaf is a node with no children.
 Time Complexity: O\(n\) visit each node once  
 Space Complexity: O\(n\) recursion would occur N times for a completely unbalanced binary tree
 
+> 思路：用depth紀錄Recursion深度，最後在Recursion出口時，返回depth。
+
 ```python
 def maxDepth(self, root: TreeNode) -> int:
     return self.dfs(0, root)
