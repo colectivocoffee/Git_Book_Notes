@@ -9,7 +9,10 @@ Note: A leaf is a node with no children.
 
 ## Code
 
-### 1. DFS Recurisve: O\(n\)/??
+### 1. DFS Recurisve: O\(n\)/O\(n\)
+
+Time Complexity: O\(n\) visit each node once  
+Space Complexity: O\(n\) recursion would occur N times for a completely unbalanced binary tree
 
 ```python
 def maxDepth(self, root: TreeNode) -> int:
