@@ -1,5 +1,7 @@
 # Binary Tree
 
+通常Binary Tree Traversal都會和BFS & DFS同時出現。因此建議複習Binary Tree時，搭配BFS&DFS一起練習。
+
 ## Binary Tree Traversal 
 
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)  
