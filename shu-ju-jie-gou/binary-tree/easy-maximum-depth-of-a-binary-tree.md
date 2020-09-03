@@ -26,7 +26,10 @@ def dfs(self, depth, curr):
 
 ```
 
-### 2. BFS Iterative: O\(n\)/??
+### 2. BFS Iterative: O\(n\)/O\(logn\)
+
+Time Complexity: O\(n\) visit each node **once.**  
+Space Complexity: O\(logn\)  --- Height of the binary tree **O\(logn\)** 
 
 > 思路：用典型的BFS+level order\(depth\)模板，最後return depth即可。
 
