@@ -1,8 +1,12 @@
 # Binary Tree
 
-通常Binary Tree Traversal都會和BFS & DFS同時出現。因此建議複習Binary Tree時，搭配BFS&DFS一起練習。
+Binary Tree 有分治法和遍歷法
+
+## Binary Tree Divide&Conquer
 
 ## Binary Tree Traversal 
+
+通常Binary Tree Traversal都會和BFS & DFS同時出現。因此建議複習Binary Tree時，搭配BFS&DFS一起練習。
 
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)  
 
