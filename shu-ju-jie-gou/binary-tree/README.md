@@ -14,7 +14,7 @@ Binary Tree 的解法有分治法和遍歷法。
 
 ## Binary Tree Traversal 
 
-透過Pre-order \(DFS\) / In-order \(DFS\) / Post-order \(DFS\) / Level-order\(BFS\) Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
+透過Pre-order / In-order / Post-order / Level-order\(BFS\) Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
 
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)  
 
