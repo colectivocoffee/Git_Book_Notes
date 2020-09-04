@@ -1,12 +1,20 @@
 # Binary Tree
 
-Binary Tree 有分治法和遍歷法
+Binary Tree 的解法有分治法和遍歷法。
+
+通常Binary Tree Traversal都會和BFS & DFS同時出現。因此建議複習Binary Tree時，搭配BFS&DFS一起練習。
 
 ## Binary Tree Divide&Conquer
 
+先讓Left Subtree和Right Subtree去解決同樣的問題，得到結果之後，再整合為整顆Binary Tree的結果。
+
+#### 為什麼Binary Tree適合使用Divide&Conquer呢？
+
+這樣想，把整個Binary Tree看成一個大問題，而Left Subtree 就是一個subProblem，Right Subtree 是另外一個subProblem，以此類推。而這Binary Tree就直接幫我們Divide好整個問題了。 
+
 ## Binary Tree Traversal 
 
-通常Binary Tree Traversal都會和BFS & DFS同時出現。因此建議複習Binary Tree時，搭配BFS&DFS一起練習。
+透過Pre-order \(DFS\) / In-order \(DFS\) / Post-order \(DFS\) / Level-order\(BFS\) Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
 
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)  
 
