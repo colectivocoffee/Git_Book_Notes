@@ -31,6 +31,12 @@ def pre_order(self, root, result):
     pre_order(root.right, result)  #右
 ```
 
+```python
+Pre-order Iterative 模板
+
+def pre_order(self, root, result):
+```
+
 ### 2. In-order Traversal: **Left-Root-Right** \(左根右\)
 
 ```python
