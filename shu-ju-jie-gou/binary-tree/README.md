@@ -1,8 +1,10 @@
 # Binary Tree
 
-Binary Tree 的解法有分治法和遍歷法。
+Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal, Breath First Search, Depth First Search。
 
 通常Binary Tree Traversal都會和BFS & DFS同時出現。因此建議複習Binary Tree時，搭配BFS&DFS一起練習。
+
+![](../../.gitbook/assets/tree-traversals.png)
 
 ## Binary Tree Divide&Conquer
 
