@@ -35,6 +35,22 @@ def pre_order(self, root, result):
 Pre-order Iterative 模板
 
 def pre_order(self, root, result):
+    if not root:
+        return 
+    result = []
+    stack = []
+    
+    while len(stack) != 0 or root != None:
+        for root != None:
+            # Pre-order
+            result.append(root.val)
+            stack.append(root)
+            root = root.left
+        # pop from stack
+        curr = stack.pop() # pop the last one
+        root = curr.right
+    return result
+        
 ```
 
 ### 2. In-order Traversal: **Left-Root-Right** \(左根右\)
