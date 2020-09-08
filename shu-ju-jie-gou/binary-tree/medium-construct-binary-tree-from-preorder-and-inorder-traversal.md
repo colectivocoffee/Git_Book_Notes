@@ -25,13 +25,15 @@ Return the following binary tree:
 
 ## Code
 
+### 1. Recursion + Preorder&Inorder特性
+
 思路：Preorder特性 & Inorder特性
 
 > **Preorder特性** -- `root是preorder[0]`   
 >    **Inorder特性** -- `root.left都是left subTree` ; `root.right都是right subTree`  
 > 因此，我們可以依照下列步驟  
 > Step1\) 用preorder\[0\] 先找root，  
-> Step2\) 用找到的root值，來反推root\(preorder\) 在inorder裡的root\_index\(inorder\)  
+> Step2\) 用從preorder找到的root值，來反推root\(preorder\) 在inorder裡的root\_index\(inorder\)  
 > Step3\) 用Recursion + 更新的index來持續遍歷整個list，並且用root建立Tree  
 > Step4\) return root
 
@@ -61,6 +63,13 @@ def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
     
 ```
 
+### 2. Recursion + Preorder&Inorder特性 Improved:
+
+由於上面的解法，在每一次的Recursion call都需要一直對preorder & inorder list做 index slicing\(切片\)。我們如果事先把index存起來，就可以大大地減少在index slicing上的計算量。\(但是這個解法在recursion上會需要傳很多的parameters\) 
+
+> 傳 preorder&inorder的index。  
+> 實時更新 preStart / preEnd / inStart / inEnd
+
 ```python
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         
@@ -70,7 +79,6 @@ def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         savedMap = { inorder[i] : i for i in range(0, len(inorder)) }    
         return self.construct(preorder, 0, len(preorder), inorder, 0, len(inorder), savedMap)
             
-    
     
     def construct(self, preorder, preStart, preEnd, inorder, inStart, inEnd, savedMap):
         
