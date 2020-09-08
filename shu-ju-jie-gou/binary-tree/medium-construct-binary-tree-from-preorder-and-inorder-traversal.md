@@ -16,8 +16,10 @@ def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
     root = TreeNode(preorder[0])
     root_index = inorder.index(preorder[0])
     
+    # LeftSubtree from inorder
     #                    preorder's new left subtree, inorder's new left subtree 
-    root.left = self.buildTree(preorder[1:root_index], inorder[:root_index])
+    root.left = self.buildTree(preorder[1:root_index+1], inorder[:root_index])
+    # RightSubtree from inorder
     root.right = self.buildTree(preorder[root_index+1:], inorder[root_index+1:])
     
     return root
