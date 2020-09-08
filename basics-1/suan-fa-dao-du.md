@@ -28,6 +28,17 @@ for item in nums:
         new_list.append()
 ```
 
+* List -&gt; Dict 使用 ListComprehension:
+
+```python
+List(index,value) -> Dict
+
+# <關鍵點> key : value = i : alist[i]
+# newDict={0:2, 1:3, 2:5, 3:8}  
+alist = [2,3,5,8]
+newDict = { i : alist[i] for i in range(len(alist)) } 
+```
+
 ## Advanced Python
 
 * [ ] lambda用法  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)

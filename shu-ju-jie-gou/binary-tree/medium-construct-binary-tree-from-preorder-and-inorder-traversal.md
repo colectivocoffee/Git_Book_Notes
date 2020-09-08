@@ -1,5 +1,7 @@
 # \[Medium\] Construct Binary Tree from Preorder & Inorder Traversal
 
+## Code
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
