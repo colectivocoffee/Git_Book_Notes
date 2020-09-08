@@ -31,6 +31,8 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)  
 
+Preorder特性：第一個值一定是root根節點。
+
 ```python
 Pre-order Recursive 模板
 
@@ -65,6 +67,9 @@ def pre_order(self, root, result):
 ```
 
 ### 2. In-order Traversal: **Left-Root-Right** \(左根右\)
+
+Inorder特性：root根節點把Tree精確地分成左右子樹，  
+root.left為Left Subtree，root.right為Right Subtree。
 
 ```python
 In-order Recursive 模板
