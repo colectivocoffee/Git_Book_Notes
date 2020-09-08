@@ -80,6 +80,7 @@
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
 * [Heap](shu-ju-jie-gou/heap.md)
 * [Binary Tree](shu-ju-jie-gou/binary-tree/README.md)
+  * [\[Medium\] Construct Binary Tree from Preorder & Inorder Traversal](shu-ju-jie-gou/binary-tree/medium-construct-binary-tree-from-preorder-and-inorder-traversal.md)
   * [\[Easy\] Invert Binary Tree](shu-ju-jie-gou/binary-tree/easy-invert-binary-tree.md)
   * [\[Easy\] Maximum Depth of a Binary Tree](shu-ju-jie-gou/binary-tree/easy-maximum-depth-of-a-binary-tree.md)
   * [\[Hard\] Serialize and Deserialize a Binary Tree](shu-ju-jie-gou/binary-tree/hard-serialize-and-deserialize-a-binary-tree.md)
