@@ -44,6 +44,23 @@ newDict = { i : alist[i] for i in range(len(alist)) }
 * [ ] lambda用法  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
 * [ ] zip用法
 
+**Zip用法**  
+給兩個list，把它們用zip的方式黏在一起。  
+Zip\(\) accepts a number of iterable objects and returns a list of tuples. Each entry in tuple contains an element from each iterable object.   
+We have passed two lists objects in zip\(\) , so it will return a list of tuples, where each tuple contains an entry from both the lists. Then we created a dictionary object from this list of tuples.
+
+```python
+# list of strings
+aListStrings = ['best','time','of','the','year' ]
+# list of numbers 
+aListNums = [0,2,3,5,6]
+
+# create a zip object, then create dict 
+# dictWords = {'best':0, 'time':2, 'of':3, 'the':5, 'year':6}
+zipObj = zip(aListStrings,aListNums)
+dictWords = dict(zipObj)
+```
+
 ## Time Complexity
 
 #### 各種Data Structure的Time Complexity
