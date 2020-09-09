@@ -27,7 +27,7 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 
 ## Binary Tree Traversal 
 
-透過Pre-order / In-order / Post-order / Level-order\(BFS\) Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
+透過Pre-order / In-order / Post-order / Level-order\(BFS\) / DFS Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
 
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)  
 
@@ -94,4 +94,20 @@ def post_order(self, root, result):
     post_order(root.left, result)   #左
     post_order(root.val)            #根
 ```
+
+### 4. Binary Tree BFS:
+
+Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個level上的所有nodes，直到所有nodes都遍歷完成後，才會往next level走。
+
+如果題目要求要level-by-level order traversal，那Binary Tree BFS pattern就會是很好的解題技巧。Binary Tree BFS pushes root to the queue and then keep iterating until the queue is empty。在每一次循環的時候，我們把queue最前面的curr node popleft，並且mark as visited。移除每一個node後，我們同時把所有的children nodes都放到queue裡。
+
+如何知道用BFS？**To traverse a tree in a level-by-level fashion \(or level order traversal\)**。  
+相關的題型有：
+
+1. Binary Tree Level Order Traversal
+2. Binary Tree Zigzag Traversal
+
+### 5. Binary Tree DFS: 
+
+
 
