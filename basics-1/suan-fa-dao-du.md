@@ -57,7 +57,7 @@ aListNums = [0,2,3,5,6]
 
 # create a zip object, then create dict 
 # dictWords = {'best':0, 'time':2, 'of':3, 'the':5, 'year':6}
-zipObj = zip(aListStrings,aListNums)
+zipObj = zip(aListStrings,aListNums)  # zip creates tuple
 dictWords = dict(zipObj)
 ```
 
