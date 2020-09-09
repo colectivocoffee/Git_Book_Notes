@@ -79,7 +79,7 @@ def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         savedMap = { inorder[i] : i for i in range(0, len(inorder)) }    
         return self.construct(preorder, 0, len(preorder), inorder, 0, len(inorder), savedMap)
             
-    
+    # TODO: reuse savedMap
     def construct(self, preorder, preStart, preEnd, inorder, inStart, inEnd, savedMap):
         
         if preStart >= preEnd or inStart >= inEnd:
