@@ -28,6 +28,9 @@ return its zigzag level order traversal as:
 
 ### Binary Tree BFS:
 
+> 思路：看到題目要求是Level Order Traversal，我們就可以用Binary Tree BFS分層遍歷的特性來解題。  
+> 唯一需要注意的是題目要求zigzag，我們需要reverse level % 2 == 0的值。
+
 ```python
 def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
     if not root:
