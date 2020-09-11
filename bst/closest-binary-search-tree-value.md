@@ -72,3 +72,6 @@ def closestValue(self, root, target):
 {% endtab %}
 {% endtabs %}
 
+Reference:  
+[https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/603423/Python-Recursion-stack-thinking-process-diagram](https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/603423/Python-Recursion-stack-thinking-process-diagram)
+
