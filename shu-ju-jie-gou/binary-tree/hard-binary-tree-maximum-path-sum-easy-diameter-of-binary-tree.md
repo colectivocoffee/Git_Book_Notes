@@ -25,6 +25,8 @@ Maximum Path Sum 和 Diameter of Binary Tree 其實都是一樣的思維。
 Maximum Path Sum 找的是**Binary Tree同一條path上所有節點的值的最大總和**，而  
 Diameter 找的是**Binary Tree上包含最多節點的path**。
 
+![](../../.gitbook/assets/maxpathsum.jpg)
+
 ## Maximum Path Sum Solution
 
 ### 1. Recursion
