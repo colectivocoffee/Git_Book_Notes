@@ -68,8 +68,11 @@ def pre_order(self, root, result):
 
 ### 2. In-order Traversal: **Left-Root-Right** \(左根右\)
 
-Inorder特性：root根節點把Tree精確地分成左右子樹，  
-root.left為Left Subtree，root.right為Right Subtree。
+Inorder特性：  
+\(1\) **root根節點把Tree精確地分成左右子樹**，  
+root.left為Left Subtree，root.right為Right Subtree。  
+\(2\) **BST Inorder有序**，  
+result是以**ascending order**的方式儲存，可以用result\[n-1\]的方式取第n個大的值。
 
 ```python
 In-order Recursive 模板
@@ -80,6 +83,18 @@ def in_order(self, root, result):
     in_order(root.left, result)     #左
     result.append(root.val)         #根
     in_order(root.right, result)    #右
+```
+
+```python
+In-order Iterative 模板
+
+def inorder(root):
+        
+result = []
+stack = []
+
+while root != None
+
 ```
 
 ### 3. Post-order Traversal: Right-Left-Root \(右左根\)
