@@ -89,12 +89,18 @@ def in_order(self, root, result):
 In-order Iterative 模板
 
 def inorder(root):
-        
-result = []
-stack = []
-
-while root != None
-
+    result = []
+    stack = []
+    # 易錯點：忘了root != None
+    while root != None or len(stack) != 0:
+        while root != None:
+            stack.append(root)
+            root = root.left
+        root = stack.pop()
+        result.append(root.val)
+        root = root.right
+    
+    return result
 ```
 
 ### 3. Post-order Traversal: Right-Left-Root \(右左根\)
