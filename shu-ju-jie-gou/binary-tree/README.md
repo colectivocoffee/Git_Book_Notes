@@ -55,8 +55,7 @@ def pre_order(self, root, result):
     
     while len(stack) != 0 or root != None:
         while root != None:
-            # Pre-order
-            result.append(root.val)
+            result.append(root.val) # Pre-order result
             stack.append(root)
             root = root.left
         # pop from stack
@@ -89,6 +88,8 @@ def in_order(self, root, result):
 In-order Iterative 模板
 
 def inorder(root):
+    if not root:
+        return 
     result = []
     stack = []
     # 易錯點：忘了root != None
@@ -97,9 +98,8 @@ def inorder(root):
             stack.append(root)
             root = root.left
         root = stack.pop()
-        result.append(root.val)
+        result.append(root.val) # inorder result
         root = root.right
-    
     return result
 ```
 
@@ -131,4 +131,38 @@ Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個lev
 ### 5. Binary Tree DFS: 
 
 
+
+## Preorder/Inorder/Postorder 比較
+
+```python
+# Preorder
+def preorder(self, root):
+    result = []
+    stack = []
+    while root != None or len(stack) != 0:
+        while root != None:
+            result.append(root.val) #preorder
+            stack.append(root) 
+            root = root.left
+        root = stack.pop()
+        root = root.right
+    return result
+
+# Inorder
+def inorder(self, root):
+    result = []
+    stack []
+    while root != None or len(stack) != 0:
+        while root != None:
+            stack.append(root)
+            root = root.left
+        root = stack.pop()
+        result.append(root.val) #inorder
+        root = root.right
+    return result
+    
+# Postorder
+def postorder(self, root):
+    
+```
 
