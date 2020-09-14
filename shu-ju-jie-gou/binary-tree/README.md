@@ -54,7 +54,7 @@ def pre_order(self, root, result):
     stack = []
     
     while len(stack) != 0 or root != None:
-        for root != None:
+        while root != None:
             # Pre-order
             result.append(root.val)
             stack.append(root)
