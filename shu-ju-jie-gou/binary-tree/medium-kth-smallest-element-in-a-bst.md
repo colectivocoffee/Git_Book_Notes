@@ -1,7 +1,23 @@
 # \[Medium\] Kth Smallest Element in a BST
 
 [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)  
-sss
+Given a binary search tree, write a function `kthSmallest` to find the **k**th smallest element in it.
+
+**Example**
+
+```text
+Input: root = [5,3,6,2,4,null,null,1], k = 3
+       5
+      / \
+     3   6
+    / \
+   2   4
+  /
+ 1
+Output: 3
+```
+
+## Code
 
 ### 1. In-order Traversal Recursive
 
@@ -85,14 +101,31 @@ def kthSmallest(self, root: TreeNode, k: int) -> int:
         root = root.right
         
     return result[k-1]
-        
-
-
 ```
 
+```python
+def kthSmallest(self, root: TreeNode, k: int) -> int:
+    # init
+    i = 0
+    stack = []
+    
+    while root or stack:
+        while root:
+            stack.append(root)
+            root = root.left
+        root = stack.pop()
+        i += 1
+        if k == i:
+            return root.val
+        root = root.left
+```
 
+\*\*\*\*
 
+**Follow up:**  
+What if the BST is modified \(insert/delete operations\) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?
 
+\[Ans\] We could add a variable to the TreeNode to record the size of the left subtree. When insert or delete a node in the left subtree, we increase or decrease it by 1. So we could know whether the kth smallest element is in the left subtree or in the right subtree by compare the size with k.
 
 
 
