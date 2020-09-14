@@ -3,6 +3,8 @@
 [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)  
 sss
 
+### 1. In-order Traversal Recursive
+
 ```python
 def kthSmallest(self, root: TreeNode, k: int) -> int:
     # edge case
@@ -31,6 +33,14 @@ def inorder(self, curr):
         return
     self.inorder(curr.right)
 ```
+
+還是用In-order Traversal的方式但使用result list來記錄看到i th smallest的node， 最後用
+
+```python
+
+```
+
+### 2. In-order Traversal Iterative
 
 
 
