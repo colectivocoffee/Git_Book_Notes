@@ -4,9 +4,14 @@
 Implement a trie with `insert`, `search`, and `startsWith` methods.  
 
 
-## Trie 的特性：
+## Trie \(音try\) 特性：
 
-想像一下Google Search的時候，會自動補齊所有有可能的字詞。  
+想像一下Google Search的時候，會自動補齊所有有可能的字詞。
+
+Trie字典樹有三點性質：  
+\(1\) root不包含任何char，除了root之外每個節點只包含一個char  
+\(2\) 從root到某一個個節點，如果把路徑上經過的所有char連起來，為該node對應的word  
+\(3\) 每個節點的所有children nodes，所包含的word都不相同，而且有可能大於2個。  
 
 
 > 思路：\(1\)用`self.nodes = defaultdict()`來儲存每個char，用self.isWord來確認是否為word。  
