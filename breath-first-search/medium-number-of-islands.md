@@ -159,7 +159,7 @@ def numIslands(self, grid: List[List[str]]) -> int:
     
 def dfs(self, grid, x, y, visited):
     
-    visited[x][y] = True    # 易錯點：要先mark visited，否則會無限recursion下去
+    visited[x][y] = True    # 易錯點：要先mark原點visited，否則會無限recursion下去
     DIRECTIONS = [(1,0),(0,1),(-1,0),(0,-1)]
     for delta_x, delta_y in DIRECTIONS:
         next_x = x + delta_x
