@@ -47,7 +47,7 @@ def pre_order(self, root, result):
 ```python
 Pre-order Iterative 模板
 
-def pre_order(self, root, result):
+def pre_order(self, root):
     if not root:
         return 
     result = []
@@ -63,6 +63,25 @@ def pre_order(self, root, result):
         root = curr.right
     return result
         
+```
+
+```python
+Pre-order Iterative 模板
+
+def pre_order2(self, root):
+    result = []
+    stack = []
+    while True:
+        while root != None:
+            result.append(root.val)
+            stack.append(root)
+            root = root.left    # root -> root.left
+        # check if stack is empty
+        if len(stack) == 0:
+            return
+        # pop the node from stack and move onto the right node
+        root = stack.pop()
+        root = root.right
 ```
 
 ### 2. In-order Traversal: **Left-Root-Right** \(左根右\)
