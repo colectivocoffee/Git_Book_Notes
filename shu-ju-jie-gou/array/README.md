@@ -70,5 +70,7 @@ Merge Two Sorted Arrays
 * Contain Duplicates: `sorted -> remove duplicates` or `nums[i] == nums[i-1]`
 * Array with 1 element \(boundary\): `if len(nums) == 1`
 
+#### 3. Defining Cols & Rows
+
 
 
