@@ -211,3 +211,7 @@ def is_valid(self, grid, x, y):
     
 ```
 
+#### 類似Matrix題型
+
+1. Word Search \(Use DFS\)
+
