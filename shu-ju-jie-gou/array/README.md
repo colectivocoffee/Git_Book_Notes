@@ -72,5 +72,21 @@ Merge Two Sorted Arrays
 
 #### 3. Defining Cols & Rows
 
+總是先定義rows，再定義cols
+
+```python
+defining cols and rows
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+visited = [[False] * cols for _ in range(rows)]
+
+for i in range(rows):       # rows
+    for j in range(cols):   # cols
+        ....
+        
+```
+
 
 
