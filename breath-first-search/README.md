@@ -72,9 +72,9 @@ Stack 用於DFS
 ```python
 rows = len(matrix)
 cols = len(matrix[0])
-visited = [ [0]*cols for _ in range(rows) ]
+visited = [ [False]*cols for _ in range(rows) ]
 
-def dfs(self, matrix, x, y):
+def dfs(self, matrix, x, y, visited):
     if 滿足遞歸條件:          # 遞歸出口
         return xxx
     if 超過matrix邊界 or visited[x][y]: # 確認邊界&visited條件
