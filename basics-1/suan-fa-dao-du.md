@@ -2,15 +2,15 @@
 
 ## Python常用用法
 
-* Last element in a sequence: `arr[-1]`
-* Reversing from end to start:  iterate thru index \(1\) `for i in range(len(arr)-1, -1, -1)` start, stop, step                                 \(2\) `for i in reversed(range(len(arr)))`  iterate thru element \(3\) `for element in arr[::-1]`
-* 建一個新的list並且保存其sort之前的index:  1. `arr = enumerate(arr)`  --&gt; 先化成\(index, item\)的表示法 2. `new_arr = sorted(arr, key=lambda x: x[1])`  --&gt; sort array放到new\_arr裡, 並且保存舊有的index，意即按照arr tuple裡的第二個item排序。
+* **Last element in a sequence:** `arr[-1]`
+* **Reversing from end to start:**  iterate thru index \(1\) `for i in range(len(arr)-1, -1, -1)` start, stop, step                                 \(2\) `for i in reversed(range(len(arr)))`  iterate thru element \(3\) `for element in arr[::-1]`
+* **建一個新的list並且保存其sort之前的index:**  1. `arr = enumerate(arr)`  --&gt; 先化成\(index, item\)的表示法 2. `new_arr = sorted(arr, key=lambda x: x[1])`  --&gt; sort array放到new\_arr裡, 並且保存舊有的index，意即按照arr tuple裡的第二個item排序。
 
 > Note: `key=lambda x: x[1]` 在這表示按照x \(tuple裡第二個item x\[1\]做事\)，即  
 > def anonymous function \(x\):  
 >       return x\[1\]
 
-* Remove duplicates from a list of lists: 有三種方法 \(1\) set \(2\) itertools.groupby \(3\) if element not in new\_list
+* **Remove duplicates from a list of lists:** 有三種方法 \(1\) set \(2\) itertools.groupby \(3\) if element not in new\_list
 
 ```python
 (1) set
@@ -28,7 +28,7 @@ for item in nums:
         new_list.append()
 ```
 
-* List -&gt; Dict 使用 ListComprehension:
+* **List -&gt; Dict 使用 ListComprehension:**
 
 ```python
 List(index,value) -> Dict
@@ -39,13 +39,30 @@ alist = [2,3,5,8]
 newDict = { i : alist[i] for i in range(len(alist)) } 
 ```
 
+* **把long statement化成多行:**  
+  \(Method 1\) Use backslash  `/`，注意後面沒有空格
+
+  ```text
+  if x == 10 or x > 0 or \
+         x < 100:
+  ```
+
+  \(Method 2\) Use parenthesis  `,`，
+
+  ```text
+   print ('Wow, this also works?',
+                 'I never knew!')
+  ```
+
+
+
 ## Advanced Python
 
-* [ ] lambda用法  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
-* [ ] zip用法
+1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
+2. **zip用法**
 
 **Zip用法**  
-給兩個list，把它們用zip的方式黏在一起。  
+給兩個list，把它們用zip的方式黏在一起。如果遇到不匹配數量，則用None補齊。  
 Zip\(\) accepts a number of iterable objects and returns a list of tuples. Each entry in tuple contains an element from each iterable object.   
 We have passed two lists objects in zip\(\) , so it will return a list of tuples, where each tuple contains an entry from both the lists. Then we created a dictionary object from this list of tuples.
 
