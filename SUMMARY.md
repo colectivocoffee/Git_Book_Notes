@@ -12,6 +12,7 @@
 ---
 
 * [BFS/DFS](breath-first-search/README.md)
+  * [\[Medium\] Word Search](breath-first-search/medium-word-search.md)
   * [\[Easy\] Lowest Common Ancestor of a BST](breath-first-search/easy-lowest-common-ancestor-of-a-bst.md)
   * [\[Medium\] Lowest Common Ancestor of a Binary Tree](breath-first-search/medium-lowest-common-ancestor-of-a-binary-tree.md)
   * [\[Medium\] Binary Tree Zigzag Level Order Traversal](breath-first-search/medium-binary-tree-zigzag-level-order-traversal.md)
