@@ -12,7 +12,7 @@ Queue 用於BFS
 
 如果在面試中問到“如何優化BFS”，那Bi-directional BFS 幾乎是標準答案了。
 
-### 1. BFS without Level Order 
+### 1. BFS w/o Level Order 模板 
 
 ```python
 queue = dequeue()
@@ -42,7 +42,7 @@ while len(queue):
             queue.append(neighbor)  #     加入queue
 ```
 
-### 2. BFS with Level Order
+### 2. BFS w/ Level Order 模板
 
 如果用BFS來求最短路徑的話，queue中第一層和第二層的節點會在一起無法區分。因此，在每一層遍歷開始前，我們需要增加一個n，來紀錄queue中的節點數量，然後一口氣處理完這一層的n個節點。
 
@@ -63,7 +63,29 @@ while len(queue) 不為0 :
 
 Stack 用於DFS
 
-### Iterative DFS 模板
+通常DFS都會採用**Recursion**的方式去實現。如果一個題目可以選擇使用BFS or DFS的情況下，一定要優先使用BFS，因為BFS non Recursive較DFS容易實現很多。
+
+### 1. DFS Recursive 模板
+
+```python
+rows = len(matrix)
+cols = len(matrix[0])
+visited = [ [0]*cols for _ in range(rows) ]
+
+def dfs(self, matrix, x, y):
+    if 滿足遞歸條件:          # 遞歸出口
+        return xxx
+    if 超過matrix邊界 or visited[x][y]: # 確認邊界&visited條件
+        return xxx 
+        
+    visited[x][y] = True    # 暫時標記此neighbor節點已訪問
+    result = self.dfs(...)  # Recursion
+    visited[x][y] = False   # 從neighbor節點退回 
+    
+    return result
+```
+
+### 2. DFS Iterative 模板
 
 ```python
 stack []
