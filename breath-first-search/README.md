@@ -4,7 +4,7 @@
 
 ## Stack and Queue \(棧和隊列\)
 
-## Queue
+## Queue / BFS
 
 Queue 用於BFS
 
@@ -59,11 +59,13 @@ while len(queue) 不為0 :
                 在visited記錄此節點已被訪問 
 ```
 
-## Stack
+## Stack / DFS
 
-Stack 用於DFS
+Stack 用於DFS。
 
 通常DFS都會採用**Recursion**的方式去實現。如果一個題目可以選擇使用BFS or DFS的情況下，一定要優先使用BFS，因為BFS non Recursive較DFS容易實現很多。
+
+Time Complexity: `O(答案個數 * 產生每個答案的時間)`
 
 ### 1. DFS Recursive 模板
 
@@ -82,7 +84,7 @@ def dfs(self, matrix, x, y, visited):
         
     visited[x][y] = True    # 暫時標記此neighbor節點已訪問
     result = self.dfs(...)  # Recursion
-    visited[x][y] = False   # 從neighbor節點退回 
+    visited[x][y] = False   # 從neighbor節點Backtrack 
     
     return result
 ```
