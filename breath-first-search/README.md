@@ -67,6 +67,8 @@ Stack 用於DFS
 
 ### 1. DFS Recursive 模板
 
+在Matrix上的DFS版本
+
 ```python
 rows = len(matrix)
 cols = len(matrix[0])
