@@ -11,6 +11,8 @@ Note:
 
 ## Thought Process:
 
+### 1. DFS Recursive
+
 > 思路：由於candidates中的元素可以重複使用，因此可以用DFS Recursive來枚舉所有可能的combination sum。  
 > 我們可以藉由Recursion的方式更新`remaining target = target - nums[i]`，同時更新curr\_sum把`nums[i]`加入。
 
@@ -36,6 +38,4 @@ def dfs(self, nums, target, result, curr_id, curr_sum):
         self.dfs(nums, target - nums[i], result, i, curr_sum + [nums[i]])
 
 ```
-
-
 
