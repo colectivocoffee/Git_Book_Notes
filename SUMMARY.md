@@ -12,6 +12,7 @@
 ---
 
 * [BFS/DFS](breath-first-search/README.md)
+  * [\[Medium\] Combination Sum](breath-first-search/medium-combination-sum.md)
   * [\[Medium\] Word Search II](breath-first-search/medium-word-search-ii.md)
   * [\[Medium\] Word Search](breath-first-search/medium-word-search.md)
   * [\[Easy\] Lowest Common Ancestor of a BST](breath-first-search/easy-lowest-common-ancestor-of-a-bst.md)

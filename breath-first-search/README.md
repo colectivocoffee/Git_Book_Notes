@@ -65,11 +65,11 @@ Stack 用於DFS。
 
 通常DFS都會採用**Recursion**的方式去實現。如果一個題目可以選擇使用BFS or DFS的情況下，一定要優先使用BFS，因為BFS non Recursive較DFS容易實現很多。
 
-Time Complexity: `O(答案個數 * 產生每個答案的時間)`
+Time Complexity: $$O(答案個數 * 產生每個答案的時間)$$\`\`
 
 ### 1. DFS Recursive 模板
 
-在Matrix上的DFS版本
+在Matrix上的DFS Recursive + Backtracking版本
 
 ```python
 rows = len(matrix)
