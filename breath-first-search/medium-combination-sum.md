@@ -34,7 +34,7 @@ def dfs(self, nums, target, result, curr_id, curr_sum):
         return 
     
     for i in range(curr_id, len(nums)):
-        #在改curr_sum時，要[nums[i]]換成list
+        #在改curr_sum時，要從int->list，即[nums[i]]
         self.dfs(nums, target - nums[i], result, i, curr_sum + [nums[i]])
 
 ```
