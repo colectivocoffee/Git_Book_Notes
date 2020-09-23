@@ -12,8 +12,6 @@
 ---
 
 * [BFS/DFS](breath-first-search/README.md)
-  * [\[Medium\] Combinations/Permutations/Subsets](breath-first-search/medium-combinations-permutations-subsets.md)
-  * [\[Medium\] Combination Sum](breath-first-search/medium-combination-sum.md)
   * [\[Medium\] Word Search II](breath-first-search/medium-word-search-ii.md)
   * [\[Medium\] Word Search](breath-first-search/medium-word-search.md)
   * [\[Easy\] Lowest Common Ancestor of a BST](breath-first-search/easy-lowest-common-ancestor-of-a-bst.md)
@@ -28,6 +26,8 @@
   * [\[Medium\] Clone Graph](breath-first-search/medium-clone-graph.md)
   * [\[Medium\] Number of Islands](breath-first-search/medium-number-of-islands.md)
 * [Backtracking](backtracking/README.md)
+  * [\[Medium\] Combinations/Permutations/Subsets](backtracking/medium-combinations-permutations-subsets.md)
+  * [\[Medium\] Combination Sum](backtracking/medium-combination-sum.md)
   * [\[Medium\] Subsets](backtracking/medium-subsets.md)
 * [Dynamic Programming](dynamic-programming/README.md)
   * [\[Hard\] Edit Distance](dynamic-programming/hard-edit-distance.md)
