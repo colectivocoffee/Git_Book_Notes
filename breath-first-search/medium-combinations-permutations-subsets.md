@@ -44,6 +44,7 @@ def dfs(self, nums, target, result, curr_id, curr_res):
     if target < 0:
         return 
     for i in range(curr_id, len(nums)):
+        # 易錯點： use curr_id = i since we allow duplicates
         self.dfs(nums, target - i, result, i, curr_res + [nums[i]])
 ```
 
@@ -55,6 +56,11 @@ Note:
 
 * All numbers \(including `target`\) will be positive integers.
 * The solution set must not contain duplicate combinations.
+
+> 思路：和Combination Sum的DFS Recursive處理方法相同。  
+> 但需要注意以下幾點：  
+> \(1\) Skip Duplicates: 用 `i > curr_id and nums[i] == nums[i-1]`來判斷重複數  
+> \(2\) 更新curr\_id時: 用`curr_id = i + 1`
 
 ```python
 def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -78,11 +84,23 @@ def dfs(self, nums, target, result, curr_id, curr_result):
         # then skip 1b,1c 
         if i > curr_id and nums[i] == nums[i-1]:
             continue
+        # To Optimize
+        if nums[i] > target:
+            break
+        # use curr_id = i + 1 because one element can only be used once
         self.dfs(nums, target - nums[i], result, i + 1, curr_result + [nums[i]])
         
+```
+
+```python
+def permute(self, nums: List[int]) -> List[List[int]]:
 ```
 
 ### \[Medium\] Permutations
 
 
+
+```python
+
+```
 
