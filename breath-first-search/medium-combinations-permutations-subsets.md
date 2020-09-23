@@ -92,15 +92,29 @@ def dfs(self, nums, target, result, curr_id, curr_result):
         
 ```
 
-```python
-def permute(self, nums: List[int]) -> List[List[int]]:
-```
-
 ### \[Medium\] Permutations
 
+\(4459/112\)  
+Given a collection of **distinct** integers, return all possible permutations.
 
+> 思路：
 
 ```python
+def permute(self, nums: List[int]) -> List[List[int]]:
+    result = []
+    self.dfs(nums, result, 0, [])
+    return result
 
+def dfs(self, nums, result, curr_id, curr_result):
+    # 易錯點：
+    # 判斷條件是 not nums，因為每一次在遞歸的時候，都少掉一個nums[i]
+    # 下面用nums[:i] + nums[i+1:]來拿出nums[i]
+    if not nums:
+        result.append(curr_result)
+        return
+        
+    for i in range(len(nums)):
+        self.dfs(nums[:i] + nums[i+1:], result, i, curr_result + [nums[i]])
+        
 ```
 
