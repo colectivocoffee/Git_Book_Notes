@@ -44,11 +44,11 @@ How to identify the Subsets pattern:
 #### 題目
 
 * [ ] word search
-* [ ] Subsets I & II
-* [ ] Permutations I & II
+* [x] Subsets I & II
+* [x] Permutations I & II
 * [ ] Letter Case Permutation
-* [ ] Combination
-* [ ] Combination Sum I & II & III
+* [x] Combination
+* [x] Combination Sum I & II & III
 * [ ] Generate Parentheses
 * [ ] Palindrome Partitioning
 * [ ] Letter Combinations of a Phone Number
