@@ -5,15 +5,15 @@
 ```python
 def subsets(self, nums: List[int]) -> List[List[int]]:
     result = []
-    nums.sort()
+    nums.sort()                            # 需要先sort去重
     self.dfs(nums, result, 0, [])
     return result
-
+# Backtracking DFS
 def dfs(self, nums, result, curr_id, curr_result):
-
-    result.append(curr_result)
+    # 遞歸出口
+    result.append(curr_result)             # 不用判斷，直接把路徑加到result
     
-    for i in range(curr_id, len(nums)):
+    for i in range(curr_id, len(nums)):    # curr_id -> len(nums)
         self.dfs(nums, result, i + 1, curr_result + [nums[i]])
 ```
 
@@ -29,13 +29,13 @@ def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
     nums.sort()
     self.dfs(nums, result, 0, [])
     return result
-
+# Backtracking DFS
 def dfs(self, nums, result, curr_id, curr_result):
-    
+    # 遞歸出口
     result.append(curr_result)
     
     for i in range(curr_id, len(nums)):
-        if i > curr_id and nums[i] == nums[i-1]:
+        if i > curr_id and nums[i] == nums[i-1]:  # i > curr_id，需要判斷Duplicates
             continue
         self.dfs(nums, result, i + 1, curr_result + [nums[i]])
                 
@@ -57,7 +57,7 @@ def combine(self, n: int, k: int) -> List[List[int]]:
     self.dfs(nums, k, result, 0, [])
     return result
 
-# Recursive DFS
+# Backtracking DFS 
 def dfs(self, nums, k, result, curr_id, curr_res):
     # 遞歸出口
     if k == 0:
@@ -175,7 +175,7 @@ def dfs(self, nums, result, curr_result):
         return
     
     for i in range(len(nums)):
-        # 和combination sum
+        # 和combination sum比較差異
         if i > 0 and nums[i] == nums[i-1]:  # 用i > 0
             continue
         self.dfs(nums[:i] + nums[i+1:], result, curr_result + [nums[i]])
