@@ -1,5 +1,46 @@
 # \[Medium\] Combinations/Permutations/Subsets
 
+### [\[Medium\] Subsets](https://leetcode.com/problems/subsets/)
+
+```python
+def subsets(self, nums: List[int]) -> List[List[int]]:
+    result = []
+    nums.sort()
+    self.dfs(nums, result, 0, [])
+    return result
+
+def dfs(self, nums, result, curr_id, curr_result):
+
+    result.append(curr_result)
+    
+    for i in range(curr_id, len(nums)):
+        self.dfs(nums, result, i + 1, curr_result + [nums[i]])
+```
+
+### [\[Medium\] Subsets II](https://leetcode.com/problems/subsets-ii/)
+
+\(1866/83\)  
+Given a collection of integers that might contain duplicates, _**nums**_, return all possible subsets \(the power set\).  
+Note: The solution set must not contain duplicate subsets.
+
+```python
+def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+    result = []
+    nums.sort()
+    self.dfs(nums, result, 0, [])
+    return result
+
+def dfs(self, nums, result, curr_id, curr_result):
+    
+    result.append(curr_result)
+    
+    for i in range(curr_id, len(nums)):
+        if i > curr_id and nums[i] == nums[i-1]:
+            continue
+        self.dfs(nums, result, i + 1, curr_result + [nums[i]])
+                
+```
+
 ### [\[Medium\] Combinations](https://leetcode.com/problems/combinations/)
 
 \(1703/70\)  
@@ -27,7 +68,7 @@ def dfs(self, nums, k, result, curr_id, curr_res):
         self.dfs(nums, k-1, result, i+1, curr_res + [nums[i]])
 ```
 
-### \[Medium\] Combination Sum
+### [\[Medium\] Combination Sum](https://leetcode.com/problems/combination-sum/)
 
 ```python
 def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -48,7 +89,7 @@ def dfs(self, nums, target, result, curr_id, curr_res):
         self.dfs(nums, target - i, result, i, curr_res + [nums[i]])
 ```
 
-### \[Medium\] Combination Sum II
+### [\[Medium\] Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)
 
 Given a collection of candidate numbers \(`candidates`\) and a target number \(`target`\), find all unique combinations in `candidates` where the candidate numbers sums to `target`.  
 Each number in `candidates` may only be used **once** in the combination.  
@@ -92,7 +133,7 @@ def dfs(self, nums, target, result, curr_id, curr_result):
         
 ```
 
-### \[Medium\] Permutations
+### [\[Medium\] Permutations](https://leetcode.com/problems/permutations/)
 
 \(4459/112\)  
 Given a collection of **distinct** integers, return all possible permutations.
@@ -118,7 +159,7 @@ def dfs(self, nums, result, curr_id, curr_result):
         
 ```
 
-### \[Medium\] Permutations II
+### [\[Medium\] Permutations II](https://leetcode.com/problems/permutations-ii/)
 
 ```python
 def permuteUnique(self, nums: List[int]) -> List[List[int]]:
@@ -138,11 +179,5 @@ def dfs(self, nums, result, curr_result):
         if i > 0 and nums[i] == nums[i-1]:  # 用i > 0
             continue
         self.dfs(nums[:i] + nums[i+1:], result, curr_result + [nums[i]])
-```
-
-### \[Medium\] Subsets
-
-```python
-def subsets(self, nums: List[int]) -> List[List[int]]:
 ```
 
