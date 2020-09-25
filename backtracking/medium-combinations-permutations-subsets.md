@@ -9,10 +9,16 @@ def subsets(self, nums: List[int]) -> List[List[int]]:
     self.dfs(nums, result, 0, [])
     return result
 # Backtracking DFS
+'''
+nums:    給定的nums list
+result:  最終結果
+curr_id: 下次添加到結果集合的元素位置index
+curr_result: 臨時結果集合
+'''
 def dfs(self, nums, result, curr_id, curr_result):
     # 遞歸出口
     result.append(curr_result)             # 不用判斷，直接把路徑加到result
-    
+    # 選擇 - 處理結果 - 再撤銷選擇
     for i in range(curr_id, len(nums)):    # curr_id -> len(nums)
         self.dfs(nums, result, i + 1, curr_result + [nums[i]])
 ```
@@ -33,8 +39,9 @@ def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
 def dfs(self, nums, result, curr_id, curr_result):
     # 遞歸出口
     result.append(curr_result)
-    
+    # 選擇時需要剪枝、處理、撤銷選擇
     for i in range(curr_id, len(nums)):
+        
         if i > curr_id and nums[i] == nums[i-1]:  # i > curr_id，需要判斷Duplicates
             continue
         self.dfs(nums, result, i + 1, curr_result + [nums[i]])
@@ -143,10 +150,10 @@ Given a collection of **distinct** integers, return all possible permutations.
 ```python
 def permute(self, nums: List[int]) -> List[List[int]]:
     result = []
-    self.dfs(nums, result, 0, [])
+    self.dfs(nums, result, [])
     return result
 
-def dfs(self, nums, result, curr_id, curr_result):
+def dfs(self, nums, result, curr_result):
     # 易錯點：
     # 判斷條件是 not nums，因為每一次在遞歸的時候，都少掉一個nums[i]
     # 下面用nums[:i] + nums[i+1:]來拿出nums[i]
@@ -155,6 +162,7 @@ def dfs(self, nums, result, curr_id, curr_result):
         return
         
     for i in range(len(nums)):
+        # 這裡用nums[:i] + nums[i+1:] 來省略nums[i]
         self.dfs(nums[:i] + nums[i+1:], result, i, curr_result + [nums[i]])
         
 ```
@@ -164,7 +172,8 @@ def dfs(self, nums, result, curr_id, curr_result):
 ```python
 def permuteUnique(self, nums: List[int]) -> List[List[int]]:
     result = []
-    nums.sort()                 # 要先sort，才能去重複計算。
+    # To put all same numbers together
+    nums.sort()                        # 要先sort，才能去重複計算。
     self.dfs(nums, result, [])
     return result
 
@@ -176,6 +185,9 @@ def dfs(self, nums, result, curr_result):
     
     for i in range(len(nums)):
         # 和combination sum比較差異
+        # [1,2,1] -> [1a,1b,2]
+        # 又此判斷句要和nums.sort()合併用，由於sort後，把所有的相同數字放在一起，
+        # 因此如果有相同數字，即代表duplicates
         if i > 0 and nums[i] == nums[i-1]:  # 用i > 0
             continue
         self.dfs(nums[:i] + nums[i+1:], result, curr_result + [nums[i]])
