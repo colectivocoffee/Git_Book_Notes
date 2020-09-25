@@ -118,3 +118,31 @@ def dfs(self, nums, result, curr_id, curr_result):
         
 ```
 
+### \[Medium\] Permutations II
+
+```python
+def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+    result = []
+    nums.sort()                 # 要先sort，才能去重複計算。
+    self.dfs(nums, result, [])
+    return result
+
+def dfs(self, nums, result, curr_result):
+    
+    if not nums:
+        result.append(curr_result)
+        return
+    
+    for i in range(len(nums)):
+        # 和combination sum
+        if i > 0 and nums[i] == nums[i-1]:  # 用i > 0
+            continue
+        self.dfs(nums[:i] + nums[i+1:], result, curr_result + [nums[i]])
+```
+
+### \[Medium\] Subsets
+
+```python
+def subsets(self, nums: List[int]) -> List[List[int]]:
+```
+
