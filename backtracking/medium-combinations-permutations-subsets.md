@@ -2,6 +2,11 @@
 
 ### [\[Medium\] Subsets](https://leetcode.com/problems/subsets/)
 
+Given a set of **distinct** integers, _nums_, return all possible subsets \(the power set\).  
+Note: The solution set must not contain duplicate subsets.
+
+此題有三種解法：\(1\)BacktrackingDFS \(2\) BFS \(3\) Bit Manipulation
+
 ```python
 def subsets(self, nums: List[int]) -> List[List[int]]:
     result = []
@@ -168,6 +173,10 @@ def dfs(self, nums, result, curr_result):
 ```
 
 ### [\[Medium\] Permutations II](https://leetcode.com/problems/permutations-ii/)
+
+Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+
+> 思路：
 
 ```python
 def permuteUnique(self, nums: List[int]) -> List[List[int]]:
