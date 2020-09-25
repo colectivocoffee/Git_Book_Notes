@@ -26,7 +26,7 @@
   * [\[Medium\] Clone Graph](breath-first-search/medium-clone-graph.md)
   * [\[Medium\] Number of Islands](breath-first-search/medium-number-of-islands.md)
 * [Backtracking](backtracking/README.md)
-  * [\[Medium\] Combinations/Permutations/Subsets](backtracking/medium-combinations-permutations-subsets.md)
+  * [\[Medium\] Subsets/Combinations/Permutations](backtracking/medium-combinations-permutations-subsets.md)
   * [\[Medium\] Combination Sum](backtracking/medium-combination-sum.md)
   * [\[Medium\] Subsets](backtracking/medium-subsets.md)
 * [Dynamic Programming](dynamic-programming/README.md)

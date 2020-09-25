@@ -1,4 +1,4 @@
-# \[Medium\] Combinations/Permutations/Subsets
+# \[Medium\] Subsets/Combinations/Permutations
 
 ### [\[Medium\] Subsets](https://leetcode.com/problems/subsets/)
 
