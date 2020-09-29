@@ -1,4 +1,4 @@
-# \[Medium\] Subsets/Combinations/Permutations/Letter Combinations on Phone
+# \[Medium\] Subsets/Combinations/Permutations/Combinations on Phone
 
 ### [\[Medium\] Subsets](https://leetcode.com/problems/subsets/)
 
