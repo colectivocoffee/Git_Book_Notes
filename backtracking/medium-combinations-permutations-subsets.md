@@ -1,4 +1,4 @@
-# \[Medium\] Subsets/Combinations/Permutations/Combinations on Phone
+# \[Medium\] Subsets/Combinations/Permutations/Letter Combinations on Phone
 
 ### [\[Medium\] Subsets](https://leetcode.com/problems/subsets/)
 
@@ -202,7 +202,7 @@ def dfs(self, nums, result, curr_result):
         self.dfs(nums[:i] + nums[i+1:], result, curr_result + [nums[i]])
 ```
 
-### \[Medium\] Letter Combinations of a Phone Number
+### [\[Medium\] Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 
 Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent.  
 A mapping of digit to letters \(just like on the telephone buttons\) is given below. Note that 1 does not map to any letters.  
