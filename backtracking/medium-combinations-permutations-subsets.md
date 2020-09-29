@@ -1,4 +1,4 @@
-# \[Medium\] Subsets/Combinations/Permutations
+# \[Medium\] Subsets/Combinations/Permutations/Combinations on Phone
 
 ### [\[Medium\] Subsets](https://leetcode.com/problems/subsets/)
 
@@ -200,5 +200,34 @@ def dfs(self, nums, result, curr_result):
         if i > 0 and nums[i] == nums[i-1]:  # 用i > 0
             continue
         self.dfs(nums[:i] + nums[i+1:], result, curr_result + [nums[i]])
+```
+
+### \[Medium\] Letter Combinations of a Phone Number
+
+Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent.  
+A mapping of digit to letters \(just like on the telephone buttons\) is given below. Note that 1 does not map to any letters.  
+  
+phone keyboard = { '2': 'abc', '3': 'def', '4':'ghi', '5':'jkl', '6':'mno', '7':'pqrs', '8':'tuv', '9':'wxyz'}
+
+```python
+KEYBOARD = { '2': 'abc', '3': 'def', '4':'ghi', '5':'jkl', '6':'mno', '7':'pqrs', '8':'tuv', '9':'wxyz'}
+
+def letterCombinations(self, digits: str) -> List[str]:
+    
+    result = []
+    if not digits:
+        return result
+    
+    self.dfs(digits, result, 0, '')
+    return result
+    
+def dfs(self, nums, result, curr_id, curr_res):
+    
+    if curr_id >= len(nums):       #易錯點：>= 否則會out of range
+        result.append(curr_res)
+        return
+    
+    for i in KEYBOARD[nums[curr_id]]:
+        self.dfs(nums, result, curr_id + 1, curr_res + i)
 ```
 
