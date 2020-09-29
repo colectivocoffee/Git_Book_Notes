@@ -1,4 +1,4 @@
-# \[Medium\] Subsets/Combinations/Permutations/Combinations on Phone
+# \[Medium\] Subsets/Combinations/Permutations/Letter Combinations on Phone
 
 ### [\[Medium\] Subsets](https://leetcode.com/problems/subsets/)
 
@@ -227,7 +227,7 @@ def dfs(self, nums, result, curr_id, curr_res):
         result.append(curr_res)
         return
     
-    for i in KEYBOARD[nums[curr_id]]:
-        self.dfs(nums, result, curr_id + 1, curr_res + i)
+    for char in KEYBOARD[nums[curr_id]]:
+        self.dfs(nums, result, curr_id + 1, curr_res + char)
 ```
 
