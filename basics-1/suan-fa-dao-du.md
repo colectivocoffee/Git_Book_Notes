@@ -40,7 +40,7 @@ newDict = { i : alist[i] for i in range(len(alist)) }
 ```
 
 * **把long statement化成多行:**  
-  \(Method 1\) Use backslash  `/`，注意後面沒有空格
+  \(Method 1\) Use backslash  `\`，注意後面沒有空格
 
   ```text
   if x == 10 or x > 0 or \
