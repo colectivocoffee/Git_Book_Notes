@@ -38,6 +38,7 @@
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
 * [Two Pointers](two-pointers/README.md)
+  * [\[Medium\] Next Permutation](two-pointers/medium-next-permutation.md)
   * [\[Medium\] Minimum Size Subarray Sum](two-pointers/medium-minimum-size-subarray-sum.md)
   * [\[Medium\] Permutation in String](two-pointers/medium-permutation-in-string.md)
   * [\[Medium\] Find All Anagram in a String](two-pointers/medium-find-all-anagram-in-a-string.md)
