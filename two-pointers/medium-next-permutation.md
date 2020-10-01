@@ -37,12 +37,12 @@ def nextPermutation(self, nums: List[int]) -> None:
         right -= 1
     
     # swap everything until the first element
-    for i in range(len(nums))[::-1]:
-        # elements that are not in ascending order
+    for right in range(len(nums))[::-1]:
+        # all elements after first element
         if nums[right] > nums[left]:
             # then swap
             nums[right], nums[left] = nums[left], nums[right]
-            # then sort the remaning ones
+            # then sort the remaning ones into ascending order
             nums[left+1:] = sorted(nums[left+1:])
             return
     
