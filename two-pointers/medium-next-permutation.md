@@ -15,6 +15,8 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 
 ## Thought Process
 
+### 1. Two Pointers \(-&gt;/&lt;-\)
+
 ## Code
 
 ```python
