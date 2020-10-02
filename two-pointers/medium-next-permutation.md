@@ -36,7 +36,7 @@ def nextPermutation(self, nums: List[int]) -> None:
             break
         right -= 1
     
-    # swap everything until the first element
+    # swap everything from the end to the first element
     for right in range(len(nums))[::-1]:
         # all elements after first element
         if nums[right] > nums[left]:
