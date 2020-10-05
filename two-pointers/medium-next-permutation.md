@@ -17,6 +17,19 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 
 ### 1. Two Pointers \(-&gt;/&lt;-\)
 
+Next Permutation的意思就是比找比原來大一個的排列。舉個例子：  
+`1 2 7 4 3 1` -&gt; `1 3 1 2 4 7`
+
+而我們要如何得到Next Permutation呢？透過觀察我們可以發現，如果從最後往前看，數字會慢慢變大，直到`2`才又減小。下一步是從後往前，找第一個比`2`大的數字，即`3`，把2和3調換，並且把後面所有的數字按照最小遞增的方式排列，即完成。步驟如下：
+
+```python
+                                # 建立兩個指針，left&right，用left找'2'
+1　 '2'　　7　　4　　 3　　 1      # 從後往前找到2，第一個開始遞減的數字 
+1　 '2'　　7　　4　　'3'　　1      # 找到第一個比2大的數字，即3，用right指針標註
+1　 '3'　　7　　4　　'2'　　1      # 將2和3調換
+1    3　 '1'  '2'　'4'　 '7'     # 把3後面所有的數字按照升序排列，swap left&right + sorted()
+```
+
 ## Code
 
 ```python
@@ -24,28 +37,28 @@ def nextPermutation(self, nums: List[int]) -> None:
     if not nums:
         return
         
-    left = -1            # to accomodate case like [4,3,2,1] that needs to be reversed entirely.
-    right = len(nums)-1
+    left = len(nums)-1    # to accomodate case like [4,3,2,1] that needs to be reversed entirely.
+    right = -1
     
     # going backwards
     # [2,1,4,3]
-    #    <-- r    
-    while right > 0:
-        # found first element(nums[right-1]) where it is smaller than prev one(nums[right])
-        if nums[right - 1] < nums[right]:
-            # mark the first element index using left pointer
-            left = right-1
+    #    <-- left    
+    while left > 0:
+        # found first element(nums[left-1]) where it is smaller than prev one(nums[left])
+        if nums[left - 1] < nums[left]:
+            # mark the first element index using right pointer
+            right = left-1
             break
-        right -= 1
+        left -= 1
     
     # swap everything from the end to the first element
-    for right in range(len(nums))[::-1]:
+    for left in range(len(nums))[::-1]:
         # all elements after first element
-        if nums[right] > nums[left]:
+        if nums[left] > nums[right]:
             # then swap
             nums[right], nums[left] = nums[left], nums[right]
             # then sort the remaning ones into ascending order
-            nums[left+1:] = sorted(nums[left+1:])
+            nums[right+1:] = sorted(nums[right+1:])
             return
     
 ```
