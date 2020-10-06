@@ -22,6 +22,11 @@ while backtrack(選擇列表,路徑):
         撤銷選擇
 ```
 
+```python
+result = []
+backtrack (result,暫時結果,暫時dex, )
+```
+
 ### 1. Subsets
 
 A huge number of coding interview problems involve dealing with Permutations and Combinations of a given set of elements. The pattern Subsets describes an efficient Breadth First Search \(BFS\) approach to handle all these problems.
@@ -45,15 +50,15 @@ How to identify the Subsets pattern:
 
 #### 題目
 
-* [ ] word search
+* [x] word search
 * [x] Subsets I & II
 * [x] Permutations I & II
 * [ ] Letter Case Permutation
 * [x] Combination
 * [x] Combination Sum I & II & III
-* [ ] Generate Parentheses
+* [x] Generate Parentheses
 * [ ] Palindrome Partitioning
-* [ ] Letter Combinations of a Phone Number
+* [x] Letter Combinations of a Phone Number
 * [ ] Sudoku Solver
 * [ ] N-Queens
 
