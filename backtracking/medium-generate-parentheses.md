@@ -6,11 +6,12 @@ Generate Parentheses
 
 ### 1. Backtracking DFS
 
-Time Complexity: $$O(\frac {4^n} {\sqrt{n}} )$$ 
+Time Complexity: Catalan number $$O(\frac {4^n} {\sqrt{n}} )$$ 
 
 Space Complexity: $$O(\frac {4^n} {\sqrt{n}} )$$ 
 
-> 用Backtracking的方式來遍歷所有的可能性。分兩種可能：\(1\) `left > 0` \(2\) `left < right`，並且在遞歸出口時，把目前結果加到結果集\(result\)裡。
+> 用Backtracking的方式來遍歷所有的可能性。我們只把valid paranethesis加進結果，  
+> 分兩種可能：\(1\) `left > 0` \(2\) `left < right`，並且在遞歸出口時，把目前結果加到結果集\(result\)裡。
 
 ```python
 def generateParenthesis(self, n: int) -> List[str]:
