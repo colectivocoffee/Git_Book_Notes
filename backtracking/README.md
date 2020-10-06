@@ -24,7 +24,7 @@ while backtrack(選擇列表,路徑):
 
 ```python
 result = []
-backtrack (result,暫時結果,暫時dex, )
+backtrack (result,暫時結果,index)
 ```
 
 ### 1. Subsets
