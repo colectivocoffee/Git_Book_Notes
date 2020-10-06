@@ -28,11 +28,12 @@ self.backtrack(result,暫時結果,暫時index)
 return result
 
 def backtrack(self, result, curr_res, curr_id):
-    if 滿足遞歸結束條件：
+    if 滿足遞歸結束條件:
         result.append(curr_res)
         return
     
-    for 選擇 in range(選擇集)     
+    for 選擇i in range(選擇集): 
+        self.backtrack(result, curr_res+最新結果, 更新選擇i or 更新curr_id)
 ```
 
 ### 1. Subsets
