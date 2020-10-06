@@ -24,7 +24,15 @@ while backtrack(選擇列表,路徑):
 
 ```python
 result = []
-backtrack (result,暫時結果,暫時index)
+self.backtrack(result,暫時結果,暫時index)
+return result
+
+def backtrack(self, result, curr_res, curr_id):
+    if 滿足遞歸結束條件：
+        result.append(curr_res)
+        return
+    
+    for 選擇 in range(選擇集)     
 ```
 
 ### 1. Subsets
