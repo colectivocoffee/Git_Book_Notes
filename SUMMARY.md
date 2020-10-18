@@ -84,6 +84,7 @@
   * [\[Easy\] Linked List Cycle & \[Medium\] Linked List Cycle II](shu-ju-jie-gou/linked-list/easy-linked-list-cycle-and-medium-linked-list-cycle-ii.md)
   * [\[Medium\] Remove Nth Node From End of List](shu-ju-jie-gou/linked-list/medium.md)
 * [Array](shu-ju-jie-gou/array/README.md)
+  * [\[Interview\] Airplane Seats Assignment](shu-ju-jie-gou/array/interview-airplane-seats-assignment.md)
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
 * [Heap](shu-ju-jie-gou/heap/README.md)
   * [\[Medium\] Kth Largest Element in an Array](shu-ju-jie-gou/heap/medium-kth-largest-element-in-an-array.md)
