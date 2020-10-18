@@ -20,16 +20,16 @@ However, some of the seats are taken by other passengers like the following. Whi
  4  # # #  # # # O  # # #
 ```
 
-#### Example
+#### Example:
 
 ```python
+ Given: N = 2, S = '1C 2B 2E 2F'
+ 
     A B C  D E F G  H J K
  1  # # O  # - 1 -  - 2 -
- 2  - 3 -  # O O #  - 4 -
- 3  - 5 -  - 6 - #  # O #
- 4  - 7 -  - 8 - O  - 9 -
- 
- Result: 9 groups
+ 2  # O #  # O O #  - 3 -
+
+ Result: 3 groups
 ```
 
 ## Code
