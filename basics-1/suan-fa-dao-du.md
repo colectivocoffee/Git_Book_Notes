@@ -39,26 +39,34 @@ alist = [2,3,5,8]
 newDict = { i : alist[i] for i in range(len(alist)) } 
 ```
 
-* **把long statement化成多行:**  
-  \(Method 1\) Use backslash  `\`，注意後面沒有空格
+* **把long statement化成多行:** \(Method 1\) Use backslash  `\`，注意後面沒有空格
 
-  ```text
-  if x == 10 or x > 0 or \
-         x < 100:
-  ```
+```text
+if x == 10 or x > 0 or \
+       x < 100:
+```
 
-  \(Method 2\) Use parenthesis  `,`，
+\(Method 2\) Use parenthesis  `,`，
 
-  ```text
-   print ('Wow, this also works?',
-                 'I never knew!')
-  ```
+```text
+ print ('Wow, this also works?',
+               'I never knew!')
+```
 
-* **\_\_init\_\_ , \_\_lt\_\_ , \_\_gt\_\_ , \_\_eq\_\_ 等等的operators:** ss
+* **\_\_init\_\_ , \_\_lt\_\_ , \_\_gt\_\_ , \_\_eq\_\_ 等等的operators:** 
 
 ```python
-以linked list來說，
-def __init__(self):
+# 以linked list來舉例，下面的__init__是初始化head
+def __init__(self, head):
+    self.head = head
+
+# __lt__是less than，需要返回比較答案
+def __lt__(self, other):
+    return self.head.val < self.other.val
+
+# __gt__是greater than
+def __gt__(self, other):
+    return self.head.val > self.other.val
     
 ```
 
