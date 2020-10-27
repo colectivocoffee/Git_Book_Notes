@@ -54,7 +54,13 @@ newDict = { i : alist[i] for i in range(len(alist)) }
                  'I never knew!')
   ```
 
+* **\_\_init\_\_ , \_\_lt\_\_ , \_\_gt\_\_ , \_\_eq\_\_ 等等的operators:** ss
 
+```python
+以linked list來說，
+def __init__(self):
+    
+```
 
 ## Advanced Python
 
