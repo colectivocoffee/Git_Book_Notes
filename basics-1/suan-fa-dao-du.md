@@ -74,6 +74,7 @@ def __gt__(self, other):
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
 2. **zip用法**
+3. **Python Decorator**
 
 **Zip用法**  
 給兩個list，把它們用zip的方式黏在一起。如果遇到不匹配數量，則用None補齊。  
@@ -91,6 +92,9 @@ aListNums = [0,2,3,5,6]
 zipObj = zip(aListStrings,aListNums)  # zip creates tuple
 dictWords = dict(zipObj)
 ```
+
+**Python Decorator**  
+A decorator is a function that takes another function as an argument.
 
 ## Time Complexity
 
