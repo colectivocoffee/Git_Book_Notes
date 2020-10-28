@@ -55,6 +55,15 @@ heapq.heappush(alist, 20)            #20 was inserted into heap, ordering is mai
 
 ```
 
+### heapq's time complexity:
+
+| Method | Functions | Time Complexity |
+| :--- | :--- | :--- |
+| heapq.heappush\(\) | ADD | O\(logn\) |
+| heapq.heappop\(\) | POLL \(return root, but remove\) | O\(logn\) |
+| heapq.nsmallest\(\#,arr\)/.nlargest\(\#,arr\) | min/MAX               | O\(1\)                               |
+| heapq.nsmallest\(1,arr\) | PEEK \(return root, but not remove\) | O\(1\) |
+
 #### min heap 和 ordered sorted array 相同嗎？
 
 No. min heap 雖然有 parent is always less than any of its children的特性，但在同一層時並不能保證總是有序。
