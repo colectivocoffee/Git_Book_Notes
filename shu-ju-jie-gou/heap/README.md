@@ -1,5 +1,7 @@
 # Heap
 
+## Heap 大小事
+
 #### What is a Priority Queue?
 
 Priority Queue is an advanced data type \(ADT\) which is a more refined version of a Queue. It dequeues higher-priority items before the lower-priority items. Most programming languages such as Python use Binary heap to implement it.
@@ -59,16 +61,34 @@ heapq.heappush(alist, 20)            #20 was inserted into heap, ordering is mai
 
 | Method | Functions | Time Complexity |
 | :--- | :--- | :--- |
-| heapq.heappush\(\) | ADD | O\(logn\) |
-| heapq.heappop\(\) | POLL \(return root, but remove\) | O\(logn\) |
+| heapq.heappush\(arr, item\) | ADD | O\(logn\) |
+| heapq.heappop\(arr\) | POLL \(return root, and remove\) | O\(logn\) |
 | heapq.nsmallest\(\#,arr\)/.nlargest\(\#,arr\) | min/MAX               | O\(1\)                               |
 | heapq.nsmallest\(1,arr\) | PEEK \(return root, but not remove\) | O\(1\) |
 
-#### min heap 和 ordered sorted array 相同嗎？
+> 注意：這裡heappop\(arr\) 和 heapnsmallest\(1, arr\)為什麼會有不同的time complexity呢？  
+> 不同的點在於，nsmallest並不會remove item，而heappop\(arr\)會remove root並且重新heapify\(arr\)。
 
-No. min heap 雖然有 parent is always less than any of its children的特性，但在同一層時並不能保證總是有序。
+### Heapq.heappush\(arr, item\)
 
-然而，min heap有個很好的特性，即`root node總是最小`，而且heap總是會維持此狀態。因此取smallest element只需要`O(1)`的時間，並且下一次再取smallest element時，root node還是整個heap裡最小。
+```python
+aqueue = [10, 50, 60, 20, 70]
+heapq.heapify(aqueue)         # -> [10,20,60,50,70]
+```
+
+![](../../.gitbook/assets/initialheap.png)
+
+```python
+heapq.heappush(aqueue, 40)             # -> [10,20,40,50,70,60]  
+```
+
+![](../../.gitbook/assets/after_calling_pushheap_once.png)
+
+```python
+heapq.heappush(aqueue, 30)            # -> [10,20,30,50,70,60,40]
+```
+
+![](../../.gitbook/assets/after_calling_pushheap_twice.png)
 
 ## Two Heaps -- Min Heap & Max Heap
 
@@ -79,6 +99,12 @@ Min Heap to find the smallest element, Max Heap to find the largest element.
 1. 跟Scheduling Tasks \(排程\)、Priority Queue有關的情況
 2. 如果問你有關 Find smallest/larget/median elements in a set 的問題
 3. 有些跟Binary Tree有關的問題
+
+#### FAQ: min heap 和 ordered sorted array 相同嗎？
+
+No. min heap 雖然有 parent is always less than any of its children的特性，但在同一層時並不能保證總是有序。
+
+然而，min heap有個很好的特性，即`root node總是最小`，而且heap總是會維持此狀態。因此取smallest element只需要`O(1)`的時間，並且下一次再取smallest element時，root node還是整個heap裡最小。
 
 #### 
 
