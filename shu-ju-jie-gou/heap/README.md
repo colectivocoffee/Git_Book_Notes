@@ -55,6 +55,12 @@ heapq.heappush(alist, 20)            #20 was inserted into heap, ordering is mai
 
 ```
 
+#### min heap 和 ordered sorted array 相同嗎？
+
+No. min heap 雖然有 parent is always less than any of its children的特性，但在同一層時並不能保證總是有序。
+
+然而，min heap有個很好的特性，即root node總是最小，而且heap總是會維持此狀態。因此取smallest element只需要O\(1\)的時間，並且下一次再取smallest element時，root node還是整個heap裡最小。
+
 ## Two Heaps -- Min Heap & Max Heap
 
 Min Heap to find the smallest element, Max Heap to find the largest element. 
