@@ -55,7 +55,7 @@ heapq.heappush(alist, 20)            #20 was inserted into heap, ordering is mai
 
 ```
 
-### heapq's time complexity:
+### Heapq's Time Complexity:
 
 | Method | Functions | Time Complexity |
 | :--- | :--- | :--- |
