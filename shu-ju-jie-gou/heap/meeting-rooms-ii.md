@@ -46,7 +46,7 @@ def minMeetingRooms(self, intervals: List[List[int]]) -> int:
     for i in range(len(intervals)):
         # ..[0-20]....
         # ...[10-30]..
-        # if end time overlaps with start time, then we need a extra meeting room.
+        # if end time overlaps with start time, then we need an extra meeting room.
         if all_start[i] < all_end[end_id]:
             rooms += 1
         #  ..[0-20]..[30-40]..
@@ -54,5 +54,12 @@ def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         # meaning there's a meeting room available to be used, just update endtime.
         else:
             end_id += 1 
+```
+
+#### 2. Two Heaps
+
+```python
+def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+    
 ```
 
