@@ -55,6 +55,14 @@ heapq.heappush(alist, 1)             # heapq.heappush(arr, element)
 heapq.heappush(alist, 20)            #20 was inserted into heap, ordering is maintained.
                                      # [2, 8, 3, 15, 10, 18, 6, 20]
 
+# 5.Delete smallest and insert a new element
+heapq.heapreplace(alist, 5)          # heapq.heapreplace(arr, element)
+                                     # this method is faster than heappop + heappush
+                                     # 2 was deleted from heap, then
+                                     # 5 was inserted into heap
+                                     # [2,3,6,15,10,18,8] -> [3,5,6,15,10,18,8]
+
+
 ```
 
 ### Heapq's Time Complexity:

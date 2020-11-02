@@ -56,10 +56,33 @@ def minMeetingRooms(self, intervals: List[List[int]]) -> int:
             end_id += 1 
 ```
 
-#### 2. Two Heaps
+#### 2.min Heap:
 
 ```python
 def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+
+    if len(intervals) == 0:
+        return 0
+        
+    # sort all meetings by start time
+    intervals.sort(key = lambda x:[0])
+    
+    all_ends = []
+    
+    # use heapq to get latest end time (already done by min heap)
+    for meeting in intervals:
+        
+        curr_end_time = meeting[1]
+        if all_ends and curr_end_time >= all_ends[0]:
+            # meaning two meetings can use same room (with >= all_ends time)
+            heapq.heapreplace(all_ends, curr_end_time)
+        else:
+            # otherwise add a meeting room by current meeting end time
+            heapq.heappush(all_ends, curr_end_time)
+    
+    # remaining end times are eqivalent to # of meeting rooms required.
+    return len(all_ends)    
+        
     
 ```
 
