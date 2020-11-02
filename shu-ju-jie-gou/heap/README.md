@@ -62,7 +62,6 @@ heapq.heapreplace(alist, 5)          # heapq.heapreplace(arr, element)
                                      # 5 was inserted into heap
                                      # [2,3,6,15,10,18,8] -> [3,5,6,15,10,18,8]
 
-
 ```
 
 ### Heapq's Time Complexity:
@@ -73,6 +72,7 @@ heapq.heapreplace(alist, 5)          # heapq.heapreplace(arr, element)
 | heapq.heappop\(arr\) | POLL \(return root, and remove\) | O\(logn\) |
 | heapq.nsmallest\(\#,arr\)/.nlargest\(\#,arr\) | min/MAX               | O\(1\)                               |
 | heapq.nsmallest\(1,arr\) | PEEK \(return root, but not remove\) | O\(1\) |
+| heapq.heapreplace\(arr, item\) | POLL and then ADD | O\(logn\) |
 
 > 注意：這裡heappop\(arr\) 和 heapnsmallest\(1, arr\)為什麼會有不同的time complexity呢？  
 > 不同的點在於，nsmallest並不會remove item，而heappop\(arr\)會remove root並且重新heapify\(arr\)。
