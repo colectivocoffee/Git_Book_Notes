@@ -99,3 +99,7 @@
   * [\[Hard\] Serialize and Deserialize a Binary Tree](shu-ju-jie-gou/binary-tree/hard-serialize-and-deserialize-a-binary-tree.md)
   * [\[Medium\] Validate Binary Search Tree](shu-ju-jie-gou/binary-tree/medium-validate-binary-search-tree.md)
 
+## System Design
+
+* [RabbitMQ](system-design/rabbitmq.md)
+
