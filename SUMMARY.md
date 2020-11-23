@@ -103,4 +103,6 @@
 
 * [RabbitMQ](system-design/rabbitmq.md)
 * [JMS \(Java Messaging System\)](system-design/jms-java-messaging-system.md)
+* [J2EE](system-design/j2ee.md)
+* [Design Pattern](system-design/design-pattern.md)
 
