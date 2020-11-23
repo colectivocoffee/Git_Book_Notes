@@ -105,4 +105,5 @@
 * [JMS \(Java Messaging System\)](system-design/jms-java-messaging-system.md)
 * [J2EE](system-design/j2ee.md)
 * [Design Pattern](system-design/design-pattern.md)
+* [HTTP Status Code](system-design/http-status-code.md)
 
