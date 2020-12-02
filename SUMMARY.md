@@ -75,6 +75,8 @@
 
 ## 數據結構
 
+* [Stack](shu-ju-jie-gou/stack/README.md)
+  * [Next Greater Element I](shu-ju-jie-gou/stack/next-greater-element-i.md)
 * [Linked List](shu-ju-jie-gou/linked-list/README.md)
   * [\[Hard\] Reverse Nodes in k-Group](shu-ju-jie-gou/linked-list/hard-reverse-nodes-in-k-group.md)
   * [\[Medium\] Swap Nodes in Pairs](shu-ju-jie-gou/linked-list/medium-swap-nodes-in-pairs.md)
