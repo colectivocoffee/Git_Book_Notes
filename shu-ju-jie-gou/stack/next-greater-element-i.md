@@ -55,6 +55,8 @@ def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
 ### 2. Dictionary + Stack: O\(m+n\) / O\(m+n\)
 
+beats 82.92%
+
 Time Complexity: The entire nums2 array is only scanned once from step1. The nums1 array is also scanned once from step2.   
   
 Space Complexity: stack and map n are both used. result array is the size of m.
