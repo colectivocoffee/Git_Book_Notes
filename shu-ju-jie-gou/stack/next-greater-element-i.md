@@ -57,3 +57,7 @@ def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
 ### 2. Dictionary + Stack: 
 
+```python
+def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+```
+
