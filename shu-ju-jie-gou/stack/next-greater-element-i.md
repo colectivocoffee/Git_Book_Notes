@@ -17,8 +17,6 @@ Explanation:
     For number 2 in the first array, there is no next greater number for it in the second array, so output -1.
 ```
 
-## Thought Process:
-
 ## Code
 
 ### 1. Dictionary: O\(m\*n\) / O\(m\), m = len\(nums1\) & n = len\(nums2\)
@@ -55,9 +53,44 @@ def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
     return result
 ```
 
-### 2. Dictionary + Stack: 
+### 2. Dictionary + Stack: O\(m+n\) / O\(m+n\)
+
+Time Complexity: The entire nums2 array is only scanned once from step1. The nums1 array is also scanned once from step2.   
+  
+Space Complexity: stack and map n are both used. result array is the size of m.
+
+![](../../.gitbook/assets/next_greater_1.jpg)
+
+使用stack的top特性來依序比較nums2上每一個item的大小。  
+**Step1:**  
+如果現在手上的比stack top還小\(e.g. 5,3,2\)，則一個一個壓入stack；  
+反之，如過手上的比stack top還大\(e.g. 10\)，則建立配對 \(top -&gt; curr\)，並且儲存在dictionary裡。  
+**Step2:**  
+看nums1有哪些數字，藉由dictionary上的pair，來快速取得next\_greater，找不到者就加上-1。
 
 ```python
 def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+
+    if not nums1 or not nums2:
+        return []
+        
+    result = []
+    stack = []
+    location = {}
+        
+    for num in nums2:
+        while len(stack) != 0 and stack[-1] < num:
+            location[stack[-1]] = num
+            stack.pop()
+        stack.append(num)
+        
+    # we have all the corresponding pair
+    # just have to put all of them into result list, else just filled with -1
+    for num in nums1:
+        # next_greater
+        next_greater = location.get(num,-1)
+        result.append(next_greater)
+        
+    return result
 ```
 
