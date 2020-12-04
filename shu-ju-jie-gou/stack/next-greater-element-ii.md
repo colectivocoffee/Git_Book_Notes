@@ -31,7 +31,7 @@ O\(n\) Space Complexity: Stack size n is used, result array size n is used, mapp
 
 {% hint style="info" %}
 1. **Double** the nums array to make it circular.  `for i, num in enumerate(nums*2):`
-2. We store **indices** of num instead of num itself within the dictionary.  `mapping [idx] = num`
+2. We store **indices** of num as key, instead of num itself within the dictionary.  `mapping [idx] = num   # where idx = stack.pop()` 
 3. **Stack** is used to compare next greater num. 
 {% endhint %}
 
