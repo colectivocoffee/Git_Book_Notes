@@ -13,17 +13,27 @@ The number 2 can't find next greater number;
 The second 1's next greater number needs to search circularly, which is also 2.
 ```
 
-  
-
-
 ## Code
 
-### 1. Brute Force: O\(n^2\)/
+### 1. Brute Force: O\(n^2\)/O\(n\)
+
+Time Complexity: O\(n^2\) The complete numsnums array of size nn is scanned for all the elements of numsnums in the worst case.  
+Space Complexity: O\(n\) result array of size n is used.
+
+由於題意說nums是個circular array，用circular來找next\_greater num，因此我們可以**double** nums，使之可以把nums最後一個element連到第一個element。
+
+We are trying to find the next greater number for the `ith` number and `num[i] >= num[i+1]`，then we will go on to check num\[i+2\], num\[i+3\]... until we find the next\_greater num. 
 
 ### 2. Stack + Dictionary: O\(n\)/O\(n\) 
 
 O\(n\) Time Complexity: Only two traversals of the nums array are done.   
 O\(n\) Space Complexity: Stack size n is used, result array size n is used, mapping size n is used.  
+
+{% hint style="info" %}
+1. **Double** the nums array to make it circular.  `for i, num in enumerate(nums*2):`
+2. We store **indexes** of num instead of num itself within the dictionary.  `mapping [idx] = num`
+3. **Stack** is used to compare next greater num. 
+{% endhint %}
 
 ```python
 def nextGreaterElements(self, nums: List[int]) -> List[int]:
