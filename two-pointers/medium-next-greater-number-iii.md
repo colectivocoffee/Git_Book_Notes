@@ -92,8 +92,8 @@ def nextGreaterElement(self, n: int) -> int:
     result = int(''.join(nums))
     
     # edge case 32-bit integer case
-    32_limit = 2**31-1
-    if result > 32_limit:
+    limit_32 = 2**31-1
+    if result > limit_32:
         return -1
     return result 
 ```
