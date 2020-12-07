@@ -31,6 +31,24 @@ Output: -1 (over 32-bit integer)
 
 ## **Code**
 
+### 1. Two Pointer \(-&gt;\|&lt;-\): O\(n\)/O\(n\)
+
+和下面的next\_permutation很像，但有些edge cases需要額外處理。
+
+{% page-ref page="medium-next-permutation.md" %}
+
+Step1: 把所有數字換成list of integers。\(e.g. 12 --&gt; \[1,2\] \)  
+             NOTE: 需要做兩次type轉換。int\(\) --&gt; str\(\) --&gt; int\(\)  
+  
+Step2: 用兩個pointers, `left = len(nums)-1, right = -1`, left & right來找應該要調換的兩個數字的index，left是從右邊一個一個往左看，找到`nums[left-1] < nums[left]`時便停止並且用right pointer標記。  
+  
+Step3: 此時我們有left&right pointers了，我們可以先把這兩個數字調換，並且把中間的所有數字，從`nums[right+1:]`依照小至大的順序排列\(sorted\)。  
+  
+Step4: 把所有的數字用`''.join(nums list)`粘起來。當然還是要做型態轉換。  
+  
+Step5: 額外處理32-bit digits limit's edge case。   
+
+
 ```python
 def nextGreaterElement(self, n: int) -> int:
     if not n:
