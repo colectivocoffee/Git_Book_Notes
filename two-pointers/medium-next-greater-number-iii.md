@@ -54,8 +54,9 @@ def nextGreaterElement(self, n: int) -> int:
     if not n:
         return -1
     
-    # convert into int list
-    nums = [int(i) for i in str(n)]
+    # convert n into int list
+    # or) nums = [int(i) for i in str(n)]
+    nums = list(str(n))
     
     # edge case like `1`
     if len(nums) == 1:
@@ -81,8 +82,9 @@ def nextGreaterElement(self, n: int) -> int:
     for left in range(len(nums))[::-1]:
         if nums[left] > nums[right]:
             nums[left], nums[right] = nums[right], nums[left]
-            # sort all the remaining digits to make it smallest
-            nums[right+1:] = sorted(nums[right+1:])
+            # reverse/sort all the remaining digits to make it smallest
+            # or) nums[right+1:] = sorted(nums[right+1:])
+            nums[right+1:] = nums[right+1:][::-1]
             break
     
     # assemble all digits back into integer

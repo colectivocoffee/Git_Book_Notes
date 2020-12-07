@@ -30,6 +30,18 @@ Next Permutation的意思就是比找比原來大一個的排列。舉個例子�
 1    3　 '1'  '2'　'4'　 '7'     # 把3後面所有的數字按照升序排列，swap left&right + sorted()
 ```
 
+Q: 為什麼要從最右邊開始看\(start from right end\)呢？  
+Ans: 因為我們要取least significant digit that is greater than the current number.  
+  
+Q:為什麼要換right & left pointers呢？right & left 什麼時候該停下來？  
+Ans: 我們只要找一個 "比nums\[i-1\]大一點點的數字"，來當作替換的數字。so that this can become new number and is 1 greater than the new one  
+  
+Q:為什麼還要reverse/sorted呢？  
+Ans: 我們要找到next permutation, 意即這個數字必須要盡量小，越小越好。  
+在Step1時，`'2'  7  4  3  1` 是越往後遞減的，  
+而當我們換完left&right的數字後，就需要把剩下的數字，按照越往後遞增的方式排列。  
+
+
 ## Code
 
 ```python
