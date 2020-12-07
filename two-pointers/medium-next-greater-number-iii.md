@@ -88,7 +88,8 @@ def nextGreaterElement(self, n: int) -> int:
             break
     
     # assemble all digits back into integer
-    result = int(''.join(str(i) for i in nums))
+    # or) result = int(''.join(str(i) for i in nums))
+    result = int(''.join(nums))
     
     # edge case 32-bit integer case
     32_limit = 2**31-1
