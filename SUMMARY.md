@@ -77,8 +77,8 @@
 ## 數據結構
 
 * [Stack](shu-ju-jie-gou/stack/README.md)
-  * [Daily Temperatures](shu-ju-jie-gou/stack/daily-temperatures.md)
-  * [Valid Parentheses](shu-ju-jie-gou/stack/valid-parentheses.md)
+  * [\[Medium\] Daily Temperatures](shu-ju-jie-gou/stack/daily-temperatures.md)
+  * [\[Easy\] Valid Parentheses](shu-ju-jie-gou/stack/valid-parentheses.md)
   * [Next Greater Element I](shu-ju-jie-gou/stack/next-greater-element-i.md)
   * [Next Greater Element II](shu-ju-jie-gou/stack/next-greater-element-ii.md)
 * [Linked List](shu-ju-jie-gou/linked-list/README.md)
