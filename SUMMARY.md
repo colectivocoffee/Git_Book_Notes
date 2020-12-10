@@ -77,6 +77,7 @@
 ## 數據結構
 
 * [Stack](shu-ju-jie-gou/stack/README.md)
+  * [\[Medium\] Minimum Remove to Make Valid Parentheses](shu-ju-jie-gou/stack/medium-minimum-remove-to-make-valid-parentheses.md)
   * [\[Medium\] Daily Temperatures](shu-ju-jie-gou/stack/daily-temperatures.md)
   * [\[Easy\] Valid Parentheses](shu-ju-jie-gou/stack/valid-parentheses.md)
   * [Next Greater Element I](shu-ju-jie-gou/stack/next-greater-element-i.md)
