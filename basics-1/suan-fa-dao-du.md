@@ -70,6 +70,19 @@ def __gt__(self, other):
     
 ```
 
+* **String concatenation**： 是 += 還是 ''.join\(list\[\]\) 比較好呢？是`''.join(list[])`，因為他可以避免creating a new string。
+
+```python
+# BAD
+#O(n+m) or O(n^2) operation
+#where n & m -> size of str1 and str2
+str1 += str2    is the same as  str1 = str1 + str2
+
+# GOOD
+#O(n) operation
+str1 = ''.join(list[])   # here list[] is the list(str2)
+```
+
 ## Advanced Python
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
