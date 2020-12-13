@@ -63,3 +63,5 @@ def decodeString(self, s: str) -> str:
     return ''.join(alpha)
 ```
 
+### 2. Recursion: O\(maxK \* n\) / O\(n\)
+
