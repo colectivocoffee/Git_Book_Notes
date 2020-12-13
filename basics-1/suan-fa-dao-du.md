@@ -178,6 +178,7 @@ If given a linked list then
 - Two pointers
 
 If recursion is banned then
+If we don't know how many loops we need then (recursion->stack)
 - Stack
 
 If asked for maximum/minumum subarray/subset/options then

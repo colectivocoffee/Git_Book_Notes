@@ -51,11 +51,13 @@ def decodeString(self, s: str) -> str:
         elif char.isalpha():
             alpha.append(char)
         elif char == '[':
+            # 當我們看到'['出現時，就把'['之前到前前一個'['中間，的所有字母數字都存到stack
             stack.append((alpha, freq))                  
-             , freq = [], []    # 必須要清空alpha & freq，重新開始計數，否則會無限循環
+            alpha , freq = [], []    # 必須要清空alpha & freq，重新開始計數，否則會無限循環
         elif char == ']':
             prev_alpha, prev_freq = stack.pop()          
             prev_freq_int = int(''.join(prev_freq)) 
+            # the previous sequence (prev_alpha) that was popped + the current sequence (alpha) times n.
             alpha = prev_alpha + alpha * prev_freq_int  # build latest string based on freq
     
     return ''.join(alpha)
