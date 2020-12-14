@@ -76,7 +76,7 @@
 
 ## 數據結構
 
-* [Stack](shu-ju-jie-gou/stack/README.md)
+* [Stack & Queue](shu-ju-jie-gou/stack/README.md)
   * [\[Medium\] Decode String](shu-ju-jie-gou/stack/medium-decode-string.md)
   * [\[Medium\] Minimum Remove to Make Valid Parentheses](shu-ju-jie-gou/stack/medium-minimum-remove-to-make-valid-parentheses.md)
   * [\[Medium\] Daily Temperatures](shu-ju-jie-gou/stack/daily-temperatures.md)

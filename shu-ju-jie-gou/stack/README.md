@@ -1,4 +1,4 @@
-# Stack
+# Stack & Queue
 
 ### 何時要使用Stack?
 
@@ -6,7 +6,7 @@
   
 由此可知，當我們要“記得”之前看過的elements，又不知道還剩下多少個時，就可以用while loop + stack來解決。  
   
-Stack是LIFO\(Last in First Out\)的數據結構，因此top的便是我們所要的item。
+Stack是LIFO\(Last in First Out\)後入先出的數據結構，根據這個特點看以臨時保存一些數據，之後用到再依序彈出來，而top的便是我們所要的item。常用於DFS深度優先搜索。
 
 ### Stack使用小技巧
 
