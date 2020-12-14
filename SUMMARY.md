@@ -77,6 +77,7 @@
 ## 數據結構
 
 * [Stack & Queue](shu-ju-jie-gou/stack/README.md)
+  * [\[Medium\] Evaluate Reverse Polish Notation](shu-ju-jie-gou/stack/medium-evaluate-reverse-polish-notation.md)
   * [\[Medium\] Decode String](shu-ju-jie-gou/stack/medium-decode-string.md)
   * [\[Medium\] Minimum Remove to Make Valid Parentheses](shu-ju-jie-gou/stack/medium-minimum-remove-to-make-valid-parentheses.md)
   * [\[Medium\] Daily Temperatures](shu-ju-jie-gou/stack/daily-temperatures.md)
