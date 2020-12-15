@@ -31,7 +31,11 @@ Explanation: (4 + (13 / 5)) = 6
 Time Complexity: O\(n\) as linear search to put all numbers into the stack. When we do operator operations, it only requires O\(1\) for each of them. `n = len(tokens)`  
 Space Complexity: O\(n\) for the stack that contains all numbers and no operators.
 
-思路：  
+**思路：用Stack 後進先出的方式，把後面碰到operators的數字先處理，再一步一步把stack裡面的數字pop\(\)，直到最後剩下一個數字作結束。其中division truncate towards zero的要求，需要用到int\(a/b\)來滿足條件。**
+
+Reverse Polish Notation 和 Infix Notation 不同點在於，Reverse Polish Notation 只需要按照順序把數字按下面的方式處理：  
+`While there are operators remaining in the list, find the left-most operator. Apply it to the 2 numbers immediately before it, and replace all 3 tokens (the operator and 2 numbers) with the result.  
+e.g. 2 3 4 + * --> 2 7 * --> 14`然而，Infix Notation是我們習慣的`“先乘除，後加減”`方法，這種方法用coding的方式處理起來比較複雜，暫時不討論。
 
 ```python
 def evalRPN(self, tokens: List[str]) -> int:
