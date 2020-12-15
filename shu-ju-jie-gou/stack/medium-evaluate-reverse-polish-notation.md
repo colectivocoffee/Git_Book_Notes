@@ -26,6 +26,13 @@ Explanation: (4 + (13 / 5)) = 6
 
 ## Code
 
+### 1. Stack: O\(n\)/O\(n\)
+
+Time Complexity: O\(n\) as linear search to put all numbers into the stack. When we do operator operations, it only requires O\(1\) for each of them. `n = len(tokens)`  
+Space Complexity: O\(n\) for the stack that contains all numbers and no operators.
+
+思路：  
+
 ```python
 def evalRPN(self, tokens: List[str]) -> int:
     
