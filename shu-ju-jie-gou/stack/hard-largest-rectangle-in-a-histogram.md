@@ -2,7 +2,7 @@
 
 ## Code
 
-### 1. Brute Force: O\(n^2\)/O\(n\)
+### 1. Brute Force: O\(n^2\)/O\(n\) possibly TLE
 
 ```python
 def largestRectangleArea(self, heights: List[int]) -> int:
