@@ -33,9 +33,13 @@ Space Complexity: O\(n\) for the stack that contains all numbers and no operator
 
 **思路：用Stack 後進先出的方式，把後面碰到operators的數字先處理，再一步一步把stack裡面的數字pop\(\)，直到最後剩下一個數字作結束。其中division truncate towards zero的要求，需要用到int\(a/b\)來滿足條件。**
 
-Reverse Polish Notation 和 Infix Notation 不同點在於，Reverse Polish Notation 只需要按照順序把數字按下面的方式處理：  
+1.Reverse Polish Notation 和 Infix Notation 不同點在於，Reverse Polish Notation 只需要按照順序把數字按下面的方式處理：  
 `While there are operators remaining in the list, find the left-most operator. Apply it to the 2 numbers immediately before it, and replace all 3 tokens (the operator and 2 numbers) with the result.  
 e.g. 2 3 4 + * --> 2 7 * --> 14`然而，Infix Notation是我們習慣的`“先乘除，後加減”`方法，這種方法用coding的方式處理起來比較複雜，暫時不討論。
+
+2.在做`+-*/` operations時，pop\(\)哪一個數字先出來的順序很重要。  
+`e.g. 7 - 5 ≠ 5 - 7`兩者結果不一樣。  
+因此，pop\(\)第一次會先出來`right_num`，而後出來`left_num`。
 
 ```python
 def evalRPN(self, tokens: List[str]) -> int:
@@ -70,6 +74,32 @@ def evalRPN(self, tokens: List[str]) -> int:
                                               
         # append the calculated result back to stack for future use.
         stack.append(num)
+    
+    return stack[-1]
+```
+
+### 2. Stack+lambda func: O\(n\)/O\(n\)
+
+```python
+def evalRPN(self, tokens: List[str]) -> int:
+    
+    stack = []
+    operations = {
+        '+' lambda: a, b: a + b, 
+        '-' lambda: a, b: a - b,
+        '*' lambda: a, b: a * b,
+        '/' lambda: a, b: int(a/b)
+    }
+    
+    for token in tokens:
+        if token not in operations:
+            stack.append(int(token))
+        else:
+            r_num = stack.pop()
+            l_num = stack.pop()
+            operation = operations[token]
+            num = operation(l_num, r_num)
+            stack.append(num)
     
     return stack[-1]
 ```
