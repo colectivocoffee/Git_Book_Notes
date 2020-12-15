@@ -35,7 +35,7 @@ def evalRPN(self, tokens: List[str]) -> int:
     stack = [] 
     
     for token in tokens:
-        # we need int(token) to avoid python conversion error.
+        # we need int(token) to avoid python str multiplication error later on.
         if token not in '+-*/':
             stack.append(int(token))
             continue
