@@ -20,3 +20,16 @@ for idx,item in enumerate(aList):
     stack.append(idx)
 ```
 
+## 總結
+
+* 熟悉Stack的使用場景：
+  * 需要Recursion：如果traverse時，不知道curr\_item等等什麼時候會用到，用到時又需要比較
+  * 後入先出，保存臨時值
+  * 利用Stack作DFS深度優先搜索
+* 熟悉Queue的使用場景：
+  * 利用Queue作BFS廣度優先搜索
+
+  
+  
+  
+
