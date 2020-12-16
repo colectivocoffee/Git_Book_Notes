@@ -24,3 +24,30 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 ### 2. Stack: 
 
+思路：
+
+```python
+def largestRectangleArea(self, heights: List[int]) -> int:
+    
+    stack = []
+    max_rect = 0
+    heights = [0] + heights + [0]   # 易錯點：前後都要加上[0]，否則等等會out of range
+    
+    # right_index i
+    for i in range(len(heights)):
+        # while len(stack) != 0 and 
+        # found lower heights[i] than we've seen so far. 
+        while stack and heights[i] < heights[stack[-1]]:
+            l_idx = stack.pop()
+            height = heights[l_idx]
+            width = i - stack[-1] - 1    # 易錯點：-1是因為在原來heights已加上前後[0]來保持 
+                                         # not going out of range
+                                         # 易錯點2：是stack[-1]，而非l_idx
+            max_rect = max(max_rect, height * width)
+        stack.append(i)
+        
+    return max_rect
+            
+            
+```
+
