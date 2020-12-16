@@ -4,6 +4,10 @@
 
 ### 1. Brute Force: O\(n^2\)/O\(n\) possibly TLE
 
+思路：枚舉法。使用兩個pointers start&end，start為left pointer，end為right pointer。
+
+left pointer從index=0開始出發，right pointer則是從left pointer開始走。而largest rectangle的算法，是由`min_height`定義高度，乘以寬度`end-start+1`即可。
+
 ```python
 def largestRectangleArea(self, heights: List[int]) -> int:
     
