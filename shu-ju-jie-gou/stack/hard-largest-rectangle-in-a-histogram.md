@@ -66,6 +66,9 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 [https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/452612/Thinking-Process-for-Stack-Solution](https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/452612/Thinking-Process-for-Stack-Solution)
 
+這動畫很好地演示了如何找max\_rectangle using stack  
+[https://www.youtube.com/watch?v=VNbkzsnllsU](https://www.youtube.com/watch?v=VNbkzsnllsU)
+
 #### Related Qs:
 
 * 1475. Final Prices With a Special Discount in a Shop
