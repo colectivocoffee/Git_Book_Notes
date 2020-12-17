@@ -1,5 +1,13 @@
 # \[Hard\] Largest Rectangle in a Histogram
 
+\*\*\*\*[**Largest Rectangle in Histogram**](https://leetcode.com/problems/largest-rectangle-in-histogram/)  
+Given _n_ non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.  
+  
+For example, `heights = [2,1,5,6,2,3]`Then the largest rectangle area would be showing below:  
+`max_rect = 10`
+
+![](https://assets.leetcode.com/uploads/2018/10/12/histogram_area.png)
+
 ## Code
 
 ### 1. Brute Force: O\(n^2\)/O\(n\) possibly TLE
@@ -38,6 +46,7 @@ def largestRectangleArea(self, heights: List[int]) -> int:
         # while len(stack) != 0 and 
         # found lower heights[i] than we've seen so far. 
         while stack and heights[i] < heights[stack[-1]]:
+            # l_idx is the index of min_height so far.
             l_idx = stack.pop()
             height = heights[l_idx]
             width = i - stack[-1] - 1    # 易錯點：-1是因為在原來heights已加上前後[0]來保持 
@@ -47,7 +56,5 @@ def largestRectangleArea(self, heights: List[int]) -> int:
         stack.append(i)
         
     return max_rect
-            
-            
 ```
 
