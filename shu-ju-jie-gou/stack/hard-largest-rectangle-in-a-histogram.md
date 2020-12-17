@@ -30,11 +30,13 @@ def largestRectangleArea(self, heights: List[int]) -> int:
     return max_rect
 ```
 
-### 2. Stack: 
+### 2. Stack: O\(n\)/O\(n\)
 
-思路：用Stack來記錄目前height最低的left\_index。  
+**思路：Next Smaller Element with Stack。用Stack來記錄目前height最低的left\_index。**  
 為什麼要用stack呢？  
 At each step we need the information of previously seen "candidate" bars - bars which give us hope. These are the bars of increasing heights. And since they'll need to be put in the order of their occurence, stack should come to your mind.
+
+Using 'Next Smaller Element' Monotone Stack concept, we can find the width of current max rectangles, plus minimum height among all these width indexes.
 
 ```python
 def largestRectangleArea(self, heights: List[int]) -> int:
