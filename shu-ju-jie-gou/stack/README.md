@@ -8,6 +8,12 @@
   
 Stack是LIFO\(Last in First Out\)後入先出的數據結構，根據這個特點看以臨時保存一些數據，跟top比較之後，要用到時再依序彈出來，而此時top的便是我們所要的item。常用於DFS深度優先搜索。
 
+Monotone Stack可以解決以下類型問題：  
+\(1\) Next Greater Element  
+\(2\) Next Smaller Element  
+\(3\) Prev Greater Element  
+\(4\) Prev Smaller Element
+
 ### Stack使用小技巧
 
 1. **存index**：在stack push/append的時候，存index而非item本身。這是為什麼呢？由於item本身有可能是重複的，而index是unique的。因此如果存index，在下一步處理時可以用index來找回是哪個item需要做處理。因此我們常常會看到以下的形式出現： `enumerate(aList) + stack.append(i)`

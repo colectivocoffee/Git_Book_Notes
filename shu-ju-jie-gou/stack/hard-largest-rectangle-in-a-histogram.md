@@ -32,7 +32,9 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 ### 2. Stack: 
 
-思路：
+思路：用Stack來記錄目前height最低的left\_index。  
+為什麼要用stack呢？  
+At each step we need the information of previously seen "candidate" bars - bars which give us hope. These are the bars of increasing heights. And since they'll need to be put in the order of their occurence, stack should come to your mind.
 
 ```python
 def largestRectangleArea(self, heights: List[int]) -> int:
@@ -56,5 +58,32 @@ def largestRectangleArea(self, heights: List[int]) -> int:
         stack.append(i)
         
     return max_rect
+```
+
+#### References:
+
+[https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/452612/Thinking-Process-for-Stack-Solution](https://leetcode.com/problems/largest-rectangle-in-histogram/discuss/452612/Thinking-Process-for-Stack-Solution)
+
+#### Related Qs:
+
+* 1475. Final Prices With a Special Discount in a Shop
+* 907. Sum of Subarray Minimus
+* 85. Maximum Rectangle
+* 402. Remove K Digits
+* 456.  132 Pattern
+* 1063. Number of Valid Subarrays
+* 739. Daily Temperatures
+* 1019. Next Greater Node In Linked List
+
+```text
+## APPROACH : MONOTONOUS INCREASING STACK ##
+1475. Final Prices With a Special Discount in a Shop ##
+## Similar to Leetcode: 907. Sum Of Subarray Minimums ##
+## Similar to Leetcode: 85. maximum Rectangle ##
+## Similar to Leetcode: 402. Remove K Digits ##
+## Similar to Leetcode: 456. 132 Pattern ##
+## Similar to Leetcode: 1063. Number Of Valid Subarrays ##
+## Similar to Leetcode: 739. Daily Temperatures ##
+## Similar to Leetcode: 1019. Next Greater Node In LinkedList ##
 ```
 
