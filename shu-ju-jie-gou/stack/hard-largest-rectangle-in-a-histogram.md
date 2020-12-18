@@ -87,7 +87,7 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 ### 2. Stack: O\(N\*M\) / O\(M\) 
 
 Time Complexity: O\(N\*M\) where N = \# of rows on matrix, M = \# of cols on each row  
- Space Complexity: O\(M\) M = \# of cols on each row
+Space Complexity: O\(M\) where M = \# of cols on each row
 
 ```python
 def maximalRectangle(self, matrix: List[List[str]]) -> int:
@@ -107,9 +107,9 @@ def maximalRectangle(self, matrix: List[List[str]]) -> int:
             if matrix[i][j] == '0':
                 curr_max[j] = 0
             else:
-                # here to find local max rect
+                # here to find local max
                 curr_max[j] = curr_max[j] + 1
-        # here to find global max rect
+        # here to find global max
         max_rect = max(max_rect, self.findMax(cur_max))
     return max_rect
 
