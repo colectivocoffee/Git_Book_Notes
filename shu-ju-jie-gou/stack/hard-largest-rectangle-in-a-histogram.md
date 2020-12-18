@@ -103,8 +103,6 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 [2, 0, 2, 1, 1] 3    # iter 2
 [3, 1, 3, 2, 2] 6    # iter 3
 [4, 0, 0, 3, 0] 6    # iter 4 (last row)
-
-
 ```
 
 ```python
