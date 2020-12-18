@@ -82,7 +82,18 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 ## Maximal Rectangle
 
-### 1. Brute Force: O\($$N^2$$\* M\) / O\(N \* M\)
+### 1. Brute Force: O\($$N^2$$\* M\) / O\(N\)
+
+Time Complexity: O\(n^2 \* M\) where N = \# of rows on the matrix,  M = \# of cols on each row  
+Space Complexity: O\(n\) 
+
+As we computed maximal rectangle in a histogram in [**Largest Rectangle in Histogram**](https://leetcode.com/problems/largest-rectangle-in-histogram/), we can reuse the same way of computing the maximal rectangle and merge it into this matrix. 
+
+**思路：和上題一樣，枚舉法。  
+並且也是用start&end pointer，來算寬度width，而長度heights是由`dp[i]`提供。**  
+因此，要加上\(1\)讀`matrix[i][j] == '1' or '0'`的判斷條件   
+\(2\) dp記憶table `dp = [0] * cols (or len(matrix[0]))`  
+用這些小技巧，使得我們可以隨時紀錄目前最大的矩形大小。
 
 ```python
 [["1","0","1","0","0"],
