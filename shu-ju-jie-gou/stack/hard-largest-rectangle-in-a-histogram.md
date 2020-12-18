@@ -84,7 +84,10 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 ### 1. Brute Force: 
 
-### 2. Stack: 
+### 2. Stack: O\(N\*M\) / O\(M\) 
+
+Time Complexity: O\(N\*M\) where N = \# of rows on matrix, M = \# of cols on each row  
+ Space Complexity: O\(M\) M = \# of cols on each row
 
 ```python
 def maximalRectangle(self, matrix: List[List[str]]) -> int:
