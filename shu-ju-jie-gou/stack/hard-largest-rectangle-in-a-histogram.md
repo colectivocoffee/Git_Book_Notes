@@ -82,7 +82,7 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 ## Maximal Rectangle
 
-### 1. Brute Force: O\(N^2\) / O\(M\)
+### 1. Brute Force: O\($$N^2$$\* M\) / O\(N \* M\)
 
 ```python
 [["1","0","1","0","0"],
@@ -90,15 +90,61 @@ def largestRectangleArea(self, heights: List[int]) -> int:
  ["1","1","1","1","1"],
  ["1","0","0","1","0"]]
 
-[1, 0, 1, 0, 0] 1
-[2, 0, 2, 1, 1] 3
-[3, 1, 3, 2, 2] 6
-[4, 0, 0, 3, 0] 6
+# 錯誤
+# 如果不把dp(or min_heights)清空，就會變成下面這樣。
+[1, 0, 1, 0, 0]
+[2, 0, 2, 1, 1]
+[3, 1, 3, 2, 2]
+[4, 1, 3, 3, 2]
+
+# 正確
+# dp array  //  max_rect so far 
+[1, 0, 1, 0, 0] 1    # iter 1
+[2, 0, 2, 1, 1] 3    # iter 2
+[3, 1, 3, 2, 2] 6    # iter 3
+[4, 0, 0, 3, 0] 6    # iter 4 (last row)
+
+
+```
+
+```python
+import sys
 
 def maximalRectangle(self, matrix: List[List[str]]) -> int:
+    
+    if not matrix or not matrix[0]:
+        return 0
+    
+    max_rect = 0
+    rows = len(matrix)
+    cols = len(matrix[0])
+    dp = [0] * cols               # To keep track of local max (as curr max heights). 
+                                  # By each 'row'.
+    
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j] == '1':
+                dp[j] += 1
+            else: # matrix[i][j] == '0'
+                dp[j] = 0         # 這步很重要，如果看到0，就必須要化成0，否則會跟上層答案一樣。
+        max_rect = max(max_rect, self.findMax(dp))
 
+    return max_rect 
 
-
+# same solution as  84. max rect in a histogram
+def findMax(self, heights):
+    
+    curr_max = 0
+    
+    for start in range(len(heights)):
+        min_height = sys.maxsize
+        for end in range(start, len(heights)):
+            min_height = min(min_height, heights[end])
+            width = end - start + 1
+            curr_max = max(curr_max, min_height * width)
+    
+    return curr_max
+            
 ```
 
 ### 2. Stack: O\(N\*M\) / O\(M\) 
