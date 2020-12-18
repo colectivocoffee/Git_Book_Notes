@@ -1,4 +1,4 @@
-# \[Hard\] Largest Rectangle in a Histogram
+# \[Hard\] Largest Rectangle in a Histogram /       \[Hard\] Maximal Rectangle
 
 \*\*\*\*[**Largest Rectangle in Histogram**](https://leetcode.com/problems/largest-rectangle-in-histogram/)  
 Given _n_ non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.  
@@ -8,7 +8,7 @@ For example, `heights = [2,1,5,6,2,3]`Then the largest rectangle area would be s
 
 ![](https://assets.leetcode.com/uploads/2018/10/12/histogram_area.png)
 
-## Code
+## Largest Rectangle in Histogram
 
 ### 1. Brute Force: O\(n^2\)/O\(n\) possibly TLE
 
@@ -80,15 +80,9 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 * 739. Daily Temperatures
 * 1019. Next Greater Node In Linked List
 
-```text
-## APPROACH : MONOTONOUS INCREASING STACK ##
-1475. Final Prices With a Special Discount in a Shop ##
-## Similar to Leetcode: 907. Sum Of Subarray Minimums ##
-## Similar to Leetcode: 85. maximum Rectangle ##
-## Similar to Leetcode: 402. Remove K Digits ##
-## Similar to Leetcode: 456. 132 Pattern ##
-## Similar to Leetcode: 1063. Number Of Valid Subarrays ##
-## Similar to Leetcode: 739. Daily Temperatures ##
-## Similar to Leetcode: 1019. Next Greater Node In LinkedList ##
-```
+## Maximal Rectangle
+
+### 1. Brute Force: 
+
+### 2. Stack: 
 
