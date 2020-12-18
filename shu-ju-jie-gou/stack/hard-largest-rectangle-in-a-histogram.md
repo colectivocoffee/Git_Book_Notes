@@ -86,3 +86,46 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 ### 2. Stack: 
 
+```python
+def maximalRectangle(self, matrix: List[List[str]]) -> int:
+
+    if not matrix or not matrix[0]:
+        return 0
+        
+    max_rect = 0
+    rows = len(matrix)
+    cols = len(matrix[0])
+    curr_max = [0] * cols
+    
+    for i in range(rows):
+        for j in range(cols):
+            # or do this
+            #curr_max[j] = 0 if matrix[i][j] == '0' else curr_max[j] + 1
+            if matrix[i][j] == '0':
+                curr_max[j] = 0
+            else:
+                # here to find local max rect
+                curr_max[j] = curr_max[j] + 1
+        # here to find global max rect
+        max_rect = max(max_rect, self.findMax(cur_max))
+    return max_rect
+
+# Same way of finding max_rect in histogram. 
+def findMax(self, heights):
+    
+    stack = []
+    heights = [0] + heights + [0]
+    curr_max = 0
+    
+    for r_idx in range(len(heights)):
+        while stack and heights[r_idx] < heights[stack[-1]]:
+            l_idx = stack.pop()
+            height = heights[l_idx]
+            width = r_idx - stack[-1] - 1
+            curr_max = max(curr_max, width * height)
+        stack.append(r_idx)
+    
+    return curr_max
+    
+```
+
