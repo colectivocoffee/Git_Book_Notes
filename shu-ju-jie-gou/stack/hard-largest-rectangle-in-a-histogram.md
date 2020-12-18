@@ -82,7 +82,24 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 ## Maximal Rectangle
 
-### 1. Brute Force: 
+### 1. Brute Force: O\(N^2\) / O\(M\)
+
+```python
+[["1","0","1","0","0"],
+ ["1","0","1","1","1"],
+ ["1","1","1","1","1"],
+ ["1","0","0","1","0"]]
+
+[1, 0, 1, 0, 0] 1
+[2, 0, 2, 1, 1] 3
+[3, 1, 3, 2, 2] 6
+[4, 0, 0, 3, 0] 6
+
+def maximalRectangle(self, matrix: List[List[str]]) -> int:
+
+
+
+```
 
 ### 2. Stack: O\(N\*M\) / O\(M\) 
 
