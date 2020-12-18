@@ -82,6 +82,23 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 ## Maximal Rectangle
 
+[**Maximal Rectangle**](https://leetcode.com/problems/maximal-rectangle/)  
+Given a `rows x cols` binary `matrix` filled with `0`'s and `1`'s, find the largest rectangle containing only `1`'s and return _its area_.
+
+![](../../.gitbook/assets/image%20%281%29.png)
+
+```text
+Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+Output: 6
+Explanation: The maximal rectangle is shown in the above picture.
+
+Input: matrix = []
+Output: 0
+
+Input: matrix = [["0","0"]]
+Output: 0
+```
+
 ### 1. Brute Force: O\($$N^2$$\* M\) / O\(N\)
 
 Time Complexity: O\(n^2 \* M\) where N = \# of rows on the matrix,  M = \# of cols on each row  
@@ -130,6 +147,8 @@ def maximalRectangle(self, matrix: List[List[str]]) -> int:
     dp = [0] * cols               # To keep track of local max (as curr max heights). 
                                   # By each 'row'.
     
+    # for each cell with value=1, we look upward (north), 
+    # the number of continuous '1' is the height of cell
     for i in range(rows):
         for j in range(cols):
             if matrix[i][j] == '1':
@@ -144,7 +163,6 @@ def maximalRectangle(self, matrix: List[List[str]]) -> int:
 def findMax(self, heights):
     
     curr_max = 0
-    
     for start in range(len(heights)):
         min_height = sys.maxsize
         for end in range(start, len(heights)):
@@ -203,4 +221,6 @@ def findMax(self, heights):
     return curr_max
     
 ```
+
+### 3. DP 
 
