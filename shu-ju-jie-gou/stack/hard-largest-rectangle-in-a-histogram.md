@@ -222,5 +222,7 @@ def findMax(self, heights):
     
 ```
 
-### 3. DP 
+### 3. DP: O\(N\*M\) / O\(M\)
+
+Similar ideas to the Stack solution one. We can say curr\_max is the DP array we use to keep the heights count. 
 
