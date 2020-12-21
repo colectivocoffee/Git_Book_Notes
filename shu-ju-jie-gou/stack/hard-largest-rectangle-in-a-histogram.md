@@ -69,17 +69,6 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 這動畫很好地演示了如何找max\_rectangle using stack  
 [https://www.youtube.com/watch?v=VNbkzsnllsU](https://www.youtube.com/watch?v=VNbkzsnllsU)
 
-#### Related Qs:
-
-* 1475. Final Prices With a Special Discount in a Shop
-* 907. Sum of Subarray Minimus
-* 85. Maximum Rectangle
-* 402. Remove K Digits
-* 456.  132 Pattern
-* 1063. Number of Valid Subarrays
-* 739. Daily Temperatures
-* 1019. Next Greater Node In Linked List
-
 ## Maximal Rectangle
 
 [**Maximal Rectangle**](https://leetcode.com/problems/maximal-rectangle/)  
@@ -225,4 +214,15 @@ def findMax(self, heights):
 ### 3. DP: O\(N\*M\) / O\(M\)
 
 Similar ideas to the Stack solution one. We can say curr\_max is the DP array we use to keep the heights count. 
+
+## Related Qs:
+
+* 1475. Final Prices With a Special Discount in a Shop
+* 907. Sum of Subarray Minimus
+* 85. Maximum Rectangle
+* 402. Remove K Digits
+* 456.  132 Pattern
+* 1063. Number of Valid Subarrays
+* 739. Daily Temperatures
+* 1019. Next Greater Node In Linked List
 
