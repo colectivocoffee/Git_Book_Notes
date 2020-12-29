@@ -29,7 +29,7 @@ it is left with nothing which is 0.
 
 ## Code
 
-### 1. Stack: O\(n\)/O\(n\)
+### 1. Greedy with Stack: O\(n\)/O\(n\)
 
 Time Complexity: O\(n\) the time complexity of the main loop is bounded within 2N
 
