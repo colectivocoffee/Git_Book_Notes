@@ -61,3 +61,30 @@ def removeKdigits(self, num: str, k: int) -> str:
     return ''.join(finalStack).lstrip('0') or '0'
 ```
 
+```python
+def removeKdigits(self, num: str, k: int) -> str:
+    
+    if not num:
+            return '0'
+        
+    stack = []
+    del_ids = []
+    
+    for r_id in range(len(num)):
+        while stack and k > 0 and num[stack[-1]] > num[r_id]:
+            l_id = stack.pop()
+            del_ids.append(l_id)
+            k -= 1
+        stack.append(r_id)
+    
+    result = []
+    for i in range(len(num)):
+        if i not in del_ids:
+            result.append(i)
+    
+    if k > 0:
+        result = result[:-k]
+    
+    return ''.join(result).lstrip('0') or '0'
+```
+
