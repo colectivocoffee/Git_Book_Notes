@@ -61,6 +61,8 @@ def removeKdigits(self, num: str, k: int) -> str:
     return ''.join(finalStack).lstrip('0') or '0'
 ```
 
+Stack Slower Ver.: O\(n^2\)/O\(n\) 6.55%
+
 ```python
 def removeKdigits(self, num: str, k: int) -> str:
     
