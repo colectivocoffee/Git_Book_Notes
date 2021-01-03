@@ -14,6 +14,33 @@ It is guaranteed that the answer is unique.
 
 ### 1. Brute Force:
 
+Time Complexity: O\(n^2 / k\)  we can scan the string no more than n/k times.  
+Space Complexity: O\(1\)          current string is used, no additional ones are created.
+
+![](../../.gitbook/assets/image%20%282%29.png)
+
+```python
+def removeDuplicates(self, s: str, k: int) -> str:
+
+    curr_id = 0
+    
+    while curr_id < len(s):
+    
+        #### condition of duplicates ####
+        ### e.g. s = 'deeedbbcccbdaa', k = 3
+        # then 'eee' would satisfy the following conditions:
+        # 1. s[i : i+k] 
+        # 2. s[i] * k 
+        if s[curr_id : curr_id+k] == s[curr_id] * k:
+            s = s[:curr_id] + s[curr_id+k:]    # reconstruct the string
+            curr_id = 0                        # reset the count
+        else:
+            curr_id += 1
+    
+    return s
+
+```
+
 ### 2. Stack: O\(n\)/O\(n\)
 
 ```python
