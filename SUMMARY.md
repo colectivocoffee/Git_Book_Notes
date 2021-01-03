@@ -77,6 +77,7 @@
 ## 數據結構
 
 * [Stack & Queue](shu-ju-jie-gou/stack/README.md)
+  * [\[Medium\] Remove All Adjacent Duplicates in a String II](shu-ju-jie-gou/stack/medium-remove-all-adjacent-duplicates-in-a-string-ii.md)
   * [\[Medium\] Remove K Digits](shu-ju-jie-gou/stack/medium-remove-k-digits.md)
   * [\[Hard\] Largest Rectangle in a Histogram                   / \[Hard\] Maximal Rectangle](shu-ju-jie-gou/stack/hard-largest-rectangle-in-a-histogram.md)
   * [\[Medium\] Evaluate Reverse Polish Notation](shu-ju-jie-gou/stack/medium-evaluate-reverse-polish-notation.md)
