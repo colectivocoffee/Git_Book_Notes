@@ -12,7 +12,7 @@ It is guaranteed that the answer is unique.
 
 
 
-### 1. 
+### 1. Brute Force:
 
 ### 2. Stack: O\(n\)/O\(n\)
 
