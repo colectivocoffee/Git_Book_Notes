@@ -65,12 +65,13 @@ def removeDuplicates(self, s: str, k: int) -> str:
         if char == stack[-1][0]:
             # update count
             stack[-1][1] += 1
+            # 已滿足條件k，直接去掉
             if stack[-1][1] == k:
                 stack.pop()
         else:
             stack.append([char,1])
     
-    # reconstruct string back
+    # reconstruct string back, based on what's left on stack
     return ''.join(char*times for char,times in stack)
     
     
