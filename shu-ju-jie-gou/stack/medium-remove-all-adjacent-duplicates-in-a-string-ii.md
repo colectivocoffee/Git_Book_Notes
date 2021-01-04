@@ -43,6 +43,8 @@ def removeDuplicates(self, s: str, k: int) -> str:
 
 ### 2. Stack: O\(n\)/O\(n\)
 
+![](../../.gitbook/assets/image%20%283%29.png)
+
 由於需要持續往回看，目前的char總共出現幾次，因此如果把 `char & occur times`以`[char,1]`的方式，都存起來放在stack裡，等需要的時候看stack\[-1\]，就可以大幅度減少從頭開始loop的時間。  
   
 Time Complexity: O\(n\)      where n is the length of the string.  
