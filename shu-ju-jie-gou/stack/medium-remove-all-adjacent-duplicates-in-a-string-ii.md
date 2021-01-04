@@ -28,7 +28,7 @@ def removeDuplicates(self, s: str, k: int) -> str:
     
         #### condition of duplicates ####
         ### e.g. s = 'deeedbbcccbdaa', k = 3
-        # then 'eee' would satisfy the following conditions:
+        # here 'eee' would satisfy the following conditions:
         # 1. s[i : i+k] 
         # 2. s[i] * k 
         if s[curr_id : curr_id+k] == s[curr_id] * k:
@@ -43,6 +43,17 @@ def removeDuplicates(self, s: str, k: int) -> str:
 
 ### 2. Stack: O\(n\)/O\(n\)
 
+由於需要持續往回看，目前的char總共出現幾次，因此如果把 `char & occur times`以`[char,1]`的方式，都存起來放在stack裡，等需要的時候看stack\[-1\]，就可以大幅度減少從頭開始loop的時間。  
+  
+Time Complexity: O\(n\)      where n is the length of the string.  
+Space Complexity: O\(n\)    stack size.
+
+{% hint style="info" %}
+注意：  
+1\) stack在剛開始的時候，需要看`stack[-1][0]`，因此必須先放個東西\['\#', 0\]在裡面。  
+2\) 如果發現char == stack\[-1\]\[0\]時，則需要更新在stack上的count，並且還要同時看count是否已滿足條件k，如果滿足，則stack.pop\(\)。
+{% endhint %}
+
 ```python
 def removeDuplicates(self, s: str, k: int) -> str:
     
@@ -51,13 +62,13 @@ def removeDuplicates(self, s: str, k: int) -> str:
     stack = [['#', 0]]
     
     for char in s:
-        if stack or char != stack[-1][0]:
-            stack.append([char,1])
-        elif char == stack[-1][0]:
+        if char == stack[-1][0]:
             # update count
             stack[-1][1] += 1
-            if k == stack[-1][1]:
+            if stack[-1][1] == k:
                 stack.pop()
+        else:
+            stack.append([char,1])
     
     # reconstruct string back
     return ''.join(char*times for char,times in stack)
@@ -66,4 +77,8 @@ def removeDuplicates(self, s: str, k: int) -> str:
 ```
 
 ### 3. Two Pointers: O\(n\)/O\(n\)
+
+```python
+
+```
 
