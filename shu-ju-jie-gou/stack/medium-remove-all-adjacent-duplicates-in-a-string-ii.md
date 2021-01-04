@@ -81,7 +81,9 @@ def removeDuplicates(self, s: str, k: int) -> str:
 
 ### 3. Two Pointers: O\(n\)/O\(n\)
 
-```python
+略
 
-```
+#### Reference
+
+[https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/discuss/392933/JavaC%2B%2BPython-Two-Pointers-and-Stack-Solution](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/discuss/392933/JavaC%2B%2BPython-Two-Pointers-and-Stack-Solution)
 
