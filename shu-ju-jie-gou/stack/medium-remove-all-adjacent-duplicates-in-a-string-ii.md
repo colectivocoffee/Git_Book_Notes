@@ -1,16 +1,20 @@
 # \[Medium\] Remove All Adjacent Duplicates in a String II
 
-Remove All Adjacent Duplicates in a String II  
-ssss  
-  
-  
+[**Remove All Adjacent Duplicates in a String II**](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/) ****  \(927/24\)  
 Given a string `s`, a _k_ _duplicate removal_ consists of choosing `k` adjacent and equal letters from `s` and removing them causing the left and the right side of the deleted substring to concatenate together.  
   
 We repeatedly make `k` duplicate removals on `s` until we no longer can.  
 Return the final string after all such duplicate removals have been made.  
 It is guaranteed that the answer is unique.
 
-
+```python
+Input: s = "deeedbbcccbdaa", k = 3
+Output: "aa"
+Explanation: 
+First delete "eee" and "ccc", get "ddbbbdaa"
+Then delete "bbb", get "dddaa"
+Finally delete "ddd", get "aa"
+```
 
 ### 1. Brute Force:
 
