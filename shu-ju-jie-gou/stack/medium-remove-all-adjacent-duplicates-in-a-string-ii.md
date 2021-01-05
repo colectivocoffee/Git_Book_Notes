@@ -95,7 +95,7 @@ def removeDuplicates(self, s: str, k: int) -> str:
 
 ## 
 
-Remove All Duplicates in a String I  
+\*\*\*\*[**Remove All Duplicates in a String I**](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/) **\(1213/88\)**  
 Given a string `S` of lowercase letters, a _duplicate removal_ consists of choosing two adjacent and equal letters, and removing them.  
 We repeatedly make duplicate removals on S until we no longer can.  
 Return the final string after all such duplicate removals have been made. It is guaranteed the answer is unique.
