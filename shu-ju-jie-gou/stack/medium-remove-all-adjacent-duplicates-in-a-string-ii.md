@@ -1,4 +1,4 @@
-# \[Medium\] Remove All Adjacent Duplicates in a String II
+# \[Medium\] Remove All Adjacent Duplicates in a String II / \[Easy\] in a String I
 
 [**Remove All Adjacent Duplicates in a String II**](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/) ****  \(927/24\)  
 Given a string `s`, a _k_ _duplicate removal_ consists of choosing `k` adjacent and equal letters from `s` and removing them causing the left and the right side of the deleted substring to concatenate together.  
@@ -15,6 +15,8 @@ First delete "eee" and "ccc", get "ddbbbdaa"
 Then delete "bbb", get "dddaa"
 Finally delete "ddd", get "aa"
 ```
+
+## Code
 
 ### 1. Brute Force:
 
@@ -90,4 +92,35 @@ def removeDuplicates(self, s: str, k: int) -> str:
 #### Reference
 
 [https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/discuss/392933/JavaC%2B%2BPython-Two-Pointers-and-Stack-Solution](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/discuss/392933/JavaC%2B%2BPython-Two-Pointers-and-Stack-Solution)
+
+## 
+
+Remove All Duplicates in a String I  
+Given a string `S` of lowercase letters, a _duplicate removal_ consists of choosing two adjacent and equal letters, and removing them.  
+We repeatedly make duplicate removals on S until we no longer can.  
+Return the final string after all such duplicate removals have been made. It is guaranteed the answer is unique.
+
+## Code 
+
+### 1. Stack: O\(n\)/O\(n - d\) 
+
+Time Complexity: O\(n\)        n is the length of the string  
+Space Complexity: O\(n - d\) d is the total length for all duplicates. 
+
+```python
+def removeDuplicates(self, S: str) -> str:
+    
+    stack = []
+    S = list(S)
+    
+    for char in S:
+        if not stack or char != stack[-1]:
+            stack.append(char)
+        elif char == stack[-1]:
+            stack.pop()
+        
+    return ''.join(stack)
+```
+
+
 
