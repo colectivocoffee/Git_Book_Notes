@@ -18,7 +18,7 @@ Finally delete "ddd", get "aa"
 
 ## Code
 
-### 1. Brute Force:
+### 1. Brute Force: O\(n^2 / k\)/O\(1\)
 
 Time Complexity: O\(n^2 / k\)  we can scan the string no more than n/k times.  
 Space Complexity: O\(1\)          current string is used, no additional ones are created.
