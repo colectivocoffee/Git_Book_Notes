@@ -1,9 +1,18 @@
 # \[Hard\] Basic Calculator I
 
+\*\*\*\*[**Basic Calculator I**](https://leetcode.com/problems/basic-calculator/) **\(1890/148\)**  
+Given a string `s` representing an expression, implement a basic calculator to evaluate it.
+
+```text
+Example 
+Input: s = "(1+(4+5+2)-3)+(6+8)"
+Output: 23
+```
+
 #### Follow Up Qs:
 
 1. Support a ternary operator like in Java.
-2. A method to print the expression string that identicaly to the input, preserves all the formats like extra spaces. Simply store the original input is not allowed.
+2. A method to print the expression string that identically to the input, preserves all the formats like extra spaces. Simply store the original input is not allowed.
 
 ## Thought Process
 
