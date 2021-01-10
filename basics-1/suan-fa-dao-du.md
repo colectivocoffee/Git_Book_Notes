@@ -83,6 +83,15 @@ str1 += str2    is the same as  str1 = str1 + str2
 str1 = ''.join(list[])   # here list[] is the list(str2)
 ```
 
+* **Preserve All Digits :** 當我們需要traverse thru the entire string，看到兩位數以上的數字時，我們可以藉由下面這個方法，來存所有的digits。
+
+```python
+# e.g. num = 232
+for char in s:
+    num = 10*num + int(char) 
+
+```
+
 ## Advanced Python
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
