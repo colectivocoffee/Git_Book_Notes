@@ -1,4 +1,4 @@
-# \[Hard\] Basic Calculator I
+# \[Hard\] Basic Calculator I / \[Medium\] Basic Calculator II
 
 \*\*\*\*[**Basic Calculator I**](https://leetcode.com/problems/basic-calculator/) **\(1890/148\)**  
 Given a string `s` representing an expression, implement a basic calculator to evaluate it.
@@ -41,7 +41,7 @@ num| sign | stack        |result
 
 ## Code
 
-#### 1. Stack:O\(n\)/O\(n\)
+### 1. Stack:O\(n\)/O\(n\)
 
 ```python
 def calculate(self, s: str) -> int:
@@ -139,4 +139,8 @@ def calculate(self, s: str) -> int:
         return first_choice
     return sec_choice
 ```
+
+## Basic Calculator II
+
+
 
