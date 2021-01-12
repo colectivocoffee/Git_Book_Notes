@@ -77,6 +77,7 @@
 ## 數據結構
 
 * [Stack & Queue](shu-ju-jie-gou/stack/README.md)
+  * [\[Medium\] Task Scheduler](shu-ju-jie-gou/stack/medium-task-scheduler.md)
   * [\[Hard\] Basic Calculator I](shu-ju-jie-gou/stack/hard-basic-calculator-i.md)
   * [\[Medium\] Remove All Adjacent Duplicates in a String II / \[Easy\] in a String I](shu-ju-jie-gou/stack/medium-remove-all-adjacent-duplicates-in-a-string-ii.md)
   * [\[Medium\] Remove K Digits](shu-ju-jie-gou/stack/medium-remove-k-digits.md)
