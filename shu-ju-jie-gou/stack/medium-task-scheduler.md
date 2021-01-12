@@ -20,7 +20,8 @@ Return _the least number of units of times that the CPU will take to finish all 
 ![](../../.gitbook/assets/image%20%284%29.png)
 
 因此，第一種情況只要考慮len\(tasks\)即可。  
-第二種情況，則是要找出一個規律，\(fmax - 1\) \* \(n + 1\) + nmax。詳細情況由上面可以推導出。
+第二種情況，則是要找出一個規律，\(fmax - 1\) \* \(n + 1\) + nmax。詳細情況由上面可以推導出。  
+最後，只要求`max(cond1, cond2)`即可。
 
 ### 1. Queue/Math: O\(n\_total\) / O\(1\)
 
