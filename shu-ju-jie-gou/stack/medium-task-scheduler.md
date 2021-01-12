@@ -9,9 +9,18 @@ Return _the least number of units of times that the CPU will take to finish all 
 
 ## Code
 
+這題`cooling time n`佔了很重要的因素。因此可以分為兩種不同狀態來討論：
 
+#### \# cond1: n低於頻率最高task的數量，即cooling完後還可以再塞其他tasks。
+
+![](../../.gitbook/assets/image%20%285%29.png)
+
+#### \# cond2: n高於頻率最高task的數量，即還來不及cooling down，中間會有idle time來填。 
 
 ![](../../.gitbook/assets/image%20%284%29.png)
+
+因此，第一種情況只要考慮len\(tasks\)即可。  
+第二種情況，則是要找出一個規律，\(fmax - 1\) \* \(n + 1\) + nmax。詳細情況由上面可以推導出。
 
 ### 1. Queue/Math: O\(n\_total\) / O\(1\)
 
