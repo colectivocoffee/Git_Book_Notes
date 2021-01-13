@@ -64,6 +64,7 @@
   * [\[Medium\] Search In 2D Matrix II](binary-search/medium-search-in-2d-matrix-ii.md)
   * [\[Easy\] Search Insert Position](binary-search/easy-search-insert-position.md)
 * [Multiple Solutions](multiple-solutions-1/README.md)
+  * [\[Easy\] Longest Common Prefix](multiple-solutions-1/easy-longest-common-prefix.md)
   * [\[Medium\] Palindromic Substring](multiple-solutions-1/medium-palindromic-substring.md)
   * [\[Medium\] Longest Palindromic Substring](multiple-solutions-1/medium-longest-palindromic-substring.md)
   * [\[Easy\] Maximum Subarray](multiple-solutions-1/easy-maximum-subarray.md)
