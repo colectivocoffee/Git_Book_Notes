@@ -26,6 +26,11 @@ Explanation: There is no common prefix among the input strings.
 Time Complexity: O\(S\)   S is the sum of all chars in strs.  
 Space Complexity: O\(1\) 1 shortest string is used.
 
+Step1: 先找出最短的字，如果最短的字有任何一個字母和其他word不一樣，則代表longest common prefix已找到。  
+  
+Step2: enumerate\(shortest\)，即`for idx, char in enumerate(shortest):`，  
+這樣一來，我們可以利用`other_word[idx]`來看其他word，而用char來和other\_word\[idx\]比較。（相當於）同時指兩個char。如果other\_word\[idx\]和char不相等，則`shortest[:idx]`為Longest Common Prefix。
+
 ```python
 def longestCommonPrefix(self, strs: List[str]) -> str:
     if not strs:
@@ -62,5 +67,7 @@ def longestCommonPrefix(self, strs: List[str]) -> str:
     return shortest
 ```
 
-### 2. Vertical Scanning, Horizontal Scanning
+### 2. Vertical Scanning, Horizontal Scanning:
+
+### 3. Divide & Conquer:
 
