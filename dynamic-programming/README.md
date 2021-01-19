@@ -54,6 +54,13 @@ Sometimes you do not need to store the whole DP table in memory, the last two va
 * Coin Change \(Medium\)
 * 01 Backpack \(Medium\)
 
+## DP 解題步驟
+
+1. make sure the state
+2. transfer function
+3. add init state and define boundaries
+4. solve the ordering
+
 ## 題目
 
 * [ ] Best Time to Buy and Sell Stock
