@@ -42,9 +42,15 @@ def longestValidParentheses(self, s: str) -> int:
     if not s:
         return 0
     
+    # dp[i] records longest valid parentheses ending at s[i]
+    # e.g.  ') ( ) ( ) )' 
+    #    dp [0 0 2 0 2 4]
+    #     i  0 1 2 3 4 5
     dp = [0] * len(s)
     result = 0
     
+    # skip the first one regardless 
+    # 因為我們只看 ')' 開頭
     for i in range(1, len(s)):
         if s[i] == ')': 
             if s[i - 1] == '(':
