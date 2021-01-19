@@ -78,6 +78,7 @@
 ## 數據結構
 
 * [Stack & Queue](shu-ju-jie-gou/stack/README.md)
+  * [\[Hard\] Longest Valid Parentheses](shu-ju-jie-gou/stack/hard-longest-valid-parentheses.md)
   * [\[Medium\] Task Scheduler](shu-ju-jie-gou/stack/medium-task-scheduler.md)
   * [\[Medium\] Simplify Path](shu-ju-jie-gou/stack/medium-simplify-path.md)
   * [\[Hard\] Basic Calculator I / \[Medium\] Basic Calculator II](shu-ju-jie-gou/stack/hard-basic-calculator-i.md)
