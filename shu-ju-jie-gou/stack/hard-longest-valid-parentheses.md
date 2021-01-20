@@ -5,10 +5,19 @@ Given a string containing just the characters `'('` and `')'`, find the length o
 
 ## Thought Process
 
+看到需要找Longest Valid Parentheses，由於不知道`')'`前面已有有多少個`'('`，很明顯地這就需要往回找，意即利用Stack的方式來解題。
+
 ### 1. Stack: O\(n\)/O\(n\)
 
 Time Complexity: O\(n\)    n is the length of str.   
 Space Complexity: O\(n\)  n is the len of the str to put on the stack.
+
+{% hint style="info" %}
+思路：  
+\(1\)需要看current char`')'`的前面總共有多少個`'('`符合條件，因此需要即時update result。  
+result = max\(result, idx - stack\[-1\]\)  
+\(2\)stack 存 idx。
+{% endhint %}
 
 ```python
 def longestValidParentheses(self, s: str) -> int:
