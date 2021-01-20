@@ -65,8 +65,15 @@ def longestValidParentheses(self, s: str) -> int:
         if s[i] == ')': 
             if s[i - 1] == '(':
                 dp[i] = dp[i - 2] + 2
-        
+            
+            # i-dp[i-1]-1 is the index of last "(" not paired until this ")"
             elif i-dp[i-1]-1 >= 0 and s[i-dp[i-1]-1] == '(':
+                
+                # add nearest parentheses pairs + 2 + parentheses before last "("
+                # ') ( ) ( ) )' 
+                #    ^   ^
+                #        i  
+                # dp[i - dp[i-1] - 2] parentheses before last '('
                 dp[i] = dp[i-1] + 2 + dp[i - dp[i-1] - 2] if dp[i-1] > 0 else 0
                 
                 # if dp[i - 1] > 0:
