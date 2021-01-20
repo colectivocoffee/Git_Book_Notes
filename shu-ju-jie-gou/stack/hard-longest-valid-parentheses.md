@@ -50,7 +50,8 @@ def longestValidParentheses(self, s: str) -> int:
     result = 0
     
     # skip the first one regardless 
-    # 因為我們只看 ')' 開頭
+    # 因為我們只看 ')' 開頭的，因此不管第一位是任何開頭，都不影響。
+    # -6GJGJGJ
     for i in range(1, len(s)):
         if s[i] == ')': 
             if s[i - 1] == '(':
