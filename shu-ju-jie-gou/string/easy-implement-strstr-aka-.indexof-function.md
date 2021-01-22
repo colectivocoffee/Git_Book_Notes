@@ -32,3 +32,5 @@ def strStr(self, haystack: str, needle: str) -> int:
         
 ```
 
+### 2. Two Pointers: O\(\(H-N\)\*N\) / O\(1\)
+
