@@ -59,6 +59,26 @@ while len(queue) 不為0 :
                 在visited記錄此節點已被訪問 
 ```
 
+========
+
+* 🃏【知识卡片】**广度优先搜索 BFS** 是一种对图进行搜索的算法。假设我们一开始位于某个顶点（即起点），此 时并不知道图的整体结构，而我们的目的是从起点开始顺着边搜索，直到到达指定顶点（即终 点）。在此过程中每走到一个顶点，就会判断一次它是否为终点。广度优先搜索会优先从离起点近的顶点开始搜索，这样由近及广的搜索方式也使得。根据 BFS 的特性，其常常被用于 `遍历` 和 `搜索最短路径`
+* 🎩【套路】**BFS**一般流程：
+
+  ```text
+   class Solution(object):
+       def BFS(self):
+   	# 1.使用 queue.Queue 初始化队列
+   	# 2.选择合适的根节点压入队列
+
+   	# 3.使用 wile 进入队列循环，直到搜索完毕
+   	# {
+   	#   4.取出一个节点
+   	#   5.放入这个节点周围的节点
+   	# }
+  ```
+
+  * 使用 BFS 时，需要抓住 3 个关键点：根节点是什么？根节点的一阶邻域节点是哪些？什么时候停止搜索？
+
 ## Stack / DFS
 
 Stack 用於DFS。
@@ -102,6 +122,36 @@ while len(stack) != 0:
             stack.append(neighbor)
             在visited記錄此neighbor節點已被訪問
 ```
+
+======
+
+* 🎩【套路】**迭代形 BFS/DFS**
+
+  ```text
+   class Solution(object):
+       def BFS(self):
+   	# 1.BFS 使用 queue.Queue, DFS 使用 queue.LifoQueue
+   	# 2.选择合适的根节点压入队列
+
+   	# 3.使用 wile 进入循环，直到搜索完毕
+   	# {
+   	#   4.取出一个节点
+   	#   5.放入这个节点周围的节点
+   	# }
+  ```
+
+* 🎩【套路】**递归形 DFS**
+
+  ```text
+   class Solution:
+       def dfs(self, root):
+   	if ...: # 根剪枝
+   	    root = ... # 根处理
+   	    for node in around: # 放入周围节点
+   		if node == ...: # 邻剪枝
+   		    self.dfs(node) # 递归
+   	return image # 终止返回
+  ```
 
 ## Topological Sort
 
