@@ -42,9 +42,12 @@ def strStr(self, haystack: str, needle: str) -> int:
             if haystack[i : i + n] == needle:
                 return i
         
-        return -1
-        
+        return -1   
 ```
 
 ### 2. Two Pointers: O\(\(H-N\)\*N\) / O\(1\)
+
+### 3. Rabin Karp: O\(N\) / O\(1\)
+
+
 
