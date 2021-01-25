@@ -6,6 +6,16 @@ Given a string `s` consists of some words separated by spaces, return _the lengt
 A **word** is a maximal substring consisting of non-space characters only.  
 
 
+```python
+Example 1:
+Input: s = "Hello World"
+Output: 5
+
+Example 2:
+Input: s = " "
+Output: 0
+```
+
 ## Thought Process
 
 ### 1. String Functions, `.split(' ')` & `remove empty string`: O\(N\) / O\(N\)
