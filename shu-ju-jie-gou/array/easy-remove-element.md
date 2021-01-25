@@ -8,6 +8,8 @@
 
 ### 1. Two pointers \(-&gt;/-&gt;\): O\(N\) / O\(1\)
 
+ Time Complexity: O\(N\) both idx and index\(num\) traverses 2N steps at most. 
+
 由於只能使用現有的memory，我們必須要modify the input array in-place。因此我們使用`快慢指針`來完成。  
 為什麼用快慢指針呢？因為我們可以讓快指針\(`index(num)`\)往後看，讓num跟val比較；而慢指針\(`idx`\)用來remove element。
 
@@ -24,5 +26,27 @@ def removeElement(self, nums: List[int], val: int) -> int:
     return idx
 ```
 
+### 2. Two pointers \(-&gt;/&lt;-\): O\(N\) / O\(1\)
 
+Time Complexity: O\(N\)  both left & right traverse N times. Would be slightly more efficient than prev one.
+
+另一種方法，則是用反向指針。一個從頭`left = 0`另一個從尾`right = len(nums)` 開始走，當我們左指針碰到val時，nums\[left\] == val，則 swap，意即`nums[left] = nums[right - 1]` 並且把right往前挪一格。  
+當兩個指針碰在一起時即結束。
+
+![](../../.gitbook/assets/image%20%286%29.png)
+
+```python
+def removeElement(self, nums: List[int], val: int) -> int:
+    
+    left, right = 0, len(nums)
+    
+    while left < right:
+        if nums[left] == val:
+            nums[left] = nums[right - 1]
+            right -= 1
+        else:
+            left += 1
+    
+    return right
+```
 
