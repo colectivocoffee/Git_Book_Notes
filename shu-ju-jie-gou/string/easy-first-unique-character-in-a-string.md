@@ -31,7 +31,7 @@ def firstUniqChar(self, s: str) -> int:
 
 ```
 
-### 2. collections.Counter\(\) + enumerate
+### 2. collections.Counter\(\) + enumerate: O\(N\) / O\(1\)
 
 在leetcode上Runtime更快的答案，但是s被掃過兩遍。\(beats 87%\)
 
