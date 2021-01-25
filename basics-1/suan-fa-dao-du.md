@@ -92,6 +92,16 @@ for char in s:
 
 ```
 
+* **Count in Dictionary :** count + 1，並且如果沒有key，則放一個在dictionary裡。
+
+```python
+# e.g. s = 'fantastic'
+# OrderedDict([('f', 1), ('a', 2), ('n', 1), ('t', 2), ('s', 1), ('i', 1), ('c', 1)])
+chars = collections.OrderedDict()
+for char in s:
+    chars[char] = chars.get(char, 0) + 1
+```
+
 ## Advanced Python
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
