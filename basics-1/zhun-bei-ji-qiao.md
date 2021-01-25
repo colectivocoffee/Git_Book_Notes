@@ -24,7 +24,7 @@ Resources:
 ## 面試準備
 
 * Do not write your ideas on paper, write on IDE. 
-* Do not start coding immediately! Explain your ideas first.  Leetcode Easy 1-4 min / Medium 1-8 min / Hard 1-12
+* Do not start coding immediately! Explain your ideas first.  Leetcode Easy 1-4 min / Medium 1-8 min / Hard 1-12 min
 * "Eyeballing" first to check Syntax Error 
 
 ### 1. 當面試沒Clue的時候該怎麼辦？
@@ -57,7 +57,7 @@ Example of **`String`** Related Questions Cheat Sheet
 ### 4. Common Permission Questions to Ask
 
 * May I have a few mins to think about the question?
-* May I run it on interpreter? 
+* May I run it on an interpreter? 
 
 ### 5. Positive Signal？
 
