@@ -104,6 +104,7 @@
   * [\[Interview\] Airplane Seats Assignment](shu-ju-jie-gou/array/interview-airplane-seats-assignment.md)
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
 * [String](shu-ju-jie-gou/string/README.md)
+  * [\[Easy\] First Unique Character in a String](shu-ju-jie-gou/string/easy-first-unique-character-in-a-string.md)
   * [\[Easy\] Length of Last Word](shu-ju-jie-gou/string/easy-length-of-last-word.md)
   * [\[Easy\] implement strStr\(\) \(aka .indexOf\(\) function\)](shu-ju-jie-gou/string/easy-implement-strstr-aka-.indexof-function.md)
 * [Heap](shu-ju-jie-gou/heap/README.md)
