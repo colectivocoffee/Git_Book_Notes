@@ -84,7 +84,7 @@ def removeElement(self, nums: List[int], val: int) -> int:
     return right
 ```
 
-## [\[Easy\] Remove Duplicates in Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)   \(3430/6340\)
+## [\[Easy\] Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)   \(3430/6340\)
 
 > Given a sorted array _nums_, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that each element appears only _once_ and returns the new length.
 >
@@ -92,9 +92,11 @@ def removeElement(self, nums: List[int], val: int) -> int:
 
 ### 1. Two Pointers \(-&gt;/-&gt;\): O\(N\)/O\(1\)
 
+用index looping
+
 ```python
 # e.g.   [0, 0, 1, 2, 2, 2, 3]
-#       s,f                               nums            nums[f] != nums[s]
+#                                        nums            nums[f] != nums[s]
 #    0 1  s  f                     [0, 0, 1, 2, 2, 2, 3]
 #    0 2  s     f                  [0, 0, 1, 2, 2, 2, 3]  !=
 #    1 3     s     f               [0, 1, 1, 2, 2, 2, 3]  !=
@@ -114,4 +116,10 @@ def removeDuplicates(self, nums: List[int]) -> int:
     
     return slow + 1
 ```
+
+### 2. Two pointers: O\(N\) / O\(1\)
+
+### 3. `Set()+Sorted()+[:]` : O\(N\) / O\(1\)
+
+## 
 
