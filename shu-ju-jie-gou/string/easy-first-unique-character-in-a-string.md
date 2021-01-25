@@ -7,7 +7,7 @@ Given a string, find the first non-repeating character in it and return its inde
 
 ## Thought Process
 
-### 1. Ordered Dictionary: O\(N\) / O\(1\)
+### 1. Ordered Dictionary: O\(N\) / O\(1\)   \(beats 53%\)
 
 Time Complexity: O\(N\)    as we go thru the string s two times with length N.  
 Space Complexity: O\(1\)   English alphabet only contains 26 chars.
@@ -29,5 +29,18 @@ def firstUniqChar(self, s: str) -> int:
             return s.index(char)
     return -1
 
+```
+
+在leetcode上Runtime更快的答案，但是s被掃過兩遍。\(beats 87%\)
+
+```python
+def firstUniqChar(self, s: str) -> int:
+    
+    chars = collections.Counter(s)
+    
+    for idx, char in enumerate(s):
+        if chars[char] == 1:
+            return idx
+    return -1
 ```
 
