@@ -92,7 +92,7 @@ for char in s:
 
 ```
 
-* **Count in Dictionary :** count + 1，並且如果沒有key，則放一個在dictionary裡。
+* **Add Counts into Dictionary :** count + 1，並且如果沒有key，則放一個在dictionary裡。
 
 ```python
 # e.g. s = 'fantastic'
