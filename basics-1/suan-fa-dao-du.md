@@ -53,7 +53,7 @@ if x == 10 or x > 0 or \
                'I never knew!')
 ```
 
-* **\_\_init\_\_ , \_\_lt\_\_ , \_\_gt\_\_ , \_\_eq\_\_ 等等的operators:** 
+* **\_\_init\_\_ , \_\_lt\_\_ , \_\_gt\_\_ , \_\_eq\_\_ 等等的operators:**
 
 ```python
 # 以linked list來舉例，下面的__init__是初始化head
@@ -104,15 +104,14 @@ for char in s:
 
 ### Replace
 
-* Slice Assignment  `current_list[:] = new_content` 取代目前的list，並且不增加memory。
+* **Slice Assignment**  `current_list[:] = new_content` 取代目前的list，並且不增加memory。
 
 > Slicing 和 Slice Assignment 的差別：  
 > \(1\) Normal Slicing  
 > `new_list = current_list[:]`  
 > \(2\) Slice Assignment  
 > `current_list[:] = new_content`  
-> 把current\_list整個換成new content。  
-> 當然，我們也可以只換部分。  
+> 把current\_list整個換成new content。當然，我們也可以只換部分。  
 > e.g. `a = [1, 2, 3, 4]  
 > a[0:2] = [0, 0]  
 > a = [0, 0, 3, 4]`
@@ -232,3 +231,7 @@ Else
 
 
 
+#### Reference
+
+1. [Slice Assignment](https://stackoverflow.com/questions/10623302/how-assignment-works-with-python-list-slice/10623352#10623352)
+2. 
