@@ -92,7 +92,7 @@ def removeElement(self, nums: List[int], val: int) -> int:
 
 ### 1. Two Pointers \(-&gt;/-&gt;\): O\(N\)/O\(1\)
 
-用index looping
+用fast&slow index looping。快指針指的是要比較的值；而慢指針
 
 ```python
 # e.g.   [0, 0, 1, 2, 2, 2, 3]
@@ -117,12 +117,47 @@ def removeDuplicates(self, nums: List[int]) -> int:
     return slow + 1
 ```
 
-### 2. Two pointers: O\(N\) / O\(1\)
+### 2. Two Pointers \(-&gt;/-&gt;\): O\(N\) / O\(1\)
+
+**idx + prev + num**  
+idx 代表slow pointer，而num代表fast pointer的值。我們用prev來儲存上一個值，用來比較用。但本質上還是two pointers。
+
+```python
+# idx num prev         nums
+# 0   0   None [0, 0, 1, 2, 2, 2, 3]
+                ^
+# 1   0   0    [0, 0, 1, 2, 2, 2, 3]
+                   ^
+# 1   1   0    [0, 0, 1, 2, 2, 2, 3]
+                   ^
+# 2   2   1    [0, 1, 1, 2, 2, 2, 3]
+                      ^
+# 3   2   2    [0, 1, 2, 2, 2, 2, 3]
+                         ^
+# 3   2   2    [0, 1, 2, 2, 2, 2, 3]
+                         ^
+# 3   3   2    [0, 1, 2, 2, 2, 2, 3]
+                         ^
+# 4   3   3    [0, 1, 2, 3, 2, 2, 3]
+                            ^
+def removeDuplicates(self, nums: List[int]) -> int:
+    
+    idx = 0
+    prev = None
+    
+    for num in nums:
+        if num != prev:
+            nums[idx] = num
+            prev = num
+            idx += 1
+    
+    return idx
+```
 
 ### 3. `Set()+Sorted()+[:]` : O\(N\) / O\(1\)
 
-* `sorted()` 這個方法是對nums本身 in-place 排序， 
-* `nums[:]`   Slice assignment
+* `sorted()` 這個方法是對nums本身 in-place 排序。
+* `nums[:]`   Slice assignment，直接replace原本的nums。
 
 ```python
 def removeDuplicates(self, nums: List[int]) -> int:
