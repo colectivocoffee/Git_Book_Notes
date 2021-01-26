@@ -102,6 +102,21 @@ for char in s:
     chars[char] = chars.get(char, 0) + 1
 ```
 
+### Replace
+
+* Slice Assignment  `current_list[:] = new_content` 取代目前的list，並且不增加memory。
+
+> Slicing 和 Slice Assignment 的差別：  
+> \(1\) Normal Slicing  
+> `new_list = current_list[:]`  
+> \(2\) Slice Assignment  
+> `current_list[:] = new_content`  
+> 把current\_list整個換成new content。  
+> 當然，我們也可以只換部分。  
+> e.g. `a = [1, 2, 3, 4]  
+> a[0:2] = [0, 0]  
+> a = [0, 0, 3, 4]`
+
 ## Advanced Python
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
