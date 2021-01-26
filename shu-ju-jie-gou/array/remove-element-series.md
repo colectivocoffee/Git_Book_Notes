@@ -166,5 +166,59 @@ def removeDuplicates(self, nums: List[int]) -> int:
     return len(nums)
 ```
 
-## 
+## [\[Medium\] Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)  \(1674/767\)
+
+### 1. Two Pointers \(-&gt;/-&gt;\): O\(N\) / O\(1\)
+
+for loop 寫法。
+
+while loop 寫法。
+
+```python
+# slow,fast,         nums
+#   2    2      [1, 1, 1, 2, 2, 3]
+                 ^    s,f
+#   2    3      [1, 1, 1, 2, 2, 3]    !=
+                 ^     s  f
+#                |<- 3  ->|    => then remove nums[slow-2]
+ 
+#   3    4      [1, 1, 2, 2, 2, 3]    != 
+                    ^     s  f
+#   4    5      [1, 1, 2, 2, 2, 3]    !=
+                       ^     s  f
+#   5    6      [1, 1, 2, 2, 3, 3]    !=
+                          ^     s  f
+def removeDuplicates(self, nums: List[int]) -> int:
+    
+    slow, fast = 2, 2
+    
+    if len(nums) < 2:
+        return len(nums)
+    
+    while fast < len(nums):
+        # 為什麼是slow - 2 ?
+        # 由於題目要求允許有重複數2個，加上fast pointer本身，
+        # slow-2和fast的'距離超過3'，則應該要剔除nums[slow]
+        if nums[slow - 2] != nums[fast]:
+            nums[slow] = nums[fast]
+            slow += 1
+        fast += 1
+    return slow
+```
+
+```python
+def removeDuplicates(self, nums: List[int]) -> int:
+    
+    slow, fast = 2, 2
+    
+    if len(nums) < 2:
+        return len(nums)
+    
+    for fast in range(2, len(nums)):
+        if nums[slow-2] != nums[fast]:
+            nums[slow] = nums[fast]
+            slow += 1
+
+    return slow
+```
 
