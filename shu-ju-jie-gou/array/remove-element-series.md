@@ -14,7 +14,7 @@
 > Do not allocate extra space for another array, you must do this by **modifying the input array** [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) with `O(1)` extra memory.  
 > The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
-### 1. Two pointers \(-&gt;/-&gt;\): O\(N\) / O\(1\)
+### 1. Two Pointers \(-&gt;/-&gt;\): O\(N\) / O\(1\)
 
  Time Complexity: O\(N\) both idx and index\(num\) traverses 2N steps at most. 
 
@@ -54,7 +54,7 @@ def removeElement(self, nums: List[int], val: int) -> int:
     return slow
 ```
 
-### 2. Two pointers \(-&gt;/&lt;-\): O\(N\) / O\(1\)
+### 2. Two Pointers \(-&gt;/&lt;-\): O\(N\) / O\(1\)
 
 Time Complexity: O\(N\)  both left & right traverse N times. Would be slightly more efficient than prev one.
 
