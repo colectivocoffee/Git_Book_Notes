@@ -121,5 +121,15 @@ def removeDuplicates(self, nums: List[int]) -> int:
 
 ### 3. `Set()+Sorted()+[:]` : O\(N\) / O\(1\)
 
+* `sorted()` 這個方法是對nums本身 in-place 排序， 
+* `nums[:]`   Slice assignment
+
+```python
+def removeDuplicates(self, nums: List[int]) -> int:
+    
+    nums[:] = sorted(set(nums))
+    return len(nums)
+```
+
 ## 
 
