@@ -170,8 +170,6 @@ def removeDuplicates(self, nums: List[int]) -> int:
 
 ### 1. Two Pointers \(-&gt;/-&gt;\): O\(N\) / O\(1\)
 
-for loop 寫法。
-
 while loop 寫法。
 
 ```python
@@ -206,6 +204,8 @@ def removeDuplicates(self, nums: List[int]) -> int:
     return slow
 ```
 
+for loop 寫法。
+
 ```python
 def removeDuplicates(self, nums: List[int]) -> int:
     
@@ -214,8 +214,10 @@ def removeDuplicates(self, nums: List[int]) -> int:
     if len(nums) < 2:
         return len(nums)
     
+    # 注意range是從'2'開始，是因為需要slow - 2 才不會out of range。
+    # 並且corner case已完成。前面兩個不管發生什麼事，長度都會是2以下。
     for fast in range(2, len(nums)):
-        if nums[slow-2] != nums[fast]:
+        if nums[slow - 2] != nums[fast]:
             nums[slow] = nums[fast]
             slow += 1
 
