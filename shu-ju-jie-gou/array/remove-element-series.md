@@ -178,7 +178,7 @@ while loop 寫法。
                  ^    s,f
 #   2    3      [1, 1, 1, 2, 2, 3]    !=
                  ^     s  f
-#                |<- 3  ->|    => then remove nums[slow-2]
+#               |<-  3  ->|    => then remove nums[slow-2]
  
 #   3    4      [1, 1, 2, 2, 2, 3]    != 
                     ^     s  f
