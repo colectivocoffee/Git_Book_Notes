@@ -104,6 +104,7 @@
   * [\[Interview\] Airplane Seats Assignment](shu-ju-jie-gou/array/interview-airplane-seats-assignment.md)
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
   * [\[Medium\] Find the Celebrity](shu-ju-jie-gou/array/medium-find-the-celebrity.md)
+  * [\[Hard\] First Missing Positive](shu-ju-jie-gou/array/hard-first-missing-positive.md)
   * [\[Medium\] Rotate Array](shu-ju-jie-gou/array/medium-rotate-array.md)
   * [Remove Element Series](shu-ju-jie-gou/array/remove-element-series.md)
 * [String](shu-ju-jie-gou/string/README.md)
