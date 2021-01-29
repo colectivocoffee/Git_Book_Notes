@@ -1,4 +1,4 @@
-# \[Hard\] First Missing Positive
+# \[Hard\] First Missing Positive / \[Easy\] Missing Number / \[Medium\] Find the Duplicate Number
 
 ## [\[Hard\] First Missing Positive  \(5063/922\)](https://leetcode.com/problems/first-missing-positive/)
 
@@ -98,4 +98,57 @@ def firstMissingPositive(self, nums: List[int]) -> int:
 **References**  
 1.[https://www.cnblogs.com/clnchanpin/p/6727065.html](https://www.cnblogs.com/clnchanpin/p/6727065.html)  
 2.[https://leetcode.com/problems/first-missing-positive/discuss/319270/Explanation-of-crucial-observation-needed-to-deduce-algorithm](https://leetcode.com/problems/first-missing-positive/discuss/319270/Explanation-of-crucial-observation-needed-to-deduce-algorithm)
+
+## [\[Medium\] Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) \(6651/717\)
+
+## [\[Easy\] Missing Number](https://leetcode.com/problems/missing-number/) \(2504/2431\)
+
+Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, return _the only number in the range that is missing from the array._
+
+**Follow up:** Could you implement a solution using only `O(1)` extra space complexity and `O(n)` runtime complexity?
+
+### 1. Sort: O\(NlogN\) / O\(1\)
+
+```python
+def missingNumber(self, nums: List[int]) -> int:
+    
+    nums = sorted(nums)
+    
+    for i in range(len(nums)):
+        if i not in nums:
+            return i
+       
+    # 由於index會比真實數少1，因此missing number會是len(nums)
+    # e.g [0,1] -> 2 = len(nums)
+    return len(nums)
+```
+
+### 2. Swap with index+1 : O\(N\) / O\(1\)
+
+```python
+def missingNumber(self, nums: List[int]) -> int:
+    
+    i = 0 
+    while i < len(nums):
+        prev = nums[i] - 1
+        if 0 <= prev < len(nums) and nums[i] != nums[prev]:
+            nums[i], nums[prev] = nums[prev], nums[i]
+        else:
+            i += 1
+    
+    for i in range(len(nums)):
+        if nums[i] != i+1:
+            return i+1
+    
+    if nums[0] != 0:
+        return 0
+    return len(nums)
+
+```
+
+### 3. Math, **Gauss' Formula: O\(N\) / O\(1\)**
+
+### 4. HashSet:
+
+### 5. Bit Manipulation: 
 
