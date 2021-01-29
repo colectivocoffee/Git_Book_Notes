@@ -95,3 +95,7 @@ def firstMissingPositive(self, nums: List[int]) -> int:
     return len(nums) + 1
 ```
 
+**References**  
+1.[https://www.cnblogs.com/clnchanpin/p/6727065.html](https://www.cnblogs.com/clnchanpin/p/6727065.html)  
+2.[https://leetcode.com/problems/first-missing-positive/discuss/319270/Explanation-of-crucial-observation-needed-to-deduce-algorithm](https://leetcode.com/problems/first-missing-positive/discuss/319270/Explanation-of-crucial-observation-needed-to-deduce-algorithm)
+
