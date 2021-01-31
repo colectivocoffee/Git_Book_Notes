@@ -191,7 +191,18 @@ def missingNumber(self, nums: List[int]) -> int:
 
 ## [\[Medium\] Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) \(6651/717\)
 
-### 1. Dictionary: O\(N\) / O\(N\)
+### 1. Sort: O\(NlogN\) / O\(1\)
+
+```python
+def findDuplicate(self, nums: List[int]) -> int:
+
+    nums = sorted(nums)
+    for i in range(len(nums)):
+        if nums[i] == nums[i-1]:
+            return nums[i]
+```
+
+### 2. Dictionary: O\(N\) / O\(N\)
 
 ```python
 def findDuplicate(self, nums: List[int]) -> int:
@@ -205,7 +216,7 @@ def findDuplicate(self, nums: List[int]) -> int:
             return num
 ```
 
-### 2. Empty Set: O\(N\) / O\(N\) 
+### 3. Empty Set: O\(N\) / O\(N\) 
 
 ```python
 def findDuplicate(self, nums: List[int]) -> int:
