@@ -154,6 +154,8 @@ def missingNumber(self, nums: List[int]) -> int:
 Gauss' Formula: $$\sum\limits_{i=0}^n i = \frac{n(n+1)}2{}  $$   
 The number that is missing is simply the result of Gauss' formula minus the sum of `nums`, as `nums` consists of the first n natural numbers minus some number.
 
+Space Complexity: O\(1\) This approach only pushes a few integers around, so it has constant memory usage.
+
 ```python
 def missingNumber(self, nums: List[int]) -> int:
         
