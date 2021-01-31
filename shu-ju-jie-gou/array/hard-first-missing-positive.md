@@ -123,10 +123,14 @@ def missingNumber(self, nums: List[int]) -> int:
 
 ### 2. Swap with index+1 : O\(N\) / O\(1\)
 
+思路和First Missing Positive相同。  
+用swap with index+1的方式去換每一個數，把每一個數都放在index+1的位置上。注意要處理nums\[0\] != 0的情況。
+
 ```python
 def missingNumber(self, nums: List[int]) -> int:
     
     i = 0 
+    # 最重要的while loop，用swap的方法換數字。
     while i < len(nums):
         prev = nums[i] - 1
         if 0 <= prev < len(nums) and nums[i] != nums[prev]:
@@ -138,6 +142,7 @@ def missingNumber(self, nums: List[int]) -> int:
         if nums[i] != i+1:
             return i+1
     
+    # 易錯點
     if nums[0] != 0:
         return 0
     return len(nums)
@@ -146,9 +151,41 @@ def missingNumber(self, nums: List[int]) -> int:
 
 ### 3. Math, **Gauss' Formula: O\(N\) / O\(1\)**
 
-### 4. HashSet:
+Gauss' Formula: $$\sum\limits_{i=0}^n i = \frac{n(n+1)}2{}  $$   
+The number that is missing is simply the result of Gauss' formula minus the sum of `nums`, as `nums` consists of the first n natural numbers minus some number.
 
-### 5. Bit Manipulation: 
+```python
+def missingNumber(self, nums: List[int]) -> int:
+        
+    n = len(nums)   
+    expected_sum = n*(n + 1) // 2
+    actual_sum = sum(nums)    
+    return expected_sum - actual_sum
+```
+
+### 4. HashSet: O\(N\) / O\(N\)
+
+```python
+def missingNumber(self, nums: List[int]) -> int:
+    
+    num_set = set(nums)
+    n = len(nums) + 1
+    
+    for num in range(n):
+        if num not in num_set:
+            return num
+```
+
+### 5. Bit Manipulation: **O\(N\) / O\(1\)**
+
+```python
+def missingNumber(self, nums: List[int]) -> int:
+    
+    missing = len(nums)    
+    for i, num in enumerate(nums):
+        missing ^= i ^ num        
+    return missing
+```
 
 ## [\[Medium\] Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) \(6651/717\)
 
