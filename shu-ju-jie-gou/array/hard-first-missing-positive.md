@@ -262,11 +262,9 @@ def findDuplicate(self, nums):
 
 ## [\[Easy\] Single Number](https://leetcode.com/problems/single-number/) \(5639/187\)
 
-Given a **non-empty** array of integers `nums`, every element appears _twice_ except for one. Find that single one.
+Given a **non-empty** array of integers`nums`, every element appears _twice_ except for one. Find that single one.
 
 **Follow up:** Could you implement a solution with a linear runtime complexity and without using extra memory?
-
-
 
 ### 1. Sorted: O\(NlogN\) / O\(1\)
 
