@@ -285,7 +285,7 @@ def singleNumber(self, nums: List[int]) -> int:
         if nums[i] != nums[i-1]:
             # nums[i]和前(i-1) 後(i+1)都不一樣，nums[i] is unique 
             if nums[i] != nums[i+1]: 
-                return [i]
+                return nums[i]
             # condition: nums[i] == nums[i+1]
             # 意味nums[i-1]是unique               
             return nums[i-1]
