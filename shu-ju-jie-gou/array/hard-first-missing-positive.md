@@ -30,7 +30,7 @@ This means that the missing one must be in the range \[1... n\]. Otherwise, it m
 * `[0]`
 * `[7,8,9,11,12]`
 
-### 1. `Sorted()` + `smallest = 1`: O\(NlogN\) / O\(1\)
+### 1. `Sorted` + `smallest = 1`: O\(NlogN\) / O\(1\)
 
 ```python
 def firstMissingPositive(self, nums: List[int]) -> int:
@@ -55,7 +55,7 @@ def firstMissingPositive(self, nums: List[int]) -> int:
 \(3\) Find the first cell not in the correct index order, that is the first missing integer.   
  If there's no unindexed cell, there was no missing integer \(full list\), so return n+1. In this case, we cover situation like  \[7,8,10,11,12\] and \[1,2,3,4,5\]
 
-![](../../.gitbook/assets/image%20%288%29.png)
+![](../../.gitbook/assets/image%20%289%29.png)
 
 ```python
 def firstMissingPositive(self, nums: List[int]) -> int:
@@ -105,7 +105,7 @@ Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, ret
 
 **Follow up:** Could you implement a solution using only `O(1)` extra space complexity and `O(n)` runtime complexity?
 
-### 1. Sort: O\(NlogN\) / O\(1\)
+### 1. Sorted: O\(NlogN\) / O\(1\)
 
 ```python
 def missingNumber(self, nums: List[int]) -> int:
@@ -191,7 +191,10 @@ def missingNumber(self, nums: List[int]) -> int:
 
 ## [\[Medium\] Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) \(6651/717\)
 
-### 1. Sort: O\(NlogN\) / O\(1\)
+Given an array of integers `nums` containing `n + 1` integers where each integer is in the range `[1, n]` inclusive.  
+There is only **one repeated number** in `nums`, return _this repeated number_.
+
+### 1. Sorted: O\(NlogN\) / O\(1\)
 
 ```python
 def findDuplicate(self, nums: List[int]) -> int:
@@ -226,5 +229,86 @@ def findDuplicate(self, nums: List[int]) -> int:
         if num in nums_set:
             return num
         nums_set.add(num)
+```
+
+**Follow Up:** Can you solve the problem using only constant, `O(1)` extra space? Then Use Sol.4.
+
+### 4. Linked List Cycle \(Cycle Detection\): O\(N\) / O\(1\)
+
+![](../../.gitbook/assets/image%20%2811%29.png)
+
+![](../../.gitbook/assets/image%20%2810%29.png)
+
+![](../../.gitbook/assets/image%20%288%29.png)
+
+```python
+def findDuplicate(self, nums):
+    # Find the intersection point of the two runners.
+    tortoise = hare = nums[0]
+    while True:
+        tortoise = nums[tortoise]
+        hare = nums[nums[hare]]
+        if tortoise == hare:
+            break
+
+    # Find the "entrance" to the cycle.
+    tortoise = nums[0]
+    while tortoise != hare:
+        tortoise = nums[tortoise]
+        hare = nums[hare]
+
+    return hare
+```
+
+## [\[Easy\] Single Number](https://leetcode.com/problems/single-number/) \(5639/187\)
+
+Given a **non-empty** array of integers `nums`, every element appears _twice_ except for one. Find that single one.
+
+**Follow up:** Could you implement a solution with a linear runtime complexity and without using extra memory?
+
+
+
+### 1. Sorted: O\(NlogN\) / O\(1\)
+
+```python
+#   e.g. [4, 1, 2, 1, 2, 5, 5]
+# sorted [1, 1, 2, 2, 4, 5, 5]
+# index i    1^
+#                  3^ 
+#                        5^
+# ans = 4
+def singleNumber(self, nums: List[int]) -> int:
+
+    nums = sorted(nums)        
+    
+    # range(start, stop, step) 每次跳兩格
+    for i in range(1, len(nums), 2):   
+             
+        if nums[i] != nums[i-1]:
+            # nums[i]和前(i-1) 後(i+1)都不一樣，nums[i] is unique 
+            if nums[i] != nums[i+1]: 
+                return [i]
+            # condition: nums[i] == nums[i+1]
+            # 意味nums[i-1]是unique               
+            return nums[i-1]
+    # condition: (1)nums只有一個數 (2)最後一個數是unique
+    return nums[-1]
+```
+
+### 1. Dictionary: O\(N\) / O\(N\)
+
+```python
+def singleNumber(self, nums: List[int]) -> int:
+
+    if not nums:
+        return 0
+
+    dictionary = {}
+    for num in nums:
+        dictionary[num] = dictionary.get(num, 0) + 1
+
+    for num, count in dictionary.items():
+        if count == 1:
+            return num
 ```
 
