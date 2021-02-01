@@ -280,10 +280,10 @@ def singleNumber(self, nums: List[int]) -> int:
     nums = sorted(nums)        
     
     # range(start, stop, step) 每次跳兩格
+    # 為什麼要跳兩格？因為跳兩格才能同時比較前後（前後都是沒看過的數字）
     for i in range(1, len(nums), 2):   
-             
         if nums[i] != nums[i-1]:
-            # nums[i]和前(i-1) 後(i+1)都不一樣，nums[i] is unique 
+            # nums[i]和前(i-1) 後(i+1)都不一樣，nums[i]是unique 
             if nums[i] != nums[i+1]: 
                 return nums[i]
             # condition: nums[i] == nums[i+1]
@@ -309,4 +309,6 @@ def singleNumber(self, nums: List[int]) -> int:
         if count == 1:
             return num
 ```
+
+### 3. Bit Manipulation: O\(N\) / O\(1\)
 
