@@ -1,4 +1,4 @@
-# \[Hard\] First Missing Positive / \[Easy\] Missing Number / \[Medium\] Find the Duplicate Number
+# \[Hard\] First Missing Positive/ \[Easy\] Missing Number/ \[Medium\] Find the Duplicate Number/ SingleNum
 
 ## [\[Hard\] First Missing Positive  \(5063/922\)](https://leetcode.com/problems/first-missing-positive/)
 
@@ -6,7 +6,7 @@ Given an unsorted integer array `nums`, find the smallest missing positive integ
 
 **Follow up:** Could you implement an algorithm that runs in `O(n)` time and uses constant extra space?
 
-## Thought Process
+## 思路
 
 There are only two possibilities/cases:
 
