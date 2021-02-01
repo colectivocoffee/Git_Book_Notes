@@ -310,5 +310,21 @@ def singleNumber(self, nums: List[int]) -> int:
             return num
 ```
 
+或者是用`collections.Counter()`來幫我們計算個數：
+
+{% hint style="info" %}
+易錯點： **collections.Counter\(\)** 的結果是dictionary，需要用dictionary的方法查看。
+{% endhint %}
+
+```python
+def singleNumber(self, nums: List[int]) -> int:
+
+    count_dict = collections.Counter(nums)
+
+    for num, count in count_dict.items():
+        if count == 1:
+            return num
+```
+
 ### 3. Bit Manipulation: O\(N\) / O\(1\)
 
