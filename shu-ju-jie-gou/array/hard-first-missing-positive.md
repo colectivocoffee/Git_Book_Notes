@@ -328,3 +328,19 @@ def singleNumber(self, nums: List[int]) -> int:
 
 ### 3. Bit Manipulation: O\(N\) / O\(1\)
 
+* If we take XOR of zero and some bit, it will return that bit
+  * $$a \oplus 0 = a$$
+* If we take XOR of two same bits, it will return 0
+  * $$a \oplus a = 0$$
+*  $$a \oplus b \oplus a = (a \oplus a \oplus ) b = (0 \oplus b) = b$$ 
+
+So we can XOR all bits together to find the unique number.
+
+```python
+def singleNumber(self, nums: List[int]) -> int:
+        a = 0
+    for i in nums:
+        a ^= i
+    return a
+```
+
