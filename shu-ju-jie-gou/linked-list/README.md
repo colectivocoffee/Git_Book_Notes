@@ -27,7 +27,7 @@
 | Insert/Delete | O\(n\)/O\(n\) | O\(1\)/O\(1\) \(only head\) |
 |  |  |  |
 
-* 使用LInked List的好處在於，Insert/Delete Operation只需要O\(1\)的時間複雜度。
+* 使用LInked List的好處在於，**Insert/Delete Operation只需要O\(1\)的時間複雜度**。
 * LinkedList should be used where modifications to a collection are frequent like addition/deletion operations O\(1\).  \(1\) when you re-use existing iterators to insert and remove elements \(2\) when you add or remove from the head of the list Else ArrayList is good when Read Only or Data Rarely modified. 
 
 ### 2. Linked List需要注意的地方
