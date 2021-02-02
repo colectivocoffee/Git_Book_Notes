@@ -104,7 +104,7 @@
   * [\[Interview\] Airplane Seats Assignment](shu-ju-jie-gou/array/interview-airplane-seats-assignment.md)
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
   * [\[Medium\] Find the Celebrity](shu-ju-jie-gou/array/medium-find-the-celebrity.md)
-  * [\[Easy\] Pascal's Triangle / \[Medium\] Pascal's Triangle II](shu-ju-jie-gou/array/easy-pascals-triangle-medium-pascals-triangle-ii.md)
+  * [\[Easy\] Pascal's Triangle/ \[Medium\] Pascal's Triangle II](shu-ju-jie-gou/array/easy-pascals-triangle-medium-pascals-triangle-ii.md)
   * [\[Hard\] First Missing Positive/ \[Easy\] Missing Number/ \[Medium\] Find the Duplicate Number/ SingleNum](shu-ju-jie-gou/array/missing-or-duplicate-num.md)
   * [\[Medium\] Rotate Array](shu-ju-jie-gou/array/medium-rotate-array.md)
   * [Remove Element Series](shu-ju-jie-gou/array/remove-element-series.md)

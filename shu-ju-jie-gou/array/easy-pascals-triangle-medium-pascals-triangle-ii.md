@@ -1,4 +1,4 @@
-# \[Easy\] Pascal's Triangle / \[Medium\] Pascal's Triangle II
+# \[Easy\] Pascal's Triangle/ \[Medium\] Pascal's Triangle II
 
 ## [\[Easy\] Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) \(2169/128\)
 
