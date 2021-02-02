@@ -19,8 +19,12 @@ Output:
 
 ### 1. DP: O\(numRows^2\) / O\(numRows^2\)
 
+
+
 Time Complexity: O\(numRows^2\)  
 Although updating each value of `triangle` happens in constant time, it is performed O\(numRows^2\) times. To see why, consider how many overall loop iterations there are. The outer loop obviously runs numRowsnumRows times, but for each iteration of the outer loop, the inner loop runs rowNumrowNum times. Therefore, the overall number of `triangle` updates that occur is $$1 + 2 + 3 + \ldots + numRows1+2+3+…+numRows$$. which, according to Gauss' formula, can be $$\dfrac {numRows (numRows+1)} {2} ​$$
+
+> 思路：在建pascal's triangle之前，我們要先把base case處理好。
 
 Space Complexity: O\(numRows^2\)  
 Because we need to store each number that we update in `triangle`, the space requirement is the same as the time complexity. 
