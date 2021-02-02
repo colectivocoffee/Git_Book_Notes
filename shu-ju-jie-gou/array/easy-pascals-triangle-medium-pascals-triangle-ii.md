@@ -19,12 +19,15 @@ Output:
 
 ### 1. DP: O\(numRows^2\) / O\(numRows^2\)
 
-
+> 思路：一層一層把row建起來。  
+> &lt;法一&gt;用prevRow的值，取出相對應的`prevRow[i-1] + prev[i]`，相加後得到curr。  
+> &lt;法二&gt;直接用公式算curr。`curr = int(curr * (row - i) / i)`  
+> 在建pascal's triangle之前，我們要先把base case處理好。基本上就是兩個for loop，  
+> 第一個for loop處理row index，法二的範圍從`range(1, numRows + 1)` \(index從1開始是因為第一個item永遠都把traingle的1先放好，而+1是處理最後的triangle的1\)。  
+> 第二個for loop處理row items，範圍從`range(1, row + 1)`，一個一個用公式把值放入curr\_row list內。
 
 Time Complexity: O\(numRows^2\)  
 Although updating each value of `triangle` happens in constant time, it is performed O\(numRows^2\) times. To see why, consider how many overall loop iterations there are. The outer loop obviously runs numRowsnumRows times, but for each iteration of the outer loop, the inner loop runs rowNumrowNum times. Therefore, the overall number of `triangle` updates that occur is $$1 + 2 + 3 + \ldots + numRows1+2+3+…+numRows$$. which, according to Gauss' formula, can be $$\dfrac {numRows (numRows+1)} {2} ​$$
-
-> 思路：在建pascal's triangle之前，我們要先把base case處理好。
 
 Space Complexity: O\(numRows^2\)  
 Because we need to store each number that we update in `triangle`, the space requirement is the same as the time complexity. 
