@@ -2,7 +2,7 @@
 
 ## [\[Easy\] Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) \(2169/128\)
 
-
+Given a non-negative integer _numRows_, generate the first _numRows_ of Pascal's triangle.
 
 ```text
 Example
@@ -75,5 +75,45 @@ def generate(self, numRows: int) -> List[List[int]]:
     return result
 ```
 
-## \[Medium\] Pascal's Triangle II \(\)
+## [\[Medium\] Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/) \(1217/217\)
+
+Given an integer `rowIndex`, return the `rowIndexth` 's row of Pascal's triangle.  
+Notice that the row index starts from **0**.
+
+### 1. DP: O\(rowIndex^2\) / O\(rowIndex^2\)
+
+```python
+def getRow(self, rowIndex: int) -> List[int]:
+
+    result = []
+    for row in range(1, rowIndex+2):
+        curr = 1
+        curr_row = []
+
+        for item in range(1, row+1):
+            curr_row.append(curr)
+            curr = int(curr * (row - item) / item)
+        result.append(curr_row)                
+
+    return result[rowIndex]        
+```
+
+**Follow up:** Could you optimize your algorithm to use only _O_\(_k_\) extra space?
+
+> 思路：去除result, 直接返回curr\_row
+
+```python
+def getRow(self, rowIndex: int) -> List[int]:
+
+    for row in range(1, rowIndex+2):
+        curr = 1
+        curr_row = []
+
+        for item in range(1, row+1):
+            curr_row.append(curr)
+            curr = int(curr * (row - item) / item)
+
+        if len(curr_row) == rowIndex+1: 
+            return curr_row                
+```
 
