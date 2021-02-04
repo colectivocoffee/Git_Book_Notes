@@ -48,7 +48,7 @@
   * [\[Medium\] Longest Substring without Repeating Characters](two-pointers/medium-longest-substring-without-repeating-characters.md)
   * [\[Medium\] Find K Closest Elements](two-pointers/medium-find-k-closest-elements.md)
   * [\[Medium\] Container With Most Water](two-pointers/medium-container-with-most-water.md)
-  * [\[Easy\] Valid Palindrome](two-pointers/easy-valid-palindrome.md)
+  * [\[Easy\] Valid Palindrome/ \[Easy\] Valid Palindrome II](two-pointers/easy-valid-palindrome.md)
   * [\[Medium\] 3 Sum](two-pointers/medium-3-sum.md)
   * [\[Easy\] Two Sum](two-pointers/easy-two-sum.md)
 * [Binary Search Tree\(BST\)](bst/README.md)
