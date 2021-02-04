@@ -23,6 +23,9 @@ Output: true
 **Time Complexity: O\(n\)  
 Space Complexity: O\(1\)**
 
+* Time Complexity: O\(N\) where N is the length of the string. Each of two checks of whether some substring is a palindrome is O\(N\).
+* Space Complexity: O\(1\) additional complexity. Only pointers were stored in memory.
+
 ### **2. Brute Force \(Two For Loops\)**
 
 基本上就是先remove punctuation & spaces & lower case，然後再一個一個char比較。
