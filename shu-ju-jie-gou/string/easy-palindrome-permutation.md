@@ -49,3 +49,18 @@ def canPermutePalindrome(self, s: str) -> bool:
     return count <= 1
 ```
 
+### 3. Set: O\(N\) / O\(1\)
+
+```python
+def canPermutePalindrome(self, s: str) -> bool:
+
+    chars_count = set()
+    for char in s:
+        if char in chars_count:
+            chars_count.remove(char)
+        else:
+            chars_count.add(char)
+
+    return len(chars_count) <= 1
+```
+
