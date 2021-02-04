@@ -109,6 +109,7 @@
   * [\[Medium\] Rotate Array](shu-ju-jie-gou/array/medium-rotate-array.md)
   * [Remove Element Series](shu-ju-jie-gou/array/remove-element-series.md)
 * [String](shu-ju-jie-gou/string/README.md)
+  * [\[Easy\] Palindrome Permutation](shu-ju-jie-gou/string/easy-palindrome-permutation.md)
   * [\[Easy\] First Unique Character in a String](shu-ju-jie-gou/string/easy-first-unique-character-in-a-string.md)
   * [\[Easy\] Length of Last Word](shu-ju-jie-gou/string/easy-length-of-last-word.md)
   * [\[Easy\] implement strStr\(\) \(aka .indexOf\(\) function\)](shu-ju-jie-gou/string/easy-implement-strstr-aka-.indexof-function.md)
