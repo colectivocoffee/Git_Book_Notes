@@ -2,10 +2,10 @@
 
 ## \[Easy\] Palindrome Permutation \(526/59\)
 
+Given a string, determine if a permutation of the string could form a palindrome.
 
-
-Palindrome有個特性：所有的chars都為偶數個\(才能左右對消\)，除了最中間的char之外。  
-因此，我們可以數chars出現個數，如果有`超過一個`的non palin count的話，就代表不是palindrome。
+> 思路：Palindrome有個特性：所有的chars都為偶數個\(才能左右對消\)，除了最中間的char之外。  
+> 因此，我們可以數chars出現個數，如果有`超過一個`的non palin count的話，就代表不是palindrome。
 
 ### 1. Dictionary: O\(N\) / O\(1\)
 
@@ -50,6 +50,8 @@ def canPermutePalindrome(self, s: str) -> bool:
 ```
 
 ### 3. Set: O\(N\) / O\(1\)
+
+用set\(\)來紀錄已看過的chars。如果看過，就set.remove\(char\)；反之，如果沒看過，就set.add\(char\)。這樣一來，一加一減的方式，就等同於 count %2== 0 的功能。
 
 ```python
 def canPermutePalindrome(self, s: str) -> bool:
