@@ -24,7 +24,28 @@ def canPermutePalindrome(self, s: str) -> bool:
     for count in counts.values():
         if count % 2 != 0:
             non_palin_count += 1
-
+    # 只允組至多一組不符合條件的char，超過就return False
     return non_palin_count <= 1
+```
+
+### 2. Dictionary One Pass: O\(N\) / O\(1\)
+
+```python
+def canPermutePalindrome(self, s: str) -> bool:
+
+    count = 0
+    #易錯點：用collections.defaultdict(int)並且放int在裡面
+    chars_count = collections.defaultdict(int)
+    for char in s:
+        # 不管怎樣，都先+=1
+        chars_count[char] += 1
+        # 算有多少組不符合條件的non palin count pairs.
+        # 符合條件則減一組，反之則增一組。
+        if chars_count[char] % 2 == 0:
+            count -= 1
+        else:
+            count += 1
+
+    return count <= 1
 ```
 
