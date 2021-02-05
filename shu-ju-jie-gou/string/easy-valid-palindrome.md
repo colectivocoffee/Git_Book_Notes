@@ -65,7 +65,7 @@ Given a non-empty string `s`, you may delete **at most** one character. Judge wh
 
 ### 1. Two Pointer \(-&gt;/&lt;-\): O\(N\) / O\(1\)
 
-題目的難點在於，可以del at most one character，因此不同於Valid Palindrom I 的部分是，我們要判斷  
+題目的難點在於，可以del at most one character，因此不同於Valid Palindrom I 的部分是，我們要判斷：  
 `1. 刪左char` or `2.刪右char`。刪一個還是成立，即True or False -&gt; True。  
 然而，當兩個都是False時，代表刪左刪右都不符合規定，意即至少要刪2個以上的chars。 
 
