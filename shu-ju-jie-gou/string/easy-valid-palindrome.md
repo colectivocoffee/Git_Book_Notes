@@ -15,6 +15,8 @@ Output: true
 
 ## Thought Process
 
+## \[Easy\] Valid Palindrome
+
 ### 1. Two Pointers \(L-&gt;/&lt;-R\)
 
 這題的two pointer on valid palindrome思維，可以用在很多不同的題型上。（用同向雙指針）  
