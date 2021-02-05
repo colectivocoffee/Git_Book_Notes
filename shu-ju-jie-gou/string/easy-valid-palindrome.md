@@ -1,4 +1,4 @@
-# \[Easy\] Valid Palindrome/ \[Easy\] Valid Palindrome II
+# \[Easy\] Valid Palindrome/ \[Easy\] Valid Palindrome II/ \[Easy\] Palindrome Number
 
 [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)  
 Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
@@ -125,5 +125,37 @@ def checkPalin(self, s, left, right):
     return True
 ```
 
+## \[Easy\] Palindrome Number \(3002/1695\)
 
+Given an integer `x`, return `true` if `x` is palindrome integer.  
+An integer is a **palindrome** when it reads the same backward as forward. For example, `121` is palindrome while `123` is not.
+
+**Follow up:** Could you solve it without converting the integer to a string?
+
+### 1. String Conversion: O\(N\) / O\(1\)
+
+```python
+def isPalindrome(self, x: int) -> bool:
+    x = str(x)
+    return x == x[::-1]
+```
+
+### 2. Division + Revert Second Half: O\(logN\) / O\(1\)
+
+直接轉換成String是最容易想到的，但如果Follow Up Question問要直接處理Integer的話，需要把x切兩半，比較前後半是否相同，能組成palindrome。  
+前半用 reverted = reverted \* 10 + x % 10，後半用 x //= 10 。
+
+```python
+def isPalindrome(self, x: int) -> bool:
+
+    if x <= 0 or x % 10 == 0:
+        return False
+
+    reverted = 0
+    while x > reverted:
+        reverted = reverted * 10 + x % 10
+        x //= 10
+
+    return x == reverted or x == reverted // 10
+```
 
