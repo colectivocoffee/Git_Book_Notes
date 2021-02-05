@@ -122,7 +122,7 @@ def checkPalin(self, s, left, right):
     return True
 ```
 
-## \[Easy\] Palindrome Number \(3002/1695\)
+## [\[Easy\] Palindrome Number](https://leetcode.com/problems/palindrome-number/) \(3002/1695\)
 
 Given an integer `x`, return `true` if `x` is palindrome integer.  
 An integer is a **palindrome** when it reads the same backward as forward. For example, `121` is palindrome while `123` is not.
@@ -139,12 +139,24 @@ def isPalindrome(self, x: int) -> bool:
 
 ### 2. Division + Revert Second Half: O\(logN\) / O\(1\)
 
-直接轉換成String是最容易想到的，但如果Follow Up Question問要直接處理Integer的話，需要把x切兩半，比較前後半是否相同，能組成palindrome。  
-前半用 reverted = reverted \* 10 + x % 10，後半用 x //= 10 。
+> 思路：直接轉換成String是最容易想到的，但如果Follow Up Question問要直接處理Integer的話，需要revert x itself，並且把reverted x 和 original x 比較。但有可能x本身過長，超過MaxInt，導致在revert的時候會overflow。因此我們選擇把原始x切兩半，並比較前後是否相同。  
+>   
+> 作法：把x切兩半，比較前後半是否相同，能組成palindrome。  
+> 前半用 reverted = reverted \* 10 + x % 10，後半用 x //= 10 。
+
+在revert half x之前，還是需要考慮幾個edge cases:   
+\(1\) e.g.  `-1234`  -&gt; `x <= 0        return False` 負值不可能是palindrome  
+\(2\) e.g.           `0` -&gt; `x % 10 == 0   return False` 零不可能是palindrome  
+\(3\) e.g.     `1230`-&gt;  `x % 10 == 0   return False` 尾數為0者不可能是palindrome，因為開頭位不會        是以0開始
+
+最後，要考慮兩種都可以成為palindrome的情況:   
+\(1\) e.g.   `123321` -&gt; `x == reverted`  
+\(2\) e.g. `1234321` -&gt; `x == reverted // 10`
 
 ```python
 def isPalindrome(self, x: int) -> bool:
-
+    
+    # edge cases
     if x <= 0 or x % 10 == 0:
         return False
 
@@ -152,7 +164,8 @@ def isPalindrome(self, x: int) -> bool:
     while x > reverted:
         reverted = reverted * 10 + x % 10
         x //= 10
-
+    
+    # 123321 or 1234321
     return x == reverted or x == reverted // 10
 ```
 
