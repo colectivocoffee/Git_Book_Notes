@@ -1,21 +1,16 @@
 # \[Easy\] Valid Palindrome/ \[Easy\] Valid Palindrome II/ \[Easy\] Palindrome Number
 
+## \[Easy\] Valid Palindrome
+
 [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)  
-Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
-
-**Note:** For the purpose of this problem, we define empty string as valid palindrome.  
-
-
-#### Example
+Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.  
+**Note:** For the purpose of this problem, we define empty string as valid palindrome.
 
 ```text
+Example
 Input: "A man, a plan, a canal: Panama"
 Output: true
 ```
-
-## Thought Process
-
-## \[Easy\] Valid Palindrome
 
 ### 1. Two Pointers \(L-&gt;/&lt;-R\)
 
