@@ -111,7 +111,27 @@ This pattern reverses one node at a time starting with one variable \(current\) 
 
 ![](../../.gitbook/assets/reversedlinkedlist.jpg)
 
+### **Reverse Linked List的指針移動步驟**
 
+The trick to reversing one list into another is inserting at the head, rather than at the back, of the target list. You need to traverse your original list in the regular way by following the `next` pointers, but rather than adding elements to the end of the target list, create a new node, and replace the header of the target with it.
+
+```python
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer   ^
+targetHead -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer          ^
+targetHead -> "A" -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer                 ^
+targetHead -> "B" -> "A" -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer                        ^
+targetHead -> "C" -> "B" -> "A" -> NULL
+```
 
 ### Reverse Linked List Pattern: 
 

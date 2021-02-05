@@ -15,6 +15,26 @@ temp.next = prev.next   #             prev.next
 prev.next = temp        # prev.next   tmp
 ```
 
+**Reverse Linked List的指針移動步驟**
+
+```python
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer   ^
+targetHead -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer          ^
+targetHead -> "A" -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer                 ^
+targetHead -> "B" -> "A" -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer                        ^
+targetHead -> "C" -> "B" -> "A" -> NULL
+```
+
 ![](../../.gitbook/assets/reversedlinkedlist.jpg)
 
 ## [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
