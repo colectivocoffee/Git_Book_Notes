@@ -12,9 +12,13 @@ Given a string **s**, find the longest palindromic substring in **s**. You may a
 那left & right的範圍要如何確定呢？由於right不可能比left還左邊，因此只需要從left起始位置開始出發。我們的for loop可以定義為：
 
 ```python
+max_len = 0
+result = ''
 for left in range(n):
     for right in range(left, n):
-	    use two pointers to check whether s(left, right) is palindromic
+	     if s[left:right+1]比max_len還長 and s[left:right+1]是否為palindrome:
+					 則可以更新result
+					 更新max_len
 ```
 
 ### 2. DP + Memoization: O\(n^2\)/O\(n\)
@@ -29,6 +33,28 @@ for left in range(n):
 ## Code
 
 #### 1. Brute Force with PalindromeCheck: O\(n^3\)/O\(1\)
+
+沒有優化的版本
+
+```python
+def longestPalindrome(self, s: str) -> str:
+
+    result = ''
+    max_len = 0
+
+    for left in range(len(s)):
+        for right in range(left, len(s)):                
+            if len(s[left:right+1]) > max_len:
+                if self.checkPalin(s[left:right+1]):
+                    max_len = len(s[left:right+1])
+                    result = s[left:right+1]       
+    return result
+
+def checkPalin(self, s):
+    return s == s[::-1]
+```
+
+小優化版本
 
 {% tabs %}
 {% tab title="Python" %}
