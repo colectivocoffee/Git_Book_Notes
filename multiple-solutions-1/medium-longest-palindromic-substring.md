@@ -1,6 +1,7 @@
 # \[Medium\] Longest Palindromic Substring
 
-[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)  
+## \[Medium\] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) \(9615/646\)
+
 Given a string **s**, find the longest palindromic substring in **s**. You may assume that the maximum length of **s** is 1000.
 
 ## Thought Process
