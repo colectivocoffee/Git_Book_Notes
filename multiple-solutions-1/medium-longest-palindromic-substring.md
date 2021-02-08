@@ -63,9 +63,7 @@ def checkPalin(self, s):
     return s == s[::-1]
 ```
 
-小優化版本
-
-### 
+優化max\_len判斷句的版本
 
 {% tabs %}
 {% tab title="Python" %}
@@ -116,35 +114,9 @@ def isPalindrome(self, s):
 
 ### 3. Expand Around Center: O\(N^2\) / O\(1\)
 
-```python
-def longestPalindrome(self, s: str) -> str:
-
-    max_left, max_right = 0, 0
-    for i in range(len(s)):
-        len1 = self.checkPalin(s, i, i)
-        len2 = self.checkPalin(s, i, i + 1)
-        max_len = max(len1, len2)
-        if max_len > max_right - max_left:
-       #      "abcdccda"   len substring
-       #          L^R
-       #odd       3 5       1  
-       #even     2dccd7     4  dccd    
-       #          |-4|
-       #          |i         i - (4-1)//2   
-       #           i-|       i + 4//2
-       # 根據max_len & i，重建原來的left pointer & right pointer並保存下來
-            max_left = i - (max_len - 1) // 2
-            max_right = i + max_len // 2   
-    return s[max_left : max_right+1]
-
-def checkPalin(self, s, left, right):
-
-    while left >= 0 and right < len(s) and s[left] == s[right]:
-        left -= 1
-        right += 1
-    print(left, right, s[left:right+1])
-    return right - left - 1
-```
+> 思路：  
+> \(1\)由`index i`開始同時往左\(left pointer\)+往右\(right pointer\)延展，找到最長的palindromic substring。找到後，和之前儲存`max_len`的substring比較，如果新的比舊的長，那就把`max_len`的palindromic substring換成新的。  
+> \(2\)承上，會有兩種palindrome的可能，**odd palindrome** & **even palindrome**，因此兩個都需要和max\_len比較。
 
 ```python
 # index 'i' 一直往右移，每到一個i，就從i往左往右延伸看目前最長的palindromic substring，
@@ -204,5 +176,64 @@ max_left/max_right 3 6   max_len -> 4
 3 6 =====max
 
 
+```
+
+```python
+def longestPalindrome(self, s: str) -> str:
+
+    max_left, max_right = 0, 0
+    for i in range(len(s)):
+        len1 = self.checkPalin(s, i, i)
+        len2 = self.checkPalin(s, i, i + 1)
+        max_len = max(len1, len2)
+        if max_len > max_right - max_left:
+       #      "abcdccda"   len substring
+       #          L^R
+       #odd       3 5       1  
+       #even     2dccd7     4  dccd    
+       #          |-4|
+       #          |i         i - (4-1)//2   
+       #           i-|       i + 4//2
+       # 根據max_len & i，重建原來的left pointer & right pointer並保存下來
+            max_left = i - (max_len - 1) // 2
+            max_right = i + max_len // 2   
+    return s[max_left : max_right+1]
+
+def checkPalin(self, s, left, right):
+
+    while left >= 0 and right < len(s) and s[left] == s[right]:
+        left -= 1
+        right += 1
+    print(left, right, s[left:right+1])
+    return right - left - 1
+```
+
+優化判斷長度的部分，直接返回substring。
+
+```python
+def longestPalindrome(self, s: str) -> str:
+
+    longest = ''
+    for i in range(len(s)):
+        odd = self.checkPalin(s, i, i)
+        even = self.checkPalin(s, i, i+1)
+        longest = max(longest, odd, even, key=len)
+    return longest
+
+def checkPalin(self, s, left, right):
+
+    while left >= 0 and right < len(s) and s[left] == s[right]:
+        left -= 1
+        right += 1
+    # 易錯點：s[left+1 : right]
+    # 為什麼範圍不是left:right+1呢？
+    # 因為left:right+1會包含s[left] != s[right]的char，而我們並不想要。
+    # 因此左右各往內縮一格,being inclusive,才是我們要的palindromic substring。
+    return s[left+1:right]
+    
+    # 如圖下所示
+e.g.  "abcdccda"
+         L ^  R
+even     2dccd7     4  dccd 
 ```
 
