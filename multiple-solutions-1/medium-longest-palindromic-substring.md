@@ -21,6 +21,8 @@ for left in range(n):
 					 更新max_len
 ```
 
+另外，每次更新的時候都需要和`max_len`比較，如果比`max_len`長，才紀錄left&right的值。
+
 ### 2. DP + Memoization: O\(n^2\)/O\(n\)
 
 * Build a 2D True/False DP Matrix: 如果判斷為True，便可以往下走。
@@ -39,7 +41,7 @@ for left in range(n):
 
 ## Code
 
-#### 1. Brute Force with PalindromeCheck: O\(n^3\)/O\(1\)
+### 1. Brute Force with PalindromeCheck: O\(n^3\)/O\(1\)
 
 沒有優化的版本
 
@@ -62,6 +64,8 @@ def checkPalin(self, s):
 ```
 
 小優化版本
+
+### 
 
 {% tabs %}
 {% tab title="Python" %}
@@ -118,15 +122,19 @@ def longestPalindrome(self, s: str) -> str:
     max_left, max_right = 0, 0
     for i in range(len(s)):
         len1 = self.checkPalin(s, i, i)
-        print(i, 'curr i / len1 / len2')
         len2 = self.checkPalin(s, i, i + 1)
-        print('-----------------------')
-        print(len1, len2, s[max_left:max_right+1])
         max_len = max(len1, len2)
         if max_len > max_right - max_left:
+       #      "abcdccda"   len substring
+       #          L^R
+       #odd       3 5       1  
+       #even     2dccd7     4  dccd    
+       #          |-4|
+       #          |i         i - (4-1)//2   
+       #           i-|       i + 4//2
+       # 根據max_len & i，重建原來的left pointer & right pointer並保存下來
             max_left = i - (max_len - 1) // 2
             max_right = i + max_len // 2   
-        print(max_left, max_right, '=====max')
     return s[max_left : max_right+1]
 
 def checkPalin(self, s, left, right):
@@ -139,60 +147,58 @@ def checkPalin(self, s, left, right):
 ```
 
 ```python
-e.g. "abcdccda"
-                  
+# index 'i' 一直往右移，每到一個i，就從i往左往右延伸看目前最長的palindromic substring，
+# 即expand from center。
+# 同時看odd/even palindrome，如果發現比max_len大，則紀錄max_left & max_right的值
+e.g.  "abcdccda"
+                      max
       "abcdccda"  len substring
-      L^R
-even -1 1          1  a
- odd   01          0
+index L^R
+ odd -1 1          1  a
+even   01          0
 max_left/max_right 0 0   max_len -> 1
 -----------------------
       "abcdccda"
        L^R
-even   0 2         1  a
- odd    12         0  
+ odd   0 2         1  b
+even    12         0  
 max_left/max_right 1 1   max_len -> 1
 -----------------------
       "abcdccda"
         L^R
-even    1 3         1  b
- odd     23         0  
-max_left/max_right 1 1   max_len -> 1
+ odd    1 3         1  c
+even     23         0  
+max_left/max_right 2 2   max_len -> 1
 -----------------------
       "abcdccda"
         L ^ R
-even    1   5       1  c
- odd      34        0  
-max_left/max_right 2 2   max_len -> 1
-1 0 b
-2 2 =====max
-1 5 bcdcc
-3 curr i / len1 / len2
-3 4 dc
+ odd    1cdc5       3  cdc
+even      34        0  
+max_left/max_right 2 4   max_len -> 3
 -----------------------
-3 0 c
-2 4 =====max
-3 5 dcc
-4 curr i / len1 / len2
-2 7 cdccda
+      "abcdccda"
+          L^R
+ odd      3 5       1  
+even     2dccd7     4  dccd
+max_left/max_right 3 6   max_len -> 4
 -----------------------
-1 4 cdc
-3 6 =====max
-4 6 ccd
-5 curr i / len1 / len2
-5 6 cd
+      "abcdccda"
+           L^R
+ odd       4 6      1  
+even        56      0  dccd
+max_left/max_right 3 6   max_len -> 4
 -----------------------
-1 0 dccd
-3 6 =====max
-5 7 cda
-6 curr i / len1 / len2
-6 7 da
+      "abcdccda"
+            L^R
+ odd        5 7     1  
+even         67     0  dccd
+max_left/max_right 3 6   max_len -> 4
 -----------------------
-1 0 dccd
-3 6 =====max
-6 8 da
-7 curr i / len1 / len2
-7 8 a
+      "abcdccda"
+             L^R
+ odd         6 8    1  
+even          78    0  dccd
+max_left/max_right 3 6   max_len -> 4
 -----------------------
 1 0 dccd
 3 6 =====max
