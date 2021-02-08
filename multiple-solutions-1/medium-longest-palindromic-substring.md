@@ -14,19 +14,23 @@ Given a string **s**, find the longest palindromic substring in **s**. You may a
 ```python
 max_len = 0
 result = ''
+# 總共有n(n-1)/2個substring，因此需要O(n^2)時間
 for left in range(n):
     for right in range(left, n):
-	     if s[left:right+1]比max_len還長 and s[left:right+1]是否為palindrome:
+	     # 判斷palindromic substring需要O(n)時間
+       if s[left:right+1]比max_len還長 and s[left:right+1]是否為palindrome:
 					 則可以更新result
 					 更新max_len
+
+# O(n^2) * O(n) = O(n^3)時間
 ```
 
 另外，每次更新的時候都需要和`max_len`比較，如果比`max_len`長，才紀錄left&right的值。
 
-### 2. DP + Memoization: O\(n^2\)/O\(n\)
+### 2. DP + Memoization: O\(n^2\) / O\(n\)
 
 * Build a 2D True/False DP Matrix: 如果判斷為True，便可以往下走。
-* First loop from right to left, second loop from left to right。
+* First loop from right to left, second loop from left to right。 意即start從右往左掃，並且end從左往右掃。用這樣的方式，來不斷地減短長度，看是否為palindrome。
 * Set the is Palindrome check along with dp\[i\]\[j\] check to update result。
 * return the result with s\[start:start+max\_len\]
 
@@ -111,6 +115,33 @@ def isPalindrome(self, s):
 ```
 {% endtab %}
 {% endtabs %}
+
+### 2. DP + Memoization:
+
+```python
+def longestPalindrome(self, s: str) -> str:
+
+    n = len(s)
+    dp = [[False] * n for _ in range(n)]
+    longest = ''
+
+    for i in range(n):
+        dp[i][i] = True
+        longest = s[i]
+
+    max_len = 0
+    for start in range(n-1, -1, -1):
+        for end in range(start+1, n):
+            print(dp)
+            print('-------')
+            if s[start] == s[end]:
+                if end - start == 1 or dp[start+1][end-1]:
+                    dp[start][end] = True
+                    if end - start + 1 > max_len:
+                        max_len = end - start + 1
+                        longest = s[start:end + 1]
+    return longest
+```
 
 ### 3. Expand Around Center: O\(N^2\) / O\(1\)
 
