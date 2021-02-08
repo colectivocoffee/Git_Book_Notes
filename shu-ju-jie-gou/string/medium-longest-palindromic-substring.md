@@ -35,6 +35,22 @@ for left in range(n):
 * Set the is Palindrome check along with dp\[i\]\[j\] check to update result。
 * return the result with s\[start:start+max\_len\]
 
+To improve over the brute force solution, we first observe how we can avoid unnecessary re-computation while validating palindromes. Consider the case "ababa". If we already knew that "bab" is a palindrome, it is obvious that "ababa" must be a palindrome since the two left and right end letters are the same.
+
+We define $$P(i,j)$$ as following:
+
+$$P(i,j) = \begin{cases} \text{true,} &\quad\text{if the substring } S_i \dots S_j \text{ is a palindrome}\\ \text{false,} &\quad\text{otherwise.} \end{cases}$$ 
+
+Therefore,
+
+$$P(i, j) = ( P(i+1, j-1) \text{ and } S_i == S_j )$$ 
+
+The base cases are:
+
+ $$P(i, i) = true$$ & $$P(i, i+1) = ( S_i == S_{i+1} )$$ 
+
+This yields a straightforward DP solution, in which we first initialize the one and two letters palindromes, and work our way up finding all three letters palindromes, and so on...
+
 ### 3. Expand Around Center: O\(N^2\) / O\(1\)
 
 由於palindrome是左右對稱，意味著往左右延展到longest substring也要相同。但要考慮兩種palindrome的可能：  
