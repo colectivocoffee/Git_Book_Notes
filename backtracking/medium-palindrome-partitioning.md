@@ -76,3 +76,11 @@ result
 [['a', 'a', 'b', 'c', 'c'], ['a', 'a', 'b', 'cc'], ['aa', 'b', 'c', 'c'], ['aa', 'b', 'cc']]
 ```
 
+### 2. Backtracking with DP: **O\(N \* 2^N\)**  / O\(N^2\)
+
+在Backtracking時，我們一直在重複看同樣的substring是否為palindrome。為了節省重複看的時間，我們可以利用2D的DP array來記錄是否為palindrome，`dp [i][j]`分別為`dp[start][end]`。e.g.`dp[start][end] == True`  
+  
+Time Complexity: O\(N \* 2^N\) 還是相同，但可以減少重複看palindrome的時間。 
+
+![](../.gitbook/assets/image%20%2810%29.png)
+
