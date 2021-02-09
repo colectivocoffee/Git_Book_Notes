@@ -123,6 +123,8 @@ for char in s:
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
 2. **zip用法**
 3. **Python Decorator**
+4. **itertools  lru\_cache**
+5. **collections**
 
 **Zip用法**  
 給兩個list，把它們用zip的方式黏在一起。如果遇到不匹配數量，則用None補齊。  
@@ -273,7 +275,7 @@ If input array is sorted then
 - Binary search
 - Two pointers
 
-If asked for all permutations/subsets then
+If asked for all permutations/subsets/partition then
 - Backtracking
 
 If given a tree then
