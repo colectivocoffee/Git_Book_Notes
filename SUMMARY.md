@@ -108,6 +108,7 @@
   * [\[Hard\] First Missing Positive/ \[Easy\] Missing Number/ \[Medium\] Find the Duplicate Number/ SingleNum](shu-ju-jie-gou/array/missing-or-duplicate-num.md)
   * [\[Medium\] Rotate Array](shu-ju-jie-gou/array/medium-rotate-array.md)
   * [Remove Element Series](shu-ju-jie-gou/array/remove-element-series.md)
+  * [\[Easy\] Contains Duplicate](shu-ju-jie-gou/array/easy-contains-duplicate.md)
 * [String](shu-ju-jie-gou/string/README.md)
   * [\[Medium\] Break a Palindrome](shu-ju-jie-gou/string/medium-break-a-palindrome.md)
   * [\[Medium\] Longest Palindromic Substring](shu-ju-jie-gou/string/medium-longest-palindromic-substring.md)
