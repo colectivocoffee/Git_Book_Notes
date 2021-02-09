@@ -28,6 +28,9 @@ The backtracking algorithms consists of the following steps:
 
 ![](../.gitbook/assets/image%20%289%29.png)
 
+Time Complexity: **O\(N \* 2^N\)**  This is the worst-case time complexity when all the possible substrings are palindrome. e.g. `'aaaa'`  
+There could be 2^N possible substrings, for each substring, it takes O\(N\) time to check palindrome.  
+
 ```python
 def partition(self, s: str) -> List[List[str]]:
 
@@ -55,19 +58,19 @@ def partition(self, s: str) -> List[List[str]]:
 ```python
 e.g. 'aabcc'
 
-'curr_result'        'str_left'
+'curr_result'        'str_left' # no more str_left, then
 []                     aabcc
 ['a']                   abcc
 ['a', 'a']               bcc
 ['a', 'a', 'b']           cc
-['a', 'a', 'b', 'c']       c
-['a', 'a', 'b', 'c', 'c'] 
-['a', 'a', 'b', 'cc'] 
+['a', 'a', 'b', 'c']       c     
+['a', 'a', 'b', 'c', 'c']      # append to result
+['a', 'a', 'b', 'cc']          # append to result
 ['aa']                   bcc
 ['aa', 'b']               cc
 ['aa', 'b', 'c']           c
-['aa', 'b', 'c', 'c'] 
-['aa', 'b', 'cc'] 
+['aa', 'b', 'c', 'c']          # append to result
+['aa', 'b', 'cc']              # append to result
 
 result
 [['a', 'a', 'b', 'c', 'c'], ['a', 'a', 'b', 'cc'], ['aa', 'b', 'c', 'c'], ['aa', 'b', 'cc']]
