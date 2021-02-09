@@ -42,8 +42,6 @@ A huge number of coding interview problems involve dealing with Permutations and
 
 ![](../.gitbook/assets/subsets.jpg)
 
-
-
 How to identify the Subsets pattern:
 
 * Problems where you need to find the combinations or permutations of a given set
@@ -55,7 +53,11 @@ How to identify the Subsets pattern:
 \(1\) Backtracking/DFS \( +Recursion \)  
 \(2\) BFS
 
+### 2. String Partitioning
 
+和Subsets的作法相同，題目要求的是 ‘partition `s` such that every substring of the partition is an xxxx. '，把String s切分，並且找出所有符合條件的的substring。由此可知，我們可以利用同樣的Backtracking方法來完成。
+
+![Time Complexity: O\(N\*2^N\)](../.gitbook/assets/image%20%2813%29.png)
 
 #### 題目
 
@@ -66,7 +68,7 @@ How to identify the Subsets pattern:
 * [x] Combination
 * [x] Combination Sum I & II & III
 * [x] Generate Parentheses
-* [ ] Palindrome Partitioning
+* [x] Palindrome Partitioning
 * [x] Letter Combinations of a Phone Number
 * [ ] Sudoku Solver
 * [ ] N-Queens

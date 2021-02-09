@@ -55,7 +55,7 @@ def firstMissingPositive(self, nums: List[int]) -> int:
 \(3\) Find the first cell not in the correct index order, that is the first missing integer.   
  If there's no unindexed cell, there was no missing integer \(full list\), so return n+1. In this case, we cover situation like  \[7,8,10,11,12\] and \[1,2,3,4,5\]
 
-![](../../.gitbook/assets/image%20%289%29.png)
+![](../../.gitbook/assets/image%20%2810%29.png)
 
 ```python
 def firstMissingPositive(self, nums: List[int]) -> int:
@@ -235,9 +235,9 @@ def findDuplicate(self, nums: List[int]) -> int:
 
 ### 4. Linked List Cycle \(Cycle Detection\): O\(N\) / O\(1\)
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../.gitbook/assets/image%20%2812%29.png)
 
-![](../../.gitbook/assets/image%20%2810%29.png)
+![](../../.gitbook/assets/image%20%2811%29.png)
 
 ![](../../.gitbook/assets/image%20%288%29.png)
 

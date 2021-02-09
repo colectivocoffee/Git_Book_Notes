@@ -26,6 +26,7 @@
   * [\[Medium\] Clone Graph](breath-first-search/medium-clone-graph.md)
   * [\[Medium\] Number of Islands](breath-first-search/medium-number-of-islands.md)
 * [Backtracking](backtracking/README.md)
+  * [\[Medium\] Palindrome Partitioning](backtracking/medium-palindrome-partitioning.md)
   * [\[Medium\] Generate Parentheses](backtracking/medium-generate-parentheses.md)
   * [\[Medium\] Subsets/Combinations/Permutations/Letter Combinations on Phone](backtracking/medium-combinations-permutations-subsets.md)
   * [\[Medium\] Combination Sum](backtracking/medium-combination-sum.md)
