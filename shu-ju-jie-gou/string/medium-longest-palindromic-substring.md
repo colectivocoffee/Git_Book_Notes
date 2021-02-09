@@ -58,7 +58,7 @@ This yields a straightforward DP solution, in which we first initialize the one 
 \(2\) even palindrome  e.g. abcddcba  
 我們可以用`index i`由左往右掃，同時用left&right指針設定左右邊界，看最長到哪。
 
-### 3. Manachers Algorithm: O\(n\)/O\(n\)
+### 4. Manachers Algorithm: O\(n\)/O\(n\)
 
 ## Code
 
