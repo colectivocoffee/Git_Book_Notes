@@ -133,7 +133,7 @@ def isPalindrome(self, s):
 {% endtab %}
 {% endtabs %}
 
-### 2. DP + Memoization:
+### 2. DP + Memoization: O\(N^2\) / O\(N\)
 
 ```python
 def longestPalindrome(self, s: str) -> str:
