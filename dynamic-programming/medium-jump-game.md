@@ -133,6 +133,7 @@ def canJump(self, nums):
     return destination == 0
 ```
 
-  
+#### Reference
 
-
+1. [https://leetcode.com/problems/jump-game/discuss/596454/Python-Simple-solution-with-thinking-process-Runtime-O\(n\)](https://leetcode.com/problems/jump-game/discuss/596454/Python-Simple-solution-with-thinking-process-Runtime-O%28n%29)
+2. 
