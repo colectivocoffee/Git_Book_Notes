@@ -1,4 +1,4 @@
-# \[Easy\] Contains Duplicate
+# \[Easy\] Contains Duplicate / \[Easy\] Contains Duplicate II
 
 ## [\[Easy\] Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)   \(1433/825\)
 
@@ -42,4 +42,46 @@ def containsDuplicate(self, nums: List[int]) -> bool:
 ```
 
 
+
+## [\[Easy\] Contains Duplicate II ](https://leetcode.com/problems/contains-duplicate-ii/)        \(1193/1321\)
+
+### 1. Two Pointers Brute Force: O\(N^2\) / O\(1\)
+
+放兩根指針，左指針指的是k的頭，右指針指的是k的尾。  
+兩根指針都從左開始往右走，如果左右兩指針left&right滿足下列兩條件：  
+\(1\) `right - left == k` \(2\) `nums[left] == nums[right]`，即可返回True，否則返回False。
+
+```python
+def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+
+    if not nums or k == 0:
+        return False
+
+    for left in range(len(nums)):
+        for right in range(left, len(nums)):
+            if right - left == k and nums[left] == nums[right]:
+                return True
+
+    return False
+```
+
+### 2. Sliding Window + Set: O\(N\) / O\(N\)
+
+```python
+def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+
+    seen = set()
+    for idx, num in enumerate(nums):
+        # 3. saw it second time
+        # meaning that it satisfy the k contract & duplicate conditions
+        if num in seen:
+            return True            
+        # 1. add it to seen set
+        seen.add(num)
+        # 2. sliding window len k
+        # modify size of seen by removing old items
+        if len(seen) > k:
+            seen.remove(nums[idx - k])
+    return False
+```
 
