@@ -118,6 +118,8 @@ for char in s:
 > a[0:2] = [0, 0]  
 > a = [0, 0, 3, 4]`
 
+* **Last Element Slicing**   `curr_string[:-1]`  返回整個`curr_string`，除了末尾最後一個char。 e.g.    `curr_string = 'bookmark'` `curr_string[:-1] = 'bookmar'` 
+
 ## Advanced Python
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
