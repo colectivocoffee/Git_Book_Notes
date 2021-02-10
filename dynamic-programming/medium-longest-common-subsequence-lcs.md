@@ -1,8 +1,7 @@
 # \[Medium\] Longest Common Subsequence \(LCS\)
 
-## Question
+## \[Medium\] [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)   \(2539/30\)
 
-[Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)  
 Given two strings `text1` and `text2`, return the length of their longest common subsequence.
 
 A _subsequence_ of a string is a new string generated from the original string with some characters\(can be none\) deleted without changing the relative order of the remaining characters. \(eg, "ace" is a subsequence of "abcde" while "aec" is not\). A _common subsequence_ of two strings is a subsequence that is common to both strings.
