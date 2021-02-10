@@ -45,13 +45,15 @@ def containsDuplicate(self, nums: List[int]) -> bool:
 
 ## [\[Easy\] Contains Duplicate II ](https://leetcode.com/problems/contains-duplicate-ii/)        \(1193/1321\)
 
-### 1. Two Pointers Brute Force: O\(N^2\) / O\(1\)
+### 1. Sliding Window Brute Force: O\(n \* min\(k,n\)\) / O\(1\)
 
 放兩根指針，左指針指的是k的頭，右指針指的是k的尾。  
 兩根指針都從左開始往右走，如果左右兩指針left&right滿足下列兩條件：  
 \(1\) `right - left == k` \(2\) `nums[left] == nums[right]`，即可返回True，否則返回False。
 
 ```python
+# 此解法會Time Limit Exceeded
+# 並且nums=[99,99] k=2這個case不會過 
 def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
 
     if not nums or k == 0:
@@ -61,7 +63,21 @@ def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         for right in range(left, len(nums)):
             if right - left == k and nums[left] == nums[right]:
                 return True
+    return False
+```
 
+使用Sliding Window解法。  
+利用k來維持right & left的sliding window距離，當作是第二個for loop的起點。要注意的是，由於`right - k`有可能`< 0` \(`window_len`距離不可能為負\)，因此我們需要化所有的負距離為0。
+
+```python
+def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+
+    for right in range(len(nums)):
+        # sliding window 
+        window_len = max(right - k, 0)
+        for left in range(window_len, right):
+            if nums[left] == nums[right]:
+                return True        
     return False
 ```
 
