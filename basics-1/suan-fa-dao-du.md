@@ -125,7 +125,7 @@ for char in s:
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
 2. **zip用法**
 3. **Python Decorator**
-4. **itertools  lru\_cache**
+4. **itertools  lru\_cache, product**
 5. **collections**
 
 **Zip用法**  
@@ -144,6 +144,18 @@ aListNums = [0,2,3,5,6]
 zipObj = zip(aListStrings,aListNums)  # zip creates tuple
 dictWords = dict(zipObj)
 ```
+
+### 4. Itertools
+
+* **`itertools.lru_cache():`** ssss
+* **`itertools.product(*args, repeat=1):`**  
+  給定一個list of lists \(e.g. \[\[\],\[\]....\]\)，把目前裡面所有的item，全部相互組合，即\(\[\[1,2\],\[3,4\],\[5,6\]\] -&gt; 總共 $$2^3$$個乘積\)  
+  e.g. `a = [[1,2],[3,4],[5,6]]  
+  product_a = list(itertools.product(*a, repeat=1))  
+  #用list()把iterator obj化成可視化list   
+  product_a = [(1, 3, 5), (1, 3, 6), (1, 4, 5), (1, 4, 6), (2, 3, 5), (2, 3, 6), (2, 4, 5), (2, 4, 6)]` 
+
+  
 
 **Python Decorator**  
 A decorator is a function that takes another function as an argument.
