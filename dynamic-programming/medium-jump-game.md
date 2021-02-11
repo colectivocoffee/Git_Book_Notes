@@ -1,6 +1,6 @@
 # \[Medium\] Jump Game
 
-## Question
+## \[Medium\] Jump Game
 
 [Jump Game](https://leetcode.com/problems/jump-game/) \(5636/393\)  
 Given an array of non-negative integers, you are initially positioned at the first index of the array.  
@@ -9,37 +9,19 @@ Determine if you are able to reach the last index.
 
 ## Thought Process
 
-可以化成子問題，因此可以選擇用（1）DP  
-可以使用貪心思想，實時維護最遠可達位置，因此使用（2）Greedy Algo\(貪心算法\)
+要如何跳到最後一格？  
+1\) 如果要成功，我們只能確定最後一格已跳到`(Base Case)`  
+2\) Question: 那我們怎麼跳到最後一格呢？必須要有上一格`(prev_pos)`有足夠的步數，才能跳到最後一格。那問題就再度變成Question：我們要如何跳到上一格呢？必須要有上上一格....  
+3\) 如此重複，直到我們回到第一格`nums[0]`為止，即為成功。
 
-{% hint style="info" %}
-注意：貪心算法常靠背答案，因此如果能用DP的題目來解，就儘量用DP。
-{% endhint %}
+\[關鍵\] 檢查是否能跳到下一格的辦法為：  
+       從curr跳到prev  
+       **prev              &lt;----              curr**  
+`if curr + nums[curr] >= last_pos:  
+    last_pos = curr`
 
-### 1. Backtracking/Recursion: O\(2^N\) / O\(N\)
-
-### 2. DP Top-Down: O\(N^2\) / O\(N\)
-
-時間複雜度Ｏ\( $$n^2$$ \)：n為list數組長度，遍歷數組裡每一個element，並且遍歷每種可能的步數，即雙重遍歷。  
-空間複雜度Ｏ\( $$n$$ \)：建立`dp[]` 時長度為n的數組。  
-  
-\# DP Solution Cons：  
-當list數組裡都是1時\( \[1,1,1,1,1,1,.....1\] \)，此解法就會超時TLE \(Time Limit Exceeding\)。  
-  
-\# How to Improve：  
-\(1\)把遍歷改成backwards `[ : :-1]`，會比從前到後更省時間。  
-\(2\)如果可以跳到點 i \(`f[i] == True`\)，肯定也能跳到 i 前面任何一點，因此 i  前面的任何一點都可以設為跟 i 一樣為True。
-
-### 3. DP Bottom-Up: O\(N\) / O\(1\)
-
-
-
-### 4. Greedy: O\(N\) / O\(1\) 
-
-時間複雜度Ｏ（ $$n$$ ）：遍歷數組。  
-空間複雜度Ｏ（ $$1$$ ）：建立變量destination and source。
-
-## Full Implementation
+可以化成子問題，因此可以選擇用（1）DP Bottom-Up \(2\) DP Top-Down  
+可以使用貪心思想，實時維護最遠可達位置，因此使用（3）Greedy Algo\(貪心算法\)
 
 ### 1. Backtracking/Recursion Start-&gt;End: O\(2^N\) / O\(N\)
 
@@ -71,6 +53,16 @@ def fromPos(self, curr, nums):
 ```
 
 ### 2. DP Top-Down 從頭掃到尾: O\(N^2\) / O\(N\)
+
+時間複雜度Ｏ\( $$n^2$$ \)：n為list數組長度，遍歷數組裡每一個element，並且遍歷每種可能的步數，即雙重遍歷。  
+空間複雜度Ｏ\( $$n$$ \)：建立`dp[]` 時長度為n的數組。  
+  
+\# DP Solution Cons：  
+當list數組裡都是1時\( \[1,1,1,1,1,1,.....1\] \)，此解法就會超時TLE \(Time Limit Exceeding\)。  
+  
+\# How to Improve：  
+\(1\)把遍歷改成backwards `[ : :-1]`，會比從前到後更省時間。  
+\(2\)如果可以跳到點 i \(`f[i] == True`\)，肯定也能跳到 i 前面任何一點，因此 i  前面的任何一點都可以設為跟 i 一樣為True。
 
 ```python
 # TLE Not passed
@@ -139,7 +131,10 @@ def canJump(self, nums: List[int]) -> bool:
     return last_pos == 0
 ```
 
-### **4. Greedy:**
+### **4. Greedy: O\(N\) /O\(1\)**
+
+時間複雜度Ｏ（ $$n$$ ）：遍歷數組。  
+空間複雜度Ｏ（ $$1$$ ）：建立變量destination and source。
 
 Moving from the end of the array and try to reach the beginning. At the end of the destination should be equal to 0 as we need to start from the beginning. 
 

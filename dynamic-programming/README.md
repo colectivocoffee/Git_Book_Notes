@@ -16,8 +16,11 @@ DP方法自下而上Bottom-Up: f\[0\], f\[1\], ..., f\[N\]
   
 More Info [Here](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.)  
   
-Sometimes you do not need to store the whole DP table in memory, the last two values or the last two rows of the matrix will suffice.  
+Sometimes you do not need to store the whole DP table in memory, the last two values or the last two rows of the matrix will suffice.
 
+{% hint style="info" %}
+貪心算法常靠背答案，因此如果能用DP的題目來解，就儘量用DP。
+{% endhint %}
 
 ## DFS 和 DP 的區別
 
