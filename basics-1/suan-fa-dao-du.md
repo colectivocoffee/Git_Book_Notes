@@ -1,5 +1,19 @@
 # 算法導讀
 
+## Python基礎
+
+### 如何確定範圍？
+
+在很多的時候，我們需要在程式裡定義一個範圍，不管是`for i in range(...)`也好，或是`slicing a[start:end]`，有個明確的範圍非常關鍵。下面有幾個比較常碰到的範圍定義時，需要注意的地方：  
+
+
+```python
+string s = 'a b c d e f g'
+ index i =  0 1 2 3 4 5 6             len(s) = 7
+
+(1)範圍包頭不包尾
+```
+
 ## Python常用用法
 
 * **Last element in a sequence:** `arr[-1]`
@@ -46,7 +60,7 @@ if x == 10 or x > 0 or \
        x < 100:
 ```
 
-\(Method 2\) Use parenthesis  `,`，
+\(Method 2\) Use parenthesis `,`，
 
 ```text
  print ('Wow, this also works?',
