@@ -10,7 +10,7 @@
 string s = 'a b c d e f g'
  index i =  0 1 2 3 4 5 6             len(s) = 7
 
-(1)範圍包頭不包尾:
+1.範圍包頭不包尾:
   # for loop
   e.g. for i in range(len(s))
   代表的是從0開始掃，掃到長度為len(s)時為止，不包含index 7本身。
@@ -24,8 +24,14 @@ string s = 'a b c d e f g'
     'a b c d e f g' len(s) 
     -0-1-2-3-4-5-6->|
   >>>'abcdefg' 
+
+1-2.包頭不包最後item:
+  s[:len(s)-1]
+  代表的是切到最後一個len(s)-1，不包含index6本身 
   
-(2)包頭包尾 vs 不包頭不包尾
+    
+        
+2.不包頭不包尾 vs 包頭包尾 
   e.g. left,right = 1,5
   ==EXCLUSIVE==
   s[left+1:right]  
