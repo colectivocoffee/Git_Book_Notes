@@ -39,7 +39,7 @@
   * [\[Medium\] Decode Ways](dynamic-programming/medium-decode-ways.md)
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
-  * [\[Medium\] Jump Game](dynamic-programming/medium-jump-game.md)
+  * [\[Medium\] Jump Game /                                       \[Hard\] Jump Game II](dynamic-programming/medium-jump-game.md)
 * [Two Pointers](two-pointers/README.md)
   * [\[Medium\] Next Greater Number III](two-pointers/medium-next-greater-number-iii.md)
   * [\[Medium\] Next Permutation](two-pointers/medium-next-permutation.md)

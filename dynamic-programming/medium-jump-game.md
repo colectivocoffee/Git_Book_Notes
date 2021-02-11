@@ -1,4 +1,4 @@
-# \[Medium\] Jump Game
+# \[Medium\] Jump Game /                                       \[Hard\] Jump Game II
 
 ## \[Medium\] Jump Game
 
@@ -162,3 +162,5 @@ def canJump(self, nums):
 
 1. [https://leetcode.com/problems/jump-game/discuss/596454/Python-Simple-solution-with-thinking-process-Runtime-O\(n\)](https://leetcode.com/problems/jump-game/discuss/596454/Python-Simple-solution-with-thinking-process-Runtime-O%28n%29)
 2. 
+## [\[Hard\] Jump Game II](https://leetcode.com/problems/jump-game-ii/)      \(3629/168\)
+
