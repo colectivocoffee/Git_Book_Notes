@@ -11,7 +11,9 @@
 string s = 'a b c d e f g'
  index i =  0 1 2 3 4 5 6             len(s) = 7
 
-(1)範圍包頭不包尾
+(1)範圍包頭不包尾:
+e.g. for i in range(len(s))
+代表的是從0開始掃，掃到長度為7時為止，不包含index7本身
 ```
 
 ## Python常用用法
