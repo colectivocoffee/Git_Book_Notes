@@ -55,7 +55,7 @@ string s = 'a b c d e f g'
    
 4.倒著掃Reverse End->Start:
   for i in range(len(s)-1, -1, -1) #start,stop,step
-  代表的是從len(s)-1開始掃，切到-1為止，不包含index -1本身 >
+本身，ㄙㄠ切到
 ```
 
 ## Python常用用法
