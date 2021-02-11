@@ -54,8 +54,17 @@ string s = 'a b c d e f g'
  
    
 4.倒著掃Reverse End->Start:
-  for i in range(len(s)-1, -1, -1) #start,stop,step
-本身，ㄙㄠ切到
+  (1) for i in range(len(s)-1, -1, -1) #start,stop,step
+  代表的是從len(s)-1開始掃並包含本身，掃到-1為止，不包含index -1本身。
+     'a b c d e f g'
+  -1      <-     len(s)-1
+   |<-0-1-2-3-4-5-6|
+  >>>'gfedcba'
+  
+  (2) for i in reversed(range(len(s))) # index
+  結果和(1)一樣
+  (3) for char in s[::-1]              # item
+  
 ```
 
 ## Python常用用法
