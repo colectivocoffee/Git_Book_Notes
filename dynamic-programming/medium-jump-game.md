@@ -41,9 +41,32 @@ Determine if you are able to reach the last index.
 
 ## Full Implementation
 
-### 2. DP Top-Down 從頭掃到尾：
+### 1. Backtracking Start-&gt;End: O\(2^N\) / O\(N\)
+
+
 
 ```python
+def canJump(self, nums: List[int]) -> bool:  
+    return self.fromPos(0, nums)
+
+def fromPos(self, curr, nums):       
+    if curr == len(nums) - 1:
+        return True
+
+    furtherest_jump = min(curr + nums[curr], len(nums) - 1)
+    print(curr, furtherest_jump)
+    for next_pos in range(curr + 1, furtherest_jump + 1):
+        if self.fromPos(next_pos, nums):
+            return True
+    return False
+```
+
+
+
+### 2. DP Top-Down 從頭掃到尾: O\(N^2\) / O\(1\)
+
+```python
+# TLE Not passed
 def canJump(self, nums): 
     if not nums:
         return False
