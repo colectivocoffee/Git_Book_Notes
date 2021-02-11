@@ -16,7 +16,7 @@ Determine if you are able to reach the last index.
 注意：貪心算法常靠背答案，因此如果能用DP的題目來解，就儘量用DP。
 {% endhint %}
 
-### 1. Backtracking: O\(2^N\) / O\(N\)
+### 1. Backtracking/Recursion: O\(2^N\) / O\(N\)
 
 ### 2. DP Top-Down: O\(N^2\) / O\(N\)
 
@@ -41,22 +41,28 @@ Determine if you are able to reach the last index.
 
 ## Full Implementation
 
-### 1. Backtracking Start-&gt;End: O\(2^N\) / O\(N\)
+### 1. Backtracking/Recursion Start-&gt;End: O\(2^N\) / O\(N\)
 
-
+We start from the first position and jump to every index that is reachable. We repeat the process until the last index is reached. When stuck, backtrack.
 
 ```python
 def canJump(self, nums: List[int]) -> bool:  
     return self.fromPos(0, nums)
 
-def fromPos(self, curr, nums):       
+def fromPos(self, curr, nums):
+    # Recursion Exit條件: 跳到最後一格       
     if curr == len(nums) - 1:
         return True
-
+    
+    # furtherest_jump代表的是: 目前所在位置(curr) + 目前可跳步數(nums[curr])
+    # 然而，有可能會超過最後一步(len(nums)-1)，因此我們用min(fur.. , last_step)來避免
     furtherest_jump = min(curr + nums[curr], len(nums) - 1)
     print(curr, furtherest_jump)
+    # 不包頭(curr)包尾，因此是range(curr+1, furtherest_jump+1)
     for next_pos in range(curr + 1, furtherest_jump + 1):
+        # 如果卡住，則backtrack
         if self.fromPos(next_pos, nums):
+            #如果跳到最後，則成功
             return True
     return False
 ```
