@@ -4,16 +4,28 @@
 
 ### 如何確定範圍？
 
-在很多的時候，我們需要在程式裡定義一個範圍，不管是`for i in range(...)`也好，或是`slicing a[start:end]`，有個明確的範圍非常關鍵。下面有幾個比較常碰到的範圍定義時，需要注意的地方：  
-
+在很多的時候，我們需要在程式裡定義一個範圍，不管是`for i in range(...)`也好，或是`slicing a[start:end]`，有個明確的範圍非常關鍵。下面有幾個比較常碰到的範圍定義時，需要注意的地方：
 
 ```python
 string s = 'a b c d e f g'
  index i =  0 1 2 3 4 5 6             len(s) = 7
 
 (1)範圍包頭不包尾:
-e.g. for i in range(len(s))
-代表的是從0開始掃，掃到長度為7時為止，不包含index7本身
+  # for loop
+  e.g. for i in range(len(s))
+  代表的是從0開始掃，掃到長度為len(s)時為止，不包含index 7本身。
+    'a b c d e f g' len(s)
+    -0-1-2-3-4-5-6->|
+  >>>'abcdefg'
+    
+  # index slicing
+  e.g. s[:len(s)]
+  代表的是從0開始切，切到長度為len(s)時為止，不包含index 7本身。
+    'a b c d e f g' len(s) 
+    -0-1-2-3-4-5-6->|
+  >>>'abcdefg' 
+  
+(2) 
 ```
 
 ## Python常用用法
