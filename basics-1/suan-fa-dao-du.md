@@ -25,7 +25,24 @@ string s = 'a b c d e f g'
     -0-1-2-3-4-5-6->|
   >>>'abcdefg' 
   
-(2) 
+(2)包頭包尾 vs 不包頭不包尾
+  e.g. left,right = 1,5
+  ==EXCLUSIVE==
+  s[left+1:right]  
+  代表的是exclusive不包頭不包尾範圍，left切和right切都"不包含"兩邊index本身。
+    'a b c d e f g'
+     0 1|2 3 4|5 6
+       L|c d e|R
+  >>>'cde'
+  
+  ==INCLUSIVE==
+  s[left:right+1]
+  代表的是inclusive包頭包尾範圍，包left切和包right切，都"包含"兩邊index本身。
+    'a b c d e f g'
+     0 1 2 3 4 5|6
+      |b c d e f|
+       L       R
+  >>>'bcdef'  
 ```
 
 ## Python常用用法
