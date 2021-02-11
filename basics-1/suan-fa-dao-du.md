@@ -27,9 +27,11 @@ string s = 'a b c d e f g'
 
 1-2.包頭不包最後item:
   s[:len(s)-1]
-  代表的是切到最後一個len(s)-1，不包含index6本身 
-  
-    
+  代表的是切到最後一個len(s)-1，不包含index6本身。可用做替換最後一個字母的功能。
+  e.g. s[:len(s)-1] + 'z'
+    'a b c d e f g' len(s)  
+    -0-1-2-3-4-5'z'  
+  >>>'abcdefz'    
         
 2.不包頭不包尾 vs 包頭包尾 
   e.g. left,right = 1,5
