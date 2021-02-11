@@ -87,6 +87,7 @@ nums = [list(i) for i in nums] #convert back to list
 
 (2)itertools.groupby(nums)
 nums = sorted(nums)
+#itertools返回的是iterator obj, 需要換成list(iter obj)
 nums = list(nums for nums,_ in itertools.groupby(nums)) #need nums,_ for this
 
 (3)not_in_new_list
@@ -113,7 +114,7 @@ if x == 10 or x > 0 or \
        x < 100:
 ```
 
-\(Method 2\) Use parenthesis `,`，
+       \(Method 2\) Use parenthesis `,`，
 
 ```text
  print ('Wow, this also works?',

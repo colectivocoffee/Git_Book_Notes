@@ -43,7 +43,10 @@ Determine if you are able to reach the last index.
 
 ### 1. Backtracking/Recursion Start-&gt;End: O\(2^N\) / O\(N\)
 
-We start from the first position and jump to every index that is reachable. We repeat the process until the last index is reached. When stuck, backtrack.
+We start from the first position and jump to every index that is reachable. We repeat the process until the last index is reached. When stuck, backtrack.  
+  
+Time Complexity: **O\(** $$2^N$$**\)** There are 2^N \(upper bound\) ways of jumping from the first position to the last.  
+Space Complexity: **O\(N\)** 使用Recursion需要O\(N\)的Stack extra memory
 
 ```python
 def canJump(self, nums: List[int]) -> bool:  
@@ -66,8 +69,6 @@ def fromPos(self, curr, nums):
             return True
     return False
 ```
-
-
 
 ### 2. DP Top-Down 從頭掃到尾: O\(N^2\) / O\(1\)
 
