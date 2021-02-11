@@ -70,7 +70,7 @@ def fromPos(self, curr, nums):
     return False
 ```
 
-### 2. DP Top-Down 從頭掃到尾: O\(N^2\) / O\(1\)
+### 2. DP Top-Down 從頭掃到尾: O\(N^2\) / O\(N\)
 
 ```python
 # TLE Not passed
@@ -81,10 +81,10 @@ def canJump(self, nums):
     f = [False] * len(nums)
     f[0] = True
     
-    for j in range(1, len(nums)):
-        for i in range(j):
-            if f[i] == True and i + nums[i] >= j:
-                f[j] = True
+    for furtherest in range(1, len(nums)):
+        for curr in range(furtherest):
+            if f[curr] == True and curr + nums[curr] >= furtherest:
+                f[furtherest] = True
                 break
     
     return f[len(nums)-1]
