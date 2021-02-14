@@ -164,11 +164,14 @@ def canJump(self, nums):
 2. 
 ## [\[Hard\] Jump Game II](https://leetcode.com/problems/jump-game-ii/)      \(3629/168\)
 
-
+Given an array of non-negative integers `nums`, you are initially positioned at the first index of the array.  
+Each element in the array represents your maximum jump length at that position.  
+Your goal is to reach the last index in the minimum number of jumps.  
+You can assume that you can always reach the last index.
 
 ### 1. Greedy, coverage extend: O\(N\) / O\(1\)
 
-
+由於題目要找minimum \# of jump，必須要從頭往尾跳，不可能再沿用Jump Game Backtracking的方法來解，只能用Greedy的方式，一個一個地extend coverage找出minimum \# of jump，才可行。
 
 ```python
 def jump(self, nums: List[int]) -> int:
