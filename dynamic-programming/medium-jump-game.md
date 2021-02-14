@@ -158,6 +158,27 @@ def canJump(self, nums):
     return destination == 0
 ```
 
+第二種Greedy，可以和Jump Game II 合用：
+
+```python
+def canJump(self, nums: List[int]) -> bool:
+
+    curr_furtherest = nums[0]
+    destination = len(nums)-1
+
+    for idx in range(1, len(nums)):
+        # idx必須要小於最遠可跳，否則idx大於最遠可跳的話，就代表已陷入sinkhole。
+        if idx > curr_furtherest:                
+            return False
+
+        elif curr_furtherest >= destination:
+            return True
+        # 和目前最遠可跳比較，看目前位置+目前位置的最遠可跳哪個大。
+        curr_furtherest = max(curr_furtherest, idx + nums[idx])
+
+    return curr_furtherest >= destination
+```
+
 #### Reference
 
 1. [https://leetcode.com/problems/jump-game/discuss/596454/Python-Simple-solution-with-thinking-process-Runtime-O\(n\)](https://leetcode.com/problems/jump-game/discuss/596454/Python-Simple-solution-with-thinking-process-Runtime-O%28n%29)
