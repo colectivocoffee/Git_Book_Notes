@@ -164,3 +164,36 @@ def canJump(self, nums):
 2. 
 ## [\[Hard\] Jump Game II](https://leetcode.com/problems/jump-game-ii/)      \(3629/168\)
 
+
+
+### 1. Greedy, coverage extend: O\(N\) / O\(1\)
+
+
+
+```python
+def jump(self, nums: List[int]) -> int:
+
+    destination = len(nums) - 1
+    last_jump_idx, cur_coverage = 0, 0
+    count = 0
+
+    if len(nums) == 1:
+        return count
+
+    for i in range(0, len(nums)):
+        # extend目前這一跳的距離，越遠越好
+        cur_coverage = max(i + nums[i], cur_coverage)
+        
+        # 如果已跳到上一個最遠眺的距離，代表已經不能再更遠了，
+        # 更新上一個最遠眺idx & count
+        if i == last_jump_idx:
+            last_jump_idx = cur_coverage
+            count += 1
+            # 如果超過終點，則代表已完成，可以直接返回count
+            if cur_coverage >= destination:
+                return count
+    
+    # 不管跳的結果怎樣，返回最終count
+    return count
+```
+
