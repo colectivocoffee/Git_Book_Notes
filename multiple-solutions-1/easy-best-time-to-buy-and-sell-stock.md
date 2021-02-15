@@ -12,7 +12,7 @@ Note that you cannot sell a stock before you buy one.
 
 ## Thought Process
 
-### \(1\) Brute Force + Memoization
+### \(1\) Brute Force + Memoization: O\(N^2\) / O\(N\)
 
 使用兩個變量，`i & j`來代表買入日和賣出日，而`prices[i]`, `prices[j]`代表買入價格和賣出價格。  
 \(1\) `i`代表買入日，`j`代表賣出日  
@@ -23,7 +23,7 @@ Space Complexity: O\( $$n$$ \)
 
 #### 如何優化？ 對於memoization數組f，其實並不需要紀錄所有的buy&sell stock值。可以以一個variable maxProfit取代，使得space complexity為O\(1\)。
 
-### \(2\) Greedy
+### \(2\) Greedy: O\(N\) / O\(1\)
 
 看到題目，發現因為只能買賣一次，因此先求全局最小\(buy-in\)，再求全局最大\(profit\)，最後最大 -- 最小即是max\_profit。  
 current\_lowest = float\('inf'\)  
@@ -65,7 +65,7 @@ def maxProfit(self, prices: List[int]) -> int:
 {% endtab %}
 {% endtabs %}
 
-#### \(2\) Greedy Search
+#### \(2\) Greedy Search: O\(N\) / O\(1\)
 
 {% tabs %}
 {% tab title="Python" %}
@@ -81,7 +81,8 @@ def maxProfit(self, prices: List[int]) -> int:
     
     for price in prices:
         current_lowest = min(current_lowest, price)
-        max_profit = max(max_profit, price - current_lowest)
+        profit = price - current_lowest
+        max_profit = max(max_profit, profit)
         
     return max_profit
     
