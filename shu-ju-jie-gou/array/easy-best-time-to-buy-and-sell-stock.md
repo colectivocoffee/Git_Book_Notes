@@ -1,8 +1,7 @@
 # \[Easy\] Best Time to Buy and Sell Stock
 
-## Question
+## \[Easy\] [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)         \(7600/338\)
 
-[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)  
 **\(NOTE: 這是只能買賣一次的版本\)**  
 Say you have an array for which the _i_th element is the price of a given stock on day _i_.
 
