@@ -10,7 +10,7 @@ Python heapq, as stated in the beginning, provides a min-heap implementation.
 
 #### What is a Heap?
 
-A heap has multiple meaning in computer science. Sometimes, it refers to a memory area in a program used for dynamic allocation. However, in this tutorial, we are talking about the Heap Data Structure, which is a complete binary tree. It helps in implementing priority queues \(PQ\), the heapsort, and some graph-based algorithms.
+A heap has multiple meaning in computer science. Sometimes, it refers to a memory area in a program used for dynamic allocation. However, we are talking about the Heap Data Structure here, which is a complete binary tree. It helps in implementing priority queues \(PQ\), the heapsort, and some graph-based algorithms.
 
 A heap has the following two variants:
 
