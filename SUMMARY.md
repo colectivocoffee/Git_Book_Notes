@@ -67,12 +67,10 @@
 * [Multiple Solutions](multiple-solutions-1/README.md)
   * [\[Easy\] Longest Common Prefix](multiple-solutions-1/easy-longest-common-prefix.md)
   * [\[Medium\] Palindromic Substring](multiple-solutions-1/medium-palindromic-substring.md)
-  * [\[Easy\] Maximum Subarray](multiple-solutions-1/easy-maximum-subarray.md)
   * [\[Medium\] Word Break](multiple-solutions-1/medium-word-break.md)
   * [\[Medium\] Longest Increasing Subsequence](multiple-solutions-1/medium-longest-increasing-subsequence.md)
   * [\[Easy\] House Robber](multiple-solutions-1/easy-house-robber.md)
   * [\[Easy\] Climbing Stairs](multiple-solutions-1/easy-climbing-stairs.md)
-  * [\[Easy\] Best Time to Buy and Sell Stock](multiple-solutions-1/easy-best-time-to-buy-and-sell-stock.md)
 
 ## 數據結構
 
@@ -107,6 +105,8 @@
   * [\[Easy\] Pascal's Triangle/ \[Medium\] Pascal's Triangle II](shu-ju-jie-gou/array/easy-pascals-triangle-medium-pascals-triangle-ii.md)
   * [\[Hard\] First Missing Positive/ \[Easy\] Missing Number/ \[Medium\] Find the Duplicate Number/ SingleNum](shu-ju-jie-gou/array/missing-or-duplicate-num.md)
   * [\[Medium\] Rotate Array](shu-ju-jie-gou/array/medium-rotate-array.md)
+  * [\[Easy\] Maximum Subarray](shu-ju-jie-gou/array/easy-maximum-subarray.md)
+  * [\[Easy\] Best Time to Buy and Sell Stock](shu-ju-jie-gou/array/easy-best-time-to-buy-and-sell-stock.md)
   * [Remove Element Series](shu-ju-jie-gou/array/remove-element-series.md)
   * [\[Easy\] Contains Duplicate / \[Easy\] Contains Duplicate II](shu-ju-jie-gou/array/easy-contains-duplicate.md)
 * [String](shu-ju-jie-gou/string/README.md)
