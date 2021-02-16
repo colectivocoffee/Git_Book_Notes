@@ -40,7 +40,7 @@
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
   * [\[Easy\] Maximum Subarray](dynamic-programming/easy-maximum-subarray.md)
-  * [\[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Best Time to Buy and Sell Stock II](dynamic-programming/easy-best-time-to-buy-and-sell-stock.md)
+  * [\[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Stock II / \[Hard\] Stock III](dynamic-programming/easy-best-time-to-buy-and-sell-stock.md)
   * [\[Medium\] Jump Game /                                       \[Hard\] Jump Game II](dynamic-programming/medium-jump-game.md)
 * [Two Pointers](two-pointers/README.md)
   * [\[Medium\] Next Greater Number III](two-pointers/medium-next-greater-number-iii.md)

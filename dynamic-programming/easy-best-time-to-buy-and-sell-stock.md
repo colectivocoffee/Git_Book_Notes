@@ -1,4 +1,4 @@
-# \[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Best Time to Buy and Sell Stock II
+# \[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Stock II / \[Hard\] Stock III
 
 ## 股票題型思路
 
