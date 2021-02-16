@@ -187,6 +187,8 @@ Design an algorithm to find the maximum profit. You may complete at most _**two*
 
 ### 1. Sequence DP: O\(N\) / O\(1\)
 
+![](../.gitbook/assets/buysellstock_iii.jpg)
+
 ```python
 def maxProfit(self, prices: List[int]) -> int:
     
