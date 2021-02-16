@@ -31,6 +31,8 @@ Sometimes you do not need to store the whole DP table in memory, the last two va
 
 ### \(1\) Sequence DP -- 40%
 
+Sequence DP 思考流程：當思考動DP最後一步時，這一步的選擇依賴於上一步的某種狀態。
+
 * Climbing Stairs \(Easy\)
 * Jump Game \(Medium\)
 * Longest Increasing Subsequence \(Medium\)
@@ -39,6 +41,8 @@ Sometimes you do not need to store the whole DP table in memory, the last two va
 * House Robber II \(Medium\)
 * Word Break \(Medium\)
 * Palindrome Partitioning II \(Hard\)
+* Best Time To Buy and Sell Stock \(Easy\)
+* Best Time To Buy and Sell Stock II \(Easy\)
 
 ### \(2\) Matrix DP -- 10%
 

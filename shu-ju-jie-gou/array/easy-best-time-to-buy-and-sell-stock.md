@@ -1,5 +1,15 @@
 # \[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Best Time to Buy and Sell Stock II
 
+## 股票題型思路
+
+### 4. 最後一步：
+
+第`curr`天賣股票，第`prev`天買股票`(prev < curr)`時，需要知道第`prev`天之前是不是已經買了股票。
+
+### **1&2&3. 一維＋確定狀態：**
+
+紀錄前N天買賣股票的最大獲利\(`global_max_profit`\)，**並且**在最後第N天已賣股票。
+
 ## \[Easy\] [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)         \(7600/338\)
 
 **\(NOTE: 這是只能買賣一次的版本\)**  
@@ -149,5 +159,13 @@ def maxProfit(self, prices: List[int]) -> int:
     return cur_not_hold if prices else 0
 ```
 
->
+## Best Time To Buy and Sell Stock III
+
+### 一維＋狀態
+
+紀錄前N天買賣股票的最大獲利，並且在第N-1天:   
+1. 未買賣股票  
+2. 買了第一次股票還沒賣  
+3. ...  
+5. 已經第二次賣了股票 
 
