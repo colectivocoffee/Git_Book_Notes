@@ -107,7 +107,7 @@ we can simply go on crawling over the slope and keep on adding the profit obtain
   
 From the below graph, we can observe that the sum A+B+C is equal to the difference D corresponding to the difference between the heights of the consecutive peak and valley.
 
-![](../../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 ```python
 def maxProfit(self, prices: List[int]) -> int:
@@ -141,7 +141,7 @@ def maxProfit(self, prices: List[int]) -> int:
 3\) 如此重複，直到最後一天為止，最後就可以從`local_max_profit_1 + local_max_profit_2 + ...`得到`global_max_profit`答案。  
 
 
-![](../../.gitbook/assets/image%20%2815%29.png)
+![](../.gitbook/assets/image%20%2815%29.png)
 
 ```python
 def maxProfit(self, prices: List[int]) -> int:
