@@ -116,8 +116,8 @@ def maxProfit(self, prices: List[int]) -> int:
 > 只要看到今日\(`price[i]`\)比昨日\(`price[i-1]`\)高，就賣掉手中的股票；反之，如果今日比昨日低，則買入股票。同時**`紀錄前一日買or不買`**的兩個各自最大profit狀態，沿用到今日，然後再做一遍同樣的流程，直到最後一天。  
 >   
 > profit的計算方法為:  
-> `curr_not_hold_balance  = prev_hold_balance + today's stock price  
-> curr_hold_balance      = prev_not_hold_balance - today's stock price`  
+> **`curr_not_hold_balance  = prev_hold_balance + today's stock price  
+>     curr_hold_balance  = prev_not_hold_balance - today's stock price`**  
 > 我們藉由`curr_hold`和 `curr_not_hold`來紀錄目前為止的`max_profit`。  
 >   
 > 為什麼是DP呢？因為我們一直紀錄到目前day i 為止的`global_max_profit`，直到最後一天，`global_`_`max`_就是全局`local_max_profit`的總和。
@@ -132,11 +132,6 @@ def maxProfit(self, prices: List[int]) -> int:
 
 
 ![](../../.gitbook/assets/image%20%2815%29.png)
-
-要如何跳到最後一格？  
-1\) 如果要成功，我們只能確定最後一格已跳到`(Base Case)`  
-2\) Question: 那我們怎麼跳到最後一格呢？必須要有上一格`(prev_pos)`有足夠的步數，才能跳到最後一格。那問題就再度變成Question：我們要如何跳到上一格呢？必須要有上上一格....  
-3\) 如此重複，直到我們回到第一格`nums[0]`為止，即為成功。
 
 ```python
 def maxProfit(self, prices: List[int]) -> int:
