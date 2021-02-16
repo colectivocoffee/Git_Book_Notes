@@ -14,6 +14,10 @@
 
 紀錄前N天買賣股票的最大獲利\(`global_max_profit`\)，**並且**在最後第N天已賣股票。
 
+轉移方程：  
+`latest_local_profit/f[i-1] = prev_hold + prices[i]  
+global_max_profit/curr_not_hold/f[i] = max(global_max_profit, latest_local_profit)`
+
 ## \[Easy\] [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)         \(7600/338\)
 
 **\(NOTE: 這是只能買賣一次的版本\)**  
@@ -87,6 +91,8 @@ def maxProfit(self, prices: List[int]) -> int:
     for price in prices:
         current_lowest = min(current_lowest, price)
         profit = price - current_lowest
+        #                   max(前一天已賣出, 前一天沒賣 + 今天價格)
+        # max_profit/f[i] = max(prev_profit/f[i-1], prev_profit/f[i-1] + prices[i])
         max_profit = max(max_profit, profit)
         
     return max_profit
