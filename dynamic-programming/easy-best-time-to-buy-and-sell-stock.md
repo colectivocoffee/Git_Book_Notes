@@ -169,7 +169,11 @@ def maxProfit(self, prices: List[int]) -> int:
     return cur_not_hold if prices else 0
 ```
 
-## Best Time To Buy and Sell Stock III
+## [\[Hard\] Best Time To Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)      \(3218/83\)
+
+Say you have an array for which the _i_th element is the price of a given stock on day _i_.  
+Design an algorithm to find the maximum profit. You may complete at most _**two**_ transactions.  
+**Note:** You may not engage in multiple transactions at the same time \(i.e., you must sell the stock before you buy again\).
 
 ### 一維＋狀態
 
@@ -178,4 +182,36 @@ def maxProfit(self, prices: List[int]) -> int:
 2. 買了第一次股票還沒賣  
 3. ...  
 5. 已經第二次賣了股票 
+
+
+
+### 1. Sequence DP: O\(N\) / O\(1\)
+
+```python
+def maxProfit(self, prices: List[int]) -> int:
+    
+    ## dp_hold #
+    # It is impossible to hold a stock and sell on day0, therefore, 
+    # we should put it as -infinity as initial profit value at this hold state.
+    #
+    ## dp_not_hold #  
+    # If we encounter stock prices keep dropping, then the global_max_profit 
+    # should be 0.
+    # e.g. [7,6,4,3,1] -> return 0
+    dp_2_not_hold, dp_2_hold = 0, float('-inf')
+    dp_1_not_hold, dp_1_hold = 0, float('-inf')
+
+    for price in prices:
+        # 關鍵：建立一個類二維數組 f[][] 
+        # f[hold/not_hold][第1次狀態/第2次狀態]
+        # 
+        # 總共就這四個狀態，因此我們必須要實時維護這四個狀態的最大利潤(global_max_profit)
+        # 最後返回dp_2_not_hold(第二次賣)即可。
+        dp_2_not_hold = max(dp_2_not_hold, dp_2_hold + price)
+        dp_2_hold = max(dp_2_hold, dp_1_not_hold - price)
+        dp_1_not_hold = max(dp_1_not_hold, dp_1_hold + price)
+        dp_1_hold = max(dp_1_hold, 0 - price)  
+
+    return dp_2_not_hold
+```
 
