@@ -124,7 +124,7 @@ def maxProfit(self, prices: List[int]) -> int:
     return result
 ```
 
-### 2. Serial DP: O\(N\) / O\(N\)
+### 2. Sequence DP: O\(N\) / O\(N\)
 
 > 思路：買低賣高。  
 > 只要看到今日\(`price[i]`\)比昨日\(`price[i-1]`\)高，就賣掉手中的股票；反之，如果今日比昨日低，則買入股票。同時**`紀錄前一日買or不買`**的兩個各自最大profit狀態，沿用到今日，然後再做一遍同樣的流程，直到最後一天。  
