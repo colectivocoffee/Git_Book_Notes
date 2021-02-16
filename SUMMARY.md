@@ -106,7 +106,7 @@
   * [\[Hard\] First Missing Positive/ \[Easy\] Missing Number/ \[Medium\] Find the Duplicate Number/ SingleNum](shu-ju-jie-gou/array/missing-or-duplicate-num.md)
   * [\[Medium\] Rotate Array](shu-ju-jie-gou/array/medium-rotate-array.md)
   * [\[Easy\] Maximum Subarray](shu-ju-jie-gou/array/easy-maximum-subarray.md)
-  * [\[Easy\] Best Time to Buy and Sell Stock](shu-ju-jie-gou/array/easy-best-time-to-buy-and-sell-stock.md)
+  * [\[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Best Time to Buy and Sell Stock II](shu-ju-jie-gou/array/easy-best-time-to-buy-and-sell-stock.md)
   * [Remove Element Series](shu-ju-jie-gou/array/remove-element-series.md)
   * [\[Easy\] Contains Duplicate / \[Easy\] Contains Duplicate II](shu-ju-jie-gou/array/easy-contains-duplicate.md)
 * [String](shu-ju-jie-gou/string/README.md)
