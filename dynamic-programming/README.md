@@ -46,6 +46,7 @@ tmp holder
 * Palindrome Partitioning II \(Hard\)
 * Best Time To Buy and Sell Stock \(Easy\)
 * Best Time To Buy and Sell Stock II \(Easy\)
+* Best Time To Buy and Sell Stock III \(Hard\)
 
 ### \(2\) Matrix DP -- 10%
 
