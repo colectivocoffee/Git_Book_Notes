@@ -32,7 +32,7 @@ Sometimes you do not need to store the whole DP table in memory, the last two va
 ### \(1\) Sequence DP -- 40%
 
 思考流程：當思考動DP最後一步`f[i]`時，這一步的選擇依賴於上一步的某種狀態`f[i-1]`。  
-需要紀錄：序列 + 狀態`f[i]`  
+需要紀錄：序列 + 狀態`f[i]`，或是說狀態下的所有可能性。  
 `f[i] = max(f[i-1], f[i-1] + xxxx)`   
 tmp holder
 
