@@ -81,11 +81,23 @@ def maxProfit(self, prices: List[int]) -> int:
 {% endtab %}
 {% endtabs %}
 
-## \[Easy\] Best Time To Buy and Sell Stock II    \(\)
+## [\[Easy\] Best Time To Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)    \(3661/1918\)
 
+Say you have an array `prices` for which the _i_th element is the price of a given stock on day _i_.
 
+Design an algorithm to find the maximum profit. You may complete as many transactions as you like \(i.e., buy one and sell one share of the stock multiple times\).
+
+**Note:** You may not engage in multiple transactions at the same time \(i.e., you must sell the stock before you buy again\). \(可以當日同時買入賣出，只是只有一股\)
 
 ### 1. Greedy: O\(N\) / O\(1\)
+
+只要今天比昨天高，就賣出；反之今天比昨天低，就買入，用貪心算法。
+
+we can simply go on crawling over the slope and keep on adding the profit obtained from every consecutive transaction.  
+  
+From the below graph, we can observe that the sum A+B+C is equal to the difference D corresponding to the difference between the heights of the consecutive peak and valley.
+
+![](../../.gitbook/assets/image%20%2816%29.png)
 
 ```python
 def maxProfit(self, prices: List[int]) -> int:
@@ -101,9 +113,25 @@ def maxProfit(self, prices: List[int]) -> int:
 ### 2. Serial DP: O\(N\) / O\(N\)
 
 > 思路：買低賣高。  
-> 只要看到今日\(`price[i]`\)比昨日\(`price[i-1]`\)高，就賣掉手中的股票；反之，如果今日比昨日低，則買入股票。同時**`紀錄前一日買or不買`**的兩個各自最大profit狀態，沿用到今日，然後再做一遍同樣的流程，直到最後一天。
+> 只要看到今日\(`price[i]`\)比昨日\(`price[i-1]`\)高，就賣掉手中的股票；反之，如果今日比昨日低，則買入股票。同時**`紀錄前一日買or不買`**的兩個各自最大profit狀態，沿用到今日，然後再做一遍同樣的流程，直到最後一天。  
+>   
+> profit的計算方法為:  
+> `curr_not_hold_balance  = prev_hold_balance + today's stock price  
+> curr_hold_balance      = prev_not_hold_balance - today's stock price`  
+> 我們藉由`curr_hold`和 `curr_not_hold`來紀錄目前為止的`max_profit`。  
+>   
+> 為什麼是DP呢？因為我們一直紀錄到目前day i 為止的`global_max_profit`，直到最後一天，`global_`_`max`_就是全局`local_max_profit`的總和。
 
-同樣的思維，可以借用Jump Game的
+同樣的DP思維，可以借用[Jump Game](https://app.gitbook.com/@iscolectivo/s/algonote/dynamic-programming/medium-jump-game)的解法來看。  
+  
+先問自己，要如何得到`global_max_profit`？  
+1\) 如果要有profit，我們必須得確定能賺到`大於0的 global_max_profit`。`(Base Case)`   
+2\) Question: 那我們要如何有`global_max_profit`呢？必須要在**最後一天**的到來時，手中沒持有股票並且得到`global_max_profit`。我們需要在每一次/天都能買低賣高，只要看到今天比昨天低，那就買入；反之今天比昨天高，那就賣出；並且同時紀錄**`(1)如果賣出cur_not_hold`** / **`(2)如果不賣出cur_hold`**這兩種狀態，同時和 **`(1)前一天賣出prev_not_hold`** / **`(2)前一天不賣出prev_hold`**比較。這樣我們可以確保在隔天的上漲都能計算到目前的`local_max_profit`，如圖下綠色區塊。  
+那我們的問題就變成，要如何在每個區間都能得到`local_max_profit`呢？我們就要讓當下波段最高點的到來時，手中的股票已賣出並且得到`local_max_profit`。我們需要當下波段都買低賣高，並且同時紀錄**`(1)如果賣出`**/ **`(2)如果不賣出`**這兩種狀態。依次進行下去比較...  
+3\) 如此重複，直到最後一天為止，最後就可以從`local_max_profit_1 + local_max_profit_2 + ...`得到`global_max_profit`答案。  
+
+
+![](../../.gitbook/assets/image%20%2815%29.png)
 
 要如何跳到最後一格？  
 1\) 如果要成功，我們只能確定最後一格已跳到`(Base Case)`  
