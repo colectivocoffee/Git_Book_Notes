@@ -2,6 +2,10 @@
 
 ## 股票題型思路
 
+紀錄每天curr結束時的`global_max_profit`。  
+計算時，在`curr`天之前\(`prev`\)枚舉所有可能的結果\(`hold / not hold`\)並且記錄下來。  
+在最後一天賣出股票or確定最後一天手上沒有股票，所得到的`global_max_profit`為答案。
+
 ### 4. 最後一步：
 
 第`curr`天賣股票，第`prev`天買股票`(prev < curr)`時，需要知道第`prev`天之前是不是已經買了股票。
