@@ -31,7 +31,8 @@ Sometimes you do not need to store the whole DP table in memory, the last two va
 
 ### \(1\) Sequence DP -- 40%
 
-Sequence DP 思考流程：當思考動DP最後一步時，這一步的選擇依賴於上一步的某種狀態。
+思考流程：當思考動DP最後一步時，這一步的選擇依賴於上一步的某種狀態。  
+需要紀錄：序列 + 狀態
 
 * Climbing Stairs \(Easy\)
 * Jump Game \(Medium\)
