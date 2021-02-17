@@ -94,3 +94,9 @@ def maxArea(self, height: List[int]) -> int:
 {% endtab %}
 {% endtabs %}
 
+#### 相似題
+
+* Trapping Rain Water I
+* Trapping Rain Water II
+* Product of Array Except Itself
+

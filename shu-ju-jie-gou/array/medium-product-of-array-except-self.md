@@ -70,3 +70,9 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
 
 #### 2. Space Optimized: O\(n\)/O\(1\)
 
+#### 相似題
+
+* Container With Most Water
+* Trapping Rain Water I
+* Trapping Rain Water II
+
