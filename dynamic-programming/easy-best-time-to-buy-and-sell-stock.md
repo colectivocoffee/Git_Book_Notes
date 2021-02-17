@@ -175,6 +175,10 @@ Say you have an array for which the _i_th element is the price of a given stock 
 Design an algorithm to find the maximum profit. You may complete at most _**two**_ transactions.  
 **Note:** You may not engage in multiple transactions at the same time \(i.e., you must sell the stock before you buy again\).
 
+
+
+### 1. Sequence DP: O\(N\) / O\(1\)
+
 ### 一維＋狀態
 
 紀錄前N天買賣股票的最大獲利，並且在第N-1天:   
@@ -182,10 +186,6 @@ Design an algorithm to find the maximum profit. You may complete at most _**two*
 2. 買了第一次股票還沒賣  
 3. ...  
 5. 已經第二次賣了股票 
-
-
-
-### 1. Sequence DP: O\(N\) / O\(1\)
 
 ![](../.gitbook/assets/buysellstock_iii.jpg)
 
