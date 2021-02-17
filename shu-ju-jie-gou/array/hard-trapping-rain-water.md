@@ -7,8 +7,10 @@ Given `n` non-negative integers representing an elevation map where the width of
 ### 1. Expand from Center Brute Force: O\(N^2\) / O\(N\)
 
 > 思路：  
+> 0\) 要接水只有兩種可能: 1.凹型壁\(左右邊最高\) 2.山型壁\(中間最高，左右次高\)，下面這種每格水量方法兩種都可以適用。   
 > 1\) Trap Rain Water 需要有左右壁\(`max_left`&`max_right`\)來決定接住多少`index i`這一格的水。  
 > 2\) 當格i的接水水量侷限於 ****$$壁高(min(max\_left, max\_right)) - 底座高(height[i]) $$ ****。  
+>   
 > 流程：  
 > step1 利用從`index i`往左右分別展開的方式，找到左右邊最大\(`max_left & max_right`\)，  
 > step2 左右邊看哪個相對較小，減去原本的`height[i]`高度，即可得到此格的水量`potential_fill`。    如果`potential_fill`為負值，則直接用max\(a,b\)化為0。  
