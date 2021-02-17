@@ -71,3 +71,9 @@ def trap(self, height: List[int]) -> int:
     return total
 ```
 
+### 2. DP
+
+### 3. Stack
+
+### 4. Two Pointer
+
