@@ -32,32 +32,65 @@ for element in nums[len(nums)-1:-1:-1]
 
 ## Code
 
-#### 1. O\(n\)/O\(n\)
+### 1. Expand From Center Brute Force: O\(N^2\) / O\(N\)
+
+```python
+def productExceptSelf(self, nums: List[int]) -> List[int]:
+
+    result = []
+
+    for i in range(len(nums)):
+        product_left = math.prod(nums[:i])
+        product_right = math.prod(nums[i+1:])
+        result.append(product_left * product_right)
+
+    return result
+```
+
+#### 2. O\(n\)/O\(n\)
 
 {% tabs %}
 {% tab title="Python" %}
 ```python
+#e.g. nums = [1,2,3,4]
+
 def productExceptSelf(self, nums: List[int]) -> List[int]:
     
     if not nums or len(nums) == 0:
         return 0
         
-    f = [0 for i in range(len(nums))]
+    f = [0 for _ in range(len(nums))]
     
     # need 1 instead of 0, because 1*x = x
-    firstHalf = [1 for i in range(len(nums))]
+    firstHalf = [1 for _ in range(len(nums))]
+    
     # be extra cautious about the range, since i=i-1 could cause out of range.
     # here we skip the first element because of product itself.
+    # firstHalf =
+    #       ----->
+    #i=1 [1, 1, 1, 1] 
+    #i=2 [1, 1, 1, 1]
+    #i=3 [1, 1, 2, 1]
+    #i=4 [1, 1, 2, 6]
+    #idx     1  2  3  4
     for i in range(1, len(nums)):
-        # transfer function: f[i] = f[i-1] + nums[i-1]
-        firstHalf[i] = firstHalf[i-1] + nums[i-1]
-        
-    secondHalf = [1 for i in range(len(nums))]
+        # transfer function: f[i] = f[i-1] * nums[i-1]
+        firstHalf[i] = firstHalf[i-1] * nums[i-1]
+    
+    
+    secondHalf = [1 for _ in range(len(nums))]
     # reversed(range(0, len(nums)-1)) for i = i+1
     # here we skip the last element
+    # secondHalf = 
+    #           <-----
+    #i=3   [1, 1, 1, 1]
+    #i=2   [1, 1, 4, 1]
+    #i=1  [1, 12, 4, 1]
+    #i=0 [24, 12, 4, 1]
+    #idx    0  1  2  3   
     for i in reversed(range(0, len(nums)-1)):
-        # transfer function: f[i] = f[i+1] + nums[i+1]
-        secondhalf[i] = secondHalf[i+1] + nums[i+1]
+        # transfer function: f[i] = f[i+1] * nums[i+1]
+        secondhalf[i] = secondHalf[i+1] * nums[i+1]
     
     for i in range(len(nums)):
         f[i] = firstHalf[i] * secondHalf[i]
