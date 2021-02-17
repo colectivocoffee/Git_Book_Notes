@@ -102,6 +102,7 @@
   * [\[Medium\] Remove Nth Node From End of List](shu-ju-jie-gou/linked-list/medium.md)
 * [Array](shu-ju-jie-gou/array/README.md)
   * [\[Interview\] Airplane Seats Assignment](shu-ju-jie-gou/array/interview-airplane-seats-assignment.md)
+  * [\[Hard\] Trapping Rain Water](shu-ju-jie-gou/array/hard-trapping-rain-water.md)
   * [\[Medium\] Product of Array Except Self](shu-ju-jie-gou/array/medium-product-of-array-except-self.md)
   * [\[Medium\] Find the Celebrity](shu-ju-jie-gou/array/medium-find-the-celebrity.md)
   * [\[Easy\] Pascal's Triangle/ \[Medium\] Pascal's Triangle II](shu-ju-jie-gou/array/easy-pascals-triangle-medium-pascals-triangle-ii.md)
