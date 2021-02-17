@@ -1,8 +1,8 @@
 # \[Hard\] Trapping Rain Water
 
-## \[Hard\] Trapping Rain Water    \(9945/151\)
+## [\[Hard\] Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)    \(9945/151\)
 
-
+Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.
 
 ### 1. Expand from Center Brute Force: O\(N^2\) / O\(N\)
 
