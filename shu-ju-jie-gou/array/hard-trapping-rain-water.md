@@ -8,11 +8,11 @@
 
 > 思路：  
 > 1\) Trap Rain Water 需要有左右壁\(`max_left`&`max_right`\)來決定接住多少`index i`這一格的水。  
-> 2\) 接水的水量侷限於 ****$$壁高(min(max\_left, max\_right)) - 底座高(height[i]) $$ ****。  
+> 2\) 當格i的接水水量侷限於 ****$$壁高(min(max\_left, max\_right)) - 底座高(height[i]) $$ ****。  
 > 流程：  
 > step1 利用從`index i`往左右分別展開的方式，找到左右邊最大\(`max_left & max_right`\)，  
-> step2 左右邊看哪個相對較小，減去原本的height\[i\]高度，即可得到此格的水量`potential_fill`。  
-> step3 把此格水量依次加到答案上。
+> step2 左右邊看哪個相對較小，減去原本的`height[i]`高度，即可得到此格的水量`potential_fill`。    如果`potential_fill`為負值，則直接用max\(a,b\)化為0。  
+> step3 把當格水量依次加到答案上，總和即為總水量。
 
 Time Complexity: O\(N^2\)  for loop貢獻一次N，在每掃一次的時候，還需要做index slicing取`max_left & max_left`，又需要額外的N \(or more specific `height[x:y], O(y-x)`\)，總共N^2。  
 Space Complexity: O\(N\)   index slicing每切一次都需要額外的N，切兩次共需要2N，簡化為N。
