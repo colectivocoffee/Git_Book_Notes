@@ -21,7 +21,7 @@ max\_area = max\(height \* length\)
 Enumerate all possible combination of`area = height * length(j-i)`using two for loop i, j. Where`length = j - i`and `curr_height = min(height[i], height[j])`。  
 因此，curr\_area = length \* height 。
 
-### 2. Two Pointers: O\(n\)/O\(1\)
+### 2. Two Pointers \(-&gt;/&lt;-\): O\(n\)/O\(1\)
 
 L = 左擋板index位置, R =右擋板index位置   
   
@@ -67,7 +67,7 @@ def maxArea(self, height: List[int]) -> int:
 {% endtab %}
 {% endtabs %}
 
-#### 2. Two Pointers: O\(n\)/O\(1\)
+#### 2. Two Pointers \(-&gt;/&lt;-\): O\(n\)/O\(1\)
 
 {% tabs %}
 {% tab title="Python" %}
