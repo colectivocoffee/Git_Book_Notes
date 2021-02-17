@@ -3,13 +3,7 @@
 [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)  
 Given an array `nums` of _n_ integers where _n_ &gt; 1, return an array `output` such that `output[i]` is equal to the product of all the elements of `nums` except `nums[i]`.
 
-## Thought Process
-
-分成三步驟。一，從i把這個list劈成兩半，左半和右半。二，計算左半每個的product，再計算右半每個的product。三，最後把左半i和右半i乘起來，即是答案 \(因為不包含自己\)。  
-  
-Subproblem:   
-firstHalf transfer function: `first[i] = first[i-1] + nums[i-1]`  
-secondHalf transfer function: `second[i] = second[i+1] + nums[i+1]`
+#### 小知識：Index Looping End -&gt; Start 
 
 iterate from start to end很好寫，但如果要寫from end to start，就要注意boundaries和for loop寫法。此題from end to start 寫法有三種index + 一種element：
 
@@ -45,9 +39,22 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
         result.append(product_left * product_right)
 
     return result
+    
+# Time Limit Exceeded (TLE)
 ```
 
-#### 2. O\(n\)/O\(n\)
+### 2. Expand From Center Improved: O\(n\)/O\(n\)
+
+相較於解一，這種方法是用空間換時間。我們多用了兩個list\(`firstHalf & secondHalf`\)來當memo紀錄左右product的結果，這樣我們就不用再重複切nums並且重複算左乘積＆右乘積。
+
+分成三步驟：  
+一，從i把這個list劈成兩半，左半和右半。  
+二，計算左半每個的product，再計算右半每個的product。  
+三，最後把左半i和右半i乘起來，即是答案 \(因為不包含自己\)。  
+  
+Subproblem:   
+firstHalf transfer function: `first[i] = first[i-1] + nums[i-1]`  
+secondHalf transfer function: `second[i] = second[i+1] + nums[i+1]`
 
 {% tabs %}
 {% tab title="Python" %}
