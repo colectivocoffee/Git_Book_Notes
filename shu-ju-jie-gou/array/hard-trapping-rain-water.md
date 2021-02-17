@@ -14,6 +14,9 @@
 > step2 左右邊看哪個相對較小，減去原本的height\[i\]高度，即可得到此格的水量`potential_fill`。  
 > step3 把此格水量依次加到答案上。
 
+Time Complexity: O\(N^2\)  for loop貢獻一次N，在每掃一次的時候，還需要做index slicing取`max_left & max_left`，又需要額外的N \(or more specific `height[x:y], O(y-x)`\)，總共N^2。  
+Space Complexity: O\(N\)   index slicing每切一次都需要額外的N，切兩次共需要2N，簡化為N。
+
 ```python
  e.g. [ 1, 0, 3, 2, 1, 2]
   4 |         
