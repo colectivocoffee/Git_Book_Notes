@@ -1,6 +1,7 @@
 # \[Medium\] Product of Array Except Self
 
-[Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)  
+## \[Medium\] [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)        \(6738/525\)
+
 Given an array `nums` of _n_ integers where _n_ &gt; 1, return an array `output` such that `output[i]` is equal to the product of all the elements of `nums` except `nums[i]`.
 
 #### 小知識：Index Looping End -&gt; Start 
@@ -28,6 +29,8 @@ for element in nums[len(nums)-1:-1:-1]
 
 ### 1. Expand From Center Brute Force: O\(N^2\) / O\(N\)
 
+> 使用`math.prod(list[])`來把所有elements乘起來。
+
 ```python
 def productExceptSelf(self, nums: List[int]) -> List[int]:
 
@@ -45,7 +48,7 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
 
 ### 2. Expand From Center Improved: O\(n\)/O\(n\)
 
-相較於解一，這種方法是用空間換時間。我們多用了兩個list\(`firstHalf & secondHalf`\)來當memo紀錄左右product的結果，這樣我們就不用再重複切nums並且重複算左乘積＆右乘積。
+相較於解一，這種方法是用空間換時間。我們多用了兩個list\(`firstHalf & secondHalf`\)來當memo紀錄左右product的結果，這樣我們就不用在for loop的同時，重複切nums並且重複算左乘積＆右乘積。
 
 分成三步驟：  
 一，從i把這個list劈成兩半，左半和右半。  
@@ -92,8 +95,8 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
     #           <-----
     #i=3   [1, 1, 1, 1]
     #i=2   [1, 1, 4, 1]
-    #i=1  [1, 12, 4, 1]
-    #i=0 [24, 12, 4, 1]
+    #i=1   [1,12, 4, 1]
+    #i=0  [24,12, 4, 1]
     #idx    0  1  2  3   
     for i in reversed(range(0, len(nums)-1)):
         # transfer function: f[i] = f[i+1] * nums[i+1]
@@ -108,7 +111,7 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
 {% endtab %}
 {% endtabs %}
 
-#### 2. Space Optimized: O\(n\)/O\(1\)
+### 3. DP + Space Optimized: O\(n\)/O\(1\)
 
 #### 相似題
 
