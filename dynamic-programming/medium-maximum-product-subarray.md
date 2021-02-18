@@ -23,6 +23,8 @@ Explanation: [2,3] has the largest product 6.
 
 ### 1. Two Pointer Brute Force: O\(N^2\) / O\(1\)
 
+直接用兩個for loop的indicies `(left & right)`定義左右邊界，並且在left開始時，紀錄`curr_max/accu`的總和，如果大於`global_max`，我們才更新答案。
+
 ```python
 def maxProduct(self, nums: List[int]) -> int:
 
@@ -101,7 +103,7 @@ def maxProduct(self, nums):
     return max(max_array)   
 ```
 
-**Sequence DP Intuition**
+### **3. Sequence DP Space Improved: O\(N\) / O\(1\)**
 
 Rather than looking for every possible subarray to get the largest product, we can scan the array and solve smaller subproblems.
 
@@ -130,6 +132,28 @@ While going through numbers in `nums`, we will have to keep track of the maximum
 `min_so_far` is updated in using the same three numbers except that we are taking **minimum** among the above three numbers.
 
 In the animation below, you will observe a negative number `-5` disrupting a combo chain but that combo chain is later saved by another negative number `-4`. The only reason this can be saved is because of `min_so_far`. You will also observe a zero disrupting a combo chain.
+
+```python
+def maxProduct(self, nums: List[int]) -> int:
+
+    if not nums:
+        return 0
+
+    curr_max = nums[0]
+    curr_min = nums[0]
+    global_max = curr_max
+
+    for idx in range(1, len(nums)):
+
+        num = nums[idx]
+        temp_max = max(num, curr_max * num, curr_min * num)
+        curr_min = min(num, curr_max * num, curr_min * num)
+        curr_max = temp_max
+
+        global_max = max(global_max, curr_max)
+
+    return global_max
+```
 
 
 
