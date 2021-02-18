@@ -11,7 +11,27 @@ Output: 6
 Explanation: [2,3] has the largest product 6.
 ```
 
-### 1. Sequence DP: O\(N\) / O\(N\)
+### 1. Two Pointer Brute Force: O\(N^2\) / O\(1\)
+
+```python
+def maxProduct(self, nums: List[int]) -> int:
+
+    if not nums:
+        return 0
+
+    global_max = nums[0]
+
+    for left in range(len(nums)):
+        # start accumulating from left pointer 
+        accu = 1
+        for right in range(left, len(nums)):
+            accu = accu * nums[right]
+            global_max = max(global_max, accu)
+
+    return global_max
+```
+
+### 2. Sequence DP: O\(N\) / O\(N\)
 
 時間複雜度 Ｏ\(n\) ：枚舉了數組的長度  
 空間複雜度 Ｏ\(n\) ：消耗了等長的空間
