@@ -102,7 +102,8 @@ def maxSubArray(self, nums: List[int]) -> int:
     # boundaries: range(1, len(nums))
     for i in range(1, len(nums)):
         # 易錯點：local_max的取法
-        # 如果local_max加了nums[i]後<0，重新計算local_max
+        # 如果local_max加了nums[i]後竟然還比單獨nums[i]小，
+        # 則重新計算local_max (即只取nums[i])
         local_max = max(local_max + nums[i], nums[i])
         global_max = max(global_max, local_max)
     
