@@ -35,7 +35,7 @@
   * [\[Hard\] Edit Distance](dynamic-programming/hard-edit-distance.md)
   * [\[Medium\] Longest Common Subsequence \(LCS\)](dynamic-programming/medium-longest-common-subsequence-lcs.md)
   * [\[Hard\] Palindrome Partitioning II](dynamic-programming/medium-palindrome-partitioning-ii.md)
-  * [\[Medium\] House Robber II](dynamic-programming/medium-house-robber-ii.md)
+  * [\[Medium\] House Robber / \[Medium\] Robber II](dynamic-programming/medium-house-robber-ii.md)
   * [\[Medium\] Decode Ways](dynamic-programming/medium-decode-ways.md)
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
