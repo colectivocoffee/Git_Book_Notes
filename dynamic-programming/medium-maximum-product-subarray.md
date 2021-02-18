@@ -1,10 +1,8 @@
 # \[Medium\] Maximum Product Subarray
 
-### Question
+## [\[Medium\] Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)      \(6210/205\)
 
 Given an integer array `nums`, find the contiguous subarray within an array \(containing at least one number\) which has the largest product. [Leetcode \(152\)](https://leetcode.com/problems/maximum-product-subarray/)
-
-### Example 
 
 ```text
 Example:
@@ -13,7 +11,10 @@ Output: 6
 Explanation: [2,3] has the largest product 6.
 ```
 
-### Thought Process
+### 1. Sequence DP: O\(N\) / O\(N\)
+
+時間複雜度 Ｏ\(n\) ：枚舉了數組的長度  
+空間複雜度 Ｏ\(n\) ：消耗了等長的空間
 
 1. make sure the state
 2. transfer function
@@ -47,11 +48,6 @@ $$
 
 **4. 計算順序：**   
    It should start from nums\[1\], nums\[2\], ... to nums\[ `n - 1`\] 
-
-時間複雜度 Ｏ\(n\) ：枚舉了數組的長度  
-空間複雜度 Ｏ\(n\) ：消耗了等長的空間
-
-### Full Implementation
 
 ```python
 def maxProduct(self, nums):
