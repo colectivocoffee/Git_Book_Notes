@@ -17,7 +17,7 @@ If you have figured out the O\(_n_\) solution, try coding another solution using
 
 ## Thought Process
 
-### 0. Brute Force
+### 0. Brute Force: O\(N^2\) / O\(N\)
 
 用for loop i & j，i代表頭, j代表尾，找`max(sum(nums[i:j]))`即可，但這Time complexity顯然不符合題目要求。Time Complexity: O\(n^2\), Space O\(n\)
 
@@ -40,7 +40,7 @@ answer: `max(f)`
 
 ![last state of this problem](../.gitbook/assets/1.jpg)
 
-### 2. DP2 \(Optimize Space\): O\(n\)/O\(1\)
+### 2. DP2 \(Space Optimized\): O\(n\)/O\(1\)
 
 #### a.k.a. [Kadane's algorithm](https://en.wikipedia.org/wiki/Maximum_subarray_problem) 
 
