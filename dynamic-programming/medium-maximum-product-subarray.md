@@ -159,5 +159,11 @@ def maxProduct(self, nums: List[int]) -> int:
     return global_max
 ```
 
+#### 類似題
 
+* [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) Easy
+* [House Robber](https://leetcode.com/problems/house-robber/) Medium
+* [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) Medium
+* [Maximum Product of Three Numbers](https://leetcode.com/problems/maximum-product-of-three-numbers/) Easy
+* [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/) Medium
 
