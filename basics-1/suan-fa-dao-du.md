@@ -188,6 +188,10 @@ for char in s:
 
 * **Last Element Slicing**   `curr_string[:-1]`  返回整個`curr_string`，除了末尾最後一個char。 e.g.    `curr_string = 'bookmark'` `curr_string[:-1] = 'bookmar'` 
 
+### Copy
+
+* **List Deep Copy**  `copied_list = original_list[::]`  直接深度拷貝原始List。
+
 ## Advanced Python
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
