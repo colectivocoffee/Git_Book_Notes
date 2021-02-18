@@ -142,12 +142,16 @@ def maxProduct(self, nums: List[int]) -> int:
     curr_max = nums[0]
     curr_min = nums[0]
     global_max = curr_max
-
+    
+    # 第一個數字已被拿來用作curr_max & curr_min，因此可以在index looping時跳過。
     for idx in range(1, len(nums)):
 
         num = nums[idx]
         temp_max = max(num, curr_max * num, curr_min * num)
         curr_min = min(num, curr_max * num, curr_min * num)
+        # 易錯點：
+        # 這裡由於curr_min要使用上一輪的curr_max，不能改掉curr_max，
+        # 只能用temp_max先保存起來，等全部更新完成後再回來改curr_max。
         curr_max = temp_max
 
         global_max = max(global_max, curr_max)
