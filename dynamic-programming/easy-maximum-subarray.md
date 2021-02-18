@@ -51,10 +51,12 @@ Transfer Function: `local_max = max(local_max + nums[i], nums[i])`
 > 注意：\(1\)初始值 `global_max = local_max = nums[0]` 為 init state f\[0\]，  
 > \(2\)邊界條件 i 為 range\(1, len\(nums\)\)
 
-### 3. Binary Search: O\(n\)/O\(n\)
+### 3. Divide and Conquer - Binary Search: O\(nlogn\)/O\(logn\)
 
-依照follow up要求，如果要divide and conquer，那大概只有Binary Search可以用了。一般來說Binary Search可以讓Time Complexity: O\(logn\)，但是此題還是要遍歷一整個list，因此還是O\(n\)。  
+依照follow up要求，如果要divide and conquer，那大概只有Binary Search可以用了。一般來說Binary Search可以讓Time Complexity: O\(logn\)，但是此題還是要用merge sort遍歷一整個list，因此還是O\(nlogn\)。  
 [Binary Search 參考答案](https://leetcode.com/problems/maximum-subarray/discuss/20371/Java-Dynamic-Programming-or-Binary-Search)
+
+![](../.gitbook/assets/image%20%2817%29.png)
 
 ### 4. Greedy: O\(n\)/O\(1\)
 
@@ -99,6 +101,8 @@ def maxSubArray(self, nums: List[int]) -> int:
     
     # boundaries: range(1, len(nums))
     for i in range(1, len(nums)):
+        # 易錯點：local_max的取法
+        # 如果local_max加了nums[i]後<0，重新計算local_max
         local_max = max(local_max + nums[i], nums[i])
         global_max = max(global_max, local_max)
     
