@@ -12,7 +12,7 @@
 > 因此我們可以發現，目前的搶最大價值可以是取上面a\) or b\)的結果，我們可以化成下面的式子：`# max so far  =  (a)rob last one OR (b)max up to house i-2 + rob current   
 >    rob_max[i] = max(rob_max[i-1], rob_max[i-2] + nums[i])`
 
-### 1. Recursive Top-Down: O\(2^N\) / O\(1\)
+### 1. Sequence DP, Recursive Top-Down: O\(2^N\) / O\(1\)
 
 ```python
 def rob(self, nums: List[int]) -> int: 
@@ -26,7 +26,7 @@ def selectHouse(self, nums, idx):
     return max(self.selectHouse(nums, idx - 2) + nums[idx], self.selectHouse(nums, idx - 1))
 ```
 
-### 2. Recursive Top-Down + dp Memo: O\(N\) / O\(N\)
+### 2. Sequence DP, Recursive Top-Down + dp Memo: O\(N\) / O\(N\)
 
 ```python
 def rob(self, nums: List[int]) -> int:
@@ -51,7 +51,34 @@ def selectHouse(self, nums, i, dp):
     return curr_max
 ```
 
-### 4. Iterative Bottom-Up & Sequence DP: O\(N\) / O\(N\)
+### 3. Sequence DP, Iterative Bottom-Up + dp memo: O\(N\) / O\(N\)
+
+> 易錯點  
+> \(1\)注意“**邊界定義”：**預防index out of range  
+> 因為在robbing的時候，在`nums[i]`位置時，會需要看`i-1`和`i-2`的curr\_max \(分別紀錄於`dp[i]` & `dp[i-1]`\)  
+> 因此，dp長度需要比len\(nums\)還要多1  
+> \(2\)**DP base case：**也要先定義完成
+
+```python
+# e.g. [2,1,1,2]
+# dp = [0,2,3,3,4]
+def rob(self, nums: List[int]) -> int:
+
+    if not nums:
+        return 0
+
+    dp = [-1 for _ in range(len(nums)+1)]
+    # DP base case
+    dp[0] = 0
+    dp[1] = nums[0]
+
+    for i in range(1,len(nums)):
+        dp[i+1] = max(dp[i], dp[i-1] + nums[i])
+
+    return dp[-1]
+```
+
+### 4. Sequence DP, Iterative Bottom-Up + 2 variables: O\(N\) / O\(1\)
 
 ```python
 def rob(self, nums: List[int]) -> int:
