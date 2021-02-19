@@ -4,6 +4,16 @@
 
 
 
+> 思路：  
+> step1. 把Robbing的關係搞清楚。Robber在決定是否要搶這房子時，有兩種選擇   
+> a\) **Rob current house**: 意即不能搶上一家 \(`i-1`\) &下一家\(`i+1`\)，但可以安全地搶上上一家\(`i-2`\)  
+> b\) **Don't rob current house**: 意即上一家\(`i-1`\)以前並沒有任何限制。  
+>   
+> 因此我們可以發現，目前的搶最大價值可以是取上面a\) or b\)的結果，我們可以化成下面的式子：`# max so far  =  (a)rob last one OR (b)max up to house i-2 + rob current   
+>    rob_max[i] = max(rob_max[i-1], rob_max[i-2] + nums[i])`
+
+### 1. Recursive Top-Down: O\(2^N\) / O\(1\)
+
 ```python
 def rob(self, nums: List[int]) -> int: 
 
@@ -14,6 +24,46 @@ def selectHouse(self, nums, idx):
         return 0
 
     return max(self.selectHouse(nums, idx - 2) + nums[idx], self.selectHouse(nums, idx - 1))
+```
+
+### 2. Recursive Top-Down + dp Memo: O\(N\) / O\(N\)
+
+```python
+def rob(self, nums: List[int]) -> int:
+
+    dp = [-1 for _ in range(len(nums))]
+    # 我們只看到最後一個房子，即len(nums)-1。否則會超過
+    return self.selectHouse(nums, len(nums)-1, dp)
+
+def selectHouse(self, nums, i, dp):
+    # 邊界條件
+    if i < 0:
+        return 0
+        
+    # 如果已算過，直接返回dp[i]
+    if dp[i] >= 0:
+        return dp[i]
+        
+    # 沒算過，用上面recursion的方法算
+    curr_max = max(self.selectHouse(nums, i-1, dp), self.selectHouse(nums, i-2, dp) + nums[i])
+    # 紀錄算出來的答案
+    dp[i] = curr_max
+    return curr_max
+```
+
+### 4. Iterative Bottom-Up & Sequence DP: O\(N\) / O\(N\)
+
+```python
+def rob(self, nums: List[int]) -> int:
+
+    prev_max, curr_max = 0, 0
+
+    for num in nums:
+        temp = curr_max
+        curr_max = max(curr_max, prev_max + num)
+        prev_max = temp
+
+    return curr_max
 ```
 
 ## \[Medium\] [House Robber II](https://leetcode.com/problems/house-robber-ii/)       \(2611/62\)
