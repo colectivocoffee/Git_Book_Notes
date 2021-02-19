@@ -1,8 +1,10 @@
 # \[Medium\] House Robber / \[Medium\] Robber II
 
-## [\[Medium\] House Robber](https://leetcode.com/problems/house-robber/)         \(6519/185\)
+## [\[Medium\] House Robber](https://leetcode.com/problems/house-robber/)         \(6526/185\)
 
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and **it will automatically contact the police if two adjacent houses were broken into on the same night**.
 
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight **without alerting the police**.
 
 > 思路：  
 > step1. 把Robbing的關係搞清楚。Robber在決定是否要搶這房子時，有兩種選擇   
@@ -79,6 +81,10 @@ def rob(self, nums: List[int]) -> int:
 ```
 
 ### 4. Sequence DP, Iterative Bottom-Up + 2 variables: O\(N\) / O\(1\)
+
+此為sliding window版本。  
+唯一一點要注意的地方是，`curr_max`不能馬上被更新（三部翻轉法）  
+需要用temp儲存起來作為`prev_max`用，等算完後再放回去。
 
 ```python
 def rob(self, nums: List[int]) -> int:
