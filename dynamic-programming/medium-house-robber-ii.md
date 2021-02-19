@@ -83,7 +83,7 @@ def rob(self, nums: List[int]) -> int:
 ### 4. Sequence DP, Iterative Bottom-Up + 2 variables: O\(N\) / O\(1\)
 
 此為sliding window版本。  
-唯一一點要注意的地方是，`curr_max`不能馬上被更新（三部翻轉法）  
+唯一一點要注意的地方是，`curr_max`不能馬上被更新（三步翻轉法）  
 需要用temp儲存起來作為`prev_max`用，等算完後再放回去。
 
 ```python
