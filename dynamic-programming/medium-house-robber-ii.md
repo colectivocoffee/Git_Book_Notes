@@ -2,6 +2,20 @@
 
 ## [\[Medium\] House Robber](https://leetcode.com/problems/house-robber/)         \(6519/185\)
 
+
+
+```python
+def rob(self, nums: List[int]) -> int: 
+
+    return self.selectHouse(nums, len(nums)-1)
+
+def selectHouse(self, nums, idx):
+    if idx < 0:
+        return 0
+
+    return max(self.selectHouse(nums, idx - 2) + nums[idx], self.selectHouse(nums, idx - 1))
+```
+
 ## \[Medium\] [House Robber II](https://leetcode.com/problems/house-robber-ii/)       \(2611/62\)
 
 You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are **arranged in a circle.** That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected and **it will automatically contact the police if two adjacent houses were broken into on the same night**.
