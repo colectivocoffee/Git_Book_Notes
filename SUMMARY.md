@@ -76,6 +76,7 @@
 ## 數據結構
 
 * [Stack & Queue](shu-ju-jie-gou/stack/README.md)
+  * [\[Hard\] Sliding Window Maximum](shu-ju-jie-gou/stack/hard-sliding-window-maximum.md)
   * [\[Hard\] Longest Valid Parentheses](shu-ju-jie-gou/stack/hard-longest-valid-parentheses.md)
   * [\[Medium\] Task Scheduler](shu-ju-jie-gou/stack/medium-task-scheduler.md)
   * [\[Medium\] Simplify Path](shu-ju-jie-gou/stack/medium-simplify-path.md)
@@ -119,7 +120,6 @@
   * [\[Easy\] Length of Last Word](shu-ju-jie-gou/string/easy-length-of-last-word.md)
   * [\[Easy\] implement strStr\(\) \(aka .indexOf\(\) function\)](shu-ju-jie-gou/string/easy-implement-strstr-aka-.indexof-function.md)
 * [Heap](shu-ju-jie-gou/heap/README.md)
-  * [\[Hard\] Sliding Window Maximum](shu-ju-jie-gou/heap/hard-sliding-window-maximum.md)
   * [\[Medium\] Meeting Rooms II](shu-ju-jie-gou/heap/meeting-rooms-ii.md)
   * [\[Medium\] Kth Largest Element in an Array](shu-ju-jie-gou/heap/medium-kth-largest-element-in-an-array.md)
 * [Binary Tree](shu-ju-jie-gou/binary-tree/README.md)
