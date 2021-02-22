@@ -1,6 +1,6 @@
 # \[Hard\] Sliding Window Maximum
 
-## [\[Hard\] Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)    \(\)
+## [\[Hard\] Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)    \(5234/145\)
 
 
 
@@ -31,6 +31,17 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
 > \(2\) **Sliding Window不能越左右index邊界**  
 > 我們需要確保最後的`queue[0]`在`i - k`的右邊界內，意即`queue[0] < i-k+1` 。ss
 
+Step1. First while loop -- remove already seen element  
+If an element in the deque and it is out of i-\(k-1\), we discard them. We just need to poll from the head, as we are using a deque and elements are ordered as the sequence in the array
+
+Step2. Second while loop -- remove smaller elements in queue  
+Now only those elements within \[i-\(k-1\),i\] are in the deque. We then discard elements smaller than a\[i\] from the tail. This is because if a\[x\] &lt;a\[i\] and x&lt;i, then a\[x\] has no chance to be the "max" in \[i-\(k-1\),i\], or any other subsequent window: a\[i\] would always be a better candidate.
+
+Step3. at index `i>= k - 1` -- Add first element in queue to result  
+As a result elements in the deque are ordered in both sequence in array and their value. At each step the head of the deque is the max element in \[i-\(k-1\),i\]
+
+
+
 ![](../../.gitbook/assets/sliding_window_max.jpg)
 
 
@@ -45,11 +56,12 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
     for i in range(len(nums)):
         
         # step1. poll/remove from first
+        # that is out of range(already seen)
         # green '-'
         while queue and queue[0] < i - k + 1:
             queue.popleft()
         
-        # step2. poll/remove from last
+        # step2. poll/remove smaller numbers
         # red 'x'
         while queue and nums[queue[-1]] < nums[i]:
             queue.pop()
