@@ -2,6 +2,8 @@
 
 ## [\[Hard\] Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)    \(5234/145\)
 
+You are given an array of integers `nums`, there is a sliding window of size `k` which is moving from the very left of the array to the very right. You can only see the `k` numbers in the window. Each time the sliding window moves right by one position.  
+Return _the_ max sliding window.  
 
 
 ### 1. Brute Force: O\(N\*K\) / O\(1\)
