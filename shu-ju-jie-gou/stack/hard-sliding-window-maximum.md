@@ -34,12 +34,12 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
 > 我們需要確保最後的`queue[0]`在`i - k`的右邊界內，意即`queue[0] < i-k+1` 。ss
 
 Step1. First while loop -- remove already seen element  
-If an element in the deque and it is out of i-\(k-1\), we discard them. We just need to poll from the head, as we are using a deque and elements are ordered as the sequence in the array
+If an element in the deque and it is out of `i-(k-1)`, we discard them. We just need to poll from the head, as we are using a deque and elements are ordered as the sequence in the array
 
 Step2. Second while loop -- remove smaller elements in queue  
-Now only those elements within \[i-\(k-1\),i\] are in the deque. We then discard elements smaller than a\[i\] from the tail. This is because if a\[x\] &lt;a\[i\] and x&lt;i, then a\[x\] has no chance to be the "max" in \[i-\(k-1\),i\], or any other subsequent window: a\[i\] would always be a better candidate.
+Now only those elements within `[i-(k-1),i]` are in the deque. We then discard elements smaller than a\[i\] from the tail. This is because if a\[x\] &lt;a\[i\] and x&lt;i, then a\[x\] has no chance to be the "max" in `[i-(k-1),i]`, or any other subsequent window: a\[i\] would always be a better candidate.
 
-Step3. at index `i>= k - 1` -- Add first element in queue to result  
+Step3. at index `i >= k - 1` -- Add first element in queue to result  
 As a result elements in the deque are ordered in both sequence in array and their value. At each step the head of the deque is the max element in \[i-\(k-1\),i\]
 
 
@@ -72,6 +72,7 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         # append to last
         queue.append(i)
         
+        # step3. add remaining first element to result
         # remaining part would be max num, then append them to the result
         if i >= k - 1:            
             result.append(nums[queue[0]])
