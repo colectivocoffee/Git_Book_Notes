@@ -21,7 +21,15 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
     return dp
 ```
 
-### 2. Deque: O\(N\) / O\(N\)
+### 2. Queue/Deque: O\(N\) / O\(N\)
+
+> 思路：用Queue來紀錄目前最大indices  
+> \(1\) **Deque不需要保留任何比nums\[i\]還小的數字**  
+> 由於我們一直要紀錄max\_num，而又只能看sliding window這幾個數字，因此我們可以想到用Queue來維持目前為止的最大值。只要Queue裡面有比`nums[i]`還小的數字，就代表可以踢掉那些Queue裡小數字。為什麼呢？因為Queue裡小數字不可能比`nums[i]`還大，就沒道理留著。  
+>   
+> 此時順勢往後移sliding window。然而，sliding window有個很麻煩的地方: 容易越界  
+> \(2\) **Sliding Window不能越左右index邊界**  
+> 我們需要確保最後的`queue[0]`在`i - k`的右邊界內，意即`queue[0] < i-k+1` 。ss
 
 ![](../../.gitbook/assets/sliding_window_max.jpg)
 
@@ -35,13 +43,14 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
     result = []
 
     for i in range(len(nums)):
-
-        # poll/remove from first
+        
+        # step1. poll/remove from first
+        # green '-'
         while queue and queue[0] < i - k + 1:
             queue.popleft()
-
-        # poll/remove from last
-        # while
+        
+        # step2. poll/remove from last
+        # red 'x'
         while queue and nums[queue[-1]] < nums[i]:
             queue.pop()
         
