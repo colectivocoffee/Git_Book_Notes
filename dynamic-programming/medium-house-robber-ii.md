@@ -230,5 +230,44 @@ def minCost(self, costs: List[List[int]]) -> int:
 # Time Limit Exceeded solution (TLE)
 ```
 
+### 3. Recursive + Memoization: O\(N\) / O\(N\)
+
+其實經由approach2，做memoization的小小更動，把已經算過的total cost按照 `(n,color) : total_cost`的方式紀錄在dictionary，就可以大大減少重複計算。  
+我們可以把Time Complexity降至O\(N\)
+
+Time Complexity: O\(N\)  There are `3 * n` different possible sets of parameters, because there are `n` houses and `3` colors.   
+Space Complexity: O\(N\)  
+
+```python
+def minCost(self, costs: List[List[int]]) -> int:
+
+    if not costs or len(costs) == 0:
+        return 0
+    
+    # 加上memo
+    self.memo = {}
+
+    def paint_cost(n, color):
+        #從memo找答案
+        if (n,color) in self.memo:
+            return self.memo[(n,color)]
+
+        total = costs[n][color]
+        if n == len(costs) - 1:
+            pass
+        elif color == 0:      # red
+            total += min(paint_cost(n+1, 1), paint_cost(n+1, 2))
+        elif color == 1:      # green
+            total += min(paint_cost(n+1, 0), paint_cost(n+1, 2))
+        else:                 # blue
+            total += min(paint_cost(n+1, 0), paint_cost(n+1, 1))
+        # 把計算結果紀錄下來
+        self.memo[(n, color)] = total
+        return total        
+
+
+    return min(paint_cost(0,0), paint_cost(0,1), paint_cost(0,2))
+```
+
 ### 2. Sequence DP, Bottom-Up: 
 
