@@ -80,3 +80,11 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
     return result
 ```
 
+#### 相似題
+
+* [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) Hard 
+* [Min Stack](https://leetcode.com/problems/min-stack/) Easy 
+* [Longest Substring with At Most Two Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/) Medium 
+* [Paint House II](https://leetcode.com/problems/paint-house-ii/) Hard 
+* [Jump Game VI](https://leetcode.com/problems/jump-game-vi/) Medium
+
