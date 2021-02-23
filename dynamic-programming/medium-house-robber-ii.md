@@ -197,7 +197,7 @@ Space Complexity: O\(N\)-O\( $$n 3^n$$ \)  number of permutations
 
 ![](../.gitbook/assets/image%20%2820%29.png)
 
-### 2. Brute Force, Recursive Top-Down: O\(2^n\) / O\(n\)
+### 2. Brute Force, Recursive Bottom-UpTop-Down: O\(2^n\) / O\(n\)
 
 由Brute Force approach1可以發現，在選擇房子顏色時，可以用Recursion來計算所有permutations的總花費\(total\)。
 
