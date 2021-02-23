@@ -294,6 +294,8 @@ def minCost(self, costs: List[List[int]]) -> int:
         return 0
     
     # 層數 3 -> 2 -> 1 -> 0
+    # 為什麼層數是n -> n+1？
+    # 因為是把下一層[n+1]的結果往上一層[n]加。
     for n in range(len(costs)-1)[::-1]:
         # red
         costs[n][0] += min(costs[n+1][1], costs[n+1][2])
@@ -314,7 +316,8 @@ def minCost(self, costs: List[List[int]]) -> int:
 
     if len(costs) == 0:
         return 0
-
+        
+    # 同理，是把上一層[n-1]的結果往下一層[n]加。
     for n in range(1, len(costs)):
         # red
         costs[n][0] += min(costs[n-1][1], costs[n-1][2])
@@ -330,4 +333,33 @@ True Time Complexity: O\(n\*m\)
 Finding the minimum of two values and adding it to another value is an O\(1\)operation. We are doing these O\(1\) operations for $$3 \cdot (n - 1)$$cells in the grid. Expanding that out, we get $$3 \cdot n - 3$$. The constants don't matter in big-oh notation, so we drop them, leaving us with O\(n\).
 
 _A word of warning:_ This would _not_ be correct if there were mm colors. For this particular problem we were told there's only 3 colors. However, a logical follow-up question would be to make the code work for any number of colors. In that case, the time complexity would actually be $$O(n \cdot m)$$, because m is not a constant, whereas 3 is. 
+
+### 5. Sequence DP, Iterative, not modifying input array: O\(N\) / O\(1\)
+
+用`prev_row`,`curr_row`來紀錄上一層, 當層的所有costs\[i\]。  
+先`copy.deepcopy(costs[i])`當作是`curr_row`，  
+當完成後把`curr_row`assign給`prev_row`。
+
+```python
+def minCost(self, costs: List[List[int]]) -> int:
+
+    if len(costs) == 0:
+        return 0
+
+    prev_row = costs[-1]
+    for n in range(len(costs)-1)[::-1]:
+        # 深度拷貝costs[n]，成為curr_row
+        curr_row = copy.deepcopy(costs[n])
+        # red
+        curr_row[0] += min(prev_row[1], prev_row[2])
+        # green
+        curr_row[1] += min(prev_row[0], prev_row[2])
+        # blue
+        curr_row[2] += min(prev_row[1], prev_row[0])
+        
+        # assign curr_row 成為上一層 prev_row
+        prev_row = curr_row
+
+    return min(prev_row)
+```
 
