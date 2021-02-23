@@ -191,13 +191,13 @@ Space Complexity: O\(N\)-O\( $$n 3^n$$ \)  number of permutations
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
-![All Possible Permutations](../.gitbook/assets/image%20%2821%29.png)
+![All Possible Permutations](../.gitbook/assets/image%20%2822%29.png)
 
 以4 houses為例，下為24種permutations的產生法：
 
 ![](../.gitbook/assets/image%20%2820%29.png)
 
-### 2. Brute Force, Recursive Bottom-UpTop-Down: O\(2^n\) / O\(n\)
+### 2. Brute Force, Recursive Top-Down: O\(2^n\) / O\(n\)
 
 由Brute Force approach1可以發現，在選擇房子顏色時，可以用Recursion來計算所有permutations的總花費\(total\)。
 
@@ -269,5 +269,65 @@ def minCost(self, costs: List[List[int]]) -> int:
     return min(paint_cost(0,0), paint_cost(0,1), paint_cost(0,2))
 ```
 
-### 2. Sequence DP, Bottom-Up: 
+以上都是用Recursive的方式求解；下面用Iterative的方式求解。
+
+### 4. Sequence DP, Iterative Bottom-Up: O\(N\) / O\(1\)
+
+We'll define a subproblem to be calculating the total cost for a particular house position and color.
+
+![](../.gitbook/assets/image%20%2821%29.png)
+
+![DP Bottom-Up&#x7531;&#x6700;&#x5F8C;&#x4E00;&#x5C64;&#x5F80;&#x4E0A;&#x52A0;&#x7684;&#x904E;&#x7A0B;](../.gitbook/assets/image%20%2824%29.png)
+
+We can, therefore, calculate the cost of each subproblem, starting from the ones with the highest house numbers, and write the results directly into the input array. In effect, we will replace each single-house cost value in the array with the cost of painting the house that color and the minimum cost to paint all the houses after it. This is almost the same as what we did on the tree. The only difference is that we are only doing each calculation once and we are writing results directly into the input table. It is bottom-up, because we are solving the "lower" problems first, and then the "higher" ones once we've solved all the lower ones that they depend on.
+
+為什麼是Bottom-Up？因為如果從最後一個房子來看，後面就沒有其他房子需要注意，因此`total_cost(3,0)` `total_cost(3,1)` `total_cost(3,2)` 的值即為最後一個房子油漆所需花費。我們可以從最後一層慢慢往上走，並且把下面的總花費往上一層加。直到第一層，第0層`total_costs[0]`即為最小花費。
+
+![&#x6700;&#x7D42;&#x7D50;&#x679C; min\(costs\[0\]\), where costs\[0\] = \[34,17,32\]](../.gitbook/assets/image%20%2823%29.png)
+
+從尾往頭掃 `reversed` + `n -> n+1`
+
+```python
+def minCost(self, costs: List[List[int]]) -> int:
+
+    if len(costs) == 0:
+        return 0
+    
+    # 層數 3 -> 2 -> 1 -> 0
+    for n in range(len(costs)-1)[::-1]:
+        # red
+        costs[n][0] += min(costs[n+1][1], costs[n+1][2])
+        # green
+        costs[n][1] += min(costs[n+1][0], costs[n+1][2])
+        # blue
+        costs[n][2] += min(costs[n+1][1], costs[n+1][0])
+
+    # costs[0] = [34,17,32]
+    # min(costs[0]) = 17    <- ans
+    return min(costs[0])
+```
+
+從頭到尾掃（但要反著看，`n -> n-1`，因此最後一層`total_costs[-1]`應為最終結果）
+
+```python
+def minCost(self, costs: List[List[int]]) -> int:
+
+    if len(costs) == 0:
+        return 0
+
+    for n in range(1, len(costs)):
+        # red
+        costs[n][0] += min(costs[n-1][1], costs[n-1][2])
+        # green
+        costs[n][1] += min(costs[n-1][0], costs[n-1][2])
+        # blue
+        costs[n][2] += min(costs[n-1][1], costs[n-1][0])
+
+    return min(costs[-1])
+```
+
+True Time Complexity: O\(n\*m\)  
+Finding the minimum of two values and adding it to another value is an O\(1\)operation. We are doing these O\(1\) operations for $$3 \cdot (n - 1)$$cells in the grid. Expanding that out, we get $$3 \cdot n - 3$$. The constants don't matter in big-oh notation, so we drop them, leaving us with O\(n\).
+
+_A word of warning:_ This would _not_ be correct if there were mm colors. For this particular problem we were told there's only 3 colors. However, a logical follow-up question would be to make the code work for any number of colors. In that case, the time complexity would actually be $$O(n \cdot m)$$, because m is not a constant, whereas 3 is. 
 
