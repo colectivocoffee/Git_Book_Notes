@@ -10,6 +10,22 @@ Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)�
 
 使用Sliding Window必要條件：數據如果是Int, 必須都是positive Integers
 
+```python
+Sliding Window毛毛蟲移法：
+先移右->
+'''
+ // 滑動窗口核心四要素：
+1-1、右指針Char
+1-1、更新窗口
+1-2、右指針右移 
+    2、while根據題意收缩窗口
+    3-1、左指針del_char 
+    3-1、更新窗口&收缩del_char窗口
+    3-2、左指針右移
+4、根據題意計算结果(right-left) < min_len
+'''
+```
+
 {% tabs %}
 {% tab title="Python" %}
 ```python
