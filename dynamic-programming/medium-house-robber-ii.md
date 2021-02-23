@@ -1,4 +1,4 @@
-# \[Medium\] House Robber / \[Medium\] Robber II
+# \[Medium\] House Robber / \[Medium\] Robber II / \[Medium\] Paint House
 
 ## [\[Medium\] House Robber](https://leetcode.com/problems/house-robber/)         \(6526/185\)
 
@@ -105,9 +105,7 @@ You are a professional robber planning to rob houses along a street. Each house 
 
 Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight **without alerting the police**.
 
-## Thought Process
-
-### \(1\) Sequence DP
+### 1. Sequence DP
 
 Step1
 
@@ -125,10 +123,6 @@ Step2
   
 Time Complexity: O\(n\)  
 Space Complexity:O\(1\)
-
-### \(2\) DP + Sliding Window
-
-## Full Implementation
 
 {% tabs %}
 {% tab title="Python" %}
@@ -157,4 +151,20 @@ def robHelper(self, nums, start, end):
 ```
 {% endtab %}
 {% endtabs %}
+
+### 2. DP + Sliding Window
+
+## [\[Medium\] Paint House](https://leetcode.com/problems/paint-house/)         \(1133/101\)
+
+There is a row of n houses, where each house can be painted one of three colors: red, blue, or green. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.
+
+The cost of painting each house with a certain color is represented by a `n x 3` cost matrix. For example, `costs[0][0]` is the cost of painting house 0 with the color red; `costs[1][2]` is the cost of painting house 1 with color green, and so on... Find the minimum cost to paint all houses.
+
+```text
+Example
+Input: costs = [[17,2,17],[16,16,5],[14,3,19]]
+Output: 10
+Explanation: Paint house 0 into blue, paint house 1 into green, paint house 2 into blue.
+Minimum cost: 2 + 5 + 3 = 10.
+```
 

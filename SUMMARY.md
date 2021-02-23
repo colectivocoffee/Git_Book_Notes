@@ -37,7 +37,7 @@
   * [\[Hard\] Palindrome Partitioning II](dynamic-programming/medium-palindrome-partitioning-ii.md)
   * [\[Medium\] Decode Ways](dynamic-programming/medium-decode-ways.md)
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
-  * [\[Medium\] House Robber / \[Medium\] Robber II](dynamic-programming/medium-house-robber-ii.md)
+  * [\[Medium\] House Robber / \[Medium\] Robber II / \[Medium\] Paint House](dynamic-programming/medium-house-robber-ii.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
   * [\[Easy\] Maximum Subarray](dynamic-programming/easy-maximum-subarray.md)
   * [\[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Stock II / \[Hard\] Stock III](dynamic-programming/easy-best-time-to-buy-and-sell-stock.md)
