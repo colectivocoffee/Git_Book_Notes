@@ -168,3 +168,22 @@ Explanation: Paint house 0 into blue, paint house 1 into green, paint house 2 in
 Minimum cost: 2 + 5 + 3 = 10.
 ```
 
+### 1. Brute Force: O\( $$2^n$$ \) or O\( $$3^n$$ \) / O\(N\)-O\( $$n 3^n$$ \)
+
+Step1. 找出所有可能的組合\(all possible permutations\)，並計算出所有的花費，這組合必須要符合**相鄰不同色**的條件。  
+Step2. 找出花費最低的選擇，結束。
+
+How to get all possible permutations?  
+To generate every possible length-n string of `0`, `1`, and `2`, remove any that have the same digit twice in a row, and then score those that are left, keeping track of the smallest cost seen so far.
+
+Time Complexity: O\( $$2^n$$ \) 如果用上面的方法產生all permutations，就是2^n。The number of valid permutations doubles with every house added. 如下例，4 houses will  
+have 24 permutations.  
+  
+Space Complexity: 
+
+![](../.gitbook/assets/image%20%2818%29.png)
+
+![All Possible Permutations](../.gitbook/assets/image%20%2819%29.png)
+
+
+
