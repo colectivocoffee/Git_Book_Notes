@@ -209,7 +209,7 @@ def minCost(self, costs: List[List[int]]) -> int:
     if not costs or len(costs) == 0:
         return 0
     
-    # 從 n -> n+1 代表我們從第0層往下走，
+    # 從 n -> n+1 代表我們從第0房/層往下走，
     # 一層一層去算paint_cost的各種組合最小。
     def paint_cost(n, color):
         total = costs[n][color]
@@ -230,5 +230,5 @@ def minCost(self, costs: List[List[int]]) -> int:
 # Time Limit Exceeded solution (TLE)
 ```
 
-### 2. Bottom-Up DP: 
+### 2. Sequence DP \(Bottom-Up\): 
 
