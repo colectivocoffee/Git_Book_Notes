@@ -177,13 +177,50 @@ How to get all possible permutations?
 To generate every possible length-n string of `0`, `1`, and `2`, remove any that have the same digit twice in a row, and then score those that are left, keeping track of the smallest cost seen so far.
 
 Time Complexity: O\( $$2^n$$ \) 如果用上面的方法產生all permutations，就是2^n。The number of valid permutations doubles with every house added. 如下例，4 houses will  
-have 24 permutations.  
-  
-Space Complexity: 
+have 24 permutations.
+
+```text
+house  color   num of permutations
+   1 [ , , ]     3
+   2 [ , , ]     6
+   3 [ , , ]     12
+   4 [ , , ]     24
+```
+
+Space Complexity: O\(N\)-O\( $$n 3^n$$ \)  number of permutations
 
 ![](../.gitbook/assets/image%20%2818%29.png)
 
-![All Possible Permutations](../.gitbook/assets/image%20%2819%29.png)
+![All Possible Permutations](../.gitbook/assets/image%20%2820%29.png)
+
+以4 houses為例，下為24種permutations的產生法：
+
+![](../.gitbook/assets/image%20%2819%29.png)
+
+### 2. Brute Force, Recursive Tree: O\(2^n\) / O\(n\)
+
+```python
+def minCost(self, costs: List[List[int]]) -> int:
+
+    if not costs or len(costs) == 0:
+        return 0
+
+    def paint_cost(n, color):
+        total = costs[n][color]
+        if n == len(costs) - 1:
+            pass
+        elif color == 0:      # red
+            total += min(paint_cost(n+1, 1), paint_cost(n+1, 2))
+        elif color == 1:      # green
+            total += min(paint_cost(n+1, 0), paint_cost(n+1, 2))
+        else:                 # blue
+            total += min(paint_cost(n+1, 0), paint_cost(n+1, 1))
+        return total        
 
 
+    return min(paint_cost(0,0), paint_cost(0,1), paint_cost(0,2))
+
+```
+
+### 2. Bottom-Up DP: 
 
