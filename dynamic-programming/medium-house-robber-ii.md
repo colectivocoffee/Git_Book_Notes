@@ -189,24 +189,31 @@ house  color   num of permutations
 
 Space Complexity: O\(N\)-O\( $$n 3^n$$ \)  number of permutations
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
-![All Possible Permutations](../.gitbook/assets/image%20%2820%29.png)
+![All Possible Permutations](../.gitbook/assets/image%20%2821%29.png)
 
 以4 houses為例，下為24種permutations的產生法：
 
-![](../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 ### 2. Brute Force, Recursive Tree: O\(2^n\) / O\(n\)
+
+由Brute Force approach1可以發現，在選擇房子顏色時，可以用Recursion來計算所有permutations的總花費\(total\)。
+
+![](../.gitbook/assets/image%20%2818%29.png)
 
 ```python
 def minCost(self, costs: List[List[int]]) -> int:
 
     if not costs or len(costs) == 0:
         return 0
-
+    
+    # 從 n -> n+1 代表我們從第0層往下走，
+    # 一層一層去算paint_cost的各種組合最小。
     def paint_cost(n, color):
         total = costs[n][color]
+        # 遞歸出口
         if n == len(costs) - 1:
             pass
         elif color == 0:      # red
@@ -220,6 +227,7 @@ def minCost(self, costs: List[List[int]]) -> int:
 
     return min(paint_cost(0,0), paint_cost(0,1), paint_cost(0,2))
 
+# Time Limit Exceeded solution (TLE)
 ```
 
 ### 2. Bottom-Up DP: 
