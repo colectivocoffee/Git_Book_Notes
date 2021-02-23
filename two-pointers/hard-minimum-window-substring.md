@@ -14,15 +14,9 @@ Input: S = "ADOBECODEBANC", T = "ABC"
 Output: "BANC"
 ```
 
-## Thought Process
-
-### Sliding Window\(L-&gt;/R-&gt;\): O\(n\)/O\(n\)
+### 1. Sliding Window\(L-&gt;/R-&gt;\): O\(n\)/O\(n\)
 
 ![](../.gitbook/assets/min_window_substring%20%281%29.jpg)
-
-## Code
-
-#### Sliding Window
 
 {% tabs %}
 {% tab title="Python" %}

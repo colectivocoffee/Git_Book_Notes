@@ -112,7 +112,6 @@
   * [Remove Element Series](shu-ju-jie-gou/array/remove-element-series.md)
   * [\[Easy\] Contains Duplicate / \[Easy\] Contains Duplicate II](shu-ju-jie-gou/array/easy-contains-duplicate.md)
 * [String](shu-ju-jie-gou/string/README.md)
-  * [\[Hard\] Minimum Window Substring](shu-ju-jie-gou/string/hard-minimum-window-substring.md)
   * [\[Medium\] Break a Palindrome](shu-ju-jie-gou/string/medium-break-a-palindrome.md)
   * [\[Medium\] Longest Palindromic Substring](shu-ju-jie-gou/string/medium-longest-palindromic-substring.md)
   * [\[Easy\] Palindrome Permutation](shu-ju-jie-gou/string/easy-palindrome-permutation.md)
