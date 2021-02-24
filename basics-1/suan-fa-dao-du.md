@@ -67,6 +67,37 @@ string s = 'a b c d e f g'
   
 ```
 
+### 遍歷方式 -- Iterative / Recursive 
+
+數據結構遍歷方式只有兩種：    \(1\) **Iterative** & \(2\) **Recursive**   
+如何遍歷＋訪問？也只有兩種：\(1\) **線性的** & \(2\) **非線性的**  
+  
+線性的以for/while為代表，非線性的以Recursion為代表。
+
+#### Iteration 迭代
+
+```text
+
+```
+
+#### Recursion 遞歸
+
+> 只要是涉及Recursion的問題，都是樹Tree/Subproblem的問題。
+
+```python
+# Binary Tree框架，典型的非線性遞歸結構
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+    
+class BinaryTreeTraversal:    
+    def traverse(self, root: TreeNode):
+        self.traverse(root.left)
+        self.traverse(root.right)
+```
+
 ## Python常用用法
 
 * **Last element in a sequence:** `arr[-1]`
