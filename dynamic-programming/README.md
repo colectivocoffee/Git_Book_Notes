@@ -5,6 +5,35 @@
 所謂的動態規劃 DP，就是利用**memoize數組**來記錄已計算過的結果。但要如何知道什麼時候要記錄呢？  
 此時我們發現，當一個題目可以**“把大問題化成小問題"**，小問題化成小小問題，以此類推，利用重複計算的特性，就可以用動態規劃來解決。
 
+### DP核心
+
+動態規劃問題的一般形式就是求最xx值\(e.g. Maximum Increasing Subsequence, Min Edit Distance, Min Coin Change, Min Cost to Paint House, ....\)。
+
+求解DP的方法就是窮舉。因為要求最xx值，必須要把所有可行的答案都窮舉出來，並且在其中找最xx值。然而，DP類型的問題都存在”**重疊子問題\(duplicate subproblems\)“**，如果只是暴力解會造成Time Limit Exceeded\(TLE\)，因此需要用`memo` or `DP table` 等技巧優化窮舉過程。
+
+DP問題會有**”最優子結構\(min/max answer of a subproblem\)“**，透過子問題的最xx值來得到原始問題的最xx值。
+
+還有另外一個問題，要窮舉出所有可行解並不容易，只有列出**正確的”狀態轉移方程\(transfer function\)"`e.g f[i] = min/max{f[i-1]+item, f[i-1]}`**才能窮舉出所有結果。其中最難的是寫出transfer function公式。
+
+#### 如何想出狀態轉移方程？
+
+> 確定"狀態" -&gt; 定義DP函數的含義 -&gt; 明確"選擇" -&gt; 明確Base Case
+
+* 確定狀態
+* 定義DP函數
+* 確定選擇
+* 定義Base Case
+
+列出動態轉移方程，就是在解決”如何窮舉“的問題。然而很多的窮舉需要用Recursion實現，或是解空間subproblems很複雜，不容易窮舉完整。
+
+### DP's Time Complexity:
+
+> Time Complexity = $$(num\ of\ subproblems) * (time\ to\ solve\ each\ subproblem) $$ 
+>
+> 時間複雜度 = subproblem總數 \* 解決每個subproblem所需時間
+
+### DP 求解方式
+
 DP求解方式分兩種：  
 \(1\) 從小到大\(Bottom-Up\)，從小到大遞推。  
 \(2\) 從大到小\(Top-Down\)，從大到小記憶化搜索。  
@@ -12,15 +41,13 @@ DP求解方式分兩種：
 DP，自底向上。當我們不知道如何求解時，看**最後一步**，一步一步從底向上推。
 
 DP方法自下而上Bottom-Up: f\[0\], f\[1\], ..., f\[N\]  
-記憶化方法自上而下Top-Down:  f\(N\), f\(N-1\), ...  
-  
-More Info [Here](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.)  
-  
-Sometimes you do not need to store the whole DP table in memory, the last two values or the last two rows of the matrix will suffice.
+記憶化方法自上而下Top-Down:  f\(N\), f\(N-1\), ...
 
 {% hint style="info" %}
 貪心算法常靠背答案，因此如果能用DP的題目來解，就儘量用DP。
 {% endhint %}
+
+More Info [Here](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.)
 
 ## DFS 和 DP 的區別
 
