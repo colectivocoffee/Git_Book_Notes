@@ -192,6 +192,12 @@ for char in s:
 
 * **List Deep Copy**  `copied_list = original_list[::]`  直接深度拷貝原始List。
 
+### Division 除法
+
+* //
+* /
+* %
+
 ## Advanced Python
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
@@ -233,7 +239,7 @@ A decorator is a function that takes another function as an argument.
 
 Time Complexity是跟最內層的循環次數有關，跟有幾層for loop/while loop沒有必然相關。
 
-## Time/Space Complexity Trade-offs
+### Time/Space Complexity Trade-offs
 
 Generally, to improve the speed of a program, we can either:   
 \(1\) choose a more appropriate data structure/algorithm; or   
