@@ -6,7 +6,7 @@ Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, re
 
 **Follow up:** The overall run time complexity should be `O(log (m+n))`.
 
-### 1. Mid + Bitwise NOT Operator "~": 
+### 1. Mid + Bitwise NOT Operator "~": O\(nlogn\) / O\(n+m\)
 
 ```python
 def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
@@ -21,7 +21,7 @@ def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
 
 This problem is featured on [LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/) along with a [fairly clever solution](https://leetcode.com/problems/median-of-two-sorted-arrays/solution/) that is explained in a somewhat intricate way. This post is an attempt to explain the general intuition behind that solution in simple terms.
 
-### 2. Binary Search: O\(m+n\) / O\(1\)
+### 2. Binary Search: O\(log\(m,n\)\) / O\(1\)
 
 * 決定要從A & B各拿多少個elements來組成A U B： 由最後一個element A\[i\], B\[j\]比較的方式決定
 
