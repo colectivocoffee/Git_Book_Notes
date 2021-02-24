@@ -76,8 +76,12 @@ string s = 'a b c d e f g'
 
 #### Iteration 迭代
 
-```text
-
+```python
+# 數組遍歷框架，典型的線性迭代結構
+def traverse(self, arr):
+    for i in range(len(arr)):
+        arr[i] = ...
+        # 迭代訪問arr[i]
 ```
 
 #### Recursion 遞歸
