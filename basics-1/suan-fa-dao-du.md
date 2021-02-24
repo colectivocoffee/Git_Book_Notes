@@ -205,6 +205,7 @@ for char in s:
 3. **Python Decorator**
 4. **itertools  lru\_cache, product**
 5. **collections**
+6. **bitwise operators**
 
 **Zip用法**  
 給兩個list，把它們用zip的方式黏在一起。如果遇到不匹配數量，則用None補齊。  
@@ -230,6 +231,10 @@ A decorator is a function that takes another function as an argument.
 
 * **`itertools.lru_cache()`** ssss
 * **`itertools.product(*args, repeat=1)`** 給定一個list of lists \(e.g. \[\[\],\[\]....\]\)，把目前裡面所有的item，全部相互組合，即\(\[\[1,2\],\[3,4\],\[5,6\]\] -&gt; 總共 $$2^3$$個乘積\) e.g. `a = [[1,2],[3,4],[5,6]] product_a = list(itertools.product(*a, repeat=1)) #用list()把iterator obj化成可視化list  product_a = [(1, 3, 5), (1, 3, 6), (1, 4, 5), (1, 4, 6), (2, 3, 5), (2, 3, 6), (2, 4, 5), (2, 4, 6)]` 
+
+### 6. Bit Operators
+
+* **Bitwise NOT Operator `~`:** NOT Operator是把數字映射到正負數的另外一端\(complement of num\)，利用以下公式：_`~(num + 1)`_ 替換原始的num。 功能：可以利用它來找出median numbers e.g.  `num = -3 ~num = - (-3 + 1)  >>> 2 -----  num2 = 5 ~num2 = - (5 + 1) >>> -6  ----- mid = 3 result = (mid + ~mid) / 2    # (3 + -(3+1)) / 2 >>> -0.5`
 
 ## Time Complexity
 
