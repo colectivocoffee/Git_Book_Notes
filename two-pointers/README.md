@@ -194,11 +194,9 @@ def isPalindrome(self, s):
 
 ## 練習
 
-* [Two Sum](https://leetcode.com/problems/two-sum/)
-* [Three Sum](https://leetcode.com/problems/3sum/)
-* [ ] Two Sum
-* [ ] Three Sum
-* [ ] Valid Palindrome
-* [ ] Container With Most Water
+* [x] [Two Sum](https://leetcode.com/problems/two-sum/)
+* [ ] [Three Sum](https://leetcode.com/problems/3sum/)
+* [x] Valid Palindrome
+* [x] Container With Most Water
 * [ ] Find K Closest Elements
 

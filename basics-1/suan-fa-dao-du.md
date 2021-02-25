@@ -231,7 +231,7 @@ for char in s:
 
 * //
 * /
-* %
+* % : modulo operation
 
 ## Advanced Python
 

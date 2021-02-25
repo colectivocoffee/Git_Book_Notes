@@ -102,6 +102,7 @@
   * [\[Medium\] Remove Nth Node From End of List](shu-ju-jie-gou/linked-list/medium.md)
 * [Array](shu-ju-jie-gou/array/README.md)
   * [\[Interview\] Airplane Seats Assignment](shu-ju-jie-gou/array/interview-airplane-seats-assignment.md)
+  * [\[Easy\] Check if Array is Sorted and Rotated](shu-ju-jie-gou/array/easy-check-if-array-is-sorted-and-rotated.md)
   * [\[Hard\] Median of Two Sorted Arrays](shu-ju-jie-gou/array/hard-median-of-two-sorted-arrays.md)
   * [\[Hard\] Longest Consecutive Sequence](shu-ju-jie-gou/array/hard-longest-consecutive-sequence.md)
   * [\[Hard\] Trapping Rain Water](shu-ju-jie-gou/array/hard-trapping-rain-water.md)
