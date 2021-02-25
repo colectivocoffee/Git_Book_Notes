@@ -1,6 +1,6 @@
 # \[Easy\] Check if Array is Sorted and Rotated
 
-## \[Easy\] Check if Array is Sorted and Rotated     \(125/24\)
+## [\[Easy\] Check if Array is Sorted and Rotated](https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/)     \(125/24\)
 
 Given an array `nums`, return `true` _if the array was originally sorted in non-decreasing order, then rotated **some** number of positions \(including zero\)_. Otherwise, return `false`.
 
