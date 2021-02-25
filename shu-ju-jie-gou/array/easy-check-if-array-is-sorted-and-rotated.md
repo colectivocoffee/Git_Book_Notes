@@ -28,7 +28,7 @@ Explanation: [1,1,1] is the original sorted array.
 You can rotate any number of positions to make nums.
 ```
 
-### 1. Rotate Index + Index Slicing: O\(N\) / O\(N\)
+### 1. Brute Force Traversal, Rotate Index + Index Slicing: O\(N\) / O\(N\)
 
 Time Complexity: O\(N\)  Traverses two times would take 2N time  
 Space Complexity: O\(N\) Index slicing would take another N space to build sorted\_nums
@@ -54,5 +54,27 @@ def check(self, nums: List[int]) -> bool:
         if sorted_nums[i] > sorted_nums[i+1]:
             return False
     return True
+```
+
+### 2. Count \# of Decreasing Order: O\(N\) / O\(1\)
+
+> 思路：數Decreasing Order有幾個。  
+> 用法一解完後可以發現，Rotate Index 其實是一個Decreasing Order，而題目只能有至多一個Decreasing Order \(由Rotated Array產生\)，只要超過一個，就代表原來的nums不只被rotated，還有其他問題，需要return False。
+
+![](../../.gitbook/assets/check_sorted_rotated.jpg)
+
+```python
+def check(self, nums: List[int]) -> bool:
+
+    count = 0
+    # 這裡的range為什麼不用從1, len(nums)-1?
+    # 因為Python nums[i-1]如果遇到idx=0時，會自動取nums最後一個數(nums[-1])，
+    # 這樣順便幫我們比較了nums[0] & nums[-1]這兩個數。
+    for i in range(len(nums)):
+        if nums[i-1] > nums[i]:     
+            count += 1
+    
+    # False的話，代表發現了兩個以上的decreasing order
+    return count <= 1 
 ```
 
