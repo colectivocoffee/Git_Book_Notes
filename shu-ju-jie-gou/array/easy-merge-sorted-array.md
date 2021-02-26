@@ -44,6 +44,7 @@ def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
     """
 
     # deepcopy
+    # 由於nums1為最後要的答案，我們把原始nums1當作result來填答，而nums1_ref為Reference，不改它。
     nums1_ref = nums1[:m]
 
     # ptr for nums1, nums2
