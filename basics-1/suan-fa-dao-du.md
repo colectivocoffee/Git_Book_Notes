@@ -235,10 +235,15 @@ for char in s:
 
 ### Swap 三步翻轉法
 
+使用時機：只要是需要對調，就可以使用兩個指針來實現。
+
+Time Complexity: O\(N\) 翻轉一次，總共交換三次  
+Space Complexity: O\(1\) 原地交換
+
 {% tabs %}
 {% tab title="Python" %}
 ```python
-# 法一：直接換
+# 法一：直接換char/element
 for i in range(len(nums)-1):
     nums[i], nums[other] = nums[other], nums[i]
 
@@ -254,7 +259,18 @@ for i in range(1, len(nums)-1):
     if nums[i] < nums[i-1]:
         temp = nums[i]
         nums[i] = nums[i-1]
-        nums[i-1] = temp    
+        nums[i-1] = temp 
+
+# 法三：翻轉整個list
+# step1: 先翻轉前半部分
+# step2: 在翻轉後半部分
+# step3: 最後整體翻轉   
+def rotate(self, A, offset):
+    before = A[ : len(A) - offset]
+    after =  A[len(A) - offset : ]
+    A = before[::-1] + after[::-1]
+    A = A[::-1]
+    return A
 ```
 {% endtab %}
 
