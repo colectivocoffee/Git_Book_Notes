@@ -252,8 +252,14 @@ for i in range(len(nums)-1):
 {% endtab %}
 
 {% tab title="Java" %}
-```
-
+```java
+public void swap(char[] s) {
+    for (int i = 0, other = s.length - 1; i < other; i++; other--){
+        char temp = s[i];
+        s[i] = s[other];
+        s[other] = temp;
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
