@@ -248,6 +248,13 @@ for i in range(len(nums)-1):
     nums[i] = nums[other]
     # >>> 這裡可以做其他事，例如 nums[i] = max(nums[i]+a, b)... 等
     nums[other] = temp
+    
+# e.g.比大小後再換
+for i in range(1, len(nums)-1):
+    if nums[i] < nums[i-1]:
+        temp = nums[i]
+        nums[i] = nums[i-1]
+        nums[i-1] = temp    
 ```
 {% endtab %}
 
