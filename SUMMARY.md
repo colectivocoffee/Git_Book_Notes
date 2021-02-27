@@ -44,6 +44,7 @@
   * [\[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Stock II / \[Hard\] Stock III](dynamic-programming/easy-best-time-to-buy-and-sell-stock.md)
   * [\[Medium\] Jump Game /                                       \[Hard\] Jump Game II](dynamic-programming/medium-jump-game.md)
 * [Two Pointers](two-pointers/README.md)
+  * [\[Medium\] Sort Colors](two-pointers/medium-sort-colors.md)
   * [\[Medium\] Next Greater Number III](two-pointers/medium-next-greater-number-iii.md)
   * [\[Medium\] Next Permutation](two-pointers/medium-next-permutation.md)
   * [\[Medium\] Minimum Size Subarray Sum](two-pointers/medium-minimum-size-subarray-sum.md)
