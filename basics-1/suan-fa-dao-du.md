@@ -233,6 +233,31 @@ for char in s:
 * /
 * % : modulo operation
 
+### Swap 三步翻轉法
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# 法一：直接換
+for i in range(len(nums)-1):
+    nums[i], nums[other] = nums[other], nums[i]
+
+# 法二：三步翻轉法（優點是可以暫時保留原始資料，並且在半途對nums[i]做一些事情還不影響交換。
+for i in range(len(nums)-1):
+    temp = nums[i]
+    nums[i] = nums[other]
+    # >>> 這裡可以做其他事，例如 nums[i] = max(nums[i]+a, b)... 等
+    nums[other] = temp
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```
+
+```
+{% endtab %}
+{% endtabs %}
+
 ## Advanced Python
 
 1. **lambda用法**  \([https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593](https://medium.com/better-programming/lambda-map-and-filter-in-python-4935f248593)\)
