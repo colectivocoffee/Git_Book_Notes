@@ -263,7 +263,7 @@ for i in range(1, len(nums)-1):
 
 # 法三：翻轉整個list
 # step1: 先翻轉前半部分
-# step2: 在翻轉後半部分
+# step2: 再翻轉後半部分
 # step3: 最後整體翻轉   
 def rotate(self, A, offset):
     before = A[ : len(A) - offset]
