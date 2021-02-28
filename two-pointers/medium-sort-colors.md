@@ -57,5 +57,8 @@ def sortColors(self, nums: List[int]) -> None:
     return nums
 ```
 
-###   
+####  相似題
+
+* [Sort List](https://leetcode.com/problems/sort-list/) Medium   \(Linked List\)
+* Merge Two Sorted Lists Easy
 
