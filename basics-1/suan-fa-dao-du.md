@@ -229,9 +229,14 @@ for char in s:
 
 ### Division 除法
 
-* //
-* /
-* % : modulo operation
+e.g.  $$5 \div 2 = 2.5\  ...\ 1  $$   
+       `5 // 2 >>> 2  
+5  / 2 >>> 2.5  
+ 5 % 2 >>>     1`
+
+* //：商 \(int version\)               &gt;&gt;&gt; 2
+* / ：商 \(float version\)            &gt;&gt;&gt; 2.5
+* % : modulo operation 餘數  &gt;&gt;&gt; 1
 
 ### Swap 三步翻轉法
 
