@@ -1,6 +1,17 @@
 # \[Easy\] Move Zeros
 
+## [\[Easy\] Move Zeros](https://leetcode.com/problems/move-zeroes/)    \(5115/158\)
 
+Given an array `nums`, write a function to move all `0`'s to the end of it while maintaining the relative order of the non-zero elements.  
+Note:  
+1. You must do this **in-place** without making a copy of the array.  
+2. Minimize the total number of operations.
+
+```text
+Example
+Input: [0,1,0,3,12]
+Output: [1,3,12,0,0]
+```
 
 ### 1. Two Pointers \(-&gt;/-&gt;\) and swap: O\(N\) / O\(1\)
 
@@ -20,9 +31,9 @@ def moveZeroes(self, nums: List[int]) -> None:
     return nums
 ```
 
-### 2. 
+### 2. 先找last non zero idx, 後補0：O\(N\) / O\(1\)
 
-Find the last non zero index first, then redo it again
+Find the last non zero index first, then place zero onto the remaining elements
 
 ```python
 e.g. [ 0 , 1 , 0 , 3 , 12 ]
