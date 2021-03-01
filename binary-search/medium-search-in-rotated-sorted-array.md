@@ -51,21 +51,23 @@ def search(self, nums: List[int], target: int) -> int:
         if nums[mid] == target:
             return mid
         
+        # >   在mid左邊
         # start - [target] - mid .... end
         if nums[start] < nums[mid]:
-            # (1)
+            # (1) start < target < mid
             if nums[start] <= target and target <= nums[mid]:
                 end = mid
-            # (2)
+            # (2) start-rotate-mid
             else:
                 start = mid 
-            
+        
+        # <   在mid右邊    
         #                ... mid - [target] - end
         elif nums[mid] < nums[end]:
-            # (3)
+            # (3) mid < target < end
             if nums[mid] <= target and target <= nums[end]:
                 start = mid
-            # (4)
+            # (4) mid-rotate-end
             else:
                 end = mid
         
@@ -74,7 +76,7 @@ def search(self, nums: List[int], target: int) -> int:
         return start
     if nums[end] == target:
         return end
-    
+    # cannot find
     return -1
     
 ```
