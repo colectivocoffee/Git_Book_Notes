@@ -331,7 +331,7 @@ A decorator is a function that takes another function as an argument.
 
 ### 6. Bit Operators
 
-* **Bitwise NOT Operator `~`:** NOT Operator是把數字映射到正負數的另外一端\(complement of num\)，利用以下公式：_`~(num + 1)`_ 替換原始的num。 功能：可以利用它來找出median numbers e.g.  `num = -3 ~num = - (-3 + 1)  >>> 2 -----  num2 = 5 ~num2 = - (5 + 1) >>> -6  ----- mid = 3 result = (mid + ~mid) / 2    # (3 + -(3+1)) / 2 >>> -0.5`
+* **Bitwise NOT Operator `~`:** NOT Operator是把數字映射到正負數的另外一端\(complement of num\)，利用以下公式：`~(num + 1)` __替換原始的num。 功能：可以利用它來找出median numbers e.g.  `num = -3 ~num = - (-3 + 1)  >>> 2 -----  num2 = 5 ~num2 = - (5 + 1) >>> -6  ----- mid = 3 result = (mid + ~mid) / 2    # (3 + -(3+1)) / 2 >>> -0.5`
 
 ## Time Complexity
 
