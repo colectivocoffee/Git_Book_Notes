@@ -25,7 +25,9 @@ Rotated Sorted Array只有以下三種方式：
 縮小範圍至`start = mid`，把平滑上升的start-mid部分划掉
 
 {% hint style="info" %}
-易錯點：這裡先用的是nums\[mid\] &lt;= nums\[end\]:  **end = mid** \(划掉mid-end\)
+易錯點：  
+1. 這裡先用的是nums\[mid\] &lt;= nums\[end\]:  **end = mid** \(划掉mid-end\)  
+2. 先去除duplicates，再算mid。否則mid會被改過的start, end修改。
 {% endhint %}
 
 Time Complexity: O\(logn\)  
