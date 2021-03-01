@@ -22,7 +22,7 @@ What if it contains duplicates? [Search in Rotated Sorted Array II](https://leet
 
 題意要求要time complexity O\(logn\)，代表的是只能用Binary Search來達到。
 
-### Binary Search \(4 conditions, 2 levels of if/else\)
+### 1. Binary Search \(4 conditions, 2 levels of if/else\): O\(logN\) / O\(1\)
 
 此題和Find Minimum in Rotated Sorted Array很像，但難度又提升了一點；由於Find Minimum只要判斷一次，而這題需要做兩次判斷，即四種情況，見下圖。
 
@@ -33,10 +33,6 @@ What if it contains duplicates? [Search in Rotated Sorted Array II](https://leet
 結束判斷後，由於\[start, end\]是在隔壁，我們需要再用`if nums[start] == target -> return start`and `if nums[end] == target -> return end`來看最後要選start還是end。
 
 剩餘的用Binary Search \(target\) Template完成即可。
-
-## Code
-
-#### Binary Search
 
 {% tabs %}
 {% tab title="Python" %}
@@ -84,4 +80,16 @@ def search(self, nums: List[int], target: int) -> int:
 ```
 {% endtab %}
 {% endtabs %}
+
+### 0. Search Directly: O\(N\) / O\(1\)
+
+這種解法不符合Follow-Up題意O\(logN\)要求，因此可以在剛開始提出Brute Force解。
+
+```python
+def search(self, nums: List[int], target: int) -> int:
+
+    if target in nums:
+        return nums.index(target)
+    return -1
+```
 
