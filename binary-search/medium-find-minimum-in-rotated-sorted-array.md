@@ -82,6 +82,11 @@ def findMin(self, nums: List[int]) -> int:
     
     while start + 1 < end:
         
+        # 目的--把duplicates去掉
+        #
+        # 易錯點：先去重
+        # step1. 先去duplicates 
+        # step2. 再算mid
         while start + 1 < end and nums[start] == nums[start+1]:
             start += 1
         while start + 1 < end and nums[end] == nums[end-1]:
