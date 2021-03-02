@@ -27,10 +27,18 @@ def findFirst(self, nums, target):
             start = mid        
         elif nums[mid] > target:
             end = mid
-        # left bound when mid == target
+        
+        #         mid
+        # [start, ..., end]
+        #          v        把mid邊界往左推
+        # [start, end, end]
+        # left bound when nums[mid] == target
         else:
             end = mid
-
+    
+    # [start,end]
+    #    ^    
+    # 正常版=> 先看start(左邊界)，再看end(右邊界)
     if nums[start] == target: 
         return start
     if nums[end] == target:
@@ -47,10 +55,19 @@ def findLast(self, nums, target):
             start = mid
         elif nums[mid] > target:
             end = mid
-        # right bound when mid == target
+        
+        #         mid
+        # [start, ..., end]
+        #          v         把mid邊界往右推
+        # [start,start, end]
+        # right bound when nums[mid] == target
         else:
             start = mid
-
+    
+    # 易錯點： 
+    # [start,end]
+    #         ^
+    # 先看end(右邊界)，再看start(左邊界)
     if nums[end] == target:
         return end
     if nums[start] == target:
