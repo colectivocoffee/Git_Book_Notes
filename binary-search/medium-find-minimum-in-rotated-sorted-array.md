@@ -6,6 +6,16 @@ Suppose an array sorted in ascending order is rotated at some pivot unknown to y
 Find the minimum element.  
 You may assume no duplicate exists in the array.
 
+### 0. Linear Search: O\(N\) / O\(1\)
+
+優點是很簡潔，但缺點是不符合題目要求O\(logN\)的時間。同樣的解法可以應用於下面所有題型。
+
+```python
+def findMin(self, nums: List[int]) -> int:
+    min_num = min(nums)
+    return nums.index(min_num)
+```
+
 ### 1. Binary Search: O\(logN\) / O\(1\)
 
 如果題意說是Sorted Array/Rotated Sorted Array，通常這種題目都是可以利用Binary Search來達到O\(logn\)的複雜度。  
@@ -153,6 +163,38 @@ def findPeakElement(self, nums: List[int]) -> int:
     # 易錯點：
     # nums[start] < nums[end] 代表函數遞增，取end後面
     #                            函數遞減，取start
+    if nums[start] < nums[end]:
+        return end
+    return start
+```
+
+## [\[Easy\] 852 Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)
+
+### 1. Binary Search: O\(logN\) / O\(1\)
+
+跟Find Peak Element一樣的解法
+
+```python
+def peakIndexInMountainArray(self, arr: List[int]) -> int:
+
+    nums = arr
+
+    start, end = 0, len(nums)-1
+
+    while start + 1 < end:
+
+        mid = start + (end - start) // 2
+        print(mid, start, end)
+        if nums[mid-1] < nums[mid] and nums[mid] > nums[mid+1]:
+            return mid
+
+        # (1)(3) decreasing
+        if nums[mid] < nums[mid-1]:
+            end = mid
+        # (2)(4) increasing
+        elif nums[mid] < nums[mid+1]:
+            start = mid
+
     if nums[start] < nums[end]:
         return end
     return start
