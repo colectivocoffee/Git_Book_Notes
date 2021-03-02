@@ -63,7 +63,7 @@ start, end = 0, len(nums)-1
 while start + 1 < end:
     
     # 如果有重複數，則在一開始處理
-    # while .....
+    # while start + 1 < end and nums[start]==nums[start+1]
     
     mid = start + (end-start)//2
     
