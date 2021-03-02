@@ -63,7 +63,7 @@
   * [\[Easy\] First Bad Version](binary-search/easy-first-bad-version.md)
   * [\[Medium\] Search in Rotated Sorted Array II](binary-search/medium-search-in-rotated-sorted-array-ii.md)
   * [\[Medium\] Search in Rotated Sorted Array](binary-search/medium-search-in-rotated-sorted-array.md)
-  * [\[Medium\] Find Minimum in Rotated Sorted Array / \[Hard\] Find Minimum II](binary-search/medium-find-minimum-in-rotated-sorted-array.md)
+  * [\[Medium\] Find Minimum in Rotated Sorted Array / \[Hard\] Find Minimum II / \[Medium\] Find Peak Element](binary-search/medium-find-minimum-in-rotated-sorted-array.md)
   * [\[Medium\] Search In a 2D Matrix](binary-search/medium-search-in-a-2d-matrix.md)
   * [\[Medium\] Search In 2D Matrix II](binary-search/medium-search-in-2d-matrix-ii.md)
   * [\[Easy\] Search Insert Position](binary-search/easy-search-insert-position.md)

@@ -1,13 +1,12 @@
-# \[Medium\] Find Minimum in Rotated Sorted Array / \[Hard\] Find Minimum II
+# \[Medium\] Find Minimum in Rotated Sorted Array / \[Hard\] Find Minimum II / \[Medium\] Find Peak Element
 
-[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)  
+## [\[Medium\] Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.\(i.e., `[0,1,2,4,5,6,7]` might become `[4,5,6,7,0,1,2]`\).  
 Find the minimum element.  
 You may assume no duplicate exists in the array.
 
-## Thought Process
-
-### Binary Search
+### 1. Binary Search: O\(logN\) / O\(1\)
 
 如果題意說是Sorted Array/Rotated Sorted Array，通常這種題目都是可以利用Binary Search來達到O\(logn\)的複雜度。  
   
@@ -32,18 +31,6 @@ Rotated Sorted Array只有以下三種方式：
 
 Time Complexity: O\(logn\)  
 Space Complexity: O\(1\)
-
-### Follow Up: What if this array has lots of duplicates?  
-
-[Search in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)  
-Ex: \[1,1,1,1,1,1 ....,0,1\] only has one zero here.   
-Then we could not ensure the binary search will give you O\(logn\) time, instead, it will be down to O\(n\) time. 
-
-## Code
-
-#### 1. Binary Search: O\(logn\)/O\(1\)
-
-思路請見Binary Search模板
 
 {% tabs %}
 {% tab title="Python" %}
@@ -72,9 +59,20 @@ def findMin(self, nums: List[int]) -> int:
 {% endtab %}
 {% endtabs %}
 
+#### Follow Up: What if this array has lots of duplicates?   
+
+Ans: 下面題解
+
 ## [\[Hard\] Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
 
-#### Code for Array Has Duplicates \(search in rotated sorted array II\)
+Ex: \[1,1,1,1,1,1 ....,0,1\] only has one zero here.   
+Then we could not ensure the binary search will give you O\(logn\) time, instead, it will be down to O\(n\) time. 
+
+### 1. Binary Search: O\(logn\)/O\(1\)
+
+#### Code for Array Has Duplicates \(similar to search in rotated sorted array II\)
+
+思路請見Binary Search模板
 
 ```python
 def findMin(self, nums: List[int]) -> int:
@@ -108,5 +106,55 @@ def findMin(self, nums: List[int]) -> int:
     if nums[start] < nums[end]:
         return nums[start]
     return nums[end]
+```
+
+## [\[Medium\] Find Peak Element](https://leetcode.com/problems/find-peak-element/)      \(2573/2553\)
+
+A peak element is an element that is strictly greater than its neighbors.  
+Given an integer array `nums`, find a peak element, and return its index. If the array contains multiple peaks, return the index to **any of the peaks**.  
+You may imagine that `nums[-1] = nums[n] = -∞`.
+
+```text
+Ex1
+Input: nums = [1,2,3,1]
+Output: 2
+Explanation: 3 is a peak element and your function should return the index number 2.
+
+Ex2
+Input: nums = [2,1]
+Output: 0
+
+Ex3
+Input: nums = [6,5,4,3,2,3,2]
+Output: 0
+```
+
+### 1. Binary Search: O\(logN\) / O\(1\)
+
+![\(1\) \(3\) &#x905E;&#x589E;&#xFF0C;P&#x5728;&#x5DE6;                      \(2\)\(4\) &#x905E;&#x6E1B;&#xFF0C;P&#x5728;&#x53F3;](../.gitbook/assets/find_peak_element.jpg)
+
+```python
+def findPeakElement(self, nums: List[int]) -> int:
+
+    start, end = 0, len(nums)-1
+
+    while start + 1 < end:
+        mid = start + (end - start) // 2
+        # peak is at mid idx
+        if nums[mid-1] < nums[mid] and nums[mid] > nums[mid+1]:
+            return mid    
+        # (2)(4) increasing
+        if nums[mid] < nums[mid+1]:
+            start = mid
+        # (1)(3) decreasing
+        elif nums[mid] > nums[mid+1]:
+            end = mid
+    
+    # 易錯點：
+    # nums[start] < nums[end] 代表函數遞增，取end後面
+    #                            函數遞減，取start
+    if nums[start] < nums[end]:
+        return end
+    return start
 ```
 
