@@ -26,6 +26,9 @@ start, end = 0, len(nums)-1
 # use 'start + 1 < end' to prevent dead lock
 while start + 1 < end:
     
+    # 如果有重複數，則在一開始處理
+    # while .....
+    
     mid = start + (end-start)//2
     
     # mid < end && mid > start
@@ -58,6 +61,9 @@ start, end = 0, len(nums)-1
 
 #### start + 1 < end ####
 while start + 1 < end:
+    
+    # 如果有重複數，則在一開始處理
+    # while .....
     
     mid = start + (end-start)//2
     
