@@ -2,6 +2,13 @@
 
 ## [\[Easy\] Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
 
+Given two arrays, write a function to compute their intersection.
+
+```text
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+```
+
 ### 1. Set: O\(N\)/O\(N\)
 
 ```python
@@ -13,7 +20,7 @@ def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
     return list(set1 & set2)
 ```
 
-#### \[Medium\] Follow-Up: What if the array is sorted, can you do it in O\(N\) time and O\(1\) space?
+## \[Medium\] Follow-Up: What if the array is sorted, can you do it in O\(N\) time and O\(1\) space?
 
 ### 1. Linear Search Two Pointers: O\(N\) / O\(1\)
 
@@ -49,7 +56,14 @@ def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
 ## \[Easy\] Intersection of Two Arrays II
 
+Given two arrays, write a function to compute their intersection.  
+\(和第一種的差別是，所有的重複intersection都要算在內\)
 
+```text
+Ex1
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2,2]
+```
 
 **Follow up:**
 
@@ -83,14 +97,17 @@ def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
     return result
 ```
 
-### 2. Dictionary: O\(N\)
+### 2. Dictionary + Counter: O\(N+M\) / O\(min\(N,M\)\)
 
-> 思路：用Dictionary計算counts，counts隨之增減。  
+> 思路：**用Dictionary計算counts，counts隨之增減**。  
 > 既然要找Intersection，可以用Dictionary/HashMap來紀錄nums1的每個element出現次數。  
 > 每發現一個intersection，就count減一並加到result，  
 > 直到小於0時就代表沒有，則可以跳過。
 
-![](../.gitbook/assets/image%20%2826%29.png)
+Time Complexity: O\(N+M\) where nn and mm are the lengths of the arrays  
+Space Complexity: O\(min\(N,M\)\) We use hash map to store numbers \(and their counts\) from the smaller array.
+
+![count&#x96A8;&#x4E4B;&#x589E;&#x6E1B;](../.gitbook/assets/image%20%2826%29.png)
 
 ```python
 def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
