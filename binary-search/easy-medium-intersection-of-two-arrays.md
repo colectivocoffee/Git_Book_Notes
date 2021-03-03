@@ -13,13 +13,13 @@ def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
     return list(set1 & set2)
 ```
 
-#### Follow-Up: What if the array is sorted, can you do it in O\(N\) time and O\(1\) space?
+#### \[Medium\] Follow-Up: What if the array is sorted, can you do it in O\(N\) time and O\(1\) space?
 
 ```python
 def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
-    nums1.sort()
-    nums2.sort()
+    nums1.sort()  # assume the nums1 array is sorted
+    nums2.sort()  #            nums2
 
     result = []
     if len(nums1) < 1 or len(nums2) < 1:
