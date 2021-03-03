@@ -61,6 +61,7 @@
   * [\[Easy\] Two Sum IV - Input is a BST](bst/two-sum-iv-input-is-a-bst.md)
 * [Binary Search](binary-search/README.md)
   * [\[Easy\] First Bad Version](binary-search/easy-first-bad-version.md)
+  * [\[Easy-Medium\] Intersection of Two Arrays](binary-search/easy-medium-intersection-of-two-arrays.md)
   * [\[Medium\] Find First and Last Position of Element in Sorted Array](binary-search/medium-find-first-and-last-position-of-element-in-sorted-array.md)
   * [\[Medium\] Search in Rotated Sorted Array II](binary-search/medium-search-in-rotated-sorted-array-ii.md)
   * [\[Medium\] Search in Rotated Sorted Array](binary-search/medium-search-in-rotated-sorted-array.md)
