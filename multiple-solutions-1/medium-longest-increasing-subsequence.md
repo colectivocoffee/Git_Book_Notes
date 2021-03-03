@@ -84,7 +84,7 @@ def lengthOfLIS(self, nums: List[int]) -> int:
     if not nums or len(nums) == 0:
         return 1
         
-    f = [1 for i in range(len(nums))]
+    f = [1 for _ in range(len(nums))]
     
     for j in range(len(nums)):
         for i in range(j): # in this case, j is always greater or equal than i
