@@ -39,6 +39,7 @@
   * [\[Medium\] Decode Ways](dynamic-programming/medium-decode-ways.md)
   * [\[Medium\] Coin Change](dynamic-programming/medium-coin-change.md)
   * [\[Medium\] House Robber / \[Medium\] Robber II / \[Medium\] Paint House](dynamic-programming/medium-house-robber-ii.md)
+  * [\[Easy\] House Robber](dynamic-programming/easy-house-robber.md)
   * [\[Medium\] Maximum Product Subarray](dynamic-programming/medium-maximum-product-subarray.md)
   * [\[Easy\] Maximum Subarray](dynamic-programming/easy-maximum-subarray.md)
   * [\[Easy\] Best Time to Buy and Sell Stock / \[Easy\] Stock II / \[Hard\] Stock III](dynamic-programming/easy-best-time-to-buy-and-sell-stock.md)
@@ -73,7 +74,6 @@
   * [\[Easy\] Longest Common Prefix](multiple-solutions-1/easy-longest-common-prefix.md)
   * [\[Medium\] Word Break](multiple-solutions-1/medium-word-break.md)
   * [\[Medium\] Longest Increasing Subsequence](multiple-solutions-1/medium-longest-increasing-subsequence.md)
-  * [\[Easy\] House Robber](multiple-solutions-1/easy-house-robber.md)
   * [\[Easy\] Climbing Stairs](multiple-solutions-1/easy-climbing-stairs.md)
 
 ## 數據結構
