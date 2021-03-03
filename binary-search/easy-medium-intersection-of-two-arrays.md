@@ -127,7 +127,7 @@ def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
     return result
 ```
 
-### **Ans to Follow-up Questions**
+## **Answer to Follow-up Questions**
 
 1. What if the given array is already sorted? How would you optimize your algorithm?
    * We can use **Sol1 Sort+TwoPointers** dropping the sort of course. It will give us linear time and constant memory complexity.
