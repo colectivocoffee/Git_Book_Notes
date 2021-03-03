@@ -1,4 +1,4 @@
-# \[Easy-Medium\] Intersection of Two Arrays
+# \[Easy\] Intersection of Two Arrays / \[Easy\] Intersection II
 
 ## [\[Easy\] Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
 
@@ -15,7 +15,7 @@ def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
 #### \[Medium\] Follow-Up: What if the array is sorted, can you do it in O\(N\) time and O\(1\) space?
 
-### 1. Linear Search
+### 1. Linear Search Two Pointers: O\(N\) / O\(1\)
 
 ```python
 def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -41,6 +41,34 @@ def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         elif nums1[i] > nums2[j]:
             j += 1
         # move smaller element in nums1 forward
+        else:
+            i += 1
+
+    return result
+```
+
+## \[Easy\] Intersection of Two Arrays II
+
+### 1. Linear Search Two Pointers: O\(NlogN\) / O\(1\)
+
+```python
+def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+
+    nums1.sort()
+    nums2.sort()
+
+    result = []
+
+    i = 0
+    j = 0
+    while i < len(nums1) and j < len(nums2):
+        if nums1[i] == nums2[j]:
+            result.append(nums1[i])
+            i += 1
+            j += 1
+
+        elif nums1[i] > nums2[j]:
+            j += 1
         else:
             i += 1
 
