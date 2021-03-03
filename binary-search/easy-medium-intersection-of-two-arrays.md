@@ -15,6 +15,8 @@ def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
 #### \[Medium\] Follow-Up: What if the array is sorted, can you do it in O\(N\) time and O\(1\) space?
 
+### 1. Linear Search
+
 ```python
 def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
