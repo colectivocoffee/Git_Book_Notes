@@ -49,6 +49,14 @@ def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
 ## \[Easy\] Intersection of Two Arrays II
 
+
+
+**Follow up:**
+
+* What if the given array is already sorted? How would you optimize your algorithm?
+* What if nums1's size is small compared to nums2's size? Which algorithm is better?
+* What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+
 ### 1. Linear Search Two Pointers: O\(NlogN\) / O\(1\)
 
 ```python
@@ -71,6 +79,29 @@ def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
             j += 1
         else:
             i += 1
+
+    return result
+```
+
+### 2. Dictionary: O\(N\)
+
+> 思路：用Dictionary計算counts，counts隨之增減。  
+> 既然要找Intersection，可以用Dictionary/HashMap來紀錄nums1的每個element出現次數。  
+> 每發現一個intersection，就count減一並加到result，  
+> 直到小於0時就代表沒有，則可以跳過。
+
+![](../.gitbook/assets/image%20%2826%29.png)
+
+```python
+def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+
+    count = collections.Counter(nums1)
+    result = []
+
+    for num in nums2:
+        if count[num] > 0:
+            result.append(num)
+            count[num] -= 1
 
     return result
 ```
