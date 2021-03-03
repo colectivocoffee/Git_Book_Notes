@@ -22,7 +22,7 @@ def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
 ## \[Medium\] Follow-Up: What if the array is sorted, can you do it in O\(N\) time and O\(1\) space?
 
-### 1. Linear Search Two Pointers: O\(N\) / O\(1\)
+### 1. Sort, Two Pointers: O\(N\) / O\(1\)
 
 ```python
 def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
@@ -71,7 +71,7 @@ Output: [2,2]
 * What if nums1's size is small compared to nums2's size? Which algorithm is better?
 * What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 
-### 1. Linear Search Two Pointers: O\(NlogN\) / O\(1\)
+### 1. Sort + Two Pointers: O\(NlogN\) / O\(1\)
 
 ```python
 def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
