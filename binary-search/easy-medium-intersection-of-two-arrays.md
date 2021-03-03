@@ -73,6 +73,10 @@ Output: [2,2]
 
 ### 1. Sort + Two Pointers: O\(NlogN\) / O\(1\)
 
+You can recommend this method when the input is sorted, or when the output needs to be sorted.
+
+![](../.gitbook/assets/image%20%2827%29.png)
+
 ```python
 def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
@@ -122,4 +126,16 @@ def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
 
     return result
 ```
+
+### **Ans to Follow-up Questions**
+
+1. What if the given array is already sorted? How would you optimize your algorithm?
+   * We can use **Sol1 Sort+TwoPointers** dropping the sort of course. It will give us linear time and constant memory complexity.
+2. What if _nums1's_ size is small compared to _nums2's_ size? Which algorithm is better?
+   * **Sol2 Dictionary** is a good choice here as we use a hash map for the smaller array.
+3. What if elements of _nums2_ are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+   * If `nums1` fits into the memory, we can use **Sol2 Dicitonary** to collect counts for `nums1` into a hash map. Then, we can sequentially load and process `nums2`.
+   * If neither of the arrays fit into the memory, we can apply some partial processing strategies:
+     * Split the numeric range into subranges that fits into the memory. Modify **Sol2 Dictionary** to collect counts only within a given subrange, and call the method multiple times \(for each subrange\).
+     * Use an external sort for both arrays. Modify **Sol1 Sort+TwoPointers** to load and process arrays sequentially.
 
