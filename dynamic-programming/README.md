@@ -9,7 +9,9 @@
 
 動態規劃問題的一般形式就是求最xx值\(e.g. Maximum Increasing Subsequence, Min Edit Distance, Min Coin Change, Min Cost to Paint House, ....\)。
 
-求解DP的方法就是窮舉。因為要求最xx值，必須要把所有可行的答案都窮舉出來，並且在其中找最xx值。然而，DP類型的問題都存在”**重疊子問題\(duplicate subproblems\)“**，如果只是暴力解會造成Time Limit Exceeded\(TLE\)，因此需要用`memo` or `DP table` 等技巧優化窮舉過程。
+> **求解DP的方法就是窮舉，列出所有可能性，並且記錄當下的最xx值到dp table。**
+
+因為要求最xx值，必須要把所有可行的答案都窮舉出來，並且在其中找最xx值。然而，DP類型的問題都存在”**重疊子問題\(duplicate subproblems\)“**，如果只是暴力解會造成Time Limit Exceeded\(TLE\)，因此需要用`memo` or `DP table` 等技巧優化窮舉過程。
 
 DP問題會有**”最優子結構\(min/max answer of a subproblem\)“**，透過子問題的最xx值來得到原始問題的最xx值。
 
