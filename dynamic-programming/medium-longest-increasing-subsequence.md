@@ -114,10 +114,12 @@ def lengthOfLIS(self, nums: List[int]) -> int:
 {% endtab %}
 {% endtabs %}
 
-### （3）DP + Binary Search
+### （3）DP + Binary Search: O\(NlogN\) / O\(N\)
 
 **Time Complexity：Ｏ\(** $$nlogn$$ **\)**  
 **Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
+
+sss
 
 #### Notes
 
