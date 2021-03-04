@@ -24,7 +24,8 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 
 \[思路\] 因為不知道有多少數字符合，也不知道有多少for loop，因此用Recursion來確認每一個數是不是increasing subsequence裡的一員。  
   
-如何確定能否走下去，此時只有兩種選擇：\(1\)`taken`  \(2\) `not_taken`  
+如何確定能否走下去？  
+此時只有兩種選擇：\(1\)`taken`  \(2\)`not_taken` 目前的數字nums\[curr\]  
 \(1\) `taken`: 取當下的數字nums\[curr\]並且長度+1  
        要taken的判斷條件為 `nums[curr] > nums[prev] (向右遞增，越後面數字越大)`  
 \(2\) `not_taken`: 不取當下的數字nums\[curr\]，長度維持原樣  
