@@ -32,6 +32,7 @@
   * [\[Medium\] Combination Sum](backtracking/medium-combination-sum.md)
   * [\[Medium\] Subsets](backtracking/medium-subsets.md)
 * [Dynamic Programming](dynamic-programming/README.md)
+  * [\[Medium\] Longest Increasing Subsequence](dynamic-programming/medium-longest-increasing-subsequence.md)
   * [\[Medium\] Palindromic Substring](dynamic-programming/medium-palindromic-substring.md)
   * [\[Hard\] Edit Distance](dynamic-programming/hard-edit-distance.md)
   * [\[Medium\] Longest Common Subsequence \(LCS\)](dynamic-programming/medium-longest-common-subsequence-lcs.md)
@@ -73,7 +74,6 @@
 * [Multiple Solutions](multiple-solutions-1/README.md)
   * [\[Easy\] Longest Common Prefix](multiple-solutions-1/easy-longest-common-prefix.md)
   * [\[Medium\] Word Break](multiple-solutions-1/medium-word-break.md)
-  * [\[Medium\] Longest Increasing Subsequence](multiple-solutions-1/medium-longest-increasing-subsequence.md)
   * [\[Easy\] Climbing Stairs](multiple-solutions-1/easy-climbing-stairs.md)
 
 ## 數據結構
