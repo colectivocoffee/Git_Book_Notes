@@ -20,12 +20,15 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 \(2\)用Dynamic Programming，加上memoization把答案都記下來。  
 \(3\)用DP + Binary Search。
 
-### （1）Brute Force + Recursion
-
-         **Time Complexity：Ｏ\(** $$2^n$$ **\)**  
-         **Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
+### （1）Recursion, Brute Force Scanning: O\(2^N\) / O\(N\)
 
 \[思路\] 因為不知道有多少數字符合，也不知道有多少for loop，因此用Recursion來確認每一個數是不是increasing subsequence裡的一員。  
+  
+如何確定能否走下去，此時只有兩種選擇：\(1\)`taken`  \(2\) `not_taken`  
+\(1\) `taken`: 取當下的數字nums\[curr\]並且長度+1  
+       要taken的判斷條件為 `nums[curr] > nums[prev] (向右遞增，越後面數字越大)`  
+\(2\) `not_taken`: 不取當下的數字nums\[curr\]，長度維持原樣  
+  
 1. Recursion\(nums, currIndex, prevIndex\)   
      --&gt; currIndex從**`0`**開始, prevIndex從**`-1`**開始  
 2. 建一個lis\_list來記錄LIS的長度  
@@ -33,13 +36,39 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 ，即lis\_list長度可+1，並且currIndex往後挪，prevIndex變成currIndex。  
 4. 如果不符合條件，則currIndex + 1，prevIndex不變。
 
+         **Time Complexity：Ｏ\(** $$2^n$$ **\)**  
+         **Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
+
+```python
+def lengthOfLIS(self, nums: List[int]) -> int:
+    return self.findMaxLen(nums, -1, 0)
+
+def findMaxLen(self, nums, prev, curr):
+    if curr == len(nums):
+        return 0
+
+    taken = 0
+    # 需要額外確定邊界 prev==-1 時的情況
+    # 普通條件：nums[curr] > nums[prev] (向右遞增，越後面數字越大)
+    if prev == -1 or nums[curr] > nums[prev]:
+        taken = 1 + self.findMaxLen(nums, curr, curr + 1)
+
+    not_taken = self.findMaxLen(nums, prev, curr + 1)
+
+    return max(taken, not_taken)
+```
+
 ### （2）Bottom-Up DP: O\(N^2\) / O\(N\)
+
+
 
 1. **Define the state:**  原來的數組`[9,2,5,3,7,101]`裡，一定有一個數`a[j]`是整個longest subsequence裡最大的，也肯定有第二大的`a[i]`，即`[ * * *,` **`a[i]`**`, * * *,` **`a[j]`**`]`，  where `j` is always greater than`i (j > i)`  
 2.  **Transfer function:**  **`f[j] = max{f[j], f[i] + 1},   where a[j] > a[i]`** `f[j]` 如果為最大，則要+1，否則就是維持原樣`f[j]` 
 3. **Init state and set Boundaries**: init state: f\[i\] = 1 boundaries: \(1\)  `i>=0`,   \(2\) `a[j] > a[i]` `a[j]`這個數肯定大於`a[i]` 
 4. **Calculate sequence:** f\[0\], f\[1\], f\[2\], ...., f\[n-1\] 裡面其中一個最長的，因此 return max\( f\[0\], f\[1\], f\[2\], ...., f\[n-1\] \)  **Time Complexity：Ｏ\(** $$n^2$$ **\)**，即`for i + for j`，\(i, j\)雙重遍歷。 **Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
 
+{% tabs %}
+{% tab title="Python" %}
 ```python
 # e.g. [10, 9, 2, 5, 3, 7, 90, 18]
 #              L  R 
@@ -83,24 +112,6 @@ def lengthOfLIS(self, nums: List[int]) -> int:
 
     return max(dp)
 ```
-
-{% tabs %}
-{% tab title="Python" %}
-```python
-def lengthOfLIS(self, nums: List[int]) -> int:
-
-    if not nums or len(nums) == 0:
-        return 1
-        
-    f = [1 for _ in range(len(nums))]
-    
-    for j in range(len(nums)):
-        for i in range(j): # in this case, j is always greater or equal than i
-            if nums[j] > nums[i]:
-                f[j] = max(f[j], f[i] + 1)
-                
-    return max(f)
-```
 {% endtab %}
 {% endtabs %}
 
@@ -109,9 +120,7 @@ def lengthOfLIS(self, nums: List[int]) -> int:
 **Time Complexity：Ｏ\(** $$nlogn$$ **\)**  
 **Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
 
-
-
-
+#### Notes
 
 ```text
  '''
