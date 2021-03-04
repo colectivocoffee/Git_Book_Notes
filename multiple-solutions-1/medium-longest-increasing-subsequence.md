@@ -42,6 +42,72 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 3. **Init state and set Boundaries**: init state: f\[i\] = 1 boundaries: \(1\)  `i>=0`,   \(2\) `a[j] > a[i]` `a[j]`這個數肯定大於`a[i]` 
 4. **Calculate sequence:** f\[0\], f\[1\], f\[2\], ...., f\[n-1\] 裡面其中一個最長的，因此 return max\( f\[0\], f\[1\], f\[2\], ...., f\[n-1\] \)  **Time Complexity：Ｏ\(** $$n^2$$ **\)**，即`for i + for j`，\(i, j\)雙重遍歷。 **Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
 
+```python
+# e.g. [10, 9, 2, 5, 3, 7, 90, 18]
+#       [1, 1, 1, 1, 1, 1,  1,  1] not/taken 1 2
+#       [1, 1, 1, 1, 1, 1,  1,  1] not/taken 1 2
+#       [1, 1, 1, 2, 2, 1,  1,  1] not/taken 1 2
+#       [1, 1, 1, 2, 2, 1,  1,  1] not/taken 1 2
+#       [1, 1, 1, 2, 2, 2,  1,  1] not/taken 2 3
+#       [1, 1, 1, 2, 2, 3,  1,  1] not/taken 3 3
+#       ....
+#       ....
+#       [1, 1, 1, 2, 2, 3,  4,  2] not/taken 2 3
+
+#       [1, 1, 1, 2, 2, 3,  4,  3] not/taken 3 3
+
+#       [1, 1, 1, 2, 2, 3,  4,  3] not/taken 3 4
+
+
+
+def lengthOfLIS(self, nums: List[int]) -> int:
+
+    if not nums:
+        return 0
+        
+    # dp array 紀錄的是到目前為止最長長度
+    # 它同時可以用來做從上一個state轉移到下一個state的參考。即dp[i-1] = max(dp[i-1],dp[i]+1)
+    dp = [1 for _ in range(len(nums))]
+    
+    # right每移動一格，就要重新看從(0, right)這個範圍的最長LIS。
+    # 在每發現一個left->遞增->right的序列時，和dp[right]比較，如果更長則更新。
+    for right in range(0,len(nums)):
+        for left in range(0,right):
+            if nums[right] > nums[left] and right > left:
+                taken = 1 + dp[left]
+                not_taken = dp[right]
+                dp[right] = max(not_taken, taken)
+
+    return max(dp)
+```
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def lengthOfLIS(self, nums: List[int]) -> int:
+
+    if not nums or len(nums) == 0:
+        return 1
+        
+    f = [1 for _ in range(len(nums))]
+    
+    for j in range(len(nums)):
+        for i in range(j): # in this case, j is always greater or equal than i
+            if nums[j] > nums[i]:
+                f[j] = max(f[j], f[i] + 1)
+                
+    return max(f)
+```
+{% endtab %}
+{% endtabs %}
+
+### （3）DP + Binary Search
+
+**Time Complexity：Ｏ\(** $$nlogn$$ **\)**  
+**Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
+
+
+
 
 
 ```text
@@ -70,53 +136,4 @@ then return max{ f[0], f[1], f[2], ... f[n-1] }
 time complexity:  n^2
 space complexity: n      
 ```
-
-
-
-```python
-def lengthOfLIS(self, nums: List[int]) -> int:
-
-    if not nums:
-        return 0
-
-    dp = [1 for _ in range(len(nums))]
-
-    for right in range(0,len(nums)):
-        for left in range(0,right):
-            if nums[right] > nums[left] and right > left:
-                taken = 1 + dp[left]
-                not_taken = dp[right]
-                dp[right] = max(not_taken, taken)
-
-    return max(dp)
-```
-
-### （3）DP + Binary Search
-
-**Time Complexity：Ｏ\(** $$nlogn$$ **\)**  
-**Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
-
-## Full Implementation
-
-{% tabs %}
-{% tab title="Python" %}
-```python
-def lengthOfLIS(self, nums: List[int]) -> int:
-
-    if not nums or len(nums) == 0:
-        return 1
-        
-    f = [1 for _ in range(len(nums))]
-    
-    for j in range(len(nums)):
-        for i in range(j): # in this case, j is always greater or equal than i
-            if nums[j] > nums[i]:
-                f[j] = max(f[j], f[i] + 1)
-                
-    return max(f)
-```
-{% endtab %}
-{% endtabs %}
-
-
 
