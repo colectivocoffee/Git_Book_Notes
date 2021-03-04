@@ -1,13 +1,11 @@
 # \[Medium\] Longest Increasing Subsequence
 
-## Question
+## [\[Medium\] Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)      \(6581/151\)
 
-[Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)  
 Given an unsorted array of integers, find the length of the longest increasing subsequence.
 
-#### Example
-
 ```text
+Ex1
 Input: [10,9,2,5,3,7,101,18]
 Output: 4 
 Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4. 
