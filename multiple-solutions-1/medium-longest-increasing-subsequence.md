@@ -44,22 +44,27 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 
 ```python
 # e.g. [10, 9, 2, 5, 3, 7, 90, 18]
-#       [1, 1, 1, 1, 1, 1,  1,  1] not/taken 1 2
-#       [1, 1, 1, 1, 1, 1,  1,  1] not/taken 1 2
-#       [1, 1, 1, 2, 2, 1,  1,  1] not/taken 1 2
-#       [1, 1, 1, 2, 2, 1,  1,  1] not/taken 1 2
-#       [1, 1, 1, 2, 2, 2,  1,  1] not/taken 2 3
-#       [1, 1, 1, 2, 2, 3,  1,  1] not/taken 3 3
+#              L  R 
+#       [1, 1, 1, 2, 1, 1,  1,  1] not/taken 1 2   
+#
+#              L     R
+#       [1, 1, 1, 2, 2, 1,  1,  1] not/taken 1 2   #取2,3   大於 不取3，只留2或5
+#
+#              L        R                      
+#       [1, 1, 1, 2, 2, 3,  1,  1] not/taken 2 3   #取2,5,7 大於 不取7，只留2,5或2,3
+#
+#                 L     R                         
+#       [1, 1, 1, 2, 2, 3,  1,  1] not/taken 3 3   #取2,5,7和2,3,7相同                  
 #       ....
 #       ....
-#       [1, 1, 1, 2, 2, 3,  4,  2] not/taken 2 3
-
-#       [1, 1, 1, 2, 2, 3,  4,  3] not/taken 3 3
-
-#       [1, 1, 1, 2, 2, 3,  4,  3] not/taken 3 4
-
-
-
+#                 L             R
+#       [1, 1, 1, 2, 2, 3,  4,  3] not/taken 2 3   #取x,5,7,18 大於 不取18，只留x,5,7 
+#
+#                    L          R
+#       [1, 1, 1, 2, 2, 3,  4,  3] not/taken 3 3   #取3,7,18和3,7,90相同
+#
+#                       L       R 
+#       [1, 1, 1, 2, 2, 3,  4,  4] not/taken 3 4   #取x,x,7,18  大於 不取18，只留x,x,7
 def lengthOfLIS(self, nums: List[int]) -> int:
 
     if not nums:
