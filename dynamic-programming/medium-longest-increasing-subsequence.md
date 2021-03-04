@@ -20,7 +20,7 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 \(2\)用Dynamic Programming，加上memoization把答案都記下來。  
 \(3\)用DP + Binary Search。
 
-### （1）Recursion, Brute Force Scanning: O\(2^N\) / O\(N\)
+### 1. Recursion, Brute Force Scanning: O\(2^N\) / O\(N\)
 
 \[思路\] 因為不知道有多少數字符合，也不知道有多少for loop，因此用Recursion來確認每一個數是不是increasing subsequence裡的一員。  
   
@@ -59,7 +59,9 @@ def findMaxLen(self, nums, prev, curr):
     return max(taken, not_taken)
 ```
 
-### （2）Bottom-Up DP: O\(N^2\) / O\(N\)
+### 2. Recursion + Memoization: O\(N^2\) / O\(N\)
+
+### 3. DP, Bottom-Up: O\(N^2\) / O\(N\)
 
 1. **Define the state:**  原來的數組`[9,2,5,3,7,101]`裡，一定有一個數`a[j]`是整個longest subsequence裡最大的，也肯定有第二大的`a[i]`，即`[ * * *,` **`a[i]`**`, * * *,` **`a[j]`**`]`，  where `j` is always greater than`i (j > i)`  
 2.  **Transfer function:**  **`f[j] = max{f[j], f[i] + 1},   where a[j] > a[i]`** `f[j]` 如果為最大，則要+1，否則就是維持原樣`f[j]` 
@@ -114,7 +116,7 @@ def lengthOfLIS(self, nums: List[int]) -> int:
 {% endtab %}
 {% endtabs %}
 
-### （3）DP + Binary Search: O\(NlogN\) / O\(N\)
+### 4. DP + Binary Search: O\(NlogN\) / O\(N\)
 
 **Time Complexity：Ｏ\(** $$nlogn$$ **\)**  
 **Space Complexity： Ｏ\(** $$n$$ **\)** ，即`f`，nums數組長度。
