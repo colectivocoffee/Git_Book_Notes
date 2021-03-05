@@ -73,6 +73,9 @@ def findMaxLen(self, nums, prev, curr):
 {% tab title="Python" %}
 ```python
 # e.g. [10, 9, 2, 5, 3, 7, 90, 18]
+#                 R->               R慢慢往右移
+#        L------->|                 找到L符合遞增條件，就停下來
+#
 #              L  R 
 #       [1, 1, 1, 2, 1, 1,  1,  1] not/taken 1 2   
 #
