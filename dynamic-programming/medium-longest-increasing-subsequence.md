@@ -132,7 +132,7 @@ def lengthOfLIS(self, nums: List[int]) -> int:
 {% endtab %}
 {% endtabs %}
 
-### 4. DP + Binary Search: O\(NlogN\) / O\(N\)
+### 4. DP, Bottom-Up + Binary Search: O\(NlogN\) / O\(N\)
 
 {% hint style="info" %}
 \(1\) 用`tail_num`作DP array，紀錄的是當下掃到長度\(`max_len`\)的最小LIS順序。  
