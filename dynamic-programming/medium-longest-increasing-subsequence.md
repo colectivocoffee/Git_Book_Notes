@@ -16,9 +16,10 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 根據題意 ‘length of longest....'，我們可以知道是求最長，也就是**求最大/最小值**的變形。  
 又因為此題可以把最長的subsequence，化成少一個element + max\(subsequence\)的子問題，因此可以用DP。  
   
-此題有多種解法：\(1\)最簡單的是Brute Force，一個一個比。  
-\(2\)用Dynamic Programming，加上memoization把答案都記下來。  
-\(3\)用DP + Binary Search。
+此題有多種解法：\(1\)最簡單的是Brute Force，用Recursion一個一個比。  
+\(2\)用Recursion，加上memoization紀錄已經算過的答案。  
+\(3\)用Dynamic Programming，加上memoization把答案都記下來。  
+\(4\)用DP + Binary Search。
 
 ### 1. Recursion, Brute Force Scanning: O\(2^N\) / O\(N\)
 
