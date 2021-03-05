@@ -19,7 +19,19 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 此題有多種解法：\(1\)最簡單的是Brute Force，用Recursion一個一個比。  
 \(2\)用Recursion，加上memoization紀錄已經算過的答案。  
 \(3\)用Dynamic Programming，加上memoization把答案都記下來。  
-\(4\)用DP + Binary Search。
+\(4\)用DP + Binary Search，或是[Patience Sorting](https://en.wikipedia.org/wiki/Patience_sorting)（難想到）
+
+> 思路：  
+> Step1. 左右邊界Two pointers掃的方式
+>
+> ```python
+> # e.g. [10, 9, 2, 5, 3, 7, 90, 18]
+> #                 R->               R慢慢往右移
+> #        L------->|                 找到第一個L符合遞增條件，就停下來
+> ```
+
+> Step2. DP Memoization紀錄的方式  
+> 從taken or not\_taken兩種，選較長的擇一然後在`DP[i]`紀錄目前最長距離。
 
 ### 1. Recursion, Brute Force Scanning: O\(2^N\) / O\(N\)
 
