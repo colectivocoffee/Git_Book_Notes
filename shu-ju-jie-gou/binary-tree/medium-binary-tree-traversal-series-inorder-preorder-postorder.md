@@ -2,8 +2,7 @@
 
 ## [\[Medium\] Binary Tree Inorder Traversal ](https://leetcode.com/problems/binary-tree-inorder-traversal/)    \(4356/192\)
 
-Given the `root` of a binary tree, return _the inorder traversal of its nodes' values_.  
-
+Given the `root` of a binary tree, return _the inorder traversal of its nodes' values_.
 
 ### 1. Recursive: O\(N\) / worst O\(N\) - average O\(logN\)
 
@@ -34,4 +33,8 @@ class Solution:
         
         return result
 ```
+
+**Follow up:** Recursive solution is trivial, could you do it iteratively?
+
+### 2. Iterative: 
 
