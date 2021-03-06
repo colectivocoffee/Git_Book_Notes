@@ -107,6 +107,7 @@ def in_order(self, root, result):
 
 ```python
 In-order Iterative 模板
+使用stack，同樣順序 左左左...->根->右
 
 def inorder(root):
     if not root:
@@ -135,6 +136,11 @@ def post_order(self, root, result):
     post_order(root.right, result)  #右
     post_order(root.left, result)   #左
     post_order(root.val)            #根
+```
+
+```python
+Post-order Iterative模板
+右右右...->左->根
 ```
 
 ### 4. Binary Tree BFS:
