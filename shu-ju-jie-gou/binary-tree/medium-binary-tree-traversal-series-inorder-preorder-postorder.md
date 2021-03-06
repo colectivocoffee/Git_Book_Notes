@@ -7,6 +7,9 @@ Given the `root` of a binary tree, return _the inorder traversal of its nodes' v
 
 ### 1. Recursive: O\(N\) / worst O\(N\) - average O\(logN\)
 
+Inorder Traversal 遍歷的順序是：`左->根->右`，  
+因此Recursive寫法為  `root.left -> result.append -> root.right`
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
