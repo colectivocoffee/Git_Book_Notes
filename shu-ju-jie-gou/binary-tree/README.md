@@ -47,7 +47,7 @@ def pre_order(self, root, result):
 
 ```python
 Pre-order Iterative 模板
-使用stack，同樣根->左->右
+使用stack，同樣順序 根->左左左...->右
 
 def pre_order(self, root):
     if not root:
