@@ -36,5 +36,73 @@ class Solution:
 
 **Follow up:** Recursive solution is trivial, could you do it iteratively?
 
-### 2. Iterative: 
+### 2. Iterative: O\(N\) / O\(N\)
+
+```python
+def inorderTraversal(self, root: TreeNode) -> List[int]:
+    
+    if not root:
+        return 
+    
+    result = []
+    stack = []
+    
+    while len(stack) != 0 or root != None:
+        while root != None:
+            stack.append(root)
+            root = root.left            
+        root = stack.pop()
+        result.append(root.val)
+        root = root.right
+        
+    return result
+```
+
+### 3. Morris Traversal: O\(N\) / O\(N\)
+
+## \[Medium\] Binary Preorder Traversal           \(2097/86\)
+
+Given the `root` of a binary tree, return _the preorder traversal of its nodes' values_.
+
+### 1. Recursive: O\(N\) / worst O\(N\) - avg O\(logN\)
+
+```python
+def preorderTraversal(self, root: TreeNode) -> List[int]:
+    result = []
+    return self.preorder(root, result)
+
+def preorder(self, root, result):
+    if not root:
+        return 
+    
+    result.append(root.val)
+    self.preorder(root.left, result)
+    self.preorder(root.right, result)
+    
+    return result
+```
+
+### 2. Iterative: O\(N\) / O\(N\)
+
+```python
+def preorderTraversal(self, root: TreeNode) -> List[int]:
+
+    if not root:
+        return 
+
+    result = []
+    stack = []
+
+    # root->left->right
+    while len(stack) != 0 or root != None:
+        while root != None:
+            result.append(root.val)
+            stack.append(root)
+            root = root.left
+
+        curr = stack.pop()
+        root = curr.right
+
+    return result
+```
 
