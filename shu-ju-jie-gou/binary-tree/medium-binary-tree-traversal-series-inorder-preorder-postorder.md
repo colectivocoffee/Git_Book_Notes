@@ -60,11 +60,14 @@ def inorderTraversal(self, root: TreeNode) -> List[int]:
 
 ### 3. Morris Traversal: O\(N\) / O\(N\)
 
-## \[Medium\] Binary Preorder Traversal           \(2097/86\)
+## [\[Medium\] Binary Preorder Traversal ](https://leetcode.com/problems/binary-tree-preorder-traversal/)          \(2097/86\)
 
 Given the `root` of a binary tree, return _the preorder traversal of its nodes' values_.
 
 ### 1. Recursive: O\(N\) / worst O\(N\) - avg O\(logN\)
+
+Preorder 遍歷的順序是 `根->左->右`  
+因此Recursive寫法為  `result.append -> root.left -> root.right`
 
 ```python
 def preorderTraversal(self, root: TreeNode) -> List[int]:
