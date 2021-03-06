@@ -149,6 +149,11 @@ Just explain more about the tail processing example, based on [https://segmentfa
 
 `e.g. [1,3,5,2,4,8,6]`
 
+在`1,3,5,2,8,4,6`这个例子中，当到6时，我们一共可以有四种  
+\(1\)不同长度  
+\(2\)且保证该升序序列在同长度升序序列中末尾最小  
+的升序序列
+
 For this list, we can have LIS with different length.  
 For length = 1, \[1\], \[3\], \[5\], \[2\], \[8\], \[4\], \[6\], we pick the one with smallest tail element as the representation of length=1, which is \[1\]  
 For length = 2, \[1,2\] \[1,3\] \[3,5\] \[2,8\], ...., we pick \[1,2\] as the representation of length=2.  
