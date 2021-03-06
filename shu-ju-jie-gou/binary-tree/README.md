@@ -35,6 +35,7 @@ Preorder特性：第一個值一定是root根節點。
 
 ```python
 Pre-order Recursive 模板
+根->左->右
 
 def pre_order(self, root, result):
     if not root:
@@ -46,6 +47,7 @@ def pre_order(self, root, result):
 
 ```python
 Pre-order Iterative 模板
+使用stack，同樣根->左->右
 
 def pre_order(self, root):
     if not root:
