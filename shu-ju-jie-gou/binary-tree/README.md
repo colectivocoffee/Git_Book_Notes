@@ -43,6 +43,7 @@ def pre_order(self, root, result):
     result.append(root.val)        #根
     pre_order(root.left, result)   #左
     pre_order(root.right, result)  #右
+    return result
 ```
 
 ```python
@@ -104,6 +105,7 @@ def in_order(self, root, result):
     in_order(root.left, result)     #左
     result.append(root.val)         #根
     in_order(root.right, result)    #右
+    return result
 ```
 
 ```python
@@ -137,7 +139,8 @@ def post_order(self, root, result):
         return 
     post_order(root.left, result)   #左
     post_order(root.right, result)  #右
-    post_order(root.val)            #根
+    result.append(root.val)            #根
+    return result
 ```
 
 ```python
