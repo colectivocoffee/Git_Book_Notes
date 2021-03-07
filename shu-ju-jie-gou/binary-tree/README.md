@@ -68,7 +68,7 @@ def pre_order(self, root):
 ```
 
 ```python
-Pre-order Iterative 模板
+Pre-order Iterative 模板二
 
 def pre_order2(self, root):
     result = []
@@ -96,6 +96,7 @@ result是以**ascending order**的方式儲存，可以用result\[n-1\]的方式
 
 ```python
 In-order Recursive 模板
+左->根->右
 
 def in_order(self, root, result):
     if not root:
@@ -129,6 +130,7 @@ def inorder(root):
 
 ```python
 Post-order Recursive模板
+右->左->根
 
 def post_order(self, root, result):
     if not root:
