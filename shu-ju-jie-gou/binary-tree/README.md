@@ -145,7 +145,7 @@ Post-order Iterative模板
 左左左...->右->根
 ```
 
-### 4. Binary Tree BFS:
+### 4. Binary Tree BFS / Level Order Traversal:
 
 Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個level上的所有nodes，直到所有nodes都遍歷完成後，才會往next level走。
 
