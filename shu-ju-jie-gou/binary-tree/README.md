@@ -10,8 +10,8 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 | :--- | :--- |
 | Pre-Order Traversal \(根左右\) | 1 2 4 5 3 6 7                                                          |
 | In-Order Traversal \(左根右\) | 4 2 5 1 6 3 7 |
-| Post-Order Traversal \(右左根\) | 7 6 3 5 4 2 1 |
-| Breath-First Search | 1 2 3 4 5 6 7 |
+| Post-Order Traversal \(左右根\) | 4 5 2 6 7 3 1 |
+| Breath-First Search / Level Order Traversal | 1 2 3 4 5 6 7 |
 | Depth-First Search | 1 2 4 5 3 6 7 |
 
   
@@ -126,23 +126,23 @@ def inorder(root):
     return result
 ```
 
-### 3. Post-order Traversal: Right-Left-Root \(右左根\)
+### 3. Post-order Traversal: Right-Left-Root \(左右根\)
 
 ```python
 Post-order Recursive模板
-右->左->根
+左->右->根
 
 def post_order(self, root, result):
     if not root:
         return 
-    post_order(root.right, result)  #右
     post_order(root.left, result)   #左
+    post_order(root.right, result)  #右
     post_order(root.val)            #根
 ```
 
 ```python
 Post-order Iterative模板
-右右右...->左->根
+左左左...->右->根
 ```
 
 ### 4. Binary Tree BFS:
