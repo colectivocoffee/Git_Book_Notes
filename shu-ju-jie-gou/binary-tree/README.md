@@ -8,9 +8,9 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 
 |  | 順序 |
 | :--- | :--- |
-| Pre-Order Traversal \(根左右\) | 1 2 4 5 3 6 7                                                          |
-| In-Order Traversal \(左根右\) | 4 2 5 1 6 3 7 |
-| Post-Order Traversal \(左右根\) | 4 5 2 6 7 3 1 |
+| Pre-Order Traversal \(**根**左右\) | 1 2 4 5 3 6 7                                                          |
+| In-Order Traversal \(左**根**右\) | 4 2 5 1 6 3 7 |
+| Post-Order Traversal \(左右**根**\) | 4 5 2 6 7 3 1 |
 | Breath-First Search / Level Order Traversal | 1 2 3 4 5 6 7 |
 | Depth-First Search | 1 2 4 5 3 6 7 |
 
