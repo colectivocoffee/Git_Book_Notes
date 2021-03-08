@@ -111,5 +111,3 @@ def preorderTraversal(self, root: TreeNode) -> List[int]:
 
 ### 3. Morris Traversal: O\(N\) / O\(N\)
 
-## \[Medium\] Binary Tree Postorder Traversal 
-
