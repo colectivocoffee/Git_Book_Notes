@@ -64,8 +64,7 @@ def pre_order(self, root):
         # pop from stack
         curr = stack.pop() # pop the last one
         root = curr.right
-    return result
-        
+    return result   
 ```
 
 ```python
@@ -85,6 +84,7 @@ def pre_order2(self, root):
         # pop the node from stack and move onto the right node
         root = stack.pop()
         root = root.right
+    return result
 ```
 
 ### 2. In-order Traversal: **Left-Root-Right** \(左根右\)
@@ -145,7 +145,24 @@ def post_order(self, root, result):
 
 ```python
 Post-order Iterative模板
-左左左...->右->根
+左->右->根
+# 跟前面不同是因為要handle null node，
+# 下面這樣做可以確保每一次root都不為null。
+
+def post_order(self, root, result):
+    if not root:
+        return 
+    
+    while stack:
+        curr = stack.pop()
+        if curr:
+            if curr.left:
+                stack.append(curr.left)
+            if curr.right:
+                stack.append(curr.right)
+            result.appendleft(curr.val)
+            
+    return result
 ```
 
 ### 4. Binary Tree BFS / Level Order Traversal:
