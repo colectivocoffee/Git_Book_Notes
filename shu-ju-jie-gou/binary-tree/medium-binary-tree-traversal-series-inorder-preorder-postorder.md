@@ -1,4 +1,4 @@
-# \[Medium\] Binary Tree Traversal Series \(Inorder / Preorder / Postorder\)
+# \[Medium\] Binary Tree Inorder / Preorder / Postorder Traversal Series
 
 ## [\[Medium\] Binary Tree Inorder Traversal ](https://leetcode.com/problems/binary-tree-inorder-traversal/)    \(4356/192\)
 
@@ -110,4 +110,6 @@ def preorderTraversal(self, root: TreeNode) -> List[int]:
 ```
 
 ### 3. Morris Traversal: O\(N\) / O\(N\)
+
+## \[Medium\] Binary Tree Postorder Traversal 
 

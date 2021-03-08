@@ -29,9 +29,12 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 
 透過Pre-order / In-order / Post-order / Level-order\(BFS\) / DFS Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
 
+![](../../.gitbook/assets/image%20%2828%29.png)
+
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)  
 
-Preorder特性：第一個值一定是root根節點。
+Top -&gt; Bottom  
+Left -&gt; Right
 
 ```python
 Pre-order Recursive 模板
@@ -87,6 +90,30 @@ def pre_order2(self, root):
     return result
 ```
 
+```python
+Pre-order Iterative 模板三
+
+def pre_order2(self, root):
+    
+    if not root:
+        return 
+
+    stack = [root]
+    result = []
+
+    while stack:
+        curr = stack.pop()
+        if curr:
+            result.append(curr.val)       #根          #   1根
+            if curr.right:      
+                stack.append(curr.right)  #右    =>    # | 2左 |
+            if curr.left:                              # | 3右 |
+                stack.append(curr.left)   #左          #  stack
+                
+                                                     # -1-2-3->
+    return result                                    #[根,左,右]
+```
+
 ### 2. In-order Traversal: **Left-Root-Right** \(左根右\)
 
 Inorder特性：  
@@ -130,6 +157,9 @@ def inorder(root):
 
 ### 3. Post-order Traversal: Right-Left-Root \(左右根\)
 
+Bottom -&gt; Top  
+Left -&gt; Right
+
 ```python
 Post-order Recursive模板
 左->右->根
@@ -153,16 +183,21 @@ def post_order(self, root, result):
     if not root:
         return 
     
+    stack = []
+    stack.append(root)
+    result = collections.deque()
+
     while stack:
         curr = stack.pop()
-        if curr:
-            if curr.left:
-                stack.append(curr.left)
-            if curr.right:
-                stack.append(curr.right)
-            result.appendleft(curr.val)
-            
-    return result
+        if curr:                                                   # 3根
+            if curr.left:                 #左                        /
+                stack.append(curr.left)                       # | 2右 |
+            if curr.right:                #右             =>  # | 1左 |
+                stack.append(curr.right)                      # stack
+            result.appendleft(curr.val)   #根 .appendleft()
+                   
+                                          # <-3-2-1-
+    return result                         # [根,右,左] 
 ```
 
 ### 4. Binary Tree BFS / Level Order Traversal:

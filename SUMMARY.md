@@ -139,7 +139,7 @@
   * [\[Easy\] Maximum Depth of a Binary Tree](shu-ju-jie-gou/binary-tree/easy-maximum-depth-of-a-binary-tree.md)
   * [\[Hard\] Serialize and Deserialize a Binary Tree](shu-ju-jie-gou/binary-tree/hard-serialize-and-deserialize-a-binary-tree.md)
   * [\[Medium\] Validate Binary Search Tree](shu-ju-jie-gou/binary-tree/medium-validate-binary-search-tree.md)
-  * [\[Medium\] Binary Tree Traversal Series \(Inorder / Preorder / Postorder\)](shu-ju-jie-gou/binary-tree/medium-binary-tree-traversal-series-inorder-preorder-postorder.md)
+  * [\[Medium\] Binary Tree Inorder / Preorder / Postorder Traversal Series](shu-ju-jie-gou/binary-tree/medium-binary-tree-traversal-series-inorder-preorder-postorder.md)
 
 ## System Design
 
