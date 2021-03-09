@@ -50,7 +50,7 @@ def pre_order(self, root, result):
 ```
 
 ```python
-Pre-order Iterative 模板
+Pre-order Iterative 模板一
 使用stack，同樣順序 根->左左左...->右
 
 def pre_order(self, root):
@@ -71,7 +71,7 @@ def pre_order(self, root):
 ```
 
 ```python
-Pre-order Iterative 模板二
+Pre-order Iterative 模板一
 
 def pre_order2(self, root):
     result = []
@@ -90,10 +90,10 @@ def pre_order2(self, root):
     return result
 ```
 
-第三種思路是，將左右子樹分别壓入棧，然後每次從棧裡取元素。需要注意的是，因为我们應该先訪問左子樹，而stack是先進後出，所以我们壓棧先壓右子樹，出棧時才能先左後右。
+第二種preorder模板是，將左右子樹分别壓入棧，然後每次從棧裡取元素。需要注意的是，因为我们應该先訪問左子樹，而stack是先進後出，所以我们壓棧先壓右子樹 \(**入棧先右後左**\)，出棧時才能先左後右。
 
 ```python
-Pre-order Iterative 模板三
+Pre-order Iterative 模板二
 
 def pre_order2(self, root):
     
