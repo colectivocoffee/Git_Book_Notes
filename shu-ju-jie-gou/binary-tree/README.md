@@ -90,6 +90,8 @@ def pre_order2(self, root):
     return result
 ```
 
+第三種思路是，將左右子樹分别壓入棧，然後每次從棧裡取元素。需要注意的是，因为我们應该先訪問左子樹，而stack是先進後出，所以我们壓棧先壓右子樹，出棧時才能先左後右。
+
 ```python
 Pre-order Iterative 模板三
 
@@ -147,11 +149,11 @@ def inorder(root):
     # 易錯點：忘了root != None
     while root != None or len(stack) != 0:
         while root != None:
-            stack.append(root)
-            root = root.left
-        root = stack.pop()
+            stack.append(root)  # 左左左...
+            root = root.left    
+        root = stack.pop()      # 節點為空，就出棧
         result.append(root.val) # inorder result
-        root = root.right
+        root = root.right       # 看右子樹
     return result
 ```
 
