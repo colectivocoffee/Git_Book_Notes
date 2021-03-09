@@ -333,13 +333,21 @@ A decorator is a function that takes another function as an argument.
 
 * **Bitwise NOT Operator `~`:** NOT Operator是把數字映射到正負數的另外一端\(complement of num\)，利用以下公式：`~(num + 1)` __替換原始的num。 功能：可以利用它來找出median numbers e.g.  `num = -3 ~num = - (-3 + 1)  >>> 2 -----  num2 = 5 ~num2 = - (5 + 1) >>> -6  ----- mid = 3 result = (mid + ~mid) / 2    # (3 + -(3+1)) / 2 >>> -0.5`
 
-## Time Complexity
+## Complexity
 
 #### 各種Data Structure的Time Complexity
 
 {% embed url="https://wiki.python.org/moin/TimeComplexity" %}
 
 Time Complexity是跟最內層的循環次數有關，跟有幾層for loop/while loop沒有必然相關。
+
+### Complexity Cheat Sheet
+
+* List Operations
+* Dictionary Operations
+* Set Operations
+
+[https://www.geeksforgeeks.org/complexity-cheat-sheet-for-python-operations/](https://www.geeksforgeeks.org/complexity-cheat-sheet-for-python-operations/)
 
 ### Time/Space Complexity Trade-offs
 
