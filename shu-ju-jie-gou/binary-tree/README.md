@@ -175,6 +175,18 @@ def post_order(self, root, result):
     return result
 ```
 
+在 [这里](https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45582/A-real-Postorder-Traversal-.without-reverse-or-insert-4ms) 看到另一种想法，还是基于上边分析的入口点，不过解决方案真的是太优雅了。
+
+先看一下 [144 题](https://leetcode.wang/leetcode-144-Binary-Tree-Preorder-Traversal.html) 前序遍历的代码。
+
+> 我们还可以将左右子树分别压栈，然后每次从栈里取元素。需要注意的是，因为我们应该先访问左子树，而栈的话是先进后出，所以我们压栈先压右子树。
+
+后序遍历遇到的问题就是到根节点的时候不能直接 `pop` ，因为后边还需要回来。  
+首先我们知道前序遍历的非递归形式会比后序遍历好理解些，那么我们能实现`后序遍历 -> 前序遍历`的转换吗？  
+后序遍历的顺序是 `左 -> 右 -> 根`。  
+前序遍历的顺序是 `根 -> 左 -> 右`，左右其实是等价的，所以我们也可以轻松的写出 `根 -> 右 -> 左` 的代码。  
+然后把 `根 -> 右 -> 左` 逆序，就是 `左 -> 右 -> 根`，也就是后序遍历了。
+
 ```python
 Post-order Iterative模板
 左->右->根
