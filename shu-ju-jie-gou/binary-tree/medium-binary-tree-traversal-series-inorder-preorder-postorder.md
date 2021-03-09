@@ -119,7 +119,7 @@ Given the `root` of a binary tree, return _the postorder traversal of its nodes'
 
 ### 2. Iterative: O\(N\)
 
-postorder traversal: 左-&gt;右-&gt;根 
+postorder traversal: `左 -> 右 -> 根`
 
 ```python
 def postorderTraversal(self, root: TreeNode) -> List[int]:
@@ -141,6 +141,32 @@ def postorderTraversal(self, root: TreeNode) -> List[int]:
 
     return result
 ```
+
+## \[Easy\] N-Tree Postorder Traversal
+
+### 1. Recursive: O\(N\) / O\(N\) 
+
+Time Complexity: O\(N\) where N is the number of Nodes  
+Space Complexity: O\(N\) up to the entire tree
+
+```python
+def postorder(self, root: 'Node') -> List[int]:
+    result = []
+    return self.post(root, result)
+
+def post(self, root, result):
+
+    if not root:
+        return
+    # 跟Binary Tree唯一不同的是，用一個forloop取代原來的root.left & root.right traversal。 
+    for child in root.children:
+        self.post(child, result)
+    result.append(root.val)
+
+    return result
+```
+
+### 2. Iterative
 
 #### Reference
 
