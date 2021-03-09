@@ -115,5 +115,36 @@ def preorderTraversal(self, root: TreeNode) -> List[int]:
 
 Given the `root` of a binary tree, return _the postorder traversal of its nodes' values_.
 
+### 1. Recursive: O\(N\)
 
+### 2. Iterative: O\(N\)
+
+postorder traversal: 左-&gt;右-&gt;根 
+
+```python
+def postorderTraversal(self, root: TreeNode) -> List[int]:
+
+    if not root:
+        return
+
+    stack = [root]
+    result = collections.deque()
+
+    while stack:
+        curr = stack.pop()
+        if curr:
+            if curr.left:
+                stack.append(curr.left)
+            if curr.right:
+                stack.append(curr.right)
+            result.appendleft(curr.val)     #易錯點：deque.appendleft
+
+    return result
+```
+
+#### Reference
+
+* Preorder: [https://leetcode.wang/leetcode-144-Binary-Tree-Preorder-Traversal.html](https://leetcode.wang/leetcode-144-Binary-Tree-Preorder-Traversal.html)
+* Inorder: [https://leetcode.wang/leetCode-94-Binary-Tree-Inorder-Traversal.html](https://leetcode.wang/leetCode-94-Binary-Tree-Inorder-Traversal.html)
+* Postorder: [https://leetcode.wang/leetcode-145-Binary-Tree-Postorder-Traversal.html?h=postorder](https://leetcode.wang/leetcode-145-Binary-Tree-Postorder-Traversal.html?h=postorder) 
 
