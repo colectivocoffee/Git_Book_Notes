@@ -115,9 +115,27 @@ def preorderTraversal(self, root: TreeNode) -> List[int]:
 
 Given the `root` of a binary tree, return _the postorder traversal of its nodes' values_.
 
-### 1. Recursive: O\(N\)
+### 1. Recursive: O\(N\) / O\(N\)
 
-### 2. Iterative: O\(N\)
+```python
+def postorderTraversal(self, root: TreeNode) -> List[int]:
+    
+    result = []
+    return self.traversal(root, result)
+
+def traversal(self, root, result):
+    
+    if not root:
+        return
+        
+    for child in root.children:
+        self.traversal(child, result)
+    result.append(root.val)
+    
+    return result    
+```
+
+### 2. Iterative: O\(N\) / O\(N\)
 
 postorder traversal: `左 -> 右 -> 根`
 
