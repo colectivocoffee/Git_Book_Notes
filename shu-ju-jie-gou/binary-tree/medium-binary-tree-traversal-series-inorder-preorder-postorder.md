@@ -117,6 +117,24 @@ Given the `root` of a binary tree, return _the postorder traversal of its nodes'
 
 ### 1. Recursive: O\(N\) / O\(N\)
 
+```python
+def postorderTraversal(self, root: TreeNode) -> List[int]:
+    
+    result = []
+    return self.postOrder(root, result)    
+
+def postOrder(self, root, result):
+
+    if not root:
+        return 
+    
+    self.postOrder(root.left, result)
+    self.postOrder(root.right, result)
+    result.append(root.val)
+    
+    return result
+```
+
 ### 2. Iterative: O\(N\) / O\(N\)
 
 postorder traversal: `左 -> 右 -> 根`
