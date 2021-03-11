@@ -107,7 +107,9 @@ def dfs(self, level, curr, result):
     
 ```
 
-### 3. DFS Iterative:    O\(N\) / O\(N\)
+### 3. DFS Iterative + Preorder:    O\(N\) / O\(N\)
+
+和Binary Tree Preorder Traversal寫法相同，可以參考 [Binary Tree Template](https://app.gitbook.com/@iscolectivo/s/algonote/~/drafts/-MVYHh-nlo0xTQf7btOJ/shu-ju-jie-gou/binary-tree)
 
 ```python
 # Definition for a binary tree node.

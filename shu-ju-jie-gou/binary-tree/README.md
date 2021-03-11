@@ -14,9 +14,6 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 | Breath-First Search / Level Order Traversal | 1 2 3 4 5 6 7 |
 | Depth-First Search | 1 2 4 5 3 6 7 |
 
-  
-
-
 ## Binary Tree Divide&Conquer
 
 先讓Left Subtree和Right Subtree去解決同樣的問題，得到結果之後，再整合為整顆Binary Tree的結果。
