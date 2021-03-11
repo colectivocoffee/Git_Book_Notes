@@ -60,7 +60,7 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
     return result
 ```
 
-### 2. DFS Recursive + PreOrder Traversal: 
+### 2. DFS Recursive + PreOrder Traversal:  O\(N\) / O\(N\)
 
 > 思路：Top-Down Approach，一層一層往下掃。  
 > 由於是Binary Tree，  
@@ -77,8 +77,7 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
 #         self.right = right
 def levelOrder(self, root: TreeNode) -> List[List[int]]:
     result = []
-    self.dfs()
-    return result
+    return self.dfs(0, root, result)
     
 def dfs(self, level, curr, result):
     # 遞歸出口，即後面沒有node了
@@ -108,7 +107,7 @@ def dfs(self, level, curr, result):
     
 ```
 
-### 3. DFS Iterative:
+### 3. DFS Iterative:    O\(N\) / O\(N\)
 
 ```python
 # Definition for a binary tree node.
