@@ -117,24 +117,6 @@ Given the `root` of a binary tree, return _the postorder traversal of its nodes'
 
 ### 1. Recursive: O\(N\) / O\(N\)
 
-```python
-def postorderTraversal(self, root: TreeNode) -> List[int]:
-    
-    result = []
-    return self.traversal(root, result)
-
-def traversal(self, root, result):
-    
-    if not root:
-        return
-        
-    for child in root.children:
-        self.traversal(child, result)
-    result.append(root.val)
-    
-    return result    
-```
-
 ### 2. Iterative: O\(N\) / O\(N\)
 
 postorder traversal: `左 -> 右 -> 根`
@@ -160,7 +142,7 @@ def postorderTraversal(self, root: TreeNode) -> List[int]:
     return result
 ```
 
-## \[Easy\] N-Tree Postorder Traversal
+## [\[Easy\] N-Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)          \(926/73\)
 
 ### 1. Recursive: O\(N\) / O\(N\) 
 
@@ -184,7 +166,26 @@ def post(self, root, result):
     return result
 ```
 
-### 2. Iterative
+### 2. Iterative: O\(N\) / O\(N\)
+
+```python
+def postorder(self, root: 'Node') -> List[int]:
+
+    if not root:
+        return 
+
+    stack = [root]
+    result = collections.deque()
+
+    while stack:
+        curr = stack.pop()
+        if curr:
+            for child in curr.children:
+                stack.append(child)
+            result.appendleft(curr.val)
+
+    return result
+```
 
 #### Reference
 
