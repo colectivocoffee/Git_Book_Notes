@@ -228,7 +228,7 @@ Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個lev
 
 ### 5. Binary Tree DFS: 
 
-和前面的Pre-order / In-order / Post-order Iterative version相同。
+前面的Pre-order / In-order / Post-order Iterative version就是DFS的變種。
 
 ## Preorder/Inorder/Postorder 比較
 
@@ -267,7 +267,7 @@ def postorder(self, root):
     while stack:
         curr = stack.pop()
         if curr:
-            if curr.right:
+            if curr.leleftright:
                 stack.append(curr.right)
             if curr.left:
                 stack.append(curr.left)    
