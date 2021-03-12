@@ -107,7 +107,7 @@ def dfs(self, level, curr, result):
     
 ```
 
-### 3. DFS Iterative + Preorder:    O\(N\) / O\(N\)
+### 3. DFS Iterative + Preorder:    O\(N\) / O\(logN\)-O\(N\)
 
 和Binary Tree Preorder Traversal寫法相同，可以參考 [Binary Tree Template](https://app.gitbook.com/@iscolectivo/s/algonote/~/drafts/-MVYHh-nlo0xTQf7btOJ/shu-ju-jie-gou/binary-tree)
 
@@ -148,5 +148,68 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
 
 #### 4. Bottom-Up Approach BFS
 
+## [\[Medium\] N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/)        \(875/61\)
 
+Given an n-ary tree, return the level order traversal of its nodes' values.  
+_Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value \(See examples\)._  
+
+
+![](../.gitbook/assets/image%20%2828%29.png)
+
+
+
+```text
+Input: root = [1,null,3,2,4,null,5,6]
+Output: [[1],[3,2,4],[5,6]]
+```
+
+### 2. DFS Recursive + Preorder
+
+```python
+def levelOrder(self, root: 'Node') -> List[List[int]]:
+
+    result = []
+    return self.dfs(root, result, 0)
+
+def dfs(self, curr, result, level):
+
+    if not curr:
+        return result
+
+    if level == len(result):
+        result.append([])
+
+    result[level].append(curr.val)
+    for child in curr.children:
+        self.dfs(child, result, level+1)
+
+    return result
+```
+
+### 3. DFS Iterative + Preorder: O\(N\) / O\(logN\)-O\(N\)
+
+Space Complexity: O\(logn\) average case and O\(n\) worst case. The space used is on the runtime stack.
+
+```python
+def levelOrder(self, root: 'Node') -> List[List[int]]:
+
+    result = []
+    if not root:
+        return result
+
+    stack = [(root,0)]
+
+    while stack:
+
+        curr, level = stack.pop()
+
+        if level == len(result):
+            result.append([])
+
+        result[level].append(curr.val)
+        for child in reversed(curr.children):
+            stack.append((child, level+1))
+
+    return result
+```
 

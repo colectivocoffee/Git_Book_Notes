@@ -26,9 +26,11 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 
 透過Pre-order / In-order / Post-order / Level-order\(BFS\) / DFS Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
 
-![](../../.gitbook/assets/image%20%2828%29.png)
+另外，如果涉及到Iterative版本xxx order的話，都是可以用**DFS Stack**的方式解決，只是什麼時候添加node到result的時間點有所不同而已。
 
-### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)  
+![](../../.gitbook/assets/image%20%2829%29.png)
+
+### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)         O\(n\) / O\(logn\)-O\(n\)
 
 Top -&gt; Bottom  
 Left -&gt; Right
@@ -46,51 +48,11 @@ def pre_order(self, root, result):
     return result
 ```
 
-```python
-Pre-order Iterative 模板一
-使用stack，同樣順序 根->左左左...->右
-
-def pre_order(self, root):
-    if not root:
-        return 
-    result = []
-    stack = []
-    
-    while len(stack) != 0 or root != None:
-        while root != None:
-            result.append(root.val) # Pre-order result
-            stack.append(root)
-            root = root.left
-        # pop from stack
-        curr = stack.pop() # pop the last one
-        root = curr.right
-    return result   
-```
+第一種preorder模板是利用stack先進後出的特性來決定traversal順序。  
+做法是將左右子樹分别壓入棧，然後每次從棧裡取元素。需要注意的是，因为我们應该先訪問左子樹，而stack是先進後出，所以我们壓棧先壓右子樹 \(**入棧先右後左**\)，出棧時才能先左後右。
 
 ```python
-Pre-order Iterative 模板一
-
-def pre_order2(self, root):
-    result = []
-    stack = []
-    while True:
-        while root != None:
-            result.append(root.val)
-            stack.append(root)
-            root = root.left    # root -> root.left
-        # check if stack is empty
-        if len(stack) == 0:
-            return
-        # pop the node from stack and move onto the right node
-        root = stack.pop()
-        root = root.right
-    return result
-```
-
-第二種preorder模板是，將左右子樹分别壓入棧，然後每次從棧裡取元素。需要注意的是，因为我们應该先訪問左子樹，而stack是先進後出，所以我们壓棧先壓右子樹 \(**入棧先右後左**\)，出棧時才能先左後右。
-
-```python
-Pre-order Iterative 模板二
+Pre-order Iterative 模板一 (prefered)
 
 def pre_order2(self, root):
     
@@ -113,7 +75,48 @@ def pre_order2(self, root):
     return result                                    #[根,左,右]
 ```
 
-### 2. In-order Traversal: **Left-Root-Right** \(左根右\)
+```python
+Pre-order Iterative 模板二
+使用stack，同樣順序 根->左左左...->右
+
+def pre_order(self, root):
+    if not root:
+        return 
+    result = []
+    stack = []
+    
+    while len(stack) != 0 or root != None:
+        while root != None:
+            result.append(root.val) # Pre-order result
+            stack.append(root)
+            root = root.left
+        # pop from stack
+        curr = stack.pop() # pop the last one
+        root = curr.right
+    return result   
+```
+
+```python
+Pre-order Iterative 模板二-2
+
+def pre_order2(self, root):
+    result = []
+    stack = []
+    while True:
+        while root != None:
+            result.append(root.val)
+            stack.append(root)
+            root = root.left    # root -> root.left
+        # check if stack is empty
+        if len(stack) == 0:
+            return
+        # pop the node from stack and move onto the right node
+        root = stack.pop()
+        root = root.right
+    return result
+```
+
+### 2. In-order Traversal: **Left-Root-Right** \(左根右\)        O\(n\) / O\(logn\)-O\(n\)
 
 Inorder特性：  
 \(1\) **root根節點把Tree精確地分成左右子樹**，  
@@ -154,10 +157,10 @@ def inorder(root):
     return result
 ```
 
-### 3. Post-order Traversal: Right-Left-Root \(左右根\)
+### 3. Post-order Traversal: Right-Left-Root \(左右根\)       **O\(n\) / O\(logn\)-O\(n\)**
 
-Bottom -&gt; Top  
-Left -&gt; Right
+`Bottom -> Top  
+Left -> Right`
 
 ```python
 Post-order Recursive模板
@@ -225,7 +228,7 @@ Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個lev
 
 ### 5. Binary Tree DFS: 
 
-
+和前面的Pre-order / In-order / Post-order Iterative version相同。
 
 ## Preorder/Inorder/Postorder 比較
 
@@ -258,6 +261,17 @@ def inorder(self, root):
     
 # Postorder
 def postorder(self, root):
+    stack = [root]
+    result = collections.deque()
     
+    while stack:
+        curr = stack.pop()
+        if curr:
+            if curr.right:
+                stack.append(curr.right)
+            if curr.left:
+                stack.append(curr.left)    
+            result.appendleft(curr.val)
+    return result
 ```
 
