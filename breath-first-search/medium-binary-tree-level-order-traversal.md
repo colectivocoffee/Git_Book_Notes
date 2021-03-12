@@ -13,8 +13,6 @@ Example
    15   7         ]
 ```
 
-## Code
-
 ### 1. BFS Iterative + Level Order\(curr\_level\): O\(logn\) / \(Recommend\)
 
 > 思路：Top-Down Approach  
@@ -143,10 +141,6 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
     
     return result
 ```
-
-#### 3. Bottom-Up Approach DFS
-
-#### 4. Bottom-Up Approach BFS
 
 ## [\[Medium\] N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/)        \(875/61\)
 
