@@ -228,7 +228,7 @@ def post_order(self, root, result):
     return result                         # [根,右,左] 
 ```
 
-### 4. Binary Tree BFS / Level Order Traversal BFS:
+### 4. BFS / Level Order Traversal BFS:
 
 Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個level上的所有nodes，直到所有nodes都遍歷完成後，才會往next level走。
 
@@ -239,10 +239,6 @@ Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個lev
 
 1. Binary Tree Level Order Traversal
 2. Binary Tree Zigzag Traversal
-
-### 5. Binary Tree DFS: 
-
-前面的Pre-order / In-order / Post-order Iterative version就是DFS的變種。
 
 ## Preorder/Inorder/Postorder 比較
 
