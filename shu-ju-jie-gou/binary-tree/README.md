@@ -22,6 +22,20 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 
 這樣想，把整個Binary Tree看成一個大問題，而Left Subtree 就是一個subProblem，Right Subtree 是另外一個subProblem，以此類推。而這Binary Tree就直接幫我們Divide好整個問題了。 
 
+## How to Traverse a Tree?
+
+There are two general strategies to traverse a tree:
+
+* _Depth First Search_ \(`DFS`\)
+
+  In this strategy, we adopt the `depth` as the priority, so that one would start from a root and reach all the way down to certain leaf, and then back to root to reach another branch.
+
+  The DFS strategy can further be distinguished as `preorder`, `inorder`, and `postorder` depending on the relative order among the root node, left node and right node.
+
+* _Breadth First Search_ \(`BFS`\)
+
+  We scan through the tree level by level, following the order of height, from top to bottom. The nodes on higher level would be visited before the ones with lower levels.
+
 ## Binary Tree Traversal 
 
 透過Pre-order / In-order / Post-order / Level-order\(BFS\) / DFS Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
