@@ -214,7 +214,7 @@ def post_order(self, root, result):
     return result                         # [根,右,左] 
 ```
 
-### 4. Binary Tree BFS / Level Order Traversal:
+### 4. Binary Tree BFS / Level Order Traversal BFS:
 
 Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個level上的所有nodes，直到所有nodes都遍歷完成後，才會往next level走。
 
@@ -239,12 +239,27 @@ def preorder(self, root):
     stack = [root]
     while stack:
         curr = stack.pop()
-        result.append(curr.val)
+        result.append(curr.val)        # 結果：result.append(根)->左->右
         if curr.right:
             stack.append(curr.right)
         if curr.left:
             stack.append(curr.left)    # 寫法：result->stack[右<-左]
-    return result                      # 結果：result.append(根)->左->右
+    return result                      
+
+# level_order using dfs preorder
+def level_order(self, root):
+    result = []
+    stack = [(root,0)]
+    while stack:
+        curr, level = stack.pop()
+        if level == len(result):
+            result.append([])
+        result[level].append(curr.val)          # 結果：result.append(根)->左->右
+        if curr.right:
+            stack.append((curr.right, level+1)
+        if curr.left:
+            stack.append(curr.left, level+1)    # 寫法：result->stack[右<-左]
+    return result                            
 
 # Inorder
 def inorder(self, root):
