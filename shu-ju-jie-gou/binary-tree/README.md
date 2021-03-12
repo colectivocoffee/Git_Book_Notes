@@ -236,15 +236,15 @@ Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個lev
 # Preorder
 def preorder(self, root):
     result = []
-    stack = []
-    while root != None or len(stack) != 0:
-        while root != None:
-            result.append(root.val) #preorder
-            stack.append(root) 
-            root = root.left
-        root = stack.pop()
-        root = root.right
-    return result
+    stack = [root]
+    while stack:
+        curr = stack.pop()
+        result.append(curr.val)
+        if curr.right:
+            stack.append(curr.right)
+        if curr.left:
+            stack.append(curr.left)    # 寫法：result->stack[右<-左]
+    return result                      # 結果：result.append(根)->左->右
 
 # Inorder
 def inorder(self, root):
@@ -267,11 +267,11 @@ def postorder(self, root):
     while stack:
         curr = stack.pop()
         if curr:
-            if curr.leleftright:
-                stack.append(curr.right)
-            if curr.left:
-                stack.append(curr.left)    
+            if curr.left:  
+                stack.append(curr.left)
+            if curr.right:
+                stack.append(curr.right)   # 寫法：stack[左<-右]->result    
             result.appendleft(curr.val)
-    return result
+    return result                          # 結果：左->右->deque.appendleft(根)
 ```
 
