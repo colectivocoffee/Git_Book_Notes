@@ -34,7 +34,7 @@ There are two general strategies to traverse a tree:
 
 * _Breadth First Search_ \(`BFS`\)
 
-  We scan through the tree level by level, following the order of height, from top to bottom. The nodes on higher level would be visited before the ones with lower levels.
+  We scan through the tree level by level, following the order of height, from top to bottom. The nodes on higher level \(top\) would be visited before the ones with lower levels \(bottom\).
 
 ## Binary Tree Traversal 
 
