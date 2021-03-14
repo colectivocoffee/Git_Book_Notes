@@ -16,8 +16,6 @@ Ex2
 
 ### 1. Recursive: 
 
-
-
 ```python
 def isSymmetric(self, root: TreeNode) -> bool:
 
