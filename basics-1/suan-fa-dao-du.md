@@ -102,7 +102,7 @@ class BinaryTreeTraversal:
         self.traverse(root.right)
 ```
 
-### 判斷/修改 Empty, Blank, None:
+### 判斷和修改 Empty, Blank, None:
 
 在做判斷empty & None時，Python的寫法和Java不太一樣。
 
@@ -154,6 +154,10 @@ if s == None:   #BAD
 s = None
 if not s:
     print('s is None')        >>> 's is NOT None'
+
+# 注意： 'if s is None' 不等於 'if s'
+# 正確寫法如下
+if s is None 等同於 if not s
 
 
 #綜合判斷寫法：
