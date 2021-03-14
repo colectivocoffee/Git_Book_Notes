@@ -102,6 +102,84 @@ class BinaryTreeTraversal:
         self.traverse(root.right)
 ```
 
+### 判斷/修改 Empty, Blank, None:
+
+在做判斷empty & None時，Python的寫法和Java不太一樣。
+
+* **`Empty`**: 有一張白紙，但沒有任何東西
+* **`Blank`**: 白紙上都是white spaces \(contains only white space\)
+* **`None`**:   連張紙都沒有
+
+```python
+# Boolean判斷內容物是否empty，以下情況皆為empty 
+# 1)List: array = [] / ['', ' '] / [[]]
+# ‘if not list1’ means that if we have nothing in the list
+if array:
+    print('Array is empty')   >>> 'Array is empty'
+
+# 2)String: s = ''
+if len(s) == 0: #BAD Not pythonic
+    print('s is empty')       >>> 's is empty'
+if s == '':     #GOOD 如果s有可能為其他data type
+    print('s is empty')       >>> 's is empty'
+
+# -------------------
+# 不為empty，s裡面包含''
+# 如果要判斷結果為s is empty，我們可以用 -> if not s:
+s = None
+if s:
+    print('s is None')
+else:
+    print('s is NOT None')    >>> 's is NOT None'
+# 上例判斷等同於下例 
+if not s:           #GOOD 如果s肯定為String
+    print('s is empty')   >>> 's is empty'
+
+# The string.isspace() function checks if the string contains 
+# any space or not. If the string contains any space, then it returns True. 
+# Otherwise, it returns False. 
+if s.isspace():
+    print('s has spaces')     >>> 's has spaces'
+     
+# -------------------                                    
+# Boolean判斷Object是否為None
+# Object: s = None
+if s is None:   #GOOD
+    print('s is None')        >>> 's is None'
+if s == None:   #BAD
+    print('s is None')        >>> 's is None'
+    
+# 不為None，s裡面包含None
+# 因此如果要判斷結果為s is None，我們可以用 -> if not s:
+s = None
+if not s:
+    print('s is None')        >>> 's is NOT None'
+
+
+#綜合判斷寫法：
+#可以過濾掉各種empty/blank/none可能
+if s in (None, '') or not s.isspace():
+
+```
+
+Empty-&gt;None 修改轉換
+
+```python
+# Convert "Empty String to None" in a list
+e.g. a_list = ['Hello', '', 'World', '']
+
+# 1) using str()
+converted = [str(w or None) for w in a_list]
+
+# 2) using python lambda
+middle = lambda w : w or None
+converted = [middle(w) for w in a_list]
+
+>>> converted = ['Hello', None, 'World', None]
+```
+
+### Try/Except
+
 ## Python常用用法
 
 * **Last element in a sequence:** `arr[-1]`
