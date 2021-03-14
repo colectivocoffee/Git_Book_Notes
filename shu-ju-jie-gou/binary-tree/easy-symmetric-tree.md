@@ -14,7 +14,9 @@ Ex2
 [1,2,2,2,null,2]       --> False 
 ```
 
-### 1. Recursive: 
+### 1. Recursive:       O\(N\) / O\(logN\)-O\(N\)
+
+Space Complexity: O\(N\) The worst case is that the tree is linear and the height is O\(N\) -&gt; stack size. 
 
 ```python
 def isSymmetric(self, root: TreeNode) -> bool:
@@ -40,4 +42,6 @@ def check(self, left, right):
 
     return val_eq and symmetric_right and symmetric_left
 ```
+
+### 2. Iterative: O\(N\) / O\(N\)
 
