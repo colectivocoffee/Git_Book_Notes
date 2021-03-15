@@ -24,7 +24,27 @@ To
 
 ## Code
 
-### 1. DFS Recursive: O\(n\)/O\(n\)
+### 1. Recursive + Swap: O\(N\) / O\(N\)
+
+用Recursion的方式，取得左子樹和右子樹。  
+下一步就是直接把recursion的結果assign到root.right & root.left上，結束。 
+
+```python
+def invertTree(self, root: TreeNode) -> TreeNode:
+    if not root:
+        return 
+    
+    left = self.invertTree(root.left)
+    right = self.invertTree(root.right)
+    
+    #swap
+    root.right = left
+    root.left = right
+    
+    return root
+```
+
+### 2. DFS Recursive: O\(n\)/O\(n\)
 
 Time Complexity: O\(n\) n is the number of nodes, every node has to be traversed once  
 Space Complexity: O\(n\) it is actually O\(h\) h denotes the height of the tree, but here it is close to O\(n\)
@@ -54,7 +74,7 @@ def dfs(self, curr):
 
 ```
 
-### 2. BFS Iterative: O\(n\)/O\(n/2\)
+### 3. BFS Iterative: O\(n\)/O\(n/2\)
 
 ```python
 def invertTree(self, root: TreeNode) -> TreeNode:
