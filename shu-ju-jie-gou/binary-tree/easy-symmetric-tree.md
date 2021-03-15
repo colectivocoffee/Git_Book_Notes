@@ -18,6 +18,12 @@ Ex2
 
 Space Complexity: O\(N\) The worst case is that the tree is linear and the height is O\(N\) -&gt; stack size. 
 
+{% hint style="info" %}
+關鍵點：  
+1\) 判斷左右是否同為None  
+2\) 左樹的左分支 要等於 右樹的右分支
+{% endhint %}
+
 ```python
 def isSymmetric(self, root: TreeNode) -> bool:
 
@@ -48,6 +54,23 @@ def check(self, left, right):
 使用Preorder模板如下
 
 ```python
+def pre_order(self, root):
+    if not root:            # edge case
+        return 
+    stack = [root]          # 先放root到stack
+    result = []
+    while stack:            # while stack
+        curr = stack.pop()  # pop拿出目前node
+        if curr:
+            result.append(curr.val)      
+            if curr.right:                 # 符合條件，加到stack
+                stack.append(curr.right)   
+            if curr.left:                  # 符合條件，加到stack      
+                stack.append(curr.left)   
+    return result 
+```
+
+```python
    
 
 def isSymmetric(self, root: TreeNode) -> bool:
@@ -64,7 +87,7 @@ def isSymmetric(self, root: TreeNode) -> bool:
 
         if not left or not right:      # 左右不symmetric，False
             return False
-
+                                       # 左樹的左分支 要等於 右樹的右分支
         if left.val == right.val:      # 符合條件，加到stack
             stack.append((left.left, right.right))
             stack.append((left.right, right.left))
@@ -74,21 +97,4 @@ def isSymmetric(self, root: TreeNode) -> bool:
 ```
 
 
-
-```python
-def pre_order(self, root):
-    if not root:            # edge case
-        return 
-    stack = [root]          # 先放root到stack
-    result = []
-    while stack:            # while stack
-        curr = stack.pop()  # pop拿出目前node
-        if curr:
-            result.append(curr.val)      
-            if curr.right:                 # 符合條件，加到stack
-                stack.append(curr.right)   
-            if curr.left:                  # 符合條件，加到stack      
-                stack.append(curr.left)   
-    return result 
-```
 
