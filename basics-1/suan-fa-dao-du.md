@@ -124,7 +124,7 @@ if s == '':     #GOOD 如果s有可能為其他data type
     print('s is empty')       >>> 's is empty'
 
 # -------------------
-# 不為empty，s裡面包含''
+# if s 問的是's是否為空？'不為empty，s裡面包含''
 # 如果要判斷結果為s is empty，我們可以用 -> if not s:
 s = None
 if s:
