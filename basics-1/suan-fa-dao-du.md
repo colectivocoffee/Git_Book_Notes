@@ -189,7 +189,7 @@ converted = [middle(w) for w in a_list]
 
 在**List**上加東西有兩種方法： \(要注意返回的東西不同\)  
 \(1\) `a_list.append(item)`        `>>> None`  
-\(2\) `a_list + [item]`                `>>> new_list`  
+\(2\) `a_list + [item]`                `>>> new_list`       \# 需要用**`[]`**來包裹住item  
   
 在**Integer**上加總：  
 \(3\) `int_counter += item`        `>>> int_counter = int_counter + int(item)`
@@ -198,10 +198,13 @@ converted = [middle(w) for w in a_list]
 e.g. a_list = [2,3,5,6]
 
 a_list.append(1) 
->>> None         # 直接修改a_list(同樣的reference)，並且返回None，
-                 # 除非特別去看a_list，才會看到a_list = [2,3,5,6,1]
+>>> None         # 直接修改a_list(同樣的reference)，使用原space，
+                 # 並且返回None
+                 # 除非特別去看a_list，才會有 [2,3,5,6,1]
 a_list + [1]
->>> [2,3,5,6,1]  # 直接創建一個新的list(新reference)，並且返回新list的值[2,3,5,6,1]
+>>> [2,3,5,6,1]  # 直接創建一個新的list(新reference)，增加額外space，
+                 # 並且返回新list的值[2,3,5,6,1]
+                 # 注意：這裡需要用[]來包裹住item，否則會報錯
 ```
 
 ```python
