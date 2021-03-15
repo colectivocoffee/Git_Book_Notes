@@ -1,6 +1,20 @@
 # \[Medium\] Path Sum II
 
+## [\[Medium\] Path Sum II ](https://leetcode.com/problems/path-sum-ii/)                  \(2592/85\)
 
+Given the `root` of a binary tree and an integer `targetSum`, return all **root-to-leaf** paths where each path's sum equals `targetSum`.  
+A **leaf** is a node with no children.
+
+![](../../.gitbook/assets/image%20%2832%29.png)
+
+
+
+```text
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+Output: [[5,4,11,2],[5,8,4,5]]
+```
+
+### 2. Iterative, DFS Stack Preorder: O\(N^2\) / O\(N\) 
 
 ```python
 def pathSum(self, root: TreeNode, targetSum: int) -> List[List[int]]:
@@ -9,7 +23,6 @@ def pathSum(self, root: TreeNode, targetSum: int) -> List[List[int]]:
     if not root:
         return result
 
-    
     remainSum = targetSum - root.val
     # (node, remainSum, path so far)
     stack = [(root, remainSum, [root.val])]
@@ -26,7 +39,6 @@ def pathSum(self, root: TreeNode, targetSum: int) -> List[List[int]]:
                 stack.append((curr.left, remain - curr.left.val, path + [curr.left.val]))
             if curr.right:
                 stack.append((curr.right, remain - curr.right.val, path + [curr.right.val]))
-
     return result
 ```
 
