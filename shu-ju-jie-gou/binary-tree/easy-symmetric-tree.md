@@ -45,3 +45,50 @@ def check(self, left, right):
 
 ### 2. Iterative: O\(N\) / O\(N\)
 
+使用Preorder模板如下
+
+```python
+   
+
+def isSymmetric(self, root: TreeNode) -> bool:
+
+    if not root:                       # edge case
+        return True
+
+    stack = [(root.left, root.right)]  # 先放root到stack
+
+    while stack:                       # while stack
+        left, right = stack.pop()      # pop出目前node
+        if not left and not right:     # 易錯點：都為None，繼續
+            continue
+
+        if not left or not right:      # 左右不symmetric，False
+            return False
+
+        if left.val == right.val:      # 符合條件，加到stack
+            stack.append((left.left, right.right))
+            stack.append((left.right, right.left))
+        else:                          # 左右不symmetric，False
+            return False
+    return True
+```
+
+
+
+```python
+def pre_order(self, root):
+    if not root:            # edge case
+        return 
+    stack = [root]          # 先放root到stack
+    result = []
+    while stack:            # while stack
+        curr = stack.pop()  # pop拿出目前node
+        if curr:
+            result.append(curr.val)      
+            if curr.right:                 # 符合條件，加到stack
+                stack.append(curr.right)   
+            if curr.left:                  # 符合條件，加到stack      
+                stack.append(curr.left)   
+    return result 
+```
+
