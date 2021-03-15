@@ -16,6 +16,15 @@ Output: [[5,4,11,2],[5,8,4,5]]
 
 ### 2. Iterative, DFS Stack Preorder: O\(N^2\) / O\(N\) 
 
+由於path sum這題要求的是`Path`本身，佐以targetSum來確定這個path是否符合條件。  
+因此我們可以想到用DFS的方式深挖Path，並且隨時紀錄目前總和。使用 DFS Preorder Template是最好選擇。  
+  
+那我們需要隨時維持哪些variables呢？  
+keeping track of    
+1. curr node val  
+2. remainingSum  
+3. path so far
+
 ```python
 def pathSum(self, root: TreeNode, targetSum: int) -> List[List[int]]:
 
