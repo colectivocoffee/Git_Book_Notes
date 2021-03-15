@@ -1,6 +1,10 @@
 # \[Easy\] Invert Binary Tree
 
-[Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
+## [\[Easy\] Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)                          \(4899/72\)
+
+Given the `root` of a binary tree, invert the tree, and return _its root_.
+
+![](../../.gitbook/assets/image%20%2831%29.png)
 
 **Example:**
 
