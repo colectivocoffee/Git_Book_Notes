@@ -124,14 +124,15 @@ if s == '':     #GOOD 如果s有可能為其他data type
     print('s is empty')       >>> 's is empty'
 
 # -------------------
-# if s 問的是's是否為空？'不為empty，s裡面包含''
+# 'if s:'問的是 -> s是否'不'為空？
 # 如果要判斷結果為s is empty，我們可以用 -> if not s:
 s = None
 if s:
-    print('s is None')
+    print('s is NOT None')
 else:
-    print('s is NOT None')    >>> 's is NOT None'
+    print('s is None')    >>> 's is None'
 # 上例判斷等同於下例 
+# 'if not s:'問的是 -> s是否為空？
 if not s:           #GOOD 如果s肯定為String
     print('s is empty')   >>> 's is empty'
 
@@ -153,7 +154,7 @@ if s == None:   #BAD
 # 因此如果要判斷結果為s is None，我們可以用 -> if not s:
 s = None
 if not s:
-    print('s is None')        >>> 's is NOT None'
+    print('s is None')        >>> 's is None'
 
 # 注意： 'if s is None' 不等於 'if s'
 # 正確寫法如下
@@ -183,6 +184,39 @@ converted = [middle(w) for w in a_list]
 ```
 
 ### Try/Except
+
+### Add Item
+
+在**List**上加東西有兩種方法： \(要注意返回的東西不同\)  
+\(1\) `a_list.append(item)`        `>>> None`  
+\(2\) `a_list + [item]`                `>>> new_list`  
+  
+在**Integer**上加總：  
+\(3\) `int_counter += item`        `>>> int_counter = int_counter + int(item)`
+
+```python
+e.g. a_list = [2,3,5,6]
+
+a_list.append(1) 
+>>> None         # 直接修改a_list(同樣的reference)，並且返回None，
+                 # 除非特別去看a_list，才會看到a_list = [2,3,5,6,1]
+a_list + [1]
+>>> [2,3,5,6,1]  # 直接創建一個新的list(新reference)，並且返回新list的值[2,3,5,6,1]
+```
+
+```python
+int_counter = 0
+for _ in range(5):
+    int_counter += 1
+>>> None         # 注意 += 不能直接用在list上，
+                 # can only concatenate list (not "int") to list
+int_counter
+>>> 5
+
+錯誤： [2,3,5,6] += 9   (X)
+正確： for _ in ...:    (O)
+        ... += 1
+```
 
 ## Python常用用法
 
