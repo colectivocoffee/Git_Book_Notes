@@ -40,6 +40,20 @@ There are two general strategies to traverse a tree:
 
 先講結論，time complexity average case **`O(nlogn)`**，worst case **`O(n^2)`**。
 
+Time Complexity: O\(N\)-O\(NlogN\)-O\(N^2\), for a balanced tree it would be O\(NlogN\), then worst case O\(N^2\)  
+**Balanced Tree \(average case\)  -- O\(nlogn\)**  
+Path -- each path from the root to leaf is at most of `O(logn)`, traversing from root to leaf takes O\(logn\), \(aka the height of the tree is O\(logN\)\)  
+\# of leaves -- half of all nodes are leaves, and there are no more than `n/2` leaves  
+**Single leaf Tree  \(best case\)  -- O\(n\)**  
+Path -- Single-chain to the leaf, then `O(n)`  
+\# of leaves -- `1` leaf  
+**Unbalanced Tree \(worst case\)  -- O\(n^2\)**  
+Path -- total \# of paths is increasing, would take up to `n/2`   
+\# of leaves -- `n/2` leaves  
+1 + 2 + 3 + ... n/2 = \(n/2\)\*\(\(n/2\)+1\)/2 = `n^2`
+
+> 值得一提的是，single leaf tree 是在找Path Sum的情況為best case \(只有1 path\)。如果是Binary Search Tree的話，需要到leaf才能找到答案，因此這種一直線的就會是worst case。
+
 Time complexity varies a lot according to the tree's structure.
 
 * For balanced tree, each path from root to leaf is at most of `O(logn)`, and there are no more than `n` leaves \(obviously\), so `O(nlogn)`
