@@ -40,7 +40,7 @@ There are two general strategies to traverse a tree:
 
 先講結論，time complexity average case **`O(nlogn)`**，worst case **`O(n^2)`**。
 
-Time Complexity: O\(N\)-O\(NlogN\)-O\(N^2\), for a balanced tree it would be O\(NlogN\), then worst case O\(N^2\)  
+Time Complexity: **`O(N)-O(NlogN)-O(N^2)`**, for a balanced tree it would be O\(NlogN\), then worst case O\(N^2\)  
 **Balanced Tree \(average case\)  -- O\(nlogn\)**  
 Path -- each path from the root to leaf is at most of `O(logn)`, traversing from root to leaf takes O\(logn\), \(aka the height of the tree is O\(logN\)\)  
 \# of leaves -- half of all nodes are leaves, and there are no more than `n/2` leaves  
@@ -331,6 +331,8 @@ def postorder(self, root):
 ```
 
 ## Depth vs Height of Binary Tree
+
+**Average case/balanced** Binary Tree的高度為`O(logn)` / 葉節點數量為`O(n/2)`
 
 基本上Depth和Height的差別，就是在從哪裡開始看。數數看有多少個edges\(箭頭\)。  
 \*   `Depth`: 從root開始往current node算距離。 root -&gt; curr node  
