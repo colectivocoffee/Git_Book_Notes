@@ -36,6 +36,22 @@ There are two general strategies to traverse a tree:
 
   We scan through the tree level by level, following the order of height, from top to bottom. The nodes on higher level \(top\) would be visited before the ones with lower levels \(bottom\).
 
+## Time / Space Complexity 
+
+先講結論，time complexity average case **`O(nlogn)`**，worst case **`O(n^2)`**。
+
+Time complexity varies a lot according to the tree's structure.
+
+* For balanced tree, each path from root to leaf is at most of `O(logn)`, and there are no more than `n` leaves \(obviously\), so `O(nlogn)`
+* For a tree which is a single chain with a single leaf - it's `O(n)`, since you do it at most once.
+* For a tree where each right subtree is of height exactly one, it's `O(n^2)`, because you sum length of paths which are increasing: `1 + 2 + ... + n/2`, which is in `O(n^2)` from sum of arithmetic progression.
+
+**Worst case** of the algorithm is `O(n^2)`, since there could be no more than `n` leaves, and each of at depth no more than `n` - which gives upper bound of `O(n^2)`, and from the examples - we see this bound is tight.
+
+**Average Case** of the algorithm is `O(nlogn)`, since [tree's average height is logarithmic](https://cs.stackexchange.com/q/6342/874).
+
+An improvement solution with `O(n)` time and `O(h)` space could be a [DFS](https://en.wikipedia.org/wiki/Depth-first_search), where local partial sum is stored and calculated, and when encountering "better" solution, just edit pointers needed to get to the "better" solution.
+
 ## Binary Tree Traversal 
 
 透過Pre-order / In-order / Post-order / Level-order\(BFS\) / DFS Traversal 的方式，遊走於整顆Binary Tree。在遍歷的時候，加上一個variable來記錄過程中需要的curr node和計算的結果result。
@@ -299,4 +315,44 @@ def postorder(self, root):
             result.appendleft(curr.val)
     return result                          # 結果：左->右->deque.appendleft(根)
 ```
+
+## Depth vs Height of Binary Tree
+
+基本上Depth和Height的差別，就是在從哪裡開始看。數數看有多少個edges\(箭頭\)。  
+\*   `Depth`: 從root開始往current node算距離。 root -&gt; curr node  
+\* `Height`: 從current node開始往root算距離。curr node -&gt; root
+
+![](../../.gitbook/assets/image%20%2833%29.png)
+
+. 
+
+```python
+'''                       #Depth    #Height
+                 1          root      root
+               /   \          |        ^
+              5     3         |        |
+             / \   / \        |        |
+            4  7  2   8       v       node
+               
+'''         
+# Depth:
+#  Depth, how many edges from root to to the node
+#  
+#  [case1 specific node] For node 3, the depth is 1
+#  [case2 entire binary tree] 
+#  The depth of a binary tree is the depth of of the deepest node (aka leaf)
+#
+# Height:
+#  Height, how many edges from node to root      
+#  [case1 specific node]   
+#  The height of a particular node is the number of edges on the longest path from that node to a leaf node.
+#  [case2 entire binary tree] 
+#  The height of the root node of the binary tree is the height of the whole tree. 
+
+```
+
+#### Reference
+
+1. Time/Space Complexity: [https://stackoverflow.com/questions/31114093/max-sum-root-to-leaf-binary-tree-time-complexity\#31114283](https://stackoverflow.com/questions/31114093/max-sum-root-to-leaf-binary-tree-time-complexity#31114283)
+2. Depth vs Height 
 
