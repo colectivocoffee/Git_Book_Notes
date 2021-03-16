@@ -47,18 +47,23 @@ def preorder(self, curr, result, remainSum, path):
 
 ### 2. Iterative, DFS Stack Preorder: O\(N^2\) / O\(N\) 
 
+![single leaf tree](../../.gitbook/assets/image%20%2833%29.png)
+
+![complete balanced tree](../../.gitbook/assets/image%20%2834%29.png)
+
 Time Complexity: O\(N\)-O\(NlogN\)-O\(N^2\), for a balanced tree it would be O\(NlogN\), then worst case O\(N^2\)  
-**Balanced Tree \(average case\)**  
-Path -- each path from the root to leaf is at most of `O(logn)`，\(aka the height of the tree is O\(logN\)\)  
-\# of leaves -- there are no more than `n` leaves  
-**Single leaf Tree  \(best case\)**  
+**Balanced Tree \(average case\)  -- O\(nlogn\)**  
+Path -- each path from the root to leaf is at most of `O(logn)`, traversing from root to leaf takes O\(logn\), \(aka the height of the tree is O\(logN\)\)  
+\# of leaves -- half of all nodes are leaves, and there are no more than `n/2` leaves  
+**Single leaf Tree  \(best case\)  -- O\(n\)**  
 Path -- Single-chain to the leaf, then `O(n)`  
 \# of leaves -- `1` leaf  
-**Height is 1 Tree \(worst case\)**  
-Path -- total \# of paths are increasing 1 + 2 + ... + \(n/2\) = n\*\(n+1\)/2 = O\(n^2\)  
-\# of leaves -- `n/2` leaves
+**Unbalanced Tree \(worst case\)  -- O\(n^2\)**  
+Path -- total \# of paths is increasing, would take up to `n/2`   
+\# of leaves -- `n/2` leaves  
+1 + 2 + 3 + ... n/2 = \(n/2\)\*\(\(n/2\)+1\)/2 = `n^2`
 
-> 值得一提的是，single leaf tree 是在目前找Path Sum的情況為best case。如果是Binary Search Tree的話，需要到leaf才能找到答案，因此這種一直線的就會是worst case。
+> 值得一提的是，single leaf tree 是在目前找Path Sum的情況為best case \(只有1 path\)。如果是Binary Search Tree的話，需要到leaf才能找到答案，因此這種一直線的就會是worst case。
 
 由於path sum這題要求的是`Path`本身，佐以targetSum來確定這個path是否符合條件。  
 因此我們可以想到用DFS的方式往下走深挖Path，並且隨時紀錄目前總和。使用 [DFS Preorder Template](https://app.gitbook.com/@iscolectivo/s/algonote/shu-ju-jie-gou/binary-tree) 是最好選擇。  
