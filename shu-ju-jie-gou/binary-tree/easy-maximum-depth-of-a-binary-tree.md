@@ -57,9 +57,9 @@ def maxDepth(self, root: TreeNode) -> int:
     return depth
 ```
 
-### 3. Iterative, DFS Preorder: O\(n\) /
+### 3. \(Recommend\) Iterative, DFS Preorder: O\(N\) / O\(logN\)
 
-
+Space complexity: `O(logN)` In the worst case, the tree is completely unbalanced, _e.g._ each node has only left child node, the recursion call would occur NN times \(the height of the tree\), therefore the storage to keep the call stack would be \mathcal{O}\(N\)O\(N\). But in the average case \(the tree is balanced\), the height of the tree would be \log\(N\)log\(N\). Therefore, the space complexity in this case would be \mathcal{O}\(\log\(N\)\)O\(log\(N\)\).
 
 ```python
 '''
