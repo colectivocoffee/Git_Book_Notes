@@ -183,6 +183,19 @@ converted = [middle(w) for w in a_list]
 >>> converted = ['Hello', None, 'World', None]
 ```
 
+### Pythonic 判斷句寫法
+
+```python
+(1) 判斷是否還有item，一但沒有就停止
+while stack:   <--- while len(stack) != 0:
+
+(2) 判斷不是為空
+if curr:       <--- if curr != None: 
+
+(3) 判斷是空
+if not curr:   <--- if curr is None:
+```
+
 ### Try/Except
 
 ### Add Item
