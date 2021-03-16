@@ -6,7 +6,7 @@ Given a binary tree, find its maximum depth.
 The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.  
 Note: A leaf is a node with no children.
 
-### 1. DFS Recurisve: O\(n\)/O\(n\)
+### 1. Recurisve, DFS: O\(n\)/O\(n\)
 
 Time Complexity: O\(n\) visit each node once  
 Space Complexity: O\(n\) recursion would occur N times for a completely unbalanced binary tree
@@ -23,12 +23,9 @@ def dfs(self, depth, curr):
         return depth
 
     return max(self.dfs(depth+1, curr.left), self.dfs(depth+1, curr.right))
-    
-
-
 ```
 
-### 2. BFS Iterative: O\(n\)/O\(logn\)
+### 2. Iterative, BFS Level Order Traversal: O\(n\)/O\(logn\)
 
 Time Complexity: O\(n\) visit each node **once.**  
 Space Complexity: O\(logn\)  --- Height of the binary tree **O\(logn\)** 
