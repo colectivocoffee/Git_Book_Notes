@@ -25,6 +25,19 @@ def dfs(self, depth, curr):
     return max(self.dfs(depth+1, curr.left), self.dfs(depth+1, curr.right))
 ```
 
+or
+
+```python
+def maxDepth(self, root: TreeNode) -> int:
+
+    if not root:
+        return 0
+    else:
+        left_depth = self.maxDepth(root.left)
+        right_depth = self.maxDepth(root.right)
+        return max(left_depth, right_depth) + 1
+```
+
 ### 2. Iterative, BFS Level Order Traversal: O\(n\)/O\(logn\)
 
 Time Complexity: O\(n\) visit each node **once.**  
