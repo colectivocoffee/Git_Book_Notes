@@ -27,7 +27,7 @@ Diameter 找的是**Binary Tree上包含最多節點的path**。
 
 ![](../../.gitbook/assets/maxpathsum.jpg)
 
-## Maximum Path Sum Solution
+## Maximum Path Sum
 
 ### 1. Recursive, DFS:   O\(N\) / O\(H\)
 
@@ -89,9 +89,46 @@ def countPath(self, curr):
 
 ### 2. Iterative, DFS:
 
-較複雜，略
+```python
+def maxPathSum(self, root: TreeNode) -> int:
 
-## Diameter Solution
+    max_sum = float('-inf')
+    if not root:
+        return max_sum
+    
+    # Postorder gives us Left->Right->Root which matches with our requirement
+    # 我們需要比較看看(1)左子樹sum (2)右子樹sum (3)都不選0 哪個大，
+    # 因此要先看左右，再看root -> postorder
+    traverse_list = collections.deque()
+    self.postorder(root, traverse_list)
+    
+    # 用dictionary紀錄到[node]為止的path_sum
+    path_sum = {None: 0}
+    # 第二次過所有的nodes，這次把left_max, right_max, max_sum都算出來，並且記錄到path_sum上。
+    for node in traverse_list:
+        left_max = max(path_sum[node.left],0)
+        right_max = max(path_sum[node.right],0)
+        path_sum[node] = max(left_max, right_max) + node.val
+        max_sum = max(max_sum, left_max + right_max + node.val)       
+    return max_sum
+
+
+def postorder(self, root, traverse_list):
+    if not root:
+        return
+
+    stack = [root]
+    while stack:
+        curr = stack.pop()
+        if curr:
+            if curr.left:
+                stack.append(curr.left)
+            if curr.right:
+                stack.append(curr.right)
+            traverse_list.appendleft(curr)
+```
+
+## \[Easy\] Diameter of Binary Tree      \(\)
 
 ### 1. Recursion
 
