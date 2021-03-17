@@ -83,7 +83,7 @@ def countPath(self, curr):
     
 ```
 
-### 2. Iterative, DFS: O\(N\) / O\(H\)
+### 2. Iterative, DFS Postorder: O\(N\) / O\(H\)
 
 ```python
 def maxPathSum(self, root: TreeNode) -> int:
@@ -126,7 +126,7 @@ def postorder(self, root):
 
 ## \[Easy\] Diameter of Binary Tree      \(\)
 
-### 1. Recursion
+### 1. Recursive, DFS
 
 ```python
 def diameterOfBinaryTree(self, root: TreeNode) -> int:
@@ -148,6 +148,40 @@ def countDiameter(self, curr):
     
     return max(leftSum + 1, rightSum + 1)
     
+```
+
+### 2. Iterative, DFS Postorder:   O\(N\) / O\(H\)
+
+```python
+def diameterOfBinaryTree(self, root: TreeNode) -> int:
+    count = 0
+    if not root:
+        return count
+
+    traverse_list = self.postorder(root)
+
+    diameter_dict = {None : 0}
+    for node in traverse_list:
+        left_max = max(diameter_dict[node.left], 0)
+        right_max = max(diameter_dict[node.right], 0)            
+        diameter_dict[node] = max(left_max, right_max) + 1
+        count = max(count, left_max + right_max)
+    return count
+
+def postorder(self, root):
+    if not root:
+        return
+    traverse_list = collections.deque()
+    stack = [root]
+    while stack:
+        curr = stack.pop()
+        if curr:
+            if curr.left:
+                stack.append(curr.left)
+            if curr.right:
+                stack.append(curr.right)
+            traverse_list.appendleft(curr)
+    return traverse_list
 ```
 
 #### Reference
