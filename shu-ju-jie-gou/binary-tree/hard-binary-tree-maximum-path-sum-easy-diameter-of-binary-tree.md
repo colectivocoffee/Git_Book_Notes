@@ -4,7 +4,18 @@ Maximum Path Sum 和 Diameter of Binary Tree 其實都是一樣的思維。
 Maximum Path Sum 找的是**Binary Tree同一條path上所有節點的值的最大總和**，而  
 Diameter 找的是**Binary Tree上包含最多節點的path**。
 
+#### Traverse時注意要點：
+
 ![](../../.gitbook/assets/maxpathsum.jpg)
+
+#### Iterative Postorder注意要點：
+
+> 1. 找添加子樹時的最大值 = `max( (1)選左子樹(2)選右子樹(3)都不選0 )` 
+> 2. 用`dictionary`紀錄目前節點最大值
+> 3. `Traverse兩次`。第一次Postorder traversal看完所有節點並加到traverse\_list，第二次用for loop比較每個子樹加or不加，看哪個最大。
+
+當遇到需要看所有節點的題型時，我們可以很自然地想到要用Binary Tree xxorder來解。然而在traverse時，會需要走回頭路才能遍歷所有的nodes。我們不能在第一次遍歷的時候，就把所有答案加上去，這樣會造成走回頭路的值也被加到答案裡。  
+我們需要遍歷兩次，一次是用postorder traversal看樹的長相，第二次才用for loop做比大小。
 
 ## [\[Hard\] Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)          \(5306/384\)
 
@@ -92,14 +103,17 @@ def maxPathSum(self, root: TreeNode) -> int:
     max_sum = float('-inf')
     if not root:
         return max_sum
-    
+        
+    # step1.第一次traverse：看樹長相
     # Postorder gives us Left->Right->Root which matches with our requirement
     # 我們需要比較看看(1)左子樹sum (2)右子樹sum (3)都不選0 哪個大，
     # 因此要先看左右，再看root -> postorder
     traverse_list = self.postorder(root)
     
+    # step2.用dictionary紀錄最大值
     # 用dictionary紀錄到[node]為止的path_sum
     path_sum = {None: 0}
+    # step3.第二次traverse：比大小
     # 第二次過所有的nodes，這次把left_max, right_max, max_sum都算出來，並且記錄到path_sum上。
     for node in traverse_list:
         left_max = max(path_sum[node.left],0)
@@ -125,9 +139,9 @@ def postorder(self, root):
     return traverse_list
 ```
 
-## \[Easy\] Diameter of Binary Tree      \(\)
+## [\[Easy\] Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)      \(4399/277\)
 
-### 1. Recursive, DFS
+### 1. Recursive, DFS:      O\(N\) / O\(N\)
 
 ```python
 def diameterOfBinaryTree(self, root: TreeNode) -> int:
@@ -158,10 +172,11 @@ def diameterOfBinaryTree(self, root: TreeNode) -> int:
     count = 0
     if not root:
         return count
-
+    # step1.第一次traverse：看樹長相
     traverse_list = self.postorder(root)
-
+    # step2.用dictionary紀錄最大值
     diameter_dict = {None : 0}
+    # step3.第二次traverse：比大小
     for node in traverse_list:
         left_max = max(diameter_dict[node.left], 0)
         right_max = max(diameter_dict[node.right], 0)            
