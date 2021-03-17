@@ -1,13 +1,19 @@
 # \[Hard\] Binary Tree Maximum Path Sum \[Easy\] Diameter of Binary Tree
 
-[Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)  
+Maximum Path Sum 和 Diameter of Binary Tree 其實都是一樣的思維。  
+Maximum Path Sum 找的是**Binary Tree同一條path上所有節點的值的最大總和**，而  
+Diameter 找的是**Binary Tree上包含最多節點的path**。
+
+![](../../.gitbook/assets/maxpathsum.jpg)
+
+## [\[Hard\] Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)          \(5306/384\)
+
 Given a **non-empty** binary tree, find the maximum path sum.  
 For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections.   
 The path must contain **at least one node** and does not need to go through the root.
 
-**Example**
-
 ```text
+Example
 Input: [-10,9,20,null,null,15,7]
 
    -10
@@ -18,14 +24,6 @@ Input: [-10,9,20,null,null,15,7]
 
 Output: 42
 ```
-
-
-
-Maximum Path Sum 和 Diameter of Binary Tree 其實都是一樣的思維。  
-Maximum Path Sum 找的是**Binary Tree同一條path上所有節點的值的最大總和**，而  
-Diameter 找的是**Binary Tree上包含最多節點的path**。
-
-![](../../.gitbook/assets/maxpathsum.jpg)
 
 ## Maximum Path Sum
 
@@ -87,7 +85,7 @@ def countPath(self, curr):
     
 ```
 
-### 2. Iterative, DFS:
+### 2. Iterative, DFS: O\(N\) / O\(H\)
 
 ```python
 def maxPathSum(self, root: TreeNode) -> int:
@@ -153,4 +151,8 @@ def countDiameter(self, curr):
     return max(leftSum + 1, rightSum + 1)
     
 ```
+
+#### Reference
+
+* Maximum Path Sum Iterative Postorder Solution [https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/232373/Postorder-Iterative-Solution-Python](https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/232373/Postorder-Iterative-Solution-Python)
 
