@@ -33,7 +33,8 @@ Output: 42
 > 思路：同時用recursion left加總左子樹的值，recursion right加總右子樹的值，再比較\(1\)`左子樹+root/curr.val` , \(2\)`右子樹+root/curr.val`, \(3\)`0` 哪個比較大。  
 > 同場加映，為什麼不能直接用iterative preorder來處理呢？  
 > 雖然是可以，但需要額外處理unbalanced tree的各種情況。  
-> 當子樹下有多層children nodes\(一串葡萄\) vs 單一leaf node\(一顆葡萄\) 時，不能直接把leaf node值加入，需要先比較children nodes的總和是否有比leaf node大，等比較完後才能加入。
+> 當子樹下有多層children nodes\(一串葡萄\) vs 單一leaf node\(一顆葡萄\) 時，不能直接把leaf node值加入，需要先比較children nodes的總和是否有比leaf node大，等比較完後才能加入。  
+> 可以選擇用iterative postorder解題。
 
 ```python
 可以測試的edge case
