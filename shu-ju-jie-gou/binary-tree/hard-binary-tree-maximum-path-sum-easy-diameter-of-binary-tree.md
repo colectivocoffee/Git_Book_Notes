@@ -25,8 +25,6 @@ Input: [-10,9,20,null,null,15,7]
 Output: 42
 ```
 
-## Maximum Path Sum
-
 ### 1. Recursive, DFS:   O\(N\) / O\(H\)
 
 * Time complexity: `O(N)`, where `N` is number of nodes, since we visit each node not more than 2 times.
