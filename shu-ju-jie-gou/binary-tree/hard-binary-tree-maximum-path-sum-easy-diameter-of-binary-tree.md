@@ -116,6 +116,7 @@ def maxPathSum(self, root: TreeNode) -> int:
     # step3.第二次traverse：比大小
     # 第二次過所有的nodes，這次把left_max, right_max, max_sum都算出來，並且記錄到path_sum上。
     for node in traverse_list:
+        # step4.找添加子樹時的最大值 = max( (1)選左子樹(2)選右子樹(3)都不選0 )
         left_max = max(path_sum[node.left],0)
         right_max = max(path_sum[node.right],0)
         path_sum[node] = max(left_max, right_max) + node.val
@@ -178,6 +179,7 @@ def diameterOfBinaryTree(self, root: TreeNode) -> int:
     diameter_dict = {None : 0}
     # step3.第二次traverse：比大小
     for node in traverse_list:
+        # step4.找添加子樹時的最大值 = max( (1)選左子樹(2)選右子樹(3)都不選0 )
         left_max = max(diameter_dict[node.left], 0)
         right_max = max(diameter_dict[node.right], 0)            
         diameter_dict[node] = max(left_max, right_max) + 1
