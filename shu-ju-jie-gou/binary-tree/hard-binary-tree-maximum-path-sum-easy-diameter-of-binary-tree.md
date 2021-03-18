@@ -322,6 +322,9 @@ We will use the same `height` defined in the first approach. The bottom-up appro
 > Step1\) Check if the child subtrees are balanced.   
 > Step2\) If they are, use their heights to determine if the current subtree is balanced as well as to calculate the current subtree's height. 這樣一來，我們可以節省重複計算height的時間。
 
+Time Complexity: `O(N)`   
+For every subtree, we compute its height in constant time as well as compare the height of its children.
+
 ```python
 def isBalanced(self, root: TreeNode) -> bool:
     return self.dfs(root) != -1
