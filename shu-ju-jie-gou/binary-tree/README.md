@@ -1,6 +1,6 @@
 # Binary Tree
 
-Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal, Breath First Search, Depth First Search。
+Binary Tree 的解法有以下四種: DFS Pre-order, DFS In-order, DFS Post-order Traversal, Breath First Search。
 
 通常Binary Tree Traversal都會和BFS & DFS同時出現，例如要求要level order traversal \(same as BFS\)。因此建議複習Binary Tree時，搭配BFS&DFS一起練習。
 
@@ -8,11 +8,11 @@ Binary Tree 的解法有以下五種: Pre-order, In-order, Post-order Traversal,
 
 |  | 順序 |
 | :--- | :--- |
+| Depth-First Search | 1 2 4 5 3 6 7 |
 | Pre-Order Traversal \(**根**左右\) | 1 2 4 5 3 6 7                                                          |
 | In-Order Traversal \(左**根**右\) | 4 2 5 1 6 3 7 |
 | Post-Order Traversal \(左右**根**\) | 4 5 2 6 7 3 1 |
 | Breath-First Search / Level Order Traversal | 1 2 3 4 5 6 7 |
-| Depth-First Search | 1 2 4 5 3 6 7 |
 
 ## Binary Tree Divide&Conquer
 
@@ -336,7 +336,7 @@ def postorder(self, root):
 
 ### Find Max Depth/Height/Diameter 模板
 
-題目如果問Depth/Height/Diameter of Binary Tree，其實都是類似的概念，只要`node - node`，中間的間隔就算是depth/height/diameter = 1 \(通俗來講\)。
+題目如果問Depth/Height/Diameter of Binary Tree，其實都是類似的概念，只要`node - node`，中間的間隔就算是depth/height/diameter = 1 \(通俗來講，嚴格定義並不相同\)。
 
 ```python
 # 查看Depth of Binary Tree模板
@@ -356,6 +356,8 @@ def dfs(self, curr):
     # 判斷條件，看哪個大
     # (1) if left > right or right > left ....
     # (2) result = max(left, right)
+    if left&right.... or 
+    result = max(left&right....)
     
     # 最後返回的時候，再做一次處理
     # 看是要丟給self.result or 直接返回比較結果
