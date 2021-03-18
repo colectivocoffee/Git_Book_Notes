@@ -202,6 +202,37 @@ def postorder(self, root):
     return traverse_list
 ```
 
+## \[Medium\] Diameter of N-ary Tree      
+
+### 1. Recursive, DFS:   O\(N\) / O\(N\)
+
+```python
+def diameter(self, root: 'Node') -> int:
+    """
+    :type root: 'Node'
+    :rtype: int
+    """
+    self.diameter = 0
+    self.dfs(root)
+
+    return self.diameter
+
+def dfs(self, curr):
+    if not curr:
+        return 
+
+    first, second = 0, 0
+    for child in curr.children:
+        depth = self.dfs(child)
+        if depth > first:
+            first, second = depth, first
+        elif depth > second:
+            first, second = first, depth
+    self.diameter = max(self.diameter, first + second)
+
+    return first + 1
+```
+
 #### Reference
 
 * Maximum Path Sum Iterative Postorder Solution [https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/232373/Postorder-Iterative-Solution-Python](https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/232373/Postorder-Iterative-Solution-Python)
