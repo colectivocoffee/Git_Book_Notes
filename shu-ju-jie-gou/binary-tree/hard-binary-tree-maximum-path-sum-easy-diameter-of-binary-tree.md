@@ -304,6 +304,9 @@ def dfs(self, curr):
     return max(self.dfs(curr.left), self.dfs(curr.right)) + 1
 ```
 
+With the top down approach we are calculating the height at each node Log N times. This is redundant.  
+If we see any unbalanced/null subtree just return False is sufficient.  
+
 ### 2. Recursive, Bottom-Up DFS: O\(N\) / O\(N\)
 
 ```python
