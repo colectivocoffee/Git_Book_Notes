@@ -246,6 +246,10 @@ def dfs(self, curr):
 
 ![](../../.gitbook/assets/image%20%2832%29.png)
 
+{% hint style="info" %}
+If recursive calls before the conditional check, then it's bottom-up \(Tail\). If recursive call after conditional check, it's top-down \(Head\).
+{% endhint %}
+
 ### 1. Recursive, Top-Down DFS:   O\(NlogN\) / O\(N\)
 
 Time complexity : `O(nlogn)`
@@ -265,6 +269,10 @@ Therefore, the height hhof a balanced tree is bounded by $$\mathcal{O}(\log_{1.5
 
 Space complexity : `O(n)`. The recursion stack may contain all nodes if the tree is skewed.
 
+> Recursion Top-Down 想法比較直觀，就是從root開始往leaf方向走，一但遇到叉路就繼續dfs Recursion看左看右。  
+> Step1在看左子樹，看右子樹，分別紀錄當下左子樹右子樹的高度。  
+> Step2當Traverse完後，開始比較兩者高度差，如果相減如果高度差相差大於1，則馬上返回False結束。反之則繼續isBalanced Recursion，比較下一層是否為True。直到已經達到leaf，沒有下一層時，還是維持True的話則結束。
+
 ```python
 '''
 def isBalanced(root):
@@ -279,12 +287,14 @@ def isBalanced(self, root: TreeNode) -> bool:
 
     if not root:
         return True
-
+        
     left_depth = self.dfs(root.left)
     right_depth = self.dfs(root.right)
 
     if abs(left_depth - right_depth) > 1:
         return False
+    # Recursion 在 condition call abs(left-right)>1之後 
+    # -> Top-Down
     return self.isBalanced(root.left) and self.isBalanced(root.right)
 
 def dfs(self, curr):
@@ -295,6 +305,23 @@ def dfs(self, curr):
 ```
 
 ### 2. Recursive, Bottom-Up DFS: O\(N\) / O\(N\)
+
+```python
+def isBalanced(self, root: TreeNode) -> bool:
+    return self.dfs(root) != -1
+
+def dfs(self, curr):        
+    if not curr:
+        return 0
+    
+    # Recursion 在 condition call abs(left-right)>1之前 -> Bottom-Up
+    left = self.dfs(curr.left)
+    right = self.dfs(curr.right)
+
+    if abs(left-right) > 1 or left == -1 or right == -1:
+        return -1
+    return max(left, right) + 1
+```
 
 
 
