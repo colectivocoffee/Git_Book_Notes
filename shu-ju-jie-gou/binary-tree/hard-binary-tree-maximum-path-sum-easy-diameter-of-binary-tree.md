@@ -202,7 +202,13 @@ def postorder(self, root):
     return traverse_list
 ```
 
-## \[Medium\] Diameter of N-ary Tree      
+## [\[Medium\] Diameter of N-ary Tree  ](https://leetcode.com/problems/diameter-of-n-ary-tree/)    \(151/22\)    
+
+Given a `root` of an [N-ary tree](https://leetcode.com/articles/introduction-to-n-ary-trees/), you need to compute the length of the diameter of the tree.
+
+The diameter of an N-ary tree is the length of the **longest** path between any two nodes in the tree. This path may or may not pass through the root.
+
+\(_Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value.\)_
 
 ### 1. Recursive, DFS:   O\(N\) / O\(N\)
 
