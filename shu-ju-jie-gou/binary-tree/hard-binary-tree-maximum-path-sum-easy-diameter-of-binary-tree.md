@@ -239,14 +239,29 @@ def dfs(self, curr):
     return first + 1
 ```
 
-## \[Easy\] Balanced Binary Tree
+## [\[Easy\] Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)       \(3304/217\)
 
-注意並不是只有從根節點root出發，比較`root.left` vs `root.right` subtree而已，我們只要發現任何地方的subtree一有不符合條件者，就算是Unbalanced。  
+注意並不是只有從根節點root出發，比較`root.left` vs `root.right` subtree才算Balanced。而是我們只要發現任何地方的subtree一有不符合條件者，就算是Unbalanced。  
 像以下的Binary Tree為Unbalanced，因為粉色區塊，以3為root的height difference &gt; 1。
 
 ![](../../.gitbook/assets/image%20%2832%29.png)
 
 ### 1. Recursive, Top-Down DFS:   O\(NlogN\) / O\(N\)
+
+Time complexity : `O(nlogn)`
+
+Tree Height is O\(logN\)，我們可以確定在depth深的每個node，都會被call O\(Height\)的次數，因此O\(logN\)。  
+另外，每次停止Recursion的條件是沒有children，需要額外`O(n)`時間看每個node，因此`O(N) * O(logN) = O(NlogN)`
+
+* For a node `p` at depth `d`, $$\texttt{height}(p)$$ will be called `d` times.
+* We first need to obtain a bound on the height of a balanced tree. Let $$f(h)$$ represent the minimum number of nodes in a balanced tree with height h. We have the relation
+
+$$f(h) = f(h - 1) + f(h - 2) + 1$$ 
+
+which looks nearly identical to the Fibonacci recurrence relation. In fact, the complexity analysis for f\(h\) is similar and we claim that the lower bound is $$f(h) = \Omega\left(\left(\frac{3}{2}\right)^h\right)$$.  
+Therefore, the height hhof a balanced tree is bounded by $$\mathcal{O}(\log_{1.5}(n))$$. With this bound we can guarantee that $$\texttt{height}$$will be called on each node $$\mathcal{O}(\log n)$$times.
+
+* If our algorithm didn't have any early-stopping, we may end up having $$\mathcal{O}(n^2)$$ complexity if our tree is skewed since height is bounded by $$\mathcal{O}(n)$$. However, it is important to note that we stop recursion as soon as the height of a node's children is not within 1. In fact, in the skewed-tree case our algorithm is bounded by $$\mathcal{O}(n)$$, as it only checks the height of the first two subtrees.
 
 ```python
 '''
