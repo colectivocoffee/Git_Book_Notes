@@ -250,12 +250,14 @@ def dfs(self, curr):
 If recursive calls before the conditional check, then it's bottom-up \(Tail\). If recursive call after conditional check, it's top-down \(Head\).
 {% endhint %}
 
-### 1. Recursive, Top-Down DFS:   O\(NlogN\) / O\(N\)
+### 1. Recursive, Top-Down DFS:   O\(NlogN\)-O\(N^2\) / O\(N\)
 
-Time complexity : `O(nlogn)`
+Time complexity : `O(nlogn)-O(N^2)`
+
+#### **average case, Balanced Tree:** `O(NlogN)`
 
 Tree Height is O\(logN\)，我們可以確定在depth深的每個node，都會被call O\(Height\)的次數，因此O\(logN\)。  
-另外，每次停止Recursion的條件是沒有children，需要額外`O(n)`時間看每個node，因此`O(N) * O(logN) = O(NlogN)`
+另外，The time to find the height difference is`O(n)`, that is do a DFS on the tree. 需要額外`O(n)`時間看每個node，因此`O(N) * O(logN) = O(NlogN)`
 
 * For a node `p` at depth `d`, $$\texttt{height}(p)$$ will be called `d` times.
 * We first need to obtain a bound on the height of a balanced tree. Let $$f(h)$$ represent the minimum number of nodes in a balanced tree with height h. We have the relation
@@ -266,6 +268,10 @@ which looks nearly identical to the Fibonacci recurrence relation. In fact, the 
 Therefore, the height hhof a balanced tree is bounded by $$\mathcal{O}(\log_{1.5}(n))$$. With this bound we can guarantee that $$\texttt{height}$$will be called on each node $$\mathcal{O}(\log n)$$times.
 
 * If our algorithm didn't have any early-stopping, we may end up having $$\mathcal{O}(n^2)$$ complexity if our tree is skewed since height is bounded by $$\mathcal{O}(n)$$. However, it is important to note that we stop recursion as soon as the height of a node's children is not within 1. In fact, in the skewed-tree case our algorithm is bounded by $$\mathcal{O}(n)$$, as it only checks the height of the first two subtrees.
+
+#### Worst Case, Screwed Tree: `O(N^2)`
+
+The time to find the height difference is still O\(n\)
 
 Space complexity : `O(n)`. The recursion stack may contain all nodes if the tree is skewed.
 
@@ -309,6 +315,13 @@ If we see any unbalanced/null subtree just return False is sufficient.
 
 ### 2. Recursive, Bottom-Up DFS: O\(N\) / O\(N\)
 
+In approach 1, we perform redundant calculations when computing `height`. In each call to `height`, we require that the subtree's heights also be computed. Therefore, when working top-down we will compute the height of a subtree once for every parent. We can remove the redundancy by first recursing on the children of the current node and then using their computed height to determine whether the current node is balanced.
+
+We will use the same `height` defined in the first approach. The bottom-up approach is a reverse of the logic of the top-down approach **since we** _**first**_ **check if the child subtrees are balanced** _**before**_ **comparing their heights**. The algorithm is as follows:
+
+> Step1\) Check if the child subtrees are balanced.   
+> Step2\) If they are, use their heights to determine if the current subtree is balanced as well as to calculate the current subtree's height. 這樣一來，我們可以節省重複計算height的時間。
+
 ```python
 def isBalanced(self, root: TreeNode) -> bool:
     return self.dfs(root) != -1
@@ -326,8 +339,6 @@ def dfs(self, curr):
         return -1
     return max(left, right) + 1
 ```
-
-
 
 #### Reference
 
