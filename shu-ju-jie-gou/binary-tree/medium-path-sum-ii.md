@@ -5,7 +5,7 @@
 Given the `root` of a binary tree and an integer `targetSum`, return all **root-to-leaf** paths where each path's sum equals `targetSum`.  
 A **leaf** is a node with no children.
 
-![](../../.gitbook/assets/image%20%2832%29.png)
+![](../../.gitbook/assets/image%20%2833%29.png)
 
 
 
@@ -16,11 +16,11 @@ Output: [[5,4,11,2],[5,8,4,5]]
 
 ### What is the time complexity of Binary Tree?
 
-![single leaf tree](../../.gitbook/assets/image%20%2833%29.png)
+![single leaf tree](../../.gitbook/assets/image%20%2834%29.png)
 
 
 
-![complete balanced tree](../../.gitbook/assets/image%20%2834%29.png)
+![complete balanced tree](../../.gitbook/assets/image%20%2835%29.png)
 
 Time Complexity: O\(N\)-O\(NlogN\)-O\(N^2\), for a balanced tree it would be O\(NlogN\), then worst case O\(N^2\)  
 **Balanced Tree \(average case\)  -- O\(nlogn\)**  

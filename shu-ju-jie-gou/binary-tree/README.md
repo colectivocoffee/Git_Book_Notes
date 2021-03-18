@@ -338,7 +338,7 @@ def postorder(self, root):
 \*   `Depth`: 從root開始往current node算距離。 root -&gt; curr node  
 \* `Height`: 從current node開始往root算距離。curr node -&gt; root
 
-![](../../.gitbook/assets/image%20%2835%29.png)
+![](../../.gitbook/assets/image%20%2836%29.png)
 
 . 
 

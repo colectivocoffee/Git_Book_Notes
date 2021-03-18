@@ -133,7 +133,7 @@
 * [Binary Tree](shu-ju-jie-gou/binary-tree/README.md)
   * [\[Medium\] Implement Trie](shu-ju-jie-gou/binary-tree/medium-implement-trie.md)
   * [\[Medium\] Kth Smallest Element in a BST](shu-ju-jie-gou/binary-tree/medium-kth-smallest-element-in-a-bst.md)
-  * [\[Hard\] Binary Tree Maximum Path Sum \[Easy\] Diameter of Binary Tree](shu-ju-jie-gou/binary-tree/hard-binary-tree-maximum-path-sum-easy-diameter-of-binary-tree.md)
+  * [\[Hard\] Binary Tree Maximum Path Sum/\[Easy\] Diameter of Binary Tree/\[Easy\] Balanced Binary Tree](shu-ju-jie-gou/binary-tree/hard-binary-tree-maximum-path-sum-easy-diameter-of-binary-tree.md)
   * [\[Medium\] Construct Binary Tree from Preorder & Inorder Traversal](shu-ju-jie-gou/binary-tree/medium-construct-binary-tree-from-preorder-and-inorder-traversal.md)
   * [\[Easy\] Invert Binary Tree](shu-ju-jie-gou/binary-tree/easy-invert-binary-tree.md)
   * [\[Easy\] Maximum Depth of a Binary Tree](shu-ju-jie-gou/binary-tree/easy-maximum-depth-of-a-binary-tree.md)

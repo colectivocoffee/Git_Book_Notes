@@ -1,4 +1,4 @@
-# \[Hard\] Binary Tree Maximum Path Sum \[Easy\] Diameter of Binary Tree
+# \[Hard\] Binary Tree Maximum Path Sum/\[Easy\] Diameter of Binary Tree/\[Easy\] Balanced Binary Tree
 
 Maximum Path Sum 和 Diameter of Binary Tree 其實都是一樣的思維。  
 Maximum Path Sum 找的是**Binary Tree同一條path上所有節點的值的最大總和**，而  
@@ -238,6 +238,48 @@ def dfs(self, curr):
 
     return first + 1
 ```
+
+## \[Easy\] Balanced Binary Tree
+
+注意並不是只有從根節點root出發，比較`root.left` vs `root.right` subtree而已，我們只要發現任何地方的subtree一有不符合條件者，就算是Unbalanced。  
+像以下的Binary Tree為Unbalanced，因為粉色區塊，以3為root的height difference &gt; 1。
+
+![](../../.gitbook/assets/image%20%2832%29.png)
+
+### 1. Recursive, Top-Down DFS:   O\(NlogN\) / O\(N\)
+
+```python
+'''
+def isBalanced(root):
+        if (root == NULL):
+            return true
+        if (abs(height(root.left) - height(root.right)) > 1):
+            return false
+        else:
+            return isBalanced(root.left) && isBalanced(root.right)
+'''
+def isBalanced(self, root: TreeNode) -> bool:
+
+    if not root:
+        return True
+
+    left_depth = self.dfs(root.left)
+    right_depth = self.dfs(root.right)
+
+    if abs(left_depth - right_depth) > 1:
+        return False
+    return self.isBalanced(root.left) and self.isBalanced(root.right)
+
+def dfs(self, curr):
+    if not curr:
+        return 0
+
+    return max(self.dfs(curr.left), self.dfs(curr.right)) + 1
+```
+
+### 2. Recursive, Bottom-Up DFS: O\(N\) / O\(N\)
+
+
 
 #### Reference
 
