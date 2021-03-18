@@ -341,7 +341,7 @@ def postorder(self, root):
 ```python
 # 查看Depth of Binary Tree模板
 # Recursion Top-Down
-def ttopToquestion(self, root):
+def topDownRecursion(self, root):
     if not root:
         return 0
     
