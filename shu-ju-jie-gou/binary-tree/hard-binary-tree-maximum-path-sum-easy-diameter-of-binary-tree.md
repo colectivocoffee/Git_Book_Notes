@@ -293,7 +293,7 @@ def isBalanced(self, root: TreeNode) -> bool:
 
     if abs(left_depth - right_depth) > 1:
         return False
-    # Recursion 在 condition call abs(left-right)>1之後 
+    # Recursion 在 conditional check abs(left-right)>1之後 
     # -> Top-Down
     return self.isBalanced(root.left) and self.isBalanced(root.right)
 
@@ -314,7 +314,8 @@ def dfs(self, curr):
     if not curr:
         return 0
     
-    # Recursion 在 condition call abs(left-right)>1之前 -> Bottom-Up
+    # Recursion 在 conditional check abs(left-right)>1之前 
+    # -> Bottom-Up
     left = self.dfs(curr.left)
     right = self.dfs(curr.right)
 
