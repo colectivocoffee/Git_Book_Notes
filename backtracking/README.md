@@ -42,6 +42,8 @@ def backtrack(self, result, curr_res, curr_id):
 
 If recursive calls before the conditional check, then it's bottom-up \(Tail\). If recursive call after conditional check, it's top-down \(Head\).
 
+## Backtracking Questions Type
+
 ### 1. Subsets
 
 A huge number of coding interview problems involve dealing with Permutations and Combinations of a given set of elements. The pattern Subsets describes an efficient Breadth First Search \(BFS\) approach to handle all these problems.
