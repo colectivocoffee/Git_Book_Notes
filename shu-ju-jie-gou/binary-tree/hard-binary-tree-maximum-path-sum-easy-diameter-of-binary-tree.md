@@ -263,6 +263,8 @@ Therefore, the height hhof a balanced tree is bounded by $$\mathcal{O}(\log_{1.5
 
 * If our algorithm didn't have any early-stopping, we may end up having $$\mathcal{O}(n^2)$$ complexity if our tree is skewed since height is bounded by $$\mathcal{O}(n)$$. However, it is important to note that we stop recursion as soon as the height of a node's children is not within 1. In fact, in the skewed-tree case our algorithm is bounded by $$\mathcal{O}(n)$$, as it only checks the height of the first two subtrees.
 
+Space complexity : `O(n)`. The recursion stack may contain all nodes if the tree is skewed.
+
 ```python
 '''
 def isBalanced(root):

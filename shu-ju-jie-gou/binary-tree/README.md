@@ -330,9 +330,38 @@ def postorder(self, root):
     return result                          # 結果：左->右->deque.appendleft(根)
 ```
 
-## Depth vs Height of Binary Tree
+## Depth, Height, and Diameter of Binary Tree
 
 **Average case/balanced** Binary Tree的高度為`O(logn)` / 葉節點數量為`O(n/2)`
+
+### Find Max Depth/Height/Diameter 模板
+
+題目如果問Depth/Height/Diameter of Binary Tree，其實都是類似的概念，只要`node - node`，中間的間隔就算是depth/height/diameter = 1 \(通俗來講\)。
+
+```python
+# 查看Depth of Binary Tree模板
+# Recursion Top-Down
+def ttopToquestion(self, root):
+    if not root:
+        return 0
+    
+    return self.dfs(root)
+
+def dfs(self, curr):
+    if not curr:
+        return 
+    
+    left_subtree = self.dfs(curr.left)
+    right_subtree = self.dfs(curr.right)
+    # 判斷條件，看哪個大
+    # (1) if left > right or right > left ....
+    # (2) result = max(left, right)
+    
+    # 最後返回的時候，再做一次處理
+    # 看是要丟給self.result or 直接返回比較結果
+    return max(left_subtree, right_subtree) + 1
+
+```
 
 基本上Depth和Height的差別，就是在從哪裡開始看。數數看有多少個edges\(箭頭\)。  
 \*   `Depth`: 從root開始往current node算距離。 root -&gt; curr node  
