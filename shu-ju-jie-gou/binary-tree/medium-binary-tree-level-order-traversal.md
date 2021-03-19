@@ -307,6 +307,8 @@ def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
 
 ### 3. DFS Recursive, Preorder:    O\(N\) / O\(H\)
 
+這種方法取決於Binary Tree的高度，如果是Balanced Binary Tree的話Space Complexity可以到O\(H\)。
+
 Space Complexity: O\(H\) H is the height of the tree. \(the number of levels in the tree, which would be roughly $$\log_2{N}$$ ​\)
 
 ```python
