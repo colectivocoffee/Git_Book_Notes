@@ -355,9 +355,11 @@ BFS wins for this problem, so let's use the opportunity to check out three diffe
 
 > 思路：stack需要紀錄`(node, level)`，因此初始是`stack = [(root, 0)]`
 
-### 1. DFS Iterative, Preorder:    O\(N\) / O\(H\)
+### 1. BFS Iterative, Level Order:    O\(N\) / O\(H\)
 
 這題跟所有的Level Order相同。唯一不一樣的是，我們要right side view，因此根據stack LIFO，我們需要append先左後右。
+
+Space Complexity: `O(H)` where H is a tree height/diameter. Let's use the last level to estimate the queue size. This level could contain up to N/2 tree nodes in the case of [complete binary tree](https://leetcode.com/problems/count-complete-tree-nodes/).
 
 ```python
 def rightSideView(self, root: TreeNode) -> List[int]:
@@ -381,6 +383,31 @@ def rightSideView(self, root: TreeNode) -> List[int]:
             if curr.right:
                 stack.append((curr.right, level + 1))
 
+    return result
+```
+
+### 2. BFS Recursive, Level Order: O\(N\) / O\(H\)
+
+```python
+def rightSideView(self, root: TreeNode) -> List[int]:
+
+    result = []
+    if not root:
+        return result
+
+    def bfs(curr, level):
+        if not curr:
+            return
+        # right side view -> 
+        # To return a list of the last elements from all levels
+        if level == len(result):
+            result.append(curr.val)
+        
+        # pop先右後左
+        bfs(curr.right, level + 1)
+        bfs(curr.left, level + 1)
+
+    bfs(root, 0)
     return result
 ```
 
