@@ -237,7 +237,7 @@ return its zigzag level order traversal as:
 > 思路：看到題目要求是Level Order Traversal，我們就可以用Binary Tree BFS分層遍歷的特性來解題。  
 > 唯一需要注意的是題目要求zigzag，我們需要reverse level % 2 == 0的值。
 
-![](../../.gitbook/assets/image%20%2839%29.png)
+![](../../.gitbook/assets/image%20%2840%29.png)
 
 Time Complexity: `O(N)`, where N is the number of nodes in the tree.  
 In addition, the insertion operation on either end of the deque takes a constant time, rather than using the array/list data structure where the inserting at the head could take the `O(K)` time where K is the length of the list.
@@ -343,7 +343,7 @@ def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
 
 Given the `root` of a binary tree, imagine yourself standing on the **right side** of it, return _the values of the nodes you can see ordered from top to bottom_.
 
-![](../../.gitbook/assets/image%20%2838%29.png)
+![](../../.gitbook/assets/image%20%2839%29.png)
 
 這題跟所有的Level Order相同。唯一不一樣的是，需要在`level == len(result)`時把答案加入。
 

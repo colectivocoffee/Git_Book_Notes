@@ -36,6 +36,8 @@ There are two general strategies to traverse a tree:
 
   We scan through the tree level by level, following the order of height, from top to bottom. The nodes on higher level \(top\) would be visited before the ones with lower levels \(bottom\).
 
+![](../../.gitbook/assets/image%20%2838%29.png)
+
 ## Time / Space Complexity 
 
 先講結論，time complexity average case **`O(nlogn)`**，worst case **`O(n^2)`**。
