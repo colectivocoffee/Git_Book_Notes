@@ -323,14 +323,15 @@ def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
         if level == len(result):
             curr_level = collections.deque()
             result.append(curr_level)
-
+        # 根
         if level % 2 == 0:
             result[level].append(curr.val)
         elif level % 2 != 0:
             result[level].appendleft(curr.val)
-
-        dfs(curr.left, level + 1)
-        dfs(curr.right, level + 1)
+        
+        # 左 -> 右
+        dfs(curr.left, level + 1)    
+        dfs(curr.right, level + 1)    
 
     dfs(root, 0)
     return result
