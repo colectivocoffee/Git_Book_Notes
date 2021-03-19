@@ -1,4 +1,4 @@
-# \[Medium\] Binary Tree Level Order Traversal / \[Medium\] Zigzag Level Order Traversal
+# \[Medium\] Binary Tree Level Order Traversal / N-ary Tree / \[Medium\] Zigzag Level Order Traversal
 
 ## [\[Medium\] Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)    \(4343 / 108\)
 
