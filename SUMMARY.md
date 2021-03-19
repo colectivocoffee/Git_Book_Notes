@@ -139,7 +139,7 @@
   * [\[Medium\] Validate Binary Search Tree](shu-ju-jie-gou/binary-tree/medium-validate-binary-search-tree.md)
   * [\[Medium\] Path Sum II](shu-ju-jie-gou/binary-tree/medium-path-sum-ii.md)
   * [\[Easy\] Symmetric Tree](shu-ju-jie-gou/binary-tree/easy-symmetric-tree.md)
-  * [\[Medium\] Binary Tree Level Order Traversal / N-ary Tree / \[Medium\] Zigzag Level Order Traversal](shu-ju-jie-gou/binary-tree/medium-binary-tree-level-order-traversal.md)
+  * [\[Medium\] Binary Tree Level Order / N-ary Tree Level Order / Zigzag Level Order / Right Side View](shu-ju-jie-gou/binary-tree/medium-binary-tree-level-order-traversal.md)
   * [\[Medium\] Binary Tree Inorder / Preorder / Postorder Traversal Series](shu-ju-jie-gou/binary-tree/medium-binary-tree-traversal-series-inorder-preorder-postorder.md)
 
 ## System Design

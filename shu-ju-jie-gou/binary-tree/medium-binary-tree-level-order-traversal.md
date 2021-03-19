@@ -1,4 +1,4 @@
-# \[Medium\] Binary Tree Level Order Traversal / N-ary Tree / \[Medium\] Zigzag Level Order Traversal
+# \[Medium\] Binary Tree Level Order / N-ary Tree Level Order / Zigzag Level Order / Right Side View
 
 ## [\[Medium\] Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)    \(4343 / 108\)
 
@@ -237,7 +237,7 @@ return its zigzag level order traversal as:
 > 思路：看到題目要求是Level Order Traversal，我們就可以用Binary Tree BFS分層遍歷的特性來解題。  
 > 唯一需要注意的是題目要求zigzag，我們需要reverse level % 2 == 0的值。
 
-![](../../.gitbook/assets/image%20%2838%29.png)
+![](../../.gitbook/assets/image%20%2839%29.png)
 
 Time Complexity: `O(N)`, where N is the number of nodes in the tree.  
 In addition, the insertion operation on either end of the deque takes a constant time, rather than using the array/list data structure where the inserting at the head could take the `O(K)` time where K is the length of the list.
@@ -336,6 +336,38 @@ def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
         dfs(curr.right, level + 1)    
 
     dfs(root, 0)
+    return result
+```
+
+## [\[Medium\] Binary Tree Right Side View ](https://leetcode.com/problems/binary-tree-right-side-view/)     \(3631/197\)
+
+Given the `root` of a binary tree, imagine yourself standing on the **right side** of it, return _the values of the nodes you can see ordered from top to bottom_.
+
+![](../../.gitbook/assets/image%20%2838%29.png)
+
+### 1. DFS Iterative, Preorder:    O\(N\) / O\(H\)
+
+
+
+```python
+def rightSideView(self, root: TreeNode) -> List[int]:
+
+    result = []
+    if not root:
+        return result
+
+    stack = [(root,0)]
+    while stack:
+        curr, level = stack.pop()
+        if curr:
+            if level == len(result):                
+                result.append(curr.val)
+
+            if curr.left:
+                stack.append((curr.left, level + 1))
+            if curr.right:
+                stack.append((curr.right, level + 1))
+
     return result
 ```
 
