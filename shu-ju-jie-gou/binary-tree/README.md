@@ -270,6 +270,32 @@ Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個lev
 1. Binary Tree Level Order Traversal
 2. Binary Tree Zigzag Traversal
 
+```python
+# BFS Level Order Iterative模板
+def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    
+    result = []
+    if not root:
+        return result
+    
+    stack = [(root,0)]
+    while stack:
+        curr, level = stack.pop()  # pop the last item on right
+        if level == len(result):
+            result.append([])
+        
+        result[level].append(curr.val)
+        # 注意，先right後left
+        # 因為stack.pop()是LIFO 
+        # 這樣才能    In: right->left 
+        #           Out:        left -> right 
+        if curr.right:
+            stack.append((curr.right, level+1))
+        if curr.left:
+            stack.append((curr.left, level+1))
+    return result
+```
+
 ## Preorder/Inorder/Postorder/Levelorder 比較
 
 ```python
