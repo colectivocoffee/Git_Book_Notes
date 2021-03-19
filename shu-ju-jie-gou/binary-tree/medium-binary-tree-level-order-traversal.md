@@ -353,7 +353,9 @@ Given the `root` of a binary tree, imagine yourself standing on the **right side
 
 BFS wins for this problem, so let's use the opportunity to check out three different BFS implementations with the queue.
 
-> 思路：stack需要紀錄`(node, level)`，因此初始是`stack = [(root, 0)]`
+> 思路：Right Side View其實就是**紀錄Binary Tree每層的最後一個node。**  
+> \(1\)在`level == len(right_side_result)`時就可以紀錄答案，等同於Level Order Traversal。  
+> \(2\)stack需要紀錄`(node, level)`，因此初始是`stack = [(root, 0)]`
 
 ### 1. BFS Iterative, Level Order:    O\(N\) / O\(H\)
 
