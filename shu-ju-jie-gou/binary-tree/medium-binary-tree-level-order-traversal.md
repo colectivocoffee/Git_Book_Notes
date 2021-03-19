@@ -345,9 +345,11 @@ Given the `root` of a binary tree, imagine yourself standing on the **right side
 
 ![](../../.gitbook/assets/image%20%2838%29.png)
 
+這題跟所有的Level Order相同。唯一不一樣的是，需要在`level == len(result)`時把答案加入。
+
+> 思路：stack需要紀錄`(node, level)`，因此初始是`stack = [(root, 0)]`
+
 ### 1. DFS Iterative, Preorder:    O\(N\) / O\(H\)
-
-
 
 ```python
 def rightSideView(self, root: TreeNode) -> List[int]:
@@ -362,7 +364,8 @@ def rightSideView(self, root: TreeNode) -> List[int]:
         if curr:
             if level == len(result):                
                 result.append(curr.val)
-
+            # 由於是right side view，
+            # 根據stack LIFO原則，我們要pop'先右'後左 -> 因此append先左後右
             if curr.left:
                 stack.append((curr.left, level + 1))
             if curr.right:
