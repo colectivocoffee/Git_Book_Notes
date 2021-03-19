@@ -16,8 +16,6 @@
   * [\[Medium\] Word Search](breath-first-search/medium-word-search.md)
   * [\[Easy\] Lowest Common Ancestor of a BST](breath-first-search/easy-lowest-common-ancestor-of-a-bst.md)
   * [\[Medium\] Lowest Common Ancestor of a Binary Tree](breath-first-search/medium-lowest-common-ancestor-of-a-binary-tree.md)
-  * [\[Medium\] Binary Tree Zigzag Level Order Traversal](breath-first-search/medium-binary-tree-zigzag-level-order-traversal.md)
-  * [\[Medium\] Binary Tree Level Order Traversal](breath-first-search/medium-binary-tree-level-order-traversal.md)
   * [\[Medium\] Minimum Height Trees](breath-first-search/medium-minimum-height-trees.md)
   * [\[Medium\] Course Schedule II](breath-first-search/medium-course-schedule-ii.md)
   * [\[Medium\] Course Schedule](breath-first-search/medium-course-schedule.md)
@@ -141,6 +139,8 @@
   * [\[Medium\] Validate Binary Search Tree](shu-ju-jie-gou/binary-tree/medium-validate-binary-search-tree.md)
   * [\[Medium\] Path Sum II](shu-ju-jie-gou/binary-tree/medium-path-sum-ii.md)
   * [\[Easy\] Symmetric Tree](shu-ju-jie-gou/binary-tree/easy-symmetric-tree.md)
+  * [\[Medium\] Binary Tree Zigzag Level Order Traversal](shu-ju-jie-gou/binary-tree/medium-binary-tree-zigzag-level-order-traversal.md)
+  * [\[Medium\] Binary Tree Level Order Traversal](shu-ju-jie-gou/binary-tree/medium-binary-tree-level-order-traversal.md)
   * [\[Medium\] Binary Tree Inorder / Preorder / Postorder Traversal Series](shu-ju-jie-gou/binary-tree/medium-binary-tree-traversal-series-inorder-preorder-postorder.md)
 
 ## System Design
