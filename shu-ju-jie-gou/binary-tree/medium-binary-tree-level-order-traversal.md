@@ -232,10 +232,15 @@ return its zigzag level order traversal as:
 ]
 ```
 
-### 1. Iterative, BFS Level Order:
+### 1.  BFS Iterative, Level Order:    O\(N\) / O\(N\)
 
 > 思路：看到題目要求是Level Order Traversal，我們就可以用Binary Tree BFS分層遍歷的特性來解題。  
 > 唯一需要注意的是題目要求zigzag，我們需要reverse level % 2 == 0的值。
+
+![](../../.gitbook/assets/image%20%2838%29.png)
+
+Time Complexity: `O(N)`, where N is the number of nodes in the tree.  
+In addition, the insertion operation on either end of the deque takes a constant time, rather than using the array/list data structure where the inserting at the head could take the `O(K)` time where K is the length of the list.
 
 ```python
 def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
@@ -266,9 +271,11 @@ def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
     return result        
 ```
 
-### 2. Iterative, BFS Level Order: 
+### 2. BFS Iterative, Level Order:   O\(N\)  / O\(N\)
 
 由於法ㄧreverse整個list需要O\(n\)的時間，我們可以利用deque\(\)特性，直接依照正序or反序的方式以O\(1\)時間插入。這樣可以減少一些時間。
+
+![](../../.gitbook/assets/image%20%2837%29.png)
 
 ```python
 def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
@@ -295,6 +302,37 @@ def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
         if curr.left:
             stack.append((curr.left, level + 1))
 
+    return result
+```
+
+### 3. DFS Recursive, Preorder:    O\(N\) / O\(H\)
+
+Space Complexity: O\(H\) H is the height of the tree. \(the number of levels in the tree, which would be roughly $$\log_2{N}$$ ​\)
+
+```python
+def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
+
+    result = []
+    if not root:
+        return result
+
+    def dfs(curr, level):
+        if not curr:
+            return
+
+        if level == len(result):
+            curr_level = collections.deque()
+            result.append(curr_level)
+
+        if level % 2 == 0:
+            result[level].append(curr.val)
+        elif level % 2 != 0:
+            result[level].appendleft(curr.val)
+
+        dfs(curr.left, level + 1)
+        dfs(curr.right, level + 1)
+
+    dfs(root, 0)
     return result
 ```
 
