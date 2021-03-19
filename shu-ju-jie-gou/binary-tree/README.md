@@ -78,6 +78,10 @@ An improvement solution with `O(n)` time and `O(h)` space could be a [DFS](https
 
 ![](../../.gitbook/assets/image%20%2841%29.png)
 
+
+
+> Which approach to choose, BFS or DFS?
+
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)         O\(n\) / O\(logn\)-O\(n\)
 
 Top -&gt; Bottom  

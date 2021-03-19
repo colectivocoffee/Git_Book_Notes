@@ -345,6 +345,12 @@ Given the `root` of a binary tree, imagine yourself standing on the **right side
 
 ![](../../.gitbook/assets/image%20%2839%29.png)
 
+#### Which one to choose, BFS or DFS?
+
+* The problem is to return a list of the last elements from all levels, so it's way more natural to implement BFS here.
+* Time complexity is the same `O(N)` both for DFS and BFS since one has to visit all nodes.
+* Space complexity is `O(H)` for DFS and `O(D)` for BFS, where HH is a tree height, and D is a tree diameter. They both result in `O(N)` space in the worst-case scenarios: skewed tree for DFS and complete tree for BFS.
+
 這題跟所有的Level Order相同。唯一不一樣的是，需要在`level == len(result)`時把答案加入。
 
 > 思路：stack需要紀錄`(node, level)`，因此初始是`stack = [(root, 0)]`
