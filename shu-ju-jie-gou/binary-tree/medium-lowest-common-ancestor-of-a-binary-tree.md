@@ -107,11 +107,13 @@ def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -
     # ancestors of node p
     ancestors = set()
     
-    # 找p的所有祖宗
+    # 用parent-child pair
+    # 找p的所有ancestors祖宗，並且加到ancestors set
     while p:
         ancestors.add(p)
         p = all_parents[p]
-
+    
+    # 利用q，大部分都找不到，直到找第一個出現在ancestors就返回
     while q not in ancestors:
         q = all_parents[q]
     return q
