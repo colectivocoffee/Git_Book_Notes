@@ -91,7 +91,8 @@ def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -
 
     # parent-child pair
     all_parents = {root: None}
-
+    
+    # 把所有parent-child關係都存起來，直到找到 p&q
     while p not in all_parents or q not in all_parents:
 
         curr = stack.pop()
@@ -102,10 +103,11 @@ def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -
         if curr.right:
             all_parents[curr.right] = curr
             stack.append(curr.right)
-
+    
     # ancestors of node p
     ancestors = set()
-
+    
+    # 找p的所有祖宗
     while p:
         ancestors.add(p)
         p = all_parents[p]
