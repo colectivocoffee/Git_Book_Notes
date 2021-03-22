@@ -19,7 +19,7 @@ Output: [0,-3,9,-10,null,5]
 Explanation: [0,-10,5,null,-3,null,9] is also accepted
 ```
 
-### 1. Binary Search:    O\(N\) / O\(N\)
+### 1. DFS Recursive, Preorder:    O\(N\) / O\(N\)
 
 Time Complexity:  O\(N\)  
 Space Complexity:  O\(N\), O\(N\) to keep the output, and O\(logN\) for the recursion stack.
@@ -32,14 +32,17 @@ def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
     def convert(left, right):
         if left > right:
             return
-
+        
+        # 取中間(靠左)作為根
+        # always choose left middle node as a root
         curr = left + (right - left) // 2
 
         # 建立 root, root.left, root.right 的相互關係
+        # Preorder 根-左-右
         root = TreeNode(nums[curr])
-        # 往左走
+        # 左
         root.left = convert(left, curr - 1)
-        # 往右走
+        # 右
         root.right = convert(curr + 1, right)
         return root
 
