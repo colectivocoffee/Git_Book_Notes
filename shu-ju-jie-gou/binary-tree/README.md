@@ -4,6 +4,8 @@ Binary Tree 的解法有以下四種: DFS Pre-order, DFS In-order, DFS Post-orde
 
 通常Binary Tree Traversal都會和BFS & DFS同時出現，例如要求要level order traversal \(same as BFS\)。因此建議複習Binary Tree時，搭配BFS&DFS一起練習。
 
+另外，還可以搭配Binary Tree的特例 -- Binary Search Tree \(BST\) 一起複習。
+
 ![](../../.gitbook/assets/tree-traversals-clean.png)
 
 |  | 順序 |
