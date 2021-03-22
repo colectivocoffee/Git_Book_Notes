@@ -125,6 +125,7 @@
 * [Binary Search Tree\(BST\)](shu-ju-jie-gou/bst/README.md)
   * [Search Range In Binary Search Tree](shu-ju-jie-gou/bst/search-range-in-binary-search-tree.md)
   * [\[Easy\] Closest Binary Search Tree Value](shu-ju-jie-gou/bst/closest-binary-search-tree-value.md)
+  * [\[Easy\] Convert Sorted Array to Binary Search Tree](shu-ju-jie-gou/bst/easy-convert-sorted-array-to-binary-search-tree.md)
   * [\[Easy\] Two Sum IV - Input is a BST](shu-ju-jie-gou/bst/two-sum-iv-input-is-a-bst.md)
 * [Binary Tree](shu-ju-jie-gou/binary-tree/README.md)
   * [\[Medium\] Implement Trie](shu-ju-jie-gou/binary-tree/medium-implement-trie.md)

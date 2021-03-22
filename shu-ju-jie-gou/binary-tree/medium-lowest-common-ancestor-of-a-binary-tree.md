@@ -147,7 +147,7 @@ Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of 
 
 The below diagram would help in understanding what `lowest` means. Following cases are possible:
 
-![](../../.gitbook/assets/image%20%2844%29.png)
+![](../../.gitbook/assets/image%20%2847%29.png)
 
 ### 1. DFS Recursive \(same as LCA Binary Tree\): O\(N\) / O\(N\)
 
