@@ -30,6 +30,7 @@ Space Complexity:  O\(N\), O\(N\) to keep the output, and O\(logN\) for the recu
 def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
 
     def convert(left, right):
+        # 遞歸出口
         if left > right:
             return
         
@@ -44,8 +45,25 @@ def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
         root.left = convert(left, curr - 1)
         # 右
         root.right = convert(curr + 1, right)
+        
         return root
-
     return convert(0, len(nums) - 1)
+```
+
+同樣思路，但更簡潔的寫法
+
+```python
+def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+
+    if not nums:
+        return 
+
+    middle = len(nums)//2
+
+    root = TreeNode(nums[middle])
+    root.left = self.sortedArrayToBST(nums[:middle])
+    root.right = self.sortedArrayToBST(nums[middle + 1:])
+
+    return root
 ```
 
