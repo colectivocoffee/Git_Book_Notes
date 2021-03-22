@@ -24,6 +24,10 @@ Explanation: [0,-10,5,null,-3,null,9] is also accepted
 Time Complexity:  O\(N\)  
 Space Complexity:  O\(N\), O\(N\) to keep the output, and O\(logN\) for the recursion stack.
 
+> 思路：  
+> BST特性 --- 從左 -&gt; root -&gt; 右為遞增，因此**root為整個nums中點**。  
+> 因此要先用 `middle = len(nums) // 2` 取得 `root`
+
 如果要建Binary Tree / Binary Search Tree，我們依次建立`root/root.left/root.right` 之間的三角關係。然後一直往下走，直到nums全部看完為止。
 
 ```python
@@ -50,16 +54,20 @@ def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
     return convert(0, len(nums) - 1)
 ```
 
-同樣思路，但更簡潔的寫法
+### 2. DFS Recursive, Preorder + Slicing:   O\(N\) / O\(N\)
+
+同樣思路，但更簡潔的寫法。
 
 ```python
 def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
 
     if not nums:
         return 
-
+    
+    # nums的中點為BST root 
     middle = len(nums)//2
-
+    
+    # Preorder: 根-左-右
     root = TreeNode(nums[middle])
     root.left = self.sortedArrayToBST(nums[:middle])
     root.right = self.sortedArrayToBST(nums[middle + 1:])
