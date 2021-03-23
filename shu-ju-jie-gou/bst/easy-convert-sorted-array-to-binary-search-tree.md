@@ -1,4 +1,4 @@
-# \[Easy\] Convert Sorted Array to Binary Search Tree
+# \[Easy\] Convert Sorted Array -&gt; BST / \[Medium\] Convert Linked List -&gt; BST
 
 ## [\[Easy\] Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)         \(3610/267\)
 
@@ -71,6 +71,60 @@ def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
     root = TreeNode(nums[middle])
     root.left = self.sortedArrayToBST(nums[:middle])
     root.right = self.sortedArrayToBST(nums[middle + 1:])
+
+    return root
+```
+
+
+
+## [\[Medium\] Convert Sorted List to BST ](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)     \(2758/94\)
+
+Given the `head` of a singly linked list where elements are **sorted in ascending order**, convert it to a height balanced BST.
+
+For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of _every_ node never differs by more than 1.
+
+![](../../.gitbook/assets/image%20%2849%29.png)
+
+```text
+Input: head = [-10,-3,0,5,9]
+Output: [0,-3,9,-10,null,5]
+Explanation: One possible answer is [0,-3,9,-10,null,5], which represents the shown height balanced BST.
+```
+
+### 1. DFS Recursive, Preorder + Binary Search
+
+```python
+# Utitlity method 1 to convert original linked list -> array
+def convert(self, head):
+    converted_list = []
+    while head:
+        converted_list.append(head.val)
+        head = head.next
+    return converted_list
+
+# Utility method 2 to convert array -> BST
+def listToBST(self, converted, start, end):
+
+    if start > end:
+        return
+
+    middle = start + (end - start) // 2
+    curr = TreeNode(converted[middle])
+    if start == end:
+        return curr
+
+    curr.left = self.listToBST(converted, start, middle - 1)
+    curr.right = self.listToBST(converted, middle + 1, end)
+    return curr
+
+# linked list --> array -binary search--> BST
+def sortedListToBST(self, head: ListNode) -> TreeNode:
+
+    if not head:
+        return None
+
+    converted = self.convert(head)
+    root = self.listToBST(converted, 0, len(converted) - 1)
 
     return root
 ```
