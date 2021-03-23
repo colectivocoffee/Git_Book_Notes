@@ -91,7 +91,44 @@ Output: [0,-3,9,-10,null,5]
 Explanation: One possible answer is [0,-3,9,-10,null,5], which represents the shown height balanced BST.
 ```
 
-### 1. DFS Recursive, Preorder + Binary Search
+### 1. DFS Recursive, Preorder + Middle Linked List:    O\(N\) / O\(N\)
+
+```python
+def findMiddle(self, head):
+
+    prev = None
+    slow = head
+    fast = head
+
+    while fast and fast.next:
+        prev = slow
+        slow = slow.next
+        fast = fast.next.next    
+
+    if prev:
+        prev.next = None
+
+    return slow
+
+def sortedListToBST(self, head: ListNode) -> TreeNode:
+
+    if not head:
+        return None
+
+    middle = self.findMiddle(head)
+
+    # 遞歸
+    root = TreeNode(middle.val)
+    if head == middle:
+        return root
+
+    root.left = self.sortedListToBST(head)
+    root.right = self.sortedListToBST(middle.next)
+
+    return root
+```
+
+### 1. DFS Recursive, Preorder + Binary Search:     O\(N\) / O\(N\)
 
 ```python
 # Utitlity method 1 to convert original linked list -> array
