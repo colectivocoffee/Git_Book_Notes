@@ -131,7 +131,8 @@ def sortedListToBST(self, head: ListNode) -> TreeNode:
 ### 1. DFS Recursive, Preorder + Binary Search:     O\(N\) / O\(N\)
 
 ```python
-# Utitlity method 1 to convert original linked list -> array
+# step1
+# Utitlity method 1: to convert original linked list -> array
 def convert(self, head):
     converted_list = []
     while head:
@@ -139,7 +140,8 @@ def convert(self, head):
         head = head.next
     return converted_list
 
-# Utility method 2 to convert array -> BST
+# step2
+# Utility method 2: to convert array -> BST
 def listToBST(self, converted, start, end):
 
     if start > end:
