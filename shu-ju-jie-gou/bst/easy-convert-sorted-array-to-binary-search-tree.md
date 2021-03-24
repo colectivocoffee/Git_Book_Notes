@@ -102,7 +102,7 @@ Explanation: One possible answer is [0,-3,9,-10,null,5], which represents the sh
 ## 
 
 這題有兩種做法：  
-\(1\) `Linked List` --&gt; `DFS Recursive Preorder` --&gt; `BST` :  
+\(1\) \[Space Efficient Ver.\] `Linked List` --&gt; `DFS Recursive Preorder` --&gt; `BST` :    
 **STEP1. 找Linked List middle，並斷開成左右兩個 Linked List**   \(Linked List --&gt; 2 Linked Lists\)     
 先利用快慢指针找到链表的中点，然后把中点之前的链表断开，让中点做treeNode， 递归， 让left部分为前一半链表做成的BST， right为后一半链表做成的BST
 
@@ -120,13 +120,17 @@ DFS Recursive Preorder。利用Root, Root.left, Root.right的關係，依次把 
 ![](../../.gitbook/assets/screen-shot-2021-03-24-at-12.31.35-pm.png)
 
   
-\(2\) `Linked List`  --&gt; `Array` -&gt; `DFS Recursive Preorder` -&gt; `BST`   
+\(2\) \[Time Efficient Ver\] `Linked List`  --&gt; `Array` -&gt; `DFS Recursive Preorder` -&gt; `BST`   
 **STEP1. 直接traversal，並append到Array** \(Linked List --&gt; Array\)  
   
 **STEP2. Binary Search + Recursive Preorder, 用Slicing斷開left&right** \(Array --&gt; BST\)  
 利用Binary Search + Recursive的方式，先找到Binary Search Middle中點，再把中點放到Recursive的範圍內，讓左子樹&右子樹分別用Recursion的方式處理。
 
-### 1. DFS Recursive, Preorder + Middle Linked List:    O\(N\) / O\(N\)
+### 1. DFS Recursive, Preorder + Middle Linked List:    O\(NlogN\) / O\(logN\)
+
+Time Complexity:  `O(NlogN)`，每次找Middle Linked List需要 N/2時間，並且當越後面長度越切越短，如下$$\begin{aligned} \frac{N}{2} + 2 \cdot \frac{N}{4} + 4 \cdot \frac{N}{8} + 8 \cdot \frac{N}{16} \; \ldots \end{aligned}$$ 。總共需要logN次\(樹的高度\)，因此`N*logN` = `O(NlogN)`
+
+Space Complexity:  `O(logN)`，需要維持Height Balanced BST，因此是 `O(logN)`
 
 ```python
 def findMiddle(self, head):
@@ -166,6 +170,11 @@ def sortedListToBST(self, head: ListNode) -> TreeNode:
 
 ### 2. DFS Recursive, Preorder + Binary Search:     O\(N\) / O\(N\)
 
+相較於前一種解法，我們用更多的空間，換來了更快的時間。Time-Space Tradeoff。
+
+Time Complexity: O\(N\)  
+Space Complexity: O\(N\)
+
 ```python
 # step1
 # Utitlity method 1: to convert original linked list -> array
@@ -202,5 +211,27 @@ def sortedListToBST(self, head: ListNode) -> TreeNode:
     root = self.listToBST(converted, 0, len(converted) - 1)
 
     return root
+```
+
+### 3. DFS Recursive, Inorder + Binary Search:    O\(N\) / O\(logN\)
+
+Time Complexity: `O(N)`  
+Space Complexity: `O(logN)` since now the only extra space is used by the recursion stack and since we are building a height balanced BST, the height is bounded by logN
+
+> **Elements processed in the inorder fashion on a binary search tree turn out to be sorted in ascending order.**
+>
+> We know that the leftmost element in the inorder traversal has to be the head of our given linked list. Similarly, the next element in the inorder traversal will be the second element in the linked list and so on. This is made possible because the initial list given to us is sorted in ascending order.
+
+```text
+# Pesudo-Code
+➔ function formBst(start, end)
+➔      mid = (start + end) / 2
+➔      formBst(start, mid - 1)
+➔
+➔      TreeNode(head.val)
+➔      head = head.next
+➔       
+➔      formBst(mid + 1, end)
+➔
 ```
 
