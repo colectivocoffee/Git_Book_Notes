@@ -101,7 +101,7 @@ Explanation: One possible answer is [0,-3,9,-10,null,5], which represents the sh
 
 ## 
 
-這題有兩種做法：  
+這題有三種做法：  
 \(1\) \[Space Efficient Ver.\] `Linked List` --&gt; `DFS Recursive Preorder` --&gt; `BST` :    
 **STEP1. 找Linked List middle，並斷開成左右兩個 Linked List**   \(Linked List --&gt; 2 Linked Lists\)     
 先利用快慢指针找到链表的中点，然后把中点之前的链表断开，让中点做treeNode， 递归， 让left部分为前一半链表做成的BST， right为后一半链表做成的BST
