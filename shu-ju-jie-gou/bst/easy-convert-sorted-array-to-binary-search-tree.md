@@ -6,6 +6,8 @@
 All the elements to the left of the middle element would form the left subtree recursively. Similarly, all the elements to the right of the middle element will form the right subtree of the binary search tree. This would ensure the height balance required in the resulting binary search tree.
 {% endhint %}
 
+![](../../.gitbook/assets/screen-shot-2021-03-24-at-12.31.35-pm.png)
+
 ## [\[Easy\] Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)         \(3610/267\)
 
 Given an integer array `nums` where the elements are sorted in **ascending order**, convert _it to a **height-balanced** binary search tree_.
@@ -108,8 +110,15 @@ Explanation: One possible answer is [0,-3,9,-10,null,5], which represents the sh
 > 在middle斷開時，並不是直接返回slow pointer，還必須要考慮分開前半Linked List / 後半Linked List的問題。  
 > 正常會想說，直接把Middle = None就可以斷開Linked List。但這只是改動了Middle本身，原來的head Linked List並沒有任何改變。我們必須要想辦法弄成雙Linked List，最好是Middle前的節點Prev = None，這樣就可以在Traverse時，確保到Prev就停止，並輸出前半Linked List。
 
+![](../../.gitbook/assets/convert_ll_bst.png)
+
+![](../../.gitbook/assets/convert_ll_bst2.png)
+
 **STEP2. Recursive, Preorder** \(2 Linked Lists --&gt; BST\)  
-DFS Recursive Preorder。利用Root, Root.left, Root.right的關係，依次把 Middle / Left Linked List / Right Link List 加入。  
+DFS Recursive Preorder。利用Root, Root.left, Root.right的關係，依次把 Middle / Left Linked List / Right Link List 加入。
+
+![](../../.gitbook/assets/screen-shot-2021-03-24-at-12.31.35-pm.png)
+
   
 \(2\) `Linked List`  --&gt; `Array` -&gt; `DFS Recursive Preorder` -&gt; `BST`   
 **STEP1. 直接traversal，並append到Array** \(Linked List --&gt; Array\)  
