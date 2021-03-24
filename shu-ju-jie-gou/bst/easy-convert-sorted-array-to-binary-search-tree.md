@@ -97,6 +97,8 @@ Output: [0,-3,9,-10,null,5]
 Explanation: One possible answer is [0,-3,9,-10,null,5], which represents the shown height balanced BST.
 ```
 
+## 
+
 這題有兩種做法：  
 \(1\) `Linked List` --&gt; `DFS Recursive Preorder` --&gt; `BST` :  
 **STEP1. 找Linked List middle，並斷開成左右兩個 Linked List**   \(Linked List --&gt; 2 Linked Lists\)     
@@ -128,7 +130,8 @@ def findMiddle(self, head):
         prev = slow
         slow = slow.next
         fast = fast.next.next    
-
+    
+    # 使用prev來確定斷開位置
     if prev:
         prev.next = None
 
