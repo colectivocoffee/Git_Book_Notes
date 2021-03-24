@@ -1,5 +1,11 @@
 # \[Easy\] Convert Sorted Array -&gt; BST / \[Medium\] Convert Linked List -&gt; BST
 
+{% hint style="info" %}
+核心思想：The **middle element** of the given list would **form the root** of the binary search tree.   
+  
+All the elements to the left of the middle element would form the left subtree recursively. Similarly, all the elements to the right of the middle element will form the right subtree of the binary search tree. This would ensure the height balance required in the resulting binary search tree.
+{% endhint %}
+
 ## [\[Easy\] Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)         \(3610/267\)
 
 Given an integer array `nums` where the elements are sorted in **ascending order**, convert _it to a **height-balanced** binary search tree_.
@@ -91,6 +97,24 @@ Output: [0,-3,9,-10,null,5]
 Explanation: One possible answer is [0,-3,9,-10,null,5], which represents the shown height balanced BST.
 ```
 
+這題有兩種做法：  
+\(1\) `Linked List` --&gt; `DFS Recursive Preorder` --&gt; `BST` :  
+**STEP1. 找Linked List middle，並斷開成左右兩個 Linked List**   \(Linked List --&gt; 2 Linked Lists\)     
+先利用快慢指针找到链表的中点，然后把中点之前的链表断开，让中点做treeNode， 递归， 让left部分为前一半链表做成的BST， right为后一半链表做成的BST
+
+> \[注意\] 如何在Middle斷開Linked List？  
+> 在middle斷開時，並不是直接返回slow pointer，還必須要考慮分開前半Linked List / 後半Linked List的問題。  
+> 正常會想說，直接把Middle = None就可以斷開Linked List。但這只是改動了Middle本身，原來的head Linked List並沒有任何改變。我們必須要想辦法弄成雙Linked List，最好是Middle前的節點Prev = None，這樣就可以在Traverse時，確保到Prev就停止，並輸出前半Linked List。
+
+**STEP2. Recursive, Preorder** \(2 Linked Lists --&gt; BST\)  
+DFS Recursive Preorder。利用Root, Root.left, Root.right的關係，依次把 Middle / Left Linked List / Right Link List 加入。  
+  
+\(2\) `Linked List`  --&gt; `Array` -&gt; `DFS Recursive Preorder` -&gt; `BST`   
+**STEP1. 直接traversal，並append到Array** \(Linked List --&gt; Array\)  
+  
+**STEP2. Binary Search + Recursive Preorder, 用Slicing斷開left&right** \(Array --&gt; BST\)  
+利用Binary Search + Recursive的方式，先找到Binary Search Middle中點，再把中點放到Recursive的範圍內，讓左子樹&右子樹分別用Recursion的方式處理。
+
 ### 1. DFS Recursive, Preorder + Middle Linked List:    O\(N\) / O\(N\)
 
 ```python
@@ -128,7 +152,7 @@ def sortedListToBST(self, head: ListNode) -> TreeNode:
     return root
 ```
 
-### 1. DFS Recursive, Preorder + Binary Search:     O\(N\) / O\(N\)
+### 2. DFS Recursive, Preorder + Binary Search:     O\(N\) / O\(N\)
 
 ```python
 # step1
