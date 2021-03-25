@@ -2,7 +2,19 @@
 
 ## [\[Medium\] BST Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)       \(3536/313\)
 
+Implement the `BSTIterator` class that represents an iterator over the [**in-order traversal**](https://en.wikipedia.org/wiki/Tree_traversal#In-order_%28LNR%29) of a binary search tree \(BST\):
+
+* `BSTIterator(TreeNode root)` Initializes an object of the `BSTIterator` class. The `root` of the BST is given as part of the constructor. The pointer should be initialized to a non-existent number smaller than any element in the BST.
+* `boolean hasNext()` Returns `true` if there exists a number in the traversal to the right of the pointer, otherwise returns `false`.
+* `int next()` Moves the pointer to the right, then returns the number at the pointer.
+
+Notice that by initializing the pointer to a non-existent smallest number, the first call to `next()` will return the smallest element in the BST.
+
+You may assume that `next()` calls will always be valid. That is, there will be at least a next number in the in-order traversal when `next()` is called.
+
 ### 1. DFS Recursive, Inorder:   O\(N\) / O\(N\)
+
+> 關鍵點：在Init的時候需要有一個`Inorder Traversal Helper Function`來幫助我們，看這個Helper Function需要什麼，我們就Init什麼。
 
 Time Complexity: `O(N)` is the time taken by the constructor for the iterator. The problem statement only asks us to analyze the complexity of the two functions, however, when implementing a class, it's important to also note the time it takes to initialize a new object of the class and in this case, it would be linear in terms of the number of nodes in the BST. In addition to the space occupied by the new array we initialized, the recursion stack for the inorder traversal also occupies space but that is limited to O\(h\) where h is the height of the tree.
 
