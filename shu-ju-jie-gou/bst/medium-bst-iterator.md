@@ -93,3 +93,16 @@ class BSTIterator:
         return len(self.stack) > 0
 ```
 
+#### 有關 `def _inorder function`:
+
+Let's also consider a helper function that we will be calling again and again in the implementation. This function, called `_inorder` will essentially add all the nodes in the leftmost branch of the tree rooted at the given node `root` to the stack and it will keep on doing so until there is no `left` child of the `root` node. Something like the following code:
+
+```text
+def inorder_left(root):
+   while (root):
+     S.append(root)
+     root = root.left
+```
+
+For a given node `root`, the next smallest element will _always_ be the leftmost element in its tree. So, for a given root node, we keep on following the leftmost branch until we reach a node which doesn't have a left child and that will be the next smallest element. For the root of our BST, this leftmost node would be the smallest node in the tree. Rest of the nodes are added to the stack because they are pending processing. Try and relate this with a dry run of a simple recursive inorder traversal and things will make a bit more sense.
+
