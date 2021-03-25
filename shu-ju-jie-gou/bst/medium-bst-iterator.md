@@ -40,6 +40,15 @@ class BSTIterator:
 
 ### 2. DFS Iterative, Inorder:   O\(N\) / O\(N\)
 
+* Time complexity: The time complexity for this approach is very interesting to analyze. Let's look at the complexities for both the functions in the class:
+  * `hasNext` is the easier of the lot since all we do in this is to return true if there are any elements left in the stack. Otherwise, we return false. So clearly, this is an O\(1\) operation every time. Let's look at the more complicated function now to see if we satisfy all the requirements in the problem statement
+  * `next` involves two major operations. One is where we pop an element from the stack which becomes the next smallest element to return. This is a O\(1\) operation. However, we then make a call to our helper function `_inorder_left` which iterates over a bunch of nodes. This is clearly a linear time operation i.e. O\(N\) in the worst case. This is true.
+
+    > However, the important thing to note here is that we only make such a call for nodes which have a right child. Otherwise, we simply return. Also, even if we end up calling the helper function, it won't always process N nodes. They will be much lesser. Only if we have a skewed tree would there be N nodes for the root. But that is the only node for which we would call the helper function.
+
+    Thus, the amortized \(average\) time complexity for this function would still be O\(1\) which is what the question asks for. We don't need to have a solution that gives constant time operations for _every_ call. We need that complexity on average and that is what we get.
+* Space complexity: The space complexity is `O(N)` \(N is the number of nodes in the tree\), which is occupied by our custom stack for simulating the inorder traversal. Again, we satisfy the space requirements as well as specified in the problem statement.
+
 ```python
 '''
 Inorder模板
@@ -79,7 +88,6 @@ class BSTIterator:
         if curr.right:
             self._inorder(curr.right)
         return curr.val
-        
 
     def hasNext(self) -> bool:
         return len(self.stack) > 0
