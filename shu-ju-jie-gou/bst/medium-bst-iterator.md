@@ -38,3 +38,50 @@ class BSTIterator:
         return self.index + 1 < len(self.sorted_nodes)
 ```
 
+### 2. DFS Iterative, Inorder:   O\(N\) / O\(N\)
+
+```python
+'''
+Inorder模板
+
+def inorder(root):
+    if not root:
+        return 
+    result = []
+    stack = []
+
+    while root or stack:
+        while root:
+            stack.append(root)  # 左左左...
+            root = root.left    
+        root = stack.pop()      # 節點為空，就出棧
+        result.append(root.val) # inorder result
+        root = root.right       # 看右子樹
+    return result
+'''
+class BSTIterator:
+
+    def __init__(self, root: TreeNode):
+        self.stack = []
+        self._inorder(root)
+    
+    def _inorder(self, root):
+        if not root:
+            return
+        
+        while root:
+            self.stack.append(root)
+            root = root.left
+            
+    def next(self) -> int:
+        
+        curr = self.stack.pop()
+        if curr.right:
+            self._inorder(curr.right)
+        return curr.val
+        
+
+    def hasNext(self) -> bool:
+        return len(self.stack) > 0
+```
+
