@@ -83,8 +83,11 @@ class BSTIterator:
             root = root.left
             
     def next(self) -> int:
-        
+        # Node at the top of the stack is the next smallest element
         curr = self.stack.pop()
+        
+        # Need to maintain the invariant. If the node has a right child, call the
+        # helper function for the right child
         if curr.right:
             self._inorder(curr.right)
         return curr.val
