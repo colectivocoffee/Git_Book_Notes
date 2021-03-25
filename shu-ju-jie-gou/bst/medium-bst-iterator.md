@@ -58,7 +58,11 @@ class BSTIterator:
 
     > However, the important thing to note here is that we only make such a call for nodes which have a right child. Otherwise, we simply return. Also, even if we end up calling the helper function, it won't always process N nodes. They will be much lesser. Only if we have a skewed tree would there be N nodes for the root. But that is the only node for which we would call the helper function.
 
-    Thus, the amortized \(average\) time complexity for this function would still be O\(1\) which is what the question asks for. We don't need to have a solution that gives constant time operations for _every_ call. We need that complexity on average and that is what we get.
+    Thus, the amortized \(average\) time complexity for this function would still be O\(1\) which is what the question asks for. We don't need to have a solution that gives constant time operations for _every_ call. We need that complexity on average and that is what we get.  
+  
+    ---  
+    For `next` function, each node gets pushed and popped exactly once in next\(\) when iterating over all N nodes. That comes out to 2N \* O\(1\) over N calls to next\(\), making it O\(1\) on average, or O\(1\) amortized.  
+    ---
 * Space complexity: The space complexity is `O(N)` \(N is the number of nodes in the tree\), which is occupied by our custom stack for simulating the inorder traversal. Again, we satisfy the space requirements as well as specified in the problem statement.
 
 ```python
