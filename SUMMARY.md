@@ -123,7 +123,6 @@
   * [\[Medium\] Meeting Rooms II](shu-ju-jie-gou/heap/meeting-rooms-ii.md)
   * [\[Medium\] Kth Largest Element in an Array](shu-ju-jie-gou/heap/medium-kth-largest-element-in-an-array.md)
 * [Binary Search Tree\(BST\)](shu-ju-jie-gou/bst/README.md)
-  * [\[Medium\] Convert Array -&gt; BST / Convert Linked List -&gt; BST](shu-ju-jie-gou/bst/untitled.md)
   * [Search Range In Binary Search Tree](shu-ju-jie-gou/bst/search-range-in-binary-search-tree.md)
   * [\[Easy\] Closest Binary Search Tree Value](shu-ju-jie-gou/bst/closest-binary-search-tree-value.md)
   * [\[Medium\] BST Iterator](shu-ju-jie-gou/bst/medium-bst-iterator.md)
