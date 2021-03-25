@@ -91,7 +91,7 @@ An improvement solution with `O(n)` time and `O(h)` space could be a [DFS](https
 缺點：無法Paulse Recursion；相較於Iterative O\(H\)，Recursive 版本Space Complexity較高`O(N)`。  
   
 **Iterative**  
-優點：可控性高。可以隨時Paulse，在移往下一個node時做各種額外事情；Space Complexity較低 O\(Tree Height\)。  
+優點：可控性高。可以隨時Paulse，在移往下一個node時做各種額外事情；Space Complexity較低 O\(Max Stack Used\)。  
 缺點：代碼複雜。
 
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)         O\(n\) / O\(logn\)-O\(n\)
