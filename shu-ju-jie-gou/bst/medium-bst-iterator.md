@@ -2,6 +2,15 @@
 
 ## [\[Medium\] BST Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)       \(3536/313\)
 
+### 1. DFS Recursive, Inorder:   O\(N\) / O\(N\)
+
+Time Complexity: `O(N)` is the time taken by the constructor for the iterator. The problem statement only asks us to analyze the complexity of the two functions, however, when implementing a class, it's important to also note the time it takes to initialize a new object of the class and in this case, it would be linear in terms of the number of nodes in the BST. In addition to the space occupied by the new array we initialized, the recursion stack for the inorder traversal also occupies space but that is limited to O\(h\) where h is the height of the tree.
+
+* `next()` would take O\(1\)
+* `hasNext()` would take O\(1\)
+
+Space Complexity: `O(N)` since we create a new array to contain all the nodes of the BST. This doesn't comply with the requirement specified in the problem statement that the maximum space complexity of either of the functions should be O\(h\) where h is the height of the tree and for a well-balanced BST, the height is usually logN. So, we get great time complexities but we had to compromise on the space. Note that the new array is used for both the function calls and hence the space complexity for both the calls is O\(N\).
+
 ```python
 class BSTIterator:
     def __init__(self, root: TreeNode):
@@ -9,6 +18,7 @@ class BSTIterator:
         self.index = -1
         self._inorder(root)
     
+    # Internal Method to do recursive inorder BST traversal
     def _inorder(self, curr):
         if not curr:
             return       
@@ -21,7 +31,6 @@ class BSTIterator:
         return self.sorted_nodes[self.index]
 
     def hasNext(self) -> bool:
-        
         return self.index + 1 < len(self.sorted_nodes)
 ```
 
