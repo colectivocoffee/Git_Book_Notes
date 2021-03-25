@@ -82,7 +82,17 @@ An improvement solution with `O(n)` time and `O(h)` space could be a [DFS](https
 
 
 
-> Which approach to choose, BFS or DFS?
+### Recursive or Iterative? 
+
+每種Traversal都有Recursive, Iterative這兩種解法。Recursive, Iterative各有優缺點，就看題目要求提升Space Complexity or Time Complexity了。  
+  
+**Recursive**  
+優點：代碼簡單，比較容易寫。  
+缺點：無法Paulse Recursion；相較於Iterative O\(H\)，Recursive 版本Space Complexity較高`O(N)`。  
+  
+**Iterative**  
+優點：可控性高。可以隨時Paulse，在移往下一個node時做各種額外事情；Space Complexity較低 O\(Tree Height\)。  
+缺點：代碼複雜。
 
 ### 1. Pre-order Traversal: **Root-Left-Right** \(根左右\)         O\(n\) / O\(logn\)-O\(n\)
 
