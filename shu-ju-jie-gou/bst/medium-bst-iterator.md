@@ -14,6 +14,7 @@ Space Complexity: `O(N)` since we create a new array to contain all the nodes of
 ```python
 class BSTIterator:
     # init would take linear O(n) time
+    # init takes O(n) space for new array sorted_nodes
     def __init__(self, root: TreeNode):
         self.sorted_nodes = []
         self.index = -1
