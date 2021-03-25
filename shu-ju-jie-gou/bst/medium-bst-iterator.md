@@ -13,6 +13,7 @@ Space Complexity: `O(N)` since we create a new array to contain all the nodes of
 
 ```python
 class BSTIterator:
+    # init would take linear O(n) time
     def __init__(self, root: TreeNode):
         self.sorted_nodes = []
         self.index = -1
@@ -25,11 +26,13 @@ class BSTIterator:
         self._inorder(curr.left)
         self.sorted_nodes.append(curr.val)
         self._inorder(curr.right)
-
+    
+    # next would take O(1) time
     def next(self) -> int:
         self.index += 1
         return self.sorted_nodes[self.index]
-
+    
+    # hasNext would take O(1) time
     def hasNext(self) -> bool:
         return self.index + 1 < len(self.sorted_nodes)
 ```
