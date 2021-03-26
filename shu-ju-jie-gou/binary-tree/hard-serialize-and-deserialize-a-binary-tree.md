@@ -150,19 +150,62 @@ class Codec:
 ### 2. \(Recommend\) DFS Recursive, Preorder: 
 
 ```python
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
 class Codec:
+    
+    def _preorder(self, curr, result):
+        if not curr:
+            result.append('None')
+            return
+        
+        result.append(str(curr.val))
+        self._preorder(curr.left, result)
+        self._preorder(curr.right, result)
+    
     def serialize(self, root):
+        """Encodes a tree to a single string.
+        
+        :type root: TreeNode
+        :rtype: str
+        """
+        result = []
+        self._preorder(root, result)
+        return ','.join(result)
         
         
+    def _constructTree(self, data):
+        # print(data)
+        if not data:
+            return
+        
+        if data[0] == 'None':
+            data.pop(0)
+            return None
+        
+        root = TreeNode(data[0])
+        data.pop(0)
+        
+        root.left = self._constructTree(data)
+        root.right = self._constructTree(data)     
+        return root
 
     def deserialize(self, data):
+        """Decodes your encoded data to tree.
         
+        :type data: str
+        :rtype: TreeNode
+        """
+        if not data:
+            return
+        
+        array = data.split(',')
+        root = self._constructTree(array)
+        return root
+        
+
+# Your Codec object will be instantiated and called as such:
+# ser = Codec()
+# deser = Codec()
+# ans = deser.deserialize(ser.serialize(root))
 ```
 
 ## \[Medium\] Serialize and Deserialize BST
