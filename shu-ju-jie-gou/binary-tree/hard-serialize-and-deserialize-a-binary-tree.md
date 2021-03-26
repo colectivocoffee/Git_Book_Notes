@@ -154,7 +154,8 @@ class Codec:
 
 ```python
 class Codec:
-    
+
+    # Util method to do recursive preorder
     def _preorder(self, curr, result):
         if not curr:
             result.append('None')
@@ -166,24 +167,28 @@ class Codec:
     
     def serialize(self, root):
         """Encodes a tree to a single string.
-        
         :type root: TreeNode
         :rtype: str
         """
         result = []
+        #step1. Preorder根左右
         self._preorder(root, result)
+        #step2. 用','把答案黏起來
         return ','.join(result)
         
-        
+    # Util method to reconstruct the binary tree with recursion        
     def _constructTree(self, data):
-        # print(data)
+        
         if not data:
             return
-        
+            
+        # case1: data[0] == None
+        # 碰到data裡有None時的處理方式
         if data[0] == 'None':
             data.pop(0)
             return None
         
+        # case2: data[0]為數字
         root = TreeNode(data[0])
         data.pop(0)
         
@@ -193,13 +198,13 @@ class Codec:
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
         :type data: str
         :rtype: TreeNode
         """
         if not data:
             return
         
+        #STEP1. 先化str -> treeNode(用recursion各個擊破)
         array = data.split(',')
         root = self._constructTree(array)
         return root
