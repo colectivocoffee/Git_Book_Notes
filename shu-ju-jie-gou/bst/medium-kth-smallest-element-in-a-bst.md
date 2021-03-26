@@ -1,11 +1,11 @@
 # \[Medium\] Kth Smallest Element in a BST
 
-[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)  
+## [\[Medium\] Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)             \(3644/83\)
+
 Given a binary search tree, write a function `kthSmallest` to find the **k**th smallest element in it.
 
-**Example**
-
 ```text
+Example
 Input: root = [5,3,6,2,4,null,null,1], k = 3
        5
       / \
@@ -19,7 +19,9 @@ Output: 3
 
 ## Code
 
-### 1. In-order Traversal Recursive
+![](../../.gitbook/assets/image%20%2844%29.png)
+
+### 1. In-order Traversal Recursive:      O\(N\) / O\(N\)
 
 ```python
 def kthSmallest(self, root: TreeNode, k: int) -> int:
@@ -50,7 +52,7 @@ def inorder(self, curr):
     self.inorder(curr.right)
 ```
 
-### 2. In-order Recursive + sorted array特性
+### 2. In-order Recursive + sorted array特性:   O\(H+k\) / O\(H\)
 
 > 思路：\(1\)用In-order Traversal的方式，因為**BST Inorder有序**。  
 > \(2\) 又因Inorder有序，result list會以ascending order的方式排列，我們可以利用它取`result[k-1]` 就可以得到Kth Smallest。
@@ -77,7 +79,7 @@ def kthSmallest(self, root: TreeNode, k: int) -> int:
     return result[k-1]
 ```
 
-### 2. In-order Traversal Iterative
+### 2. In-order Traversal Iterative:   O\(H+k\) / O\(H\)
 
 ```python
 def kthSmallest(self, root: TreeNode, k: int) -> int:
@@ -129,5 +131,22 @@ What if the BST is modified \(insert/delete operations\) often and you need to f
 
 \[Ans\] We could add a variable to the TreeNode to record the size of the left subtree. When insert or delete a node in the left subtree, we increase or decrease it by 1. So we could know whether the kth smallest element is in the left subtree or in the right subtree by compare the size with k.
 
+----
 
+\[Official Ans\] Without any optimization insert/delete + search of kth element has O\(2H+k\) complexity. How to optimise that?
+
+That's a design question, basically, we're asked to implement a structure which contains a BST inside and optimizes the following operations :
+
+* Insert
+* Delete
+* Find kth smallest
+
+Seems like a database description, isn't it? Let's use here the same logic as for [**LRU cache**](https://leetcode.com/articles/lru-cache/) design, and combine an indexing structure \(we could keep BST here\) **with a double-linked list**.
+
+Such a structure would provide:
+
+* O\(H\) time for the insert and delete.
+* O\(k\) for the search of kth smallest.
+
+![](../../.gitbook/assets/image%20%2852%29.png)
 

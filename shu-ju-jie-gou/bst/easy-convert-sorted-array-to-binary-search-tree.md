@@ -15,11 +15,11 @@ Given an integer array `nums` where the elements are sorted in **ascending order
 A **height-balanced** binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one.  
 
 
-![](../../.gitbook/assets/image%20%2844%29.png)
+![](../../.gitbook/assets/image%20%2845%29.png)
 
 
 
-![](../../.gitbook/assets/image%20%2846%29.png)
+![](../../.gitbook/assets/image%20%2847%29.png)
 
 ```text
 Input: nums = [-10,-3,0,5,9]
