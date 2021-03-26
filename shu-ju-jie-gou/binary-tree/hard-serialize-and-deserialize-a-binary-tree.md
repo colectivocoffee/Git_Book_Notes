@@ -22,7 +22,10 @@ as "[1,2,3,null,null,4,5]"
 
 ## Code
 
-這題用Recursive版本比Iterative版本簡單好寫。
+{% hint style="info" %}
+\(1\) 這題用Recursive版本比Iterative版本簡單好寫。  
+\(2\) 由於要區分null和葉節點ending，用Iterative Preorder模板會需要改動不少。
+{% endhint %}
 
 ![](../../.gitbook/assets/serialize-and-deserialize_binarytree.jpg)
 
