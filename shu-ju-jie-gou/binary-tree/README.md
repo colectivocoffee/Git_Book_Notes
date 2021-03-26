@@ -155,8 +155,8 @@ def pre_order(self, root):
             stack.append(root)
             root = root.left
         # pop from stack
-        curr = stack.pop() # pop the last one
-        root = curr.right
+        root = stack.pop() # pop the last one
+        root = root.right
     return result   
 ```
 
