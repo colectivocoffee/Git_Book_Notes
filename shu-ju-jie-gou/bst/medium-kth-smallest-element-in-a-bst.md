@@ -113,11 +113,13 @@ def kthSmallest(self, root: TreeNode, k: int) -> int:
         while root:
             stack.append(root)
             root = root.left
+        # 注意，這裡最好不要用curr = stack.pop()
+        # 在 [1,null,2], k=2的情況下會失敗，沒辦法回來
         root = stack.pop()
         i += 1
         if k == i:
             return root.val
-        root = root.left
+        root = root.right
 ```
 
 \*\*\*\*
