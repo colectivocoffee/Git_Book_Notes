@@ -22,9 +22,13 @@ as "[1,2,3,null,null,4,5]"
 
 ## Code
 
+這題用Recursive版本比Iterative版本簡單好寫。
+
 ![](../../.gitbook/assets/serialize-and-deserialize_binarytree.jpg)
 
-### 1. BFS Iterative: O\(n\)/O\(n\)
+### 1. BFS Iterative, Preorder: O\(n\)/O\(n\)
+
+為什麼Iterative版本用BFS比DFS好處理呢？根據原題目的Input，`root = [1,2,3,null,null,5]`，在Serialize Binary Tree時，我們會需要區分Input裡的null和葉節點的None，而在DFS中Iterative版本的Stack比較難自動區分這兩者。反之，BFS可以給我們level分層的訊息，這樣就可以比較容易避免明明葉節點就沒有值了，但卻還是一直看None的狀況。
 
 > **Serialization**: binary tree nodes -&gt; data \(list\)  
 > 用Pre-order Traversal的方式遍歷"`curr -> curr.left -> curr.right`"：  
@@ -143,7 +147,7 @@ class Codec:
                 
 ```
 
-### 2. BFS Recursive
+### 2. \(Recommend\) DFS Recursive, Preorder: 
 
 ```python
 # Definition for a binary tree node.
