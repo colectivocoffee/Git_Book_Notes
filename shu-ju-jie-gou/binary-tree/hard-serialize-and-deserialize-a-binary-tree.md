@@ -234,3 +234,52 @@ def deserialize(self, data):
 
 ## [\[Medium\] Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)     \(1879/94\)
 
+### 1. DFS Recursive, Preorder: O\(N\) / O\(N\)
+
+和Binary Tree一模一樣的寫法。
+
+```python
+class Codec:
+   
+    def _preorder(self, root, result):
+        if not root:
+            result.append('None')
+            return 
+        
+        result.append(str(root.val))
+        self._preorder(root.left, result)
+        self._preorder(root.right, result)
+        
+    
+    def serialize(self, root: TreeNode) -> str:
+        """Encodes a tree to a single string.
+        """
+        result = []
+        self._preorder(root, result)
+        return ','.join(result)
+
+    def _convertTree(self, array):
+        if array[0] == 'None':
+            array.pop(0)
+            return
+        
+        num = array.pop(0)
+        root = TreeNode(num)
+        root.left = self._convertTree(array)
+        root.right = self._convertTree(array)
+        return root
+        
+    
+    def deserialize(self, data: str) -> TreeNode:
+        """Decodes your encoded data to tree.
+        """
+        
+        array = data.split(',')
+        root = self._convertTree(array)
+        return root
+```
+
+#### Reference
+
+1. 精簡寫法，但不易讀 [https://leetcode.com/problems/serialize-and-deserialize-binary-tree/discuss/396124/Python-very-easy-to-understand-recursive-preorder-with-comments](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/discuss/396124/Python-very-easy-to-understand-recursive-preorder-with-comments)
+
