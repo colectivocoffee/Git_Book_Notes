@@ -31,7 +31,7 @@ as "[1,2,3,null,null,4,5]"
 
 ### 1. BFS Iterative, Preorder: O\(n\)/O\(n\)
 
-為什麼Iterative版本用BFS比DFS好處理呢？根據原題目的Input，`root = [1,2,3,null,null,5]`，在Serialize Binary Tree時，我們會需要區分Input裡的null和葉節點的None，而在DFS中Iterative版本的Stack比較難自動區分這兩者。反之，BFS可以給我們level分層的訊息，這樣就可以比較容易避免明明葉節點就沒有值了，但卻還是一直看None的狀況。
+為什麼Iterative版本用BFS比DFS好處理呢？根據原題目的Input，`root = [1,2,3,null,null,5]`，在Serialize Binary Tree時，我們會需要區分Input裡的null和葉節點的None，而在DFS中Iterative版本的Stack比較難自動區分這兩者。反之，BFS可以給我們level分層的訊息，這樣就可以比較容易避免明明葉節點就沒有值了，但卻還是一直看None的狀況。當然了，想要用DFS還是可以的。
 
 > **Serialization**: binary tree nodes -&gt; data \(list\)  
 > 用Pre-order Traversal的方式遍歷"`curr -> curr.left -> curr.right`"：  
@@ -214,6 +214,21 @@ class Codec:
 # ser = Codec()
 # deser = Codec()
 # ans = deser.deserialize(ser.serialize(root))
+```
+
+或是更簡潔的寫法
+
+```python
+def serialize(self, root):
+        if not root: return 'x'
+        return root.val, self.serialize(root.left), self.serialize(root.right)
+
+def deserialize(self, data):
+	if data[0] == 'x': return None
+	node = TreeNode(data[0])
+	node.left = self.deserialize(data[1])
+	node.right = self.deserialize(data[2])
+	return node
 ```
 
 ## \[Medium\] Serialize and Deserialize BST
