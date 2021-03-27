@@ -26,7 +26,12 @@ Return the following binary tree:
 
 ## Code
 
-### 1. Recursion + Preorder&Inorder特性
+{% hint style="info" %}
+\(1\)用if not preorder處理Null  
+\(2\)以Preorder為主，根據`根-左-右`的方式，切掉root，且持續對左子樹&右子樹切片並放入Recursion本身。
+{% endhint %}
+
+### 1. Recursion + Preorder&Inorder特性: O\(N\) / O\(N\)
 
 思路：Preorder特性 & Inorder特性
 
