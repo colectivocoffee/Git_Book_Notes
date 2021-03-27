@@ -150,7 +150,7 @@ class Codec:
                 
 ```
 
-### 2. \(Recommend\) DFS Recursive, Preorder: 
+### 2. \(Recommend\) DFS Recursive, Preorder:     O\(N\) / O\(N\)
 
 ```python
 class Codec:
