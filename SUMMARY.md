@@ -135,7 +135,7 @@
   * [\[Medium\] Construct Binary Tree from Preorder & Inorder Traversal](shu-ju-jie-gou/binary-tree/medium-construct-binary-tree-from-preorder-and-inorder-traversal.md)
   * [\[Easy\] Invert Binary Tree](shu-ju-jie-gou/binary-tree/easy-invert-binary-tree.md)
   * [\[Easy\] Maximum Depth of a Binary Tree](shu-ju-jie-gou/binary-tree/easy-maximum-depth-of-a-binary-tree.md)
-  * [\[Hard\] Serialize and Deserialize a Binary Tree](shu-ju-jie-gou/binary-tree/hard-serialize-and-deserialize-a-binary-tree.md)
+  * [\[Hard\] Serialize and Deserialize a Binary Tree / \[Medium\] Serialize and Deserialize a BST](shu-ju-jie-gou/binary-tree/hard-serialize-and-deserialize-a-binary-tree.md)
   * [\[Medium\] Lowest Common Ancestor of a Binary Tree / \[Easy\] LCA of a BST](shu-ju-jie-gou/binary-tree/medium-lowest-common-ancestor-of-a-binary-tree.md)
   * [\[Medium\] Validate Binary Search Tree](shu-ju-jie-gou/binary-tree/medium-validate-binary-search-tree.md)
   * [\[Medium\] Path Sum II](shu-ju-jie-gou/binary-tree/medium-path-sum-ii.md)

@@ -1,4 +1,4 @@
-# \[Hard\] Serialize and Deserialize a Binary Tree
+# \[Hard\] Serialize and Deserialize a Binary Tree / \[Medium\] Serialize and Deserialize a BST
 
 ## [\[Hard\] Serialize and Deserialize a Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)        \(4106/189\)
 
@@ -220,8 +220,9 @@ class Codec:
 
 ```python
 def serialize(self, root):
-        if not root: return 'x'
-        return root.val, self.serialize(root.left), self.serialize(root.right)
+    if not root: return 'x'
+    
+    return root.val, self.serialize(root.left), self.serialize(root.right)
 
 def deserialize(self, data):
 	if data[0] == 'x': return None
@@ -231,5 +232,5 @@ def deserialize(self, data):
 	return node
 ```
 
-## \[Medium\] Serialize and Deserialize BST
+## [\[Medium\] Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)     \(1879/94\)
 
