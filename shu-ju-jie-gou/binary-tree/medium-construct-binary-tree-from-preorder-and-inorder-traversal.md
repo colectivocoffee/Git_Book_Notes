@@ -60,7 +60,7 @@ def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
     root_index = inorder.index(preorder[0])
     
     # LeftSubtree from inorder
-    #                    preorder's new left subtree, inorder's new left subtree 
+    #                    (preorder's new left subtree, inorder's new left subtree) 
     root.left = self.buildTree(preorder[1:root_index+1], inorder[:root_index])
     # RightSubtree from inorder
     root.right = self.buildTree(preorder[root_index+1:], inorder[root_index+1:])
