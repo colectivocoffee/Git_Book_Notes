@@ -489,6 +489,15 @@ Generally, to improve the speed of a program, we can either:
   
 The latter demonstrates a classic space vs. time tradeoff, but it is not necessarily the case that you can only achieve better speed at the expense of space. Also, note that there is often a theoretical limit to how fast your program can run \(in terms of time complexity\). For instance, a question that requires you to find the smallest/largest element in an unsorted array cannot run faster than O\(N\).
 
+| Data Structure            | Acess    | Search     | Append/Pop | Slicing           |
+| :--- | :--- | :--- | :--- | :--- |
+| Array | O\(1\) | O\(N\) | O\(N\) | O\(N\) space&time |
+| Queue | O\(N\) | O\(N\) | O\(1\) | O\(N\) |
+
+### 如何Improve? How to Optimize? 
+
+如果原來的做法用到了Append/Pop or Slicing，這些都需要`O(N)`的時間。我們可以用Dictionary/Hashmap 的`{Index : val}`方法，使其減少為`O(1)`的時間
+
 ## 如何選擇合適的Data Structure?
 
 Data structures can be augmented to achieve efficient time complexities across different operations. For example, a hash map can be used together with a doubly-linked list to achieve O\(1\) time complexity for both the `get` and `put` operation in an [LRU cache](https://leetcode.com/problems/lru-cache/).
