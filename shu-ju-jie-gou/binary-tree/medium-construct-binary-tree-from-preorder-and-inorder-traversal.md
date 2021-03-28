@@ -33,7 +33,7 @@ Return the following binary tree:
 
 ![The recursive structure in a Tree](../../.gitbook/assets/image%20%2854%29.png)
 
-![](../../.gitbook/assets/image%20%2848%29.png)
+![&#x5207;&#x5206;&#x524D; -&amp;gt; &#x5207;&#x5206;&#x5F8C;](../../.gitbook/assets/image%20%2848%29.png)
 
 ### 1. Recursion + Preorder&Inorder特性: O\(N\) / O\(N\)
 
