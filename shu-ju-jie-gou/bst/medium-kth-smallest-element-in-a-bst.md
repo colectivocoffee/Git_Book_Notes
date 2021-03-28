@@ -148,5 +148,5 @@ Such a structure would provide:
 * O\(H\) time for the insert and delete.
 * O\(k\) for the search of kth smallest.
 
-![](../../.gitbook/assets/image%20%2852%29.png)
+![](../../.gitbook/assets/image%20%2853%29.png)
 

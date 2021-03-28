@@ -31,6 +31,10 @@ Return the following binary tree:
 \(2\)以Preorder為主，根據`根-左-右`的方式，切掉root，且持續對左子樹&右子樹切片並放入Recursion本身。
 {% endhint %}
 
+![The recursive structure in a Tree](../../.gitbook/assets/image%20%2854%29.png)
+
+![](../../.gitbook/assets/image%20%2848%29.png)
+
 ### 1. Recursion + Preorder&Inorder特性: O\(N\) / O\(N\)
 
 思路：Preorder特性 & Inorder特性
