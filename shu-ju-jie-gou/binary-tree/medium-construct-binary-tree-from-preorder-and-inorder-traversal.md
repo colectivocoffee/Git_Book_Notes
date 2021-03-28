@@ -35,7 +35,7 @@ Return the following binary tree:
 
 ![&#x5207;&#x5206;&#x524D; -&amp;gt; &#x5207;&#x5206;&#x5F8C;](../../.gitbook/assets/image%20%2848%29.png)
 
-### 1. Recursion + Preorder&Inorder特性: O\(NlogN\)-O\(N^2\) / O\(N\)
+### 1. Recursion, 根左右特性: O\(NlogN\)-O\(N^2\) / O\(N\)
 
 思路：Preorder特性 & Inorder特性
 
@@ -73,7 +73,7 @@ def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
     
 ```
 
-### 2. Recursion + Preorder&Inorder特性 Improved:    O\(N\) / O\(N\)
+### 2. Recursion, 根左右特性 + Dictionary:    O\(N\) / O\(N\)
 
 由於上面的解法，在每一次的Recursion call都需要一直對preorder & inorder list做 index slicing\(切片\)。我們如果事先把index存起來，就可以大大地減少在index slicing上的計算量。\(但是這個解法在recursion上會需要傳很多的parameters\) 
 
