@@ -27,7 +27,7 @@ Return the following binary tree:
 ## Code
 
 {% hint style="info" %}
-\(1\)用if not preorder處理Null  
+\(1\)遞歸出口：用if not preorder處理Null  
 \(2\)以Preorder為主，根據`根-左-右`的方式，切掉root，且持續對左子樹&右子樹切片並放入Recursion本身。
 {% endhint %}
 
