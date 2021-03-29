@@ -33,7 +33,7 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
     if not root:
         return result
             
-    queue = deque()
+    queue = collections.deque()
     # start from root
     queue.append(root)
     
@@ -375,7 +375,7 @@ def rightSideView(self, root: TreeNode) -> List[int]:
         curr, level = stack.pop()
         if curr:
             # right side view -> 
-            # To return a list of the last elements from all levels
+            # To return a list of the "last" elements from all levels
             if level == len(result):                
                 result.append(curr.val)
             # 由於是right side view，
