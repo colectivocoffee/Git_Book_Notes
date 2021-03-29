@@ -135,7 +135,8 @@ Then return the following binary tree
 > Postorder traversal: Left -&gt; Right \(usually\), Bottom -&gt; Top.  
 > But are going through the postorder list in the **reverse direction**. So, we meet nodes: Left &lt;- Right, Bottom &lt;- Top.
 
-Time Complexity: `O(NlogN)-O(N^2)`, balanced tree O\(NlogN\), skewed tree O\(N^2\)
+Time Complexity: `O(NlogN)-O(N^2)`, using master theorem, for balanced tree O\(NlogN\), skewed tree O\(N^2\)  
+Space Complexity: O\(N\) we store the entire tree
 
 ```python
 # recommend
