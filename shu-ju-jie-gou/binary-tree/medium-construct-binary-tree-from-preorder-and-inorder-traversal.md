@@ -140,9 +140,37 @@ def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
     return root
 ```
 
-### 2. Recursion, 左根右 + Dictionary:  
+### 2. Recursion, 左根右 + Dictionary:  O\(N\) / O\(N\)
 
-第一種解法雖然簡潔，但Time & Space Complexity卻不是最好，面試官就會問：Can you optimize your code?
+第一種解法雖然簡潔，但Time & Space Complexity卻不是最好，這種情況下，面試官就會問：Can you optimize your code?
 
+這時候，我們就可以用`Dictionary/Hashmap`來儲存value, index的inorder traversal對應值。只要先inorder traversal一遍後，就不用一直像第一種辦法，切切切很多遍。
 
+```python
+def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+    
+    # 先inorder traversal一遍，把相對應的idx, val記錄下來
+    # idx --> root_idx
+    # val --> inorder item value
+    inorder_map = {}
+    for idx, val in enumerate(inorder):
+        # 我們要藉由item value找root_idx，因此是以val為dictionary's key。
+        inorder_map[val] = idx
+
+    def build(start, end):
+
+        # recursion exit
+        if start > end:
+            return None
+
+        num = postorder.pop()
+        root = TreeNode(num)
+        root_idx = inorder_map[num]
+        # 先右後左
+        root.right = build(root_idx+1,end)
+        root.left = build(start,root_idx-1)
+        return root
+
+    return build(0, len(inorder)-1)
+```
 
