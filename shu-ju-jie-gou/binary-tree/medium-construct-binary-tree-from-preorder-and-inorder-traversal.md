@@ -122,6 +122,8 @@ Then return the following binary tree
    15   7
 ```
 
+![use inorder traversal&apos;s index as root\_idx](../../.gitbook/assets/screen-shot-2021-03-29-at-1.52.03-pm.png)
+
 ![](../../.gitbook/assets/image%20%2854%29.png)
 
 ### 1. Recursion, 左根右特性 + Slicing:  O\(NlogN\)-O\(N^2\) / O\(N\)
