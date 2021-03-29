@@ -129,7 +129,11 @@ Then return the following binary tree
 ### 1. Recursion + Slicing:  O\(NlogN\)-O\(N^2\) / O\(N\)
 
 > Postorder: `左-右-根`，Bottom-&gt;Top，由此可知最後一個必定為root  
-> 利用Postorder從後往前推的方式，以postorder\[-1\]為基準點，由後往前一個一個消掉並建成binary tree。
+> 利用Postorder從後往前推的方式，以postorder\[-1\]為基準點，由後往前一個一個消掉並建成binary tree。  
+>   
+> ---  
+> Postorder traversal: Left -&gt; Right \(usually\), Bottom -&gt; Top.  
+> But are going through the postorder list in the **reverse direction**. So, we meet nodes: Left &lt;- Right, Bottom &lt;- Top.
 
 Time Complexity: `O(NlogN)-O(N^2)`, balanced tree O\(NlogN\), skewed tree O\(N^2\)
 
