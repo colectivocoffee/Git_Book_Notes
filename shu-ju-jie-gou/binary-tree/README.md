@@ -317,6 +317,7 @@ def dfs(self, level, curr, result):
 (2) DFS Level Order Iterative + Stack
 '''
 # DFS Level Order Iterative, Stack 模板
+# 利用紀錄level到stack的方式，來確保DFS一層看完後才會往下一層走
 def levelOrder(self, root: TreeNode) -> List[List[int]]:
     
     result = []
@@ -387,6 +388,17 @@ def level_order(self, root):
             stack.append(curr.left, level+1)    # 寫法：result->stack[右<-左]
     return result                            
 
+# level_order 2 using queue
+def level_order2(self, root):
+    queue = collections.deque([root])
+    while queue:
+        size = len(queue)     # 先固定queue大小
+        for i in range(size):
+            curr = queue.pop()
+            queue.append(curr.left)
+            queue.append(curr.right)
+    
+    
 # Inorder
 def inorder(self, root):
     result = []
