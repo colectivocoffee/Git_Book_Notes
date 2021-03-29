@@ -282,7 +282,7 @@ def post_order(self, root, result):
 
 Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個level上的所有nodes，直到所有nodes都遍歷完成後，才會往next level走。
 
-如果題目要求要level-by-level order traversal，那Binary Tree BFS pattern就會是很好的解題技巧。Binary Tree BFS pushes root to the queue and then keep iterating until the queue is empty。在每一次循環的時候，我們把queue最前面的curr node popleft，並且mark as visited。移除每一個node後，我們同時把所有的children nodes都放到queue裡。
+如果題目要求要`level-by-level order traversal`，那Binary Tree BFS pattern就會是很好的解題技巧。Binary Tree BFS pushes root to the queue and then keep iterating until the queue is empty。在每一次循環的時候，我們把queue最前面的curr node popleft，並且mark as visited。移除每一個node後，我們同時把所有的children nodes都放到queue裡。
 
 如何知道用BFS？**To traverse a tree in a level-by-level fashion \(or level order traversal\)**。  
 相關的題型有：
@@ -293,6 +293,9 @@ Binary Tree BFS和BFS的技巧一樣，使用queue來紀錄所有在同一個lev
 以下是以Preorder\(根-&gt;左-&gt;右\)順序完成的模板
 
 ```python
+'''
+(1) BFS Level Order Recursive
+'''
 # BFS Level Order Recursive模板
 def levelOrder(self, root: TreeNode) -> List[List[int]]:
     result = []
@@ -307,11 +310,13 @@ def dfs(self, level, curr, result):
     
     result[level].append(curr.val)
     self.dfs(level+1, curr.left, result)
-    self.dfs(level+1, curr.right, result)    
-```
+    self.dfs(level+1, curr.right, result)   
+    
 
-```python
-# BFS Level Order Iterative模板
+'''
+(2) DFS Level Order Iterative + Stack
+'''
+# DFS Level Order Iterative, Stack 模板
 def levelOrder(self, root: TreeNode) -> List[List[int]]:
     
     result = []
@@ -334,6 +339,21 @@ def levelOrder(self, root: TreeNode) -> List[List[int]]:
         if curr.left:
             stack.append((curr.left, level+1))
     return result
+    
+
+'''    
+(3) BFS Level Order Iterative + Queue
+'''
+while (!Q.empty())
+ {
+     size = Q.size()
+     for i in range 0..size
+     {
+         node = Q.pop()
+         Q.push(node.left)
+         Q.push(node.right)
+     }
+ }
 ```
 
 ## 模板比較 Preorder/Inorder/Postorder/Levelorder 
