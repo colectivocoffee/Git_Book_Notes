@@ -208,3 +208,7 @@ def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
     return build(0, len(inorder)-1)
 ```
 
+#### Reference
+
+[https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/discuss/221681/Don't-use-top-voted-Python-solution-for-interview-here-is-why](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/discuss/221681/Don't-use-top-voted-Python-solution-for-interview-here-is-why)
+
