@@ -126,7 +126,32 @@ Then return the following binary tree
 
 ![](../../.gitbook/assets/image%20%2854%29.png)
 
-### 1. Recursion, 左根右 + Slicing:  O\(NlogN\)-O\(N^2\) / O\(N\)
+### 1. Recursion + Slicing:  O\(NlogN\)-O\(N^2\) / O\(N\)
+
+> Postorder: `左-右-根`，Bottom-&gt;Top，由此可知最後一個必定為root  
+> 利用Postorder從後往前推的方式，以postorder\[-1\]為基準點，由後往前一個一個消掉並建成binary tree。
+
+Time Complexity: `O(NlogN)-O(N^2)`, balanced tree O\(NlogN\), skewed tree O\(N^2\)
+
+```python
+# recommend
+def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+
+    if not inorder or not postorder:
+        return None
+
+    num = postorder.pop()                         # .pop() takes another O(n)
+    root = TreeNode(num)
+    root_idx = inorder.index(num) 
+    # 先右後左, reverse order -> 根->右->左
+    # postorder: bottom->top, left->right 左右根
+    root.right = self.buildTree(inorder[root_idx+1:], postorder)    #slicing O(n)
+    root.left = self.buildTree(inorder[:root_idx], postorder)       
+
+    return root
+```
+
+or
 
 ```python
 def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
@@ -144,7 +169,7 @@ def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
     return root
 ```
 
-### 2. Recursion, 左根右 + Dictionary:  O\(N\) / O\(N\)
+### 2. Recursion + Dictionary:  O\(N\) / O\(N\)
 
 第一種解法雖然簡潔，但Time & Space Complexity卻不是最好，這種情況下，面試官就會問：Can you optimize your code?
 
