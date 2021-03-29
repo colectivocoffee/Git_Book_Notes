@@ -22,9 +22,9 @@ Initially, all next pointers are set to `NULL`.
 * You may only use constant extra space.
 * Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
 
-### 1. BFS Level Order + Queue:     O\(N\) / O\(N\)
-
 ![](../../.gitbook/assets/image%20%2856%29.png)
+
+### 1. BFS Level Order + Queue:     O\(N\) / O\(N\)
 
 ```python
 # level order traversal
