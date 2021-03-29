@@ -22,7 +22,7 @@ Initially, all next pointers are set to `NULL`.
 * You may only use constant extra space.
 * Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
 
-![](../../.gitbook/assets/image%20%2856%29.png)
+![](../../.gitbook/assets/image%20%2857%29.png)
 
 ```text
 Input: root = [1,2,3,4,5,6,7]
@@ -31,6 +31,8 @@ Explanation: Given the above perfect binary tree (Figure A), your function shoul
 ```
 
 ### 1. BFS Level Order + Queue:     O\(N\) / O\(N\)
+
+![](../../.gitbook/assets/image%20%2856%29.png)
 
 ```python
 # level order traversal
@@ -53,6 +55,12 @@ def connect(self, root: 'Node') -> 'Node':
             curr = queue.popleft()
             
             # 易錯點
+            # This check is important. We don't want to
+            # establish any wrong connections. The queue will
+            # contain nodes from 2 levels at most at any
+            # point in time. This check ensures we only 
+            # don't establish next pointers beyond the end
+            # of a level
             if i < size - 1:
                 curr.next = queue[0]
             
