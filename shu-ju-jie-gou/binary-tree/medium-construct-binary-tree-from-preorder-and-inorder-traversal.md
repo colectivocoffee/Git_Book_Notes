@@ -126,18 +126,18 @@ Then return the following binary tree
 
 ![](../../.gitbook/assets/image%20%2854%29.png)
 
-### 1. Recursion, 左根右特性 + Slicing:  O\(NlogN\)-O\(N^2\) / O\(N\)
+### 1. Recursion, 左根右 + Slicing:  O\(NlogN\)-O\(N^2\) / O\(N\)
 
 ```python
 def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
-
+    # step0. Recursion exit
     if not inorder or not postorder:
         return None
-
+    # step1. build current root, and get root_idx by postorder->inorder
     num = postorder[-1]
     root = TreeNode(num)        
     root_idx = inorder.index(num)
-
+    
     root.left = self.buildTree(inorder[:root_idx], postorder[:root_idx])
     root.right = self.buildTree(inorder[root_idx+1:], postorder[root_idx:-1])
 
