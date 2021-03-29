@@ -31,7 +31,7 @@ Return the following binary tree:
 \(2\)以Preorder為主，根據`根-左-右`的方式，切掉root，且持續對左子樹&右子樹切片並放入Recursion本身。
 {% endhint %}
 
-![The recursive structure in a Tree](../../.gitbook/assets/image%20%2854%29.png)
+![The recursive structure in a Tree](../../.gitbook/assets/image%20%2855%29.png)
 
 ![&#x5207;&#x5206;&#x524D; -&amp;gt; &#x5207;&#x5206;&#x5F8C;](../../.gitbook/assets/image%20%2848%29.png)
 
@@ -122,7 +122,9 @@ Then return the following binary tree
    15   7
 ```
 
-### 1. Recursion, 左根右特性 + Slicing:  
+![](../../.gitbook/assets/image%20%2854%29.png)
+
+### 1. Recursion, 左根右特性 + Slicing:  O\(NlogN\)-O\(N^2\) / O\(N\)
 
 ```python
 def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
