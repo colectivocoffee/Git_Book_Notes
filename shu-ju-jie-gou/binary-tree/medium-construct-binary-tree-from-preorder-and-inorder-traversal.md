@@ -1,4 +1,4 @@
-# \[Medium\] Construct Binary Tree from Preorder & Inorder Traversal
+# \[Medium\] Construct Binary Tree from Preorder & Inorder Traversal / \[Medium\] Inorder & Postorder
 
 ## [\[Medium\] Construct Binary Tree from Preorder & Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)      \(4927/126\)
 
@@ -105,4 +105,44 @@ def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
         
         return root
 ```
+
+## [\[Medium\] Construct Binary Tree from Inorder & Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)  \(2537/48\)
+
+Given two integer arrays `inorder` and `postorder` where `inorder` is the inorder traversal of a binary tree and `postorder` is the postorder traversal of the same tree, construct and return _the binary tree_.
+
+```text
+Input: inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
+Output: [3,9,20,null,null,15,7]
+
+Then return the following binary tree
+    3
+   / \
+  9  20
+    /  \
+   15   7
+```
+
+### 1. Recursion, 左根右特性 + Slicing:  
+
+```python
+def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+
+    if not inorder or not postorder:
+        return None
+
+    num = postorder[-1]
+    root = TreeNode(num)        
+    root_idx = inorder.index(num)
+
+    root.left = self.buildTree(inorder[:root_idx], postorder[:root_idx])
+    root.right = self.buildTree(inorder[root_idx+1:], postorder[root_idx:-1])
+
+    return root
+```
+
+### 2. Recursion, 左根右 + Dictionary:  
+
+第一種解法雖然簡潔，但Time & Space Complexity卻不是最好，面試官就會問：Can you optimize your code?
+
+
 
