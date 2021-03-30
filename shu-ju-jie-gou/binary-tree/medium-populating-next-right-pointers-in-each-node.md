@@ -42,7 +42,7 @@ Explanation: Given the above perfect binary tree (Figure A), your function shoul
 > 有別於普通的Binary Tree，這題要求我們建立起`node -> node.next`的對應關係。  
 > 由Figure B可知，node -&gt; node.next就是在同一Level上，隔壁鄰居的值，因此可用Level Order。  
 > 雖然在圖上容易找到.next是誰，但在真正Traversal時，由於隔壁鄰居需要倒回去才能看到。  
-> 我們可以利用同時看2個Levels，Queue的倒回法，來知道到底.next的真正鄰居是誰。
+> 我們可以利用同時看2個Levels，Queue的FIFO法，來知道到底.next的真正鄰居是誰。
 
 ![](../../.gitbook/assets/image%20%2859%29.png)
 
