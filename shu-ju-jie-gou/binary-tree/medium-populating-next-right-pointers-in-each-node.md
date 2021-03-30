@@ -17,7 +17,7 @@ Populate each next pointer to point to its next right node. If there is no next 
 
 Initially, all next pointers are set to `NULL`.
 
-**Follow up:**
+**Follow up: \(解法二＆三\)**
 
 * You may only use constant extra space.
 * Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
