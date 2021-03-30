@@ -145,6 +145,9 @@ def connect(self, root: 'Node') -> 'Node':
 
 跟解法二相同，需要Case1, Case2分開討論。
 
+* Time Complexity: `O(N)` since we process each node exactly once.
+* Space Complexity: `O(1)` since we don't make use of any additional data structure for traversing nodes on a particular level as the previous approach does.
+
 ```python
 # pseudo code
  leftmost = root
