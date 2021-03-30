@@ -58,7 +58,7 @@ Queue裡最多存兩個Level的數字 \(一次只看兩個Level\)。第一個Lev
 以`node 2`來看，  
 當len\(queue\)=2，意即node 2所在這層Queue只有兩個items。  
 第一層關係：2 & 3是隔壁鄰居, 即 `2 -右邊是-> 3`  
-第二層關係：2 的左右子樹分別為 4 & 5
+第二層關係：2 的左右子樹分別為 4 & 5，未來會把4 & 5放到Queue裡作為下一層的item。
 
 ![](../../.gitbook/assets/image%20%2857%29.png)
 
@@ -91,6 +91,8 @@ def connect(self, root: 'Node') -> 'Node':
             # point in time. This check ensures we only 
             # don't establish next pointers beyond the end
             # of a level
+            #
+            # e.g. 以2作為curr來說，2.next = queue[0] = 3 
             if i < size - 1:
                 curr.next = queue[0]
             
