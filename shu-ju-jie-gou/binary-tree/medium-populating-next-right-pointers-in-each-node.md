@@ -44,9 +44,10 @@ Explanation: Given the above perfect binary tree (Figure A), your function shoul
 #### 如何利用BFS Queue來找curr.next?
 
 用Queue。  
-Queue裡最多存兩個Level的數字 \(一次只看兩個Level\)。第一個Level是curr；第二個Level是curr對應curr.left & curr.right的關係。
+Queue裡最多存兩個Level的數字 \(一次只看兩個Level\)。第一個Level是curr；第二個Level是curr對應curr.left & curr.right的關係。當`Queue[0]`被pop時，以Queue\[0\]為基準點，我們可以知道他的`左右子樹left&right childrens`；也可以知道它的`右邊鄰居.next`sss
 
 以`node 2`來看，  
+當len\(queue\)=2，意即node 2所在這層Queue只有兩個items。  
 第一層關係：2 & 3是隔壁鄰居, 即 `2 -右邊是-> 3`  
 第二層關係：2 的左右子樹分別為 4 & 5
 
