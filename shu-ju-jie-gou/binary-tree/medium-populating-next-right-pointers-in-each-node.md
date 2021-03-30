@@ -30,7 +30,11 @@ Output: [1,#,2,3,#,4,5,6,7,#]
 Explanation: Given the above perfect binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.
 ```
 
-
+{% hint style="info" %}
+思路   
+解法1. **Level Order** -&gt; 用Queue儲存N & N+1層的關係   
+解法2. Linked-List，使用**上一層的`node.next`關係** 
+{% endhint %}
 
 ### 1. BFS Level Order + Queue:     O\(N\) / O\(N\)
 
