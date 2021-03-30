@@ -105,7 +105,7 @@ def connect(self, root: 'Node') -> 'Node':
 
 ### 2. DFS Recursive, Level Order:    O\(N\) / O\(N\)
 
-> Using previously established .next pointers
+> Using previously established `.next` pointers
 
 We only move on to the level N+1 when we are done establishing the next pointers for the level N. Since we have access to all the nodes on a particular level via the next pointers, we can use these next pointers to establish the connections for the next level or the level containing their children.
 
