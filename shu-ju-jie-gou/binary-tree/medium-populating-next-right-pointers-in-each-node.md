@@ -174,7 +174,8 @@ def connect(self, root: 'Node') -> 'Node':
 
     if not root:
         return root
-
+    
+    # 這步不能省略，否則最後會回不來root
     # Start with the root node. There are no next pointers
     # that need to be set up on the first level
     leftmost = root
