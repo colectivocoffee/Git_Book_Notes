@@ -22,7 +22,7 @@ Initially, all next pointers are set to `NULL`.
 * You may only use constant extra space.
 * Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
 
-![](../../.gitbook/assets/image%20%2860%29.png)
+![](../../.gitbook/assets/image%20%2863%29.png)
 
 ```text
 Input: root = [1,2,3,4,5,6,7]
@@ -103,7 +103,104 @@ def connect(self, root: 'Node') -> 'Node':
     return root
 ```
 
-### 2. DFS Recursive, Level Order: 
+### 2. DFS Recursive, Level Order:    O\(N\) / O\(N\)
 
- 
+> Using previously established .next pointers
+
+We only move on to the level N+1 when we are done establishing the next pointers for the level N. Since we have access to all the nodes on a particular level via the next pointers, we can use these next pointers to establish the connections for the next level or the level containing their children.
+
+Time Complexity: O\(N\)  
+Space Complexity: O\(N\) recursion stack stores the entire tree N.
+
+#### 第一種情況：`node.left.next = node.right`
+
+![](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/Figures/116/img6.png)
+
+#### 第二種情況：`node.right.next = node.next.left` 
+
+![](../../.gitbook/assets/image%20%2860%29.png)
+
+![](../../.gitbook/assets/next_right_ptr_binarytree.jpg)
+
+```python
+def connect(self, root: 'Node') -> 'Node':
+
+    def dfs(curr):
+        if not curr or not curr.left:
+            return 
+
+        curr.left.next = curr.right
+        if curr.next:
+            curr.right.next = curr.next.left
+
+        dfs(curr.left)
+        dfs(curr.right)
+
+    dfs(root)
+
+    return root
+```
+
+### 3. DFS Iterative, Level Order:    O\(N\) / O\(1\)
+
+跟解法二相同，需要Case1, Case2分開討論。
+
+```python
+# pseudo code
+ leftmost = root
+ while (leftmost.left != null)
+ {
+     head = leftmost
+     while (head.next != null)
+     {
+         1) Establish Connection 1
+         2) Establish Connection 2 using next pointers
+         head = head.next
+     }
+     leftmost = leftmost.left
+ }
+```
+
+#### 第一種情況：head.right = head.left.next
+
+![](../../.gitbook/assets/image%20%2861%29.png)
+
+#### 第二種情況：head.right.next = head.next.left
+
+![](../../.gitbook/assets/image%20%2862%29.png)
+
+```python
+def connect(self, root: 'Node') -> 'Node':
+
+    if not root:
+        return root
+
+    # Start with the root node. There are no next pointers
+    # that need to be set up on the first level
+    leftmost = root
+
+    # Once we reach the final level, we are done
+    while leftmost.left:
+
+        # Iterate the "linked list" starting from the head
+        # node and using the next pointers, establish the 
+        # corresponding links for the next level
+        head = leftmost
+        while head:
+
+            # CONNECTION 1
+            head.left.next = head.right
+
+            # CONNECTION 2
+            if head.next:
+                head.right.next = head.next.left
+
+            # Progress along the list (nodes on the current level)
+            head = head.next
+
+        # Move onto the next level
+        leftmost = leftmost.left
+
+    return root 
+```
 
