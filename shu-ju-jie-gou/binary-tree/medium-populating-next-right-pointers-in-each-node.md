@@ -45,9 +45,9 @@ Explanation: Given the above perfect binary tree (Figure A), your function shoul
 #### 如何利用BFS Queue來找curr.next?
 
 用Queue。  
-Queue裡最多存兩個Level的數字 \(一次只看兩個Level\)。第一個Level是curr；第二個Level是curr對應curr.left & curr.right的關係。當`Queue[0]`被pop時，以Queue\[0\]為基準點，我們可以知道他的`左右子樹left&right childrens`；也可以知道它的`右邊鄰居.next`s
+Queue裡最多存兩個Level的數字 \(一次只看兩個Level\)。第一個Level是curr；第二個Level是curr對應curr.left & curr.right的關係。當`Queue[0]`被pop時，以Queue\[0\]為基準點，我們可以知道他的`左右子樹left&right childrens`；也可以知道它的`右邊鄰居.next`
 
-對於Code易錯點`if i < size -1`的解釋：  
+**對於Code易錯點`if i < size -1`的解釋：**  
 由最開始的題目圖，我們可以知道1.next是Null。因此下面是用Null來分層。  
 對於Complete Balanced Binary Tree，我們知道第一層只有1個數字 \(`len(queue) = 1`\)，第二層只有兩個數字\(`len(queue) = 2`\)，第三層只有4個數字\(`len(queue) = 4`\)，以此類推。  
 因此，只要我們`i < len(queue) - 1`時，代表這層還沒看完。  
