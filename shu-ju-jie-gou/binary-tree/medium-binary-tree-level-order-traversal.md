@@ -435,7 +435,7 @@ Input: root = [3,9,8,4,0,1,7]
 Output: [[4],[9],[3,0,1],[8],[7]]
 ```
 
-### 1. BFS Iterative, Queue + Table:   O\(N\) / O\(N\)
+### 1. BFS Iterative, Queue +  DefaultDict Table:   O\(N\) / O\(N\)
 
 ```python
 def verticalOrder(self, root: TreeNode) -> List[List[int]]:
