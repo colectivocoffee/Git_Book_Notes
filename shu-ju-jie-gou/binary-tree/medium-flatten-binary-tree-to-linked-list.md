@@ -81,7 +81,7 @@ def flatten(self, root: TreeNode) -> None:
         root = root.right
 ```
 
-### 3. O\(1\) Iterative:    O\(N\) / O\(1\)
+### 3. O\(1\) Iterative, Top-Down Linked List Rewire:    O\(N\) / O\(1\)
 
 {% hint style="info" %}
 利用rightmost pointer，把左子樹併到右子樹，重複此步驟，模擬recursion往下走的辦法。  
