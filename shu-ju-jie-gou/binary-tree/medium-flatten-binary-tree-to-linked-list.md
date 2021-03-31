@@ -83,5 +83,15 @@ def flatten(self, root: TreeNode) -> None:
 
 ### 3. O\(1\) Iterative:    O\(N\) / O\(1\)
 
+{% hint style="info" %}
+利用pointer，把左子樹併到右子樹，重複此步驟，模擬recursion往下走的辦法。  
+  
+STEP1. 如果current node有左子樹，先放著。從左子樹看，往左子樹下的右邊找，找到最右邊`rightmost`停止。  
+STEP2. 把左子樹`rightmost`合併到curr和右子樹的交接處。
+{% endhint %}
 
+![](../../.gitbook/assets/image%20%2864%29.png)
+
+* Time Complexity: `O(N)` since we process each node of the tree at most twice. If you think about it, we process the nodes once when we actually run our algorithm on them as the `currentNode`. The second time when we `come across` the nodes is when we are trying to find our `rightmost node`. Sure, this algorithm is `slower` than the previous two approaches but it doesn't use any additional space which is a big win.
+* Space Complexity: `O(1)`
 
