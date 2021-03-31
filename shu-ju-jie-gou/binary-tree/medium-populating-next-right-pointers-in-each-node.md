@@ -22,7 +22,7 @@ Initially, all next pointers are set to `NULL`.
 * You may only use constant extra space.
 * Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
 
-![](../../.gitbook/assets/image%20%2867%29.png)
+![](../../.gitbook/assets/image%20%2869%29.png)
 
 ```text
 Input: root = [1,2,3,4,5,6,7]
@@ -170,11 +170,11 @@ def connect(self, root: 'Node') -> 'Node':
 
 #### 第一種情況：head.right = head.left.next
 
-![](../../.gitbook/assets/image%20%2863%29.png)
+![](../../.gitbook/assets/image%20%2864%29.png)
 
 #### 第二種情況：head.right.next = head.next.left
 
-![](../../.gitbook/assets/image%20%2864%29.png)
+![](../../.gitbook/assets/image%20%2865%29.png)
 
 ```python
 def connect(self, root: 'Node') -> 'Node':

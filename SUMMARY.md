@@ -142,7 +142,7 @@
   * [\[Easy\] Symmetric Tree](shu-ju-jie-gou/binary-tree/easy-symmetric-tree.md)
   * [\[Medium\] Flatten Binary Tree to Linked List](shu-ju-jie-gou/binary-tree/medium-flatten-binary-tree-to-linked-list.md)
   * [\[Medium\] Populating Next Right Pointers in Each Node](shu-ju-jie-gou/binary-tree/medium-populating-next-right-pointers-in-each-node.md)
-  * [\[Medium\] Binary Tree Level Order / N-ary Tree Level Order / Zigzag Level Order / Right Side View](shu-ju-jie-gou/binary-tree/medium-binary-tree-level-order-traversal.md)
+  * [\[Medium\] Level Order/N-ary Tree Level Order/Zigzag Level Order/Right Side View/Vertical Order](shu-ju-jie-gou/binary-tree/medium-binary-tree-level-order-traversal.md)
   * [\[Medium\] Binary Tree Inorder / Preorder / Postorder Traversal Series](shu-ju-jie-gou/binary-tree/medium-binary-tree-traversal-series-inorder-preorder-postorder.md)
 
 ## System Design

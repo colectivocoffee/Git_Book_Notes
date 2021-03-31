@@ -1,4 +1,4 @@
-# \[Medium\] Binary Tree Level Order / N-ary Tree Level Order / Zigzag Level Order / Right Side View
+# \[Medium\] Level Order/N-ary Tree Level Order/Zigzag Level Order/Right Side View/Vertical Order
 
 ## [\[Medium\] Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)    \(4343 / 108\)
 
@@ -410,6 +410,55 @@ def rightSideView(self, root: TreeNode) -> List[int]:
         bfs(curr.left, level + 1)
 
     bfs(root, 0)
+    return result
+```
+
+## [\[Medium\] Binary Tree Vertical Order Traversal](https://leetcode.com/problems/binary-tree-vertical-order-traversal/)    \(1421/195\) locked
+
+Given the `root` of a binary tree, return _**the vertical order traversal** of its nodes' values_. \(i.e., from top to bottom, column by column\).
+
+If two nodes are in the same row and column, the order should be from **left to right**.
+
+![](../../.gitbook/assets/image%20%2863%29.png)
+
+![](../../.gitbook/assets/image%20%2868%29.png)
+
+
+
+```text
+Ex1
+Input: root = [3,9,20,null,null,15,7]
+Output: [[9],[3,15],[20],[7]]
+
+Ex2
+Input: root = [3,9,8,4,0,1,7]
+Output: [[4],[9],[3,0,1],[8],[7]]
+```
+
+### 1. BFS Iterative, Queue + Table:   O\(N\) / O\(N\)
+
+```python
+def verticalOrder(self, root: TreeNode) -> List[List[int]]:
+    
+    if not root:
+        return root
+    table = defaultdict(list)
+    min_col, max_col = 0, 0
+    
+    queue = collections.deque()
+    queue.append((root,0))
+    while queue:
+        curr, col = queue.popleft()
+        if curr:
+            table[col].append(curr.val)
+            min_col = min(min_col, col)
+            max_col = max(max_col, col)           
+            
+            queue.append((curr.left, col - 1))
+            queue.append((curr.right, col + 1))
+    
+#        print(table)
+    result = [table[x] for x in range(min_col, max_col + 1)]
     return result
 ```
 
