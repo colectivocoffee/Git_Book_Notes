@@ -388,7 +388,7 @@ def level_order(self, root):
             stack.append(curr.left, level+1)    # 寫法：result->stack[右<-左]
     return result                            
 
-# level_order 2 using queue
+# level_order_2 using queue
 def level_order2(self, root):
     queue = collections.deque([root])
     while queue:
@@ -432,7 +432,7 @@ def postorder(self, root):
 
 **Average case/balanced** Binary Tree的高度為`O(logn)` / 葉節點數量為`O(n/2)`
 
-### Find Max Depth/Height/Diameter 模板
+### Find Max 模板
 
 題目如果問Depth/Height/Diameter of Binary Tree，其實都是類似的概念，只要`node - node`，中間的間隔就算是depth/height/diameter = 1 \(通俗來講，嚴格定義並不相同\)。
 
