@@ -18,7 +18,7 @@ class Node {
 
 ```
 
-![](../../.gitbook/assets/image%20%2869%29.png)
+![](../../.gitbook/assets/image%20%2870%29.png)
 
 ```text
 Input: tree = [15,6,18,3,7,17,20,2,4,null,13,null,null,null,null,null,null,null,null,9], node = 15
@@ -69,15 +69,24 @@ def inorder(self, root, result):
 1. If the node has a right child, and hence its successor is somewhere lower in the tree. Go to the right once and then as many times to the left as you could. Return the node you end up with.
 2. Node has no right child, and hence its successor is somewhere upper in the tree. Go up till the node that is _left_ child of its parent. The answer is the parent.
 
+![Case1: Successor&#x5728;node&#x4E0B;&#x65B9;](../../.gitbook/assets/image%20%2874%29.png)
+
+![Case2: successor&#x5728;node&#x4E0A;&#x65B9;](../../.gitbook/assets/image%20%2861%29.png)
+
 ```python
 def inorderSuccessor(self, node: 'Node') -> 'Node':
-
+    
+    # Case1: successor在node下方
+    # 先往右一格，再左左左左
     if node.right:
         node = node.right
         while node.left:
             node = node.left
         return node
-
+    
+    # Case2: successor在node上方
+    # go up and find the node with greater value
+    # 一直往上走，直到node < node.parent時，node.parent就是答案
     while node.parent and node.val > node.parent.val:
         node = node.parent
     return node.parent

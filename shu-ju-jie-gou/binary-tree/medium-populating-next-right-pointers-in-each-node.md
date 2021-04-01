@@ -22,7 +22,7 @@ Initially, all next pointers are set to `NULL`.
 * You may only use constant extra space.
 * Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
 
-![](../../.gitbook/assets/image%20%2873%29.png)
+![](../../.gitbook/assets/image%20%2875%29.png)
 
 ```text
 Input: root = [1,2,3,4,5,6,7]
@@ -44,7 +44,7 @@ Explanation: Given the above perfect binary tree (Figure A), your function shoul
 > 雖然在圖上容易找到.next是誰，但在真正Traversal時，由於隔壁鄰居需要倒回去才能看到。  
 > 我們可以利用同時看2個Levels，Queue的FIFO法，來知道到底.next的真正鄰居是誰。
 
-![](../../.gitbook/assets/image%20%2862%29.png)
+![](../../.gitbook/assets/image%20%2863%29.png)
 
 #### 如何利用BFS Queue來找curr.next?
 
@@ -122,7 +122,7 @@ Space Complexity: O\(N\) recursion stack stores the entire tree N.
 
 #### 第二種情況：`node.right.next = node.next.left` 
 
-![](../../.gitbook/assets/image%20%2863%29.png)
+![](../../.gitbook/assets/image%20%2864%29.png)
 
 ![](../../.gitbook/assets/next_right_ptr_binarytree.jpg)
 
@@ -170,11 +170,11 @@ def connect(self, root: 'Node') -> 'Node':
 
 #### 第一種情況：head.right = head.left.next
 
-![](../../.gitbook/assets/image%20%2866%29.png)
+![](../../.gitbook/assets/image%20%2867%29.png)
 
 #### 第二種情況：head.right.next = head.next.left
 
-![](../../.gitbook/assets/image%20%2867%29.png)
+![](../../.gitbook/assets/image%20%2868%29.png)
 
 ```python
 def connect(self, root: 'Node') -> 'Node':
