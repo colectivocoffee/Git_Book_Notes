@@ -419,9 +419,9 @@ Given the `root` of a binary tree, return _**the vertical order traversal** of i
 
 If two nodes are in the same row and column, the order should be from **left to right**.
 
-![](../../.gitbook/assets/image%20%2864%29.png)
+![](../../.gitbook/assets/image%20%2865%29.png)
 
-![](../../.gitbook/assets/image%20%2870%29.png)
+![](../../.gitbook/assets/image%20%2872%29.png)
 
 
 
@@ -443,7 +443,7 @@ Output: [[4],[9],[3,0,1],[8],[7]]
 > STEP2. 做BFS，同時往左往右延展`min_col` & `max_col`。  
 > STEP3. 把DefaultDict按照col，轉換成答案要求List\(List\(\)\)
 
-![](../../.gitbook/assets/image%20%2868%29.png)
+![](../../.gitbook/assets/image%20%2870%29.png)
 
 ![BFS using min&amp;max col idx + defaultDict ](../../.gitbook/assets/vertical_order_binarytree.png)
 
