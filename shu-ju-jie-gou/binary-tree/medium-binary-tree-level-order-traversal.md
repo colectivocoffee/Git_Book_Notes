@@ -421,7 +421,7 @@ If two nodes are in the same row and column, the order should be from **left to 
 
 ![](../../.gitbook/assets/image%20%2863%29.png)
 
-![](../../.gitbook/assets/image%20%2868%29.png)
+![](../../.gitbook/assets/image%20%2869%29.png)
 
 
 
@@ -436,6 +436,14 @@ Output: [[4],[9],[3,0,1],[8],[7]]
 ```
 
 ### 1. BFS Iterative, Queue +  DefaultDict Table:   O\(N\) / O\(N\)
+
+> 如下圖  
+> STEP1. 建立DefaultDict  col-value的對應關係  
+> 以root為起始點\(0,0\)，往下走並且紀錄其\(num, column\)到queue中。  
+> STEP2. 做BFS，同時往左往右延展`min_col` & `max_col`。  
+> STEP3. 把DefaultDict按照col，轉換成答案要求List\(List\(\)\)
+
+![](../../.gitbook/assets/image%20%2867%29.png)
 
 ```python
 def verticalOrder(self, root: TreeNode) -> List[List[int]]:

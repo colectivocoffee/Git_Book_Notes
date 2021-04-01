@@ -92,7 +92,7 @@ STEP2. Rewire the connection.
               把左子樹`rightmost`合併到curr和右子樹的交接處。
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%2867%29.png)
+![](../../.gitbook/assets/image%20%2868%29.png)
 
 ![](../../.gitbook/assets/image%20%2858%29.png)
 
