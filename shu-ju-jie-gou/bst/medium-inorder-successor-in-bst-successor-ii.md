@@ -2,7 +2,7 @@
 
 ## \[Medium\] Inorder Successor in BST
 
-## \[Medium\] Inorder Successor in BST II
+## [\[Medium\] Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii/)       \(457/25\) locked
 
 Given a `node` in a binary search tree, return _the in-order successor of that node in the BST_. If that node has no in-order successor, return `null`.  
 The successor of a `node` is the node with the smallest key greater than `node.val`.  
