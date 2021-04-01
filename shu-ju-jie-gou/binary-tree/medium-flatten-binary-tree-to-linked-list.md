@@ -7,7 +7,7 @@ Given the `root` of a binary tree, flatten the tree into a "linked list":
 * The "linked list" should use the same `TreeNode` class where the `right` child pointer points to the next node in the list and the `left` child pointer is always `null`.
 * The "linked list" should be in the same order as a [**pre-order traversal**](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR) of the binary tree.
 
-![](../../.gitbook/assets/image%20%2862%29.png)
+![](../../.gitbook/assets/image%20%2863%29.png)
 
 ```text
 Ex1
@@ -92,13 +92,13 @@ STEP2. Rewire the connection.
               把左子樹`rightmost`合併到curr和右子樹的交接處。
 {% endhint %}
 
-![](../../.gitbook/assets/image%20%2868%29.png)
+![](../../.gitbook/assets/image%20%2869%29.png)
 
 ![](../../.gitbook/assets/image%20%2858%29.png)
 
 
 
-![](../../.gitbook/assets/image%20%2866%29.png)
+![](../../.gitbook/assets/image%20%2867%29.png)
 
 * Time Complexity: `O(N)` since we process each node of the tree at most twice. If you think about it, we process the nodes once when we actually run our algorithm on them as the `currentNode`. The second time when we `come across` the nodes is when we are trying to find our `rightmost node`. Sure, this algorithm is `slower` than the previous two approaches but it doesn't use any additional space which is a big win.
 * Space Complexity: `O(1)`
