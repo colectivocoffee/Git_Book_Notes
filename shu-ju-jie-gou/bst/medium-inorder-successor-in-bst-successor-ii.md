@@ -64,7 +64,10 @@ def inorder(self, root, result):
     self.inorder(root.right, result)
 ```
 
-### 2. BST Traverse, check right/left/parent:    O\(N\) / O\(1\)
+### 2. BST Traverse, by checking right/left/parent:    O\(N\) / O\(1\)
+
+1. If the node has a right child, and hence its successor is somewhere lower in the tree. Go to the right once and then as many times to the left as you could. Return the node you end up with.
+2. Node has no right child, and hence its successor is somewhere upper in the tree. Go up till the node that is _left_ child of its parent. The answer is the parent.
 
 ```python
 def inorderSuccessor(self, node: 'Node') -> 'Node':
