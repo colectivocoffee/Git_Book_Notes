@@ -78,7 +78,7 @@ def inorderSuccessor(self, node: 'Node') -> 'Node':
             node = node.left
         return node
 
-    while node.parent and node == node.parent.right:
+    while node.parent and node.val > node.parent.val:
         node = node.parent
     return node.parent
 ```
