@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Initial page](README.md)
+* [Design Qs](design-qs.md)
 
 ## Basics <a id="basics-1"></a>
 
