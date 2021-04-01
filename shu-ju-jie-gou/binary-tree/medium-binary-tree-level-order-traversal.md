@@ -472,7 +472,9 @@ def verticalOrder(self, root: TreeNode) -> List[List[int]]:
     return result
 ```
 
-### 2. BFS Iterative, with sorting
+### 2. BFS Iterative, with sorting:  O\(NlogN\) / O\(N\)
 
-### 3. DFS Iterative, 
+Time Complexity: O\(NlogN\) sorting takes NlogN
+
+### 3. DFS Iterative:   O\(WHlogH\)  /  O\(N\)
 
