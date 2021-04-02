@@ -19,7 +19,10 @@ If a candidate answers using an orderedDict, I allow them to do so. But I go in-
 1. How is the orderedDict preserving order? 
 2. How is it constant time?
 
-### 1. OrderedDict:
+### 1. OrderedDict / LinkedHashMap:    O\(1\) / O\(capacity\)
+
+* Time complexity : `O(1)` both for `put` and `get` since all operations with ordered dictionary : `get/in/set/move_to_end/popitem` \(`get/containsKey/put/remove`\) are done in a constant time.
+* Space complexity : `O(capacity)` since the space is used only for an ordered dictionary with at most `capacity + 1` elements.
 
 ```python
 class LRUCache:
