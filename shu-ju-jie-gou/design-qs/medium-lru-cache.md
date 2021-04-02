@@ -57,3 +57,5 @@ class LRUCache:
         self.store[key] = value
 ```
 
+### 2. Dict + DoubleLinkedList / HashMap + DoubleLinkedList:    O\(1\) / O\(capacity\)
+
