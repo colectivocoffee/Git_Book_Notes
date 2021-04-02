@@ -4,6 +4,16 @@
 
 
 
+Design a data structure that follows the constraints of a [**Least Recently Used \(LRU\) cache**](https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU).
+
+Implement the `LRUCache` class:
+
+* `LRUCache(int capacity)` Initialize the LRU cache with **positive** size `capacity`.
+* `int get(int key)` Return the value of the `key` if the key exists, otherwise return `-1`.
+* `void put(int key, int value)` Update the value of the `key` if the `key` exists. Otherwise, add the `key-value` pair to the cache. If the number of keys exceeds the `capacity` from this operation, **evict** the least recently used key.
+
+#### During the interview...
+
 The standard interview strategy for a candidate is never to rush into the implementation. If you were interviewing me, I'd follow the article and list two solutions here : 1. hashmap + linked list, O\(1\) 2. ordered dictionary = OrderedDict, O\(1\). Do you think the solutions have the best time complexity? Yes. Cool, so which one would you like me to implement?
 
 At this moment I already gained scores for 1. data structures 2. algorithms 3. communication. And I think you'd propose me to implement the ordered dictionary one only we were running out of time at this moment. Otherwise, there is a place for your further questions like "ok, what if you'd need to implement LFU cache instead ?"
