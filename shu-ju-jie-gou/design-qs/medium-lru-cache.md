@@ -59,8 +59,8 @@ class LRUCache:
         # case2: key in store, but already full
         # then pop the last one
         elif len(self.store) >= self.capacity: 
-            self.store.popitem(last = False)
-        
+            self.store.popitem(last = False)  #一般popitem會丟出最上面的
+                                              #這裡popitem(last = False)會丟最下面
         # case1: in store, but popped    
         # case2: not in the store, meaning we need to create one
         # always stores at the top
