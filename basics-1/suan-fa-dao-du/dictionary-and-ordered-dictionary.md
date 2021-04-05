@@ -77,6 +77,12 @@ UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.
 
 ## Java HashTable & HashMap
 
+| **Type** | Safety |
+| :--- | :--- |
+| HashTable | synchronized                                          |
+| HashMap | async |
+| ConcurrentHashMap |  |
+
 ## How HashMap internally works in Java? 
 
 * Hash Functions are used to find the object
@@ -100,5 +106,26 @@ keys.hashcode\(\) first, then keys.equals\(\) second.
 \(STEP 1\) `Hashcode()` — keys.hashcode\(\) using **Linked List traversal** until we **find the bucket location of this key**.   
 \(STEP 2\) `Equals()`  — After bucket location is found, use keys.equals\(\) to **check if it is a correct object/correct node**.
 
+Q5: What kind of keys would be considered as good HashMap keys? or How to improve the overall HashMap performance?   
+Ans: **Use** **Immutable type of keys**.   
+**String** and some wrapper classes like **Integer** are good immutable keys.  
 
+Q6: What happens on HashMap in Java if the size of HashMap exceeds a given threshold defined by load factor? or HashMap Resizing?   
+e.g. **Exceeds the load factor** `.75` or by 75%, it will resize the HashMap.   
+Ans: Java will have the following two steps:   
+step1\) create a new bucket array of size 2x and then   
+step2\) **Rehashing,** to put everything into the new one. 
+
+Q7: Do you see any problem with resizing HashMap?   
+Ans: **Race condition** during the resizing. Will create an infinite loop.   
+If two threads are both trying to resize the same HashMap, a race condition will happen.   
+During the resizing process, elements in the bucket in the linked list get **reversed order.** Normally Java appends the new element at the end/tail. But now it **appends at the head to avoid tail traversing**.   
+Therefore, HashMap is **NOT** a good choice in a multi-threaded environment.  
+
+Q8: Why String, Integer, and other wrapper are considered good keys?  
+Ans: They are `immutable and final`. They override equals and hashCode\(\) method. \[Reason1\] **Immutability** is required in order to prevent changes in fields to calculate hashCode\(\).   
+\[Reason2\] **Thread safety**. Immutability offers other advantages like thread safety. This will also help on reducing collision and improve the HashMap performance. 
+
+Q9: Can we use ConcurrentHashMap to replace HashTable?   
+Ans: 
 
