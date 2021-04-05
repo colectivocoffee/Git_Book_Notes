@@ -79,7 +79,7 @@ UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.
 
 | **Type** | Safety |
 | :--- | :--- |
-| HashTable | synchronized                                          |
+| HashTable | synchronized  \(stronger thread-safety than concurrent\)                                |
 | HashMap | async |
 | ConcurrentHashMap |  |
 
@@ -88,6 +88,17 @@ UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.
 * Hash Functions are used to find the object
 * First Step: hashCode\(\)
 * Second Step: equals\(\)
+
+```python
+1. The concept of hashing
+2. Collision resolution in HashMap
+3. Use of equals () and hashCode () and their importance in HashMap?
+4. The benefit of the immutable object?
+5. Race condition on HashMap  in Java
+6. Resizing of Java HashMap
+```
+
+
 
 Q1: Have you used HashMap before or What is HashMap? Why do you use it?  
 Ans: **HashMap stores key-value pairs**.
@@ -101,6 +112,7 @@ We need collision resolution by either **\(1\)linked list,** **\(2\)linear probi
 
 Q4: How will you retrieve the Value object if two Keys will have the same hashcode?  
 Ans: By Open addressing or Closed addressing to resolve this.  
+They will be **stored in the same bucket but no next node of the linked list**. And keys equals \(\) method will be used to identify the correct key-value pair in HashMap.  
 HashMap stores key-value pairs in `Linked List` or `Map.Entry`.   
 keys.hashcode\(\) first, then keys.equals\(\) second.   
 \(STEP 1\) `Hashcode()` — keys.hashcode\(\) using **Linked List traversal** until we **find the bucket location of this key**.   
@@ -124,8 +136,14 @@ Therefore, HashMap is **NOT** a good choice in a multi-threaded environment.
 
 Q8: Why String, Integer, and other wrapper are considered good keys?  
 Ans: They are `immutable and final`. They override equals and hashCode\(\) method. \[Reason1\] **Immutability** is required in order to prevent changes in fields to calculate hashCode\(\).   
-\[Reason2\] **Thread safety**. Immutability offers other advantages like thread safety. This will also help on reducing collision and improve the HashMap performance. 
+\[Reason2\] **Thread safety**. Immutability offers other advantages like thread-safety. This will also help on reducing collision and improve the HashMap performance. 
 
 Q9: Can we use ConcurrentHashMap to replace HashTable?   
-Ans: 
+Ans: Not really. HashTable has stronger thread-safety than ConcurrentHashMap.
+
+Q10. How Null key is handled in HashMap? Since equals\(\) and hashCode\(\) are used to store and retrieve values, how does it work in the case of the null key?  
+Ans: There are two separate methods for this,   
+1. method PUT`putForNullKey(V value)` and   
+2. method GET `getForNullKey()`.   
+Null keys always map to index 0.
 
