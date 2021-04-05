@@ -236,7 +236,7 @@ int_counter
 
 ### OrderedDict & Dict
 
-A python dictionary is basically an implementation of a hash table.
+A python dictionary is basically an implementation of a **hash table**.
 
 #### Common Functions
 
@@ -253,13 +253,22 @@ A python dictionary is basically an implementation of a hash table.
 | update\(\) | This method updates the dictionary with certain key-value pairs that are mentioned |
 | values\(\) | This method simply returns the values of all the items in the list |
 
-Disadvantages of dictionary
+#### Advantages of dictionary
+
+python 3.7 version and above: When resizing dict, only the indices are updated  
+old python: When resizing, every hash/key/value entry is moved or copied during a resize.
+
+#### Disadvantages of dictionary
 
 \(i\) **Unordered:** Dictionaries are unordered. In cases where the order of the data is important, the Python dictionary is not appropriate.
 
 \(ii\) **A lot more space is taken:** Python dictionaries take up a lot more space than other data structures. The amount of space occupied increases drastically when there are many Python Dictionary keys. Of course, this isn’t too much of a disadvantage because memory isn’t very expensive.  
-UPDATE: 新版Python dictionary 3.7後已改進25%memory usage.   
-但為什麼舊版會用很多space呢？因為原始hash table需要規劃出很多未使用空間等待使用。新版用Doubly Linked List解決了這space consuming問題。
+UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.   
+但為什麼舊版會用很多space呢？因為原始hash table需要規劃出很多未使用空間\(24 bytes\)等待使用。新版用Doubly Linked List解決了這space consuming問題。
+
+![old version python dict using hash table](../.gitbook/assets/image%20%2877%29.png)
+
+![new version python dict, using doubly linked list](../.gitbook/assets/image%20%2876%29.png)
 
 ## Python常用用法
 
@@ -676,4 +685,5 @@ Else
 #### Reference
 
 1. [Slice Assignment](https://stackoverflow.com/questions/10623302/how-assignment-works-with-python-list-slice/10623352#10623352)
-2. 
+2. [Python OrderedDict](https://www.pythoninsight.com/2018/08/dictionaries-preserve-ordering/) & [original design update](https://mail.python.org/pipermail/python-dev/2012-December/123028.html)
+
