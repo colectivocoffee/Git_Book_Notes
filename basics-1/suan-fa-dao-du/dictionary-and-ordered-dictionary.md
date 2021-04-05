@@ -1,10 +1,16 @@
-# Dict & OrderedDict
+# \[Python\] Dict & OrderedDict \| \[Java\] HashTable & HashMap
 
 A python dictionary is basically an implementation of a **hash table**. 
 
+## Python Hash Table
+
+![old version python dict using hash table](../../.gitbook/assets/image%20%2877%29.png)
+
+![new version python dict, using doubly linked list](../../.gitbook/assets/image%20%2876%29.png)
+
 #### Advantages of dictionary
 
-python 3.7 version and above: When resizing dict, only the indices are updated  
+python 3.7 version and above: When resizing dict, only the indices are updated.  
 old python: When resizing, every hash/key/value entry is moved or copied during a resize.
 
 #### Disadvantages of dictionary
@@ -64,4 +70,10 @@ UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.
 * Probing just means it searches the slots by slot to find an empty slot. Technically we could just go one by one, `i+1, i+2, ...` and use the first available one \(that's linear probing\). But for reasons explained beautifully in the comments \(see [dictobject.c:33-126](http://hg.python.org/cpython/file/52f68c95e025/Objects/dictobject.c#l33)\), CPython uses **random probing**. In random probing, the next slot is picked in a pseudo random order. The entry is added to the first empty slot. For this discussion, the actual algorithm used to pick the next slot is not really important \(see [dictobject.c:33-126](http://hg.python.org/cpython/file/52f68c95e025/Objects/dictobject.c#l33) for the algorithm for probing\). What is important is that the slots are probed until first empty slot is found.
 * The same thing happens for lookups, just starts with the initial slot i \(where i depends on the hash of the key\). If the hash and the key both don't match the entry in the slot, it starts probing, until it finds a slot with a match. If all slots are exhausted, it reports a fail.
 * BTW, the `dict` will be resized if it is two-thirds full. This avoids slowing down lookups. \(see [dictobject.h:64-65](http://hg.python.org/cpython/file/52f68c95e025/Include/dictobject.h#l64)\)
+
+#### Reference
+
+1. [How is Python Dictionary Implemented?](https://stackoverflow.com/questions/327311/how-are-pythons-built-in-dictionaries-implemented)
+
+## Java HashTable & HashMap
 

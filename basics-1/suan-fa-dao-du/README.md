@@ -234,14 +234,6 @@ int_counter
         ... += 1
 ```
 
-### OrderedDict & Dict
-
-
-
-![old version python dict using hash table](../../.gitbook/assets/image%20%2877%29.png)
-
-![new version python dict, using doubly linked list](../../.gitbook/assets/image%20%2876%29.png)
-
 ## Python常用用法
 
 * **Last element in a sequence:** `arr[-1]`
