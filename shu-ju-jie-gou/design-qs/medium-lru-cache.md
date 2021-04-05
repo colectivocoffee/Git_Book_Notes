@@ -27,7 +27,7 @@ In a real job, using the standard library is always preferable because it is jus
 If a candidate answers using an orderedDict, I allow them to do so. But I go in-depth on the data structure fundamentals e.g. 
 
 1. How is the orderedDict preserving order?   Ans: Python uses **Doubly Linked List** implementation to keep it in order.           Starting Python 3.7, regular dict\(\) has guaranteed insertion order.           orderedDict 比 dict\(\) 慢一倍.
-2. How is it constant time? Ans: Using **hash function** to search for the hash keys, similar to dict. 
+2. How is it constant time? Ans: Dict works on the principle of Hashing. It is using **hash function** to search for the hash keys, similar to dict. 
 
 ### 1. OrderedDict / LinkedHashMap:    O\(1\) / O\(capacity\)
 
