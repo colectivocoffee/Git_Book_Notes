@@ -77,3 +77,28 @@ UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.
 
 ## Java HashTable & HashMap
 
+## How HashMap internally works in Java? 
+
+* Hash Functions are used to find the object
+* First Step: hashCode\(\)
+* Second Step: equals\(\)
+
+Q1: Have you used HashMap before or What is HashMap? Why do you use it?  
+Ans: **HashMap stores key-value pairs**.
+
+Q2: Do you Know how HashMap works in Java or How does get \(\) method of HashMap works in Java?  
+Ans: HashMap works on the principle of **hashing**. Hash functions are used to find a bucket location. Java stores key-value pair objects as `Map.Entry` in a bucket.
+
+Q3: What will happen if two different objects have the same hashcode?  
+Ans: **Collision will happen**.   
+We need collision resolution by either **\(1\)linked list,** **\(2\)linear probing**, or **\(3\)chaining.**
+
+Q4: How will you retrieve the Value object if two Keys will have the same hashcode?  
+Ans: By Open addressing or Closed addressing to resolve this.  
+HashMap stores key-value pairs in `Linked List` or `Map.Entry`.   
+keys.hashcode\(\) first, then keys.equals\(\) second.   
+\(STEP 1\) `Hashcode()` — keys.hashcode\(\) using **Linked List traversal** until we **find the bucket location of this key**.   
+\(STEP 2\) `Equals()`  — After bucket location is found, use keys.equals\(\) to **check if it is a correct object/correct node**.
+
+
+
