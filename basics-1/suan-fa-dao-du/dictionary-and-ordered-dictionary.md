@@ -1,4 +1,34 @@
-# Dictionary & Ordered Dictionary
+# Dict & OrderedDict
+
+A python dictionary is basically an implementation of a **hash table**. 
+
+#### Advantages of dictionary
+
+python 3.7 version and above: When resizing dict, only the indices are updated  
+old python: When resizing, every hash/key/value entry is moved or copied during a resize.
+
+#### Disadvantages of dictionary
+
+\(i\) **Unordered:** Dictionaries are unordered. In cases where the order of the data is important, the Python dictionary is not appropriate.
+
+\(ii\) **A lot more space is taken:** Python dictionaries take up a lot more space than other data structures. The amount of space occupied increases drastically when there are many Python Dictionary keys. Of course, this isn’t too much of a disadvantage because memory isn’t very expensive.  
+UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.   
+但為什麼舊版會用很多space呢？因為原始hash table需要規劃出很多未使用空間\(24 bytes\)等待使用。新版用Doubly Linked List解決了這space consuming問題。
+
+#### Common Functions
+
+| **Method** | **Description** |
+| :--- | :--- |
+| clear\(\) | This removes all the items from the dictionary |
+| copy\(\) | This method returns a copy of the Python dictionary |
+| fromkeys\(\) | This returns a different directory with only the key : value pairs that have been specified |
+| get\(\) | This returns the value of the key mentioned |
+| items\(\) | This method returns the a thuple for every key: value pair in the dictionary |
+| keys\(\) | This returns a list of all the Python dictionary keys in the dictionary |
+| pop\(\) | This **removes only the key** that is mentioned |
+| popitem\(\) | In the latest version, this method deletes the **most recently added** item |
+| update\(\) | This method updates the dictionary with certain key-value pairs that are mentioned |
+| values\(\) | This method simply returns the values of all the items in the list |
 
 ## How Python Dictionary works internally
 
