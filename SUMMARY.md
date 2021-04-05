@@ -4,7 +4,8 @@
 
 ## Basics <a id="basics-1"></a>
 
-* [算法導讀](basics-1/suan-fa-dao-du.md)
+* [算法導讀](basics-1/suan-fa-dao-du/README.md)
+  * [Dictionary & Ordered Dictionary](basics-1/suan-fa-dao-du/dictionary-and-ordered-dictionary.md)
 * [面試準備技巧](basics-1/zhun-bei-ji-qiao.md)
 
 ## 算法

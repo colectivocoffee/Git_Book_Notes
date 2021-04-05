@@ -236,7 +236,7 @@ int_counter
 
 ### OrderedDict & Dict
 
-A python dictionary is basically an implementation of a **hash table**.
+A python dictionary is basically an implementation of a **hash table**. 
 
 #### Common Functions
 
@@ -266,9 +266,9 @@ old python: When resizing, every hash/key/value entry is moved or copied during 
 UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.   
 但為什麼舊版會用很多space呢？因為原始hash table需要規劃出很多未使用空間\(24 bytes\)等待使用。新版用Doubly Linked List解決了這space consuming問題。
 
-![old version python dict using hash table](../.gitbook/assets/image%20%2877%29.png)
+![old version python dict using hash table](../../.gitbook/assets/image%20%2877%29.png)
 
-![new version python dict, using doubly linked list](../.gitbook/assets/image%20%2876%29.png)
+![new version python dict, using doubly linked list](../../.gitbook/assets/image%20%2876%29.png)
 
 ## Python常用用法
 
