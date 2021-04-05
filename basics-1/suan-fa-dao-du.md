@@ -234,6 +234,23 @@ int_counter
         ... += 1
 ```
 
+### OrderedDict & Dict
+
+#### OrderedDict
+
+| **Method** | **Description** |
+| :--- | :--- |
+| clear\(\) | This removes all the items from the dictionary |
+| copy\(\) | This method returns a copy of the Python dictionary |
+| fromkeys\(\) | This returns a different directory with only the key : value pairs that have been specified |
+| get\(\) | This returns the value of the key mentioned |
+| items\(\) | This method returns the a thuple for every key: value pair in the dictionary |
+| keys\(\) | This returns a list of all the Python dictionary keys in the dictionary |
+| pop\(\) | This removes only the key that is mentioned |
+| popitem\(\) | In the latest version, this method deletes the **most recently added** item |
+| update\(\) | This method updates the dictionary with certain key-value pairs that are mentioned |
+| values\(\) | This method simply returns the values of all the items in the list |
+
 ## Python常用用法
 
 * **Last element in a sequence:** `arr[-1]`
