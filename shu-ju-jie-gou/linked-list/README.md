@@ -7,7 +7,7 @@
 因此會有以下性質：  
 \(1\) node = prevNode.next  
 \(2\) nextNode = node.next  
-\(3\) nextNode = prevNode.next.next    \(skip current node\)
+\(3\) nextNode = prevNode.next.next    \(aka skip current node\)
 {% endhint %}
 
 下面是Linked List Traversal/Insert的性質

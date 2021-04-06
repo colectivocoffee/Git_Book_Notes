@@ -29,13 +29,27 @@ If a candidate answers using an orderedDict, I allow them to do so. But I go in-
 
 ## Code
 
-### 1. OrderedDict / LinkedHashMap:    O\(1\) / O\(capacity\)
-
 > 要按順序完成以下三點：
 >
 > 1. Get the key / Check if the key exists
 > 2. Delete the first added key
 > 3. Put the key
+
+**Getting**
+
+* Whenever you are getting the value of the key, check whether the key exists in the cache.
+  * If it exists, put that key-value pair at the end of the cache and return the value.
+  * If it does not exist, return -1.
+
+**Putting**
+
+* Whenever you are putting a key-value pair in, you have to check whether the key already exists.
+  * If it exists, you get that key-value pair, update the value and put that pair at the end of the cache.
+  * If the key does not exist, you check whether the cache size is already at limit.
+    * If the cache size is at limit, **pop** the key-value pair at the **beginning** of the cache and **push** the new key-value pair at the **end** of the cache.
+    * If the cache is still under the size limit, simply push the new key-value pair at the end of the cache.
+
+### 1. OrderedDict / LinkedHashMap:    O\(1\) / O\(capacity\)
 
 * Time complexity : `O(1)` both for `put` and `get` since all operations with ordered dictionary : `get/in/set/move_to_end/popitem` \(`get/containsKey/put/remove`\) are done in a constant time.
 * Space complexity : `O(capacity)` since the space is used only for an ordered dictionary with at most `capacity + 1` elements.
@@ -122,6 +136,8 @@ class LRUCache extends LinkedHashMap<Integer, Integer>{
 
 ### 2. Dict + DoublyLinkedList / HashMap + DoubleLinkedList:    O\(1\) / O\(capacity\)
 
+The most frequent operation for this problem is to `move node position` within the data structure.
+
 ![](../../.gitbook/assets/image%20%2879%29.png)
 
 One advantage of _double_ linked list is that the node can remove itself without other reference. In addition, it takes constant time to add and remove nodes from the head or tail.
@@ -129,4 +145,93 @@ One advantage of _double_ linked list is that the node can remove itself without
 One particularity about the double linked list implemented here is that there are _pseudo head_ and _pseudo tail_ to mark the boundary, so that we don't need to check the `null` node during the update.
 
 ![](../../.gitbook/assets/image%20%2876%29.png)
+
+```python
+class ListNode:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.prev = None
+        self.next = None
+
+#| head 
+#|  | node    _insertToHead(node)
+#|  | node    _removeFromMiddle(node)
+#|  v node \   
+#| tail     \ _removeFromTail()
+# -----
+class LRUCache:
+    
+    #  head  --> tail                       
+    # (-1,-1) -> (0,0)
+    def __init__(self, capacity: int):
+        self.store = dict()
+        self.capacity = capacity
+        self.head = ListNode(-1, -1)
+        self.tail = ListNode(0, 0)
+        # initial relationship between head & tail
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def get(self, key: int) -> int:
+        if key in self.store:
+            node = self.store[key]
+            self._removeFromMiddle(node)
+            self._insertToHead(node)
+            return node.value
+        return -1
+        
+    def put(self, key: int, value: int) -> None:
+        
+        # update with the current node(key,value)
+        if key in self.store:
+            # pop first item on the top
+            node = self.store[key]
+            self._removeFromMiddle(node)
+            node.value = value
+    
+        # remove last item, add the latest one to the top
+        elif len(self.store) >= self.capacity:
+            self._removeFromTail()        
+        # create new node in order to insert
+        node = ListNode(key, value)
+        self.store[key] = node
+        self._insertToHead(node)
+        
+        
+        # ... prevNode -> node -> nextNode ....
+        # ... prevNode ---------> nextNode ....
+    def _removeFromMiddle(self, node):
+        # get prevNode and nextNode positions first.
+        prevNode = node.prev
+        nextNode = node.next
+        # remove node itself, and then relink both sides. 
+        prevNode.next = nextNode
+        nextNode.prev = prevNode
+
+                
+        # .... -> tail_node -> tail          
+        # .... --------------> tail
+    def _removeFromTail(self):
+        if len(self.store) == 0:
+            return
+        tail_node = self.tail.prev
+        del self.store[tail_node.key]
+        self._removeFromMiddle(tail_node)
+        
+        # head -> headNext -> ....
+        # head -> node -> headNext -> ....
+    def _insertToHead(self, node):        
+        # 從head取headNext原始位置，並且把node加到最頂端(head後面)
+        headNext = self.head.next
+        self.head.next = node
+        # relink both sides
+        # 先連 head -> node
+        #          <-
+        # 再連         node -> headNext
+        #                  <-
+        node.prev = self.head
+        node.next = headNext
+        headNext.prev = node
+```
 
