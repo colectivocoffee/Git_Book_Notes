@@ -2,18 +2,20 @@
 
 A python dictionary is basically an implementation of a **hash table**. 
 
+OrderedDict is implemented with **HashMap + Doubly Linked List** internally. 
+
 ## Python Hash Table
 
 ![old version python dict using hash table](../../.gitbook/assets/image%20%2877%29.png)
 
 ![new version python dict, using doubly linked list](../../.gitbook/assets/image%20%2876%29.png)
 
-#### Advantages of dictionary
+#### Advantages of dictionary \(待修改\)
 
 python 3.7 version and above: When resizing dict, only the indices are updated.  
 old python: When resizing, every hash/key/value entry is moved or copied during a resize.
 
-#### Disadvantages of dictionary
+#### Disadvantages of dictionary \(待修改\)
 
 \(i\) **Unordered:** Dictionaries are unordered. In cases where the order of the data is important, the Python dictionary is not appropriate.
 

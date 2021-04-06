@@ -43,7 +43,8 @@ class LRUCache:
         if key in self.store:
         
             # 第二種寫法：
-            # value = self.store.move_to_end(key) 放到最下面
+            # self.store.move_to_end(key) 放到最下面,且return None
+            # return self.store[key]
             value = self.store.pop(key)   # remove old one (top one)
             self.store[key] = value       # then move it to the last
             return value
