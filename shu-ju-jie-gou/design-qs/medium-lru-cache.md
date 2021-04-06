@@ -29,6 +29,9 @@ If a candidate answers using an orderedDict, I allow them to do so. But I go in-
 
 ## Code
 
+> LRU Cache is just repositioning the pointers by **adding/removing Least Recently Used** items. Change the position of the node means we need two different operations:   
+> `Insert` & `Delete`.   
+>   
 > 要按順序完成以下三點：
 >
 > 1. Get the key / Check if the key exists
@@ -140,11 +143,11 @@ The most frequent operation for this problem is to `move node position` within t
 
 ![](../../.gitbook/assets/image%20%2879%29.png)
 
-One advantage of _double_ linked list is that the node can remove itself without other reference. In addition, it takes constant time to add and remove nodes from the head or tail.
+One advantage of _double_ linked list is that the node can remove itself without other references. Just need to repoint when doing insertion/deletion. Therefore, it takes constant time to add and remove nodes from the head or tail.
 
 One particularity about the double linked list implemented here is that there are _pseudo head_ and _pseudo tail_ to mark the boundary, so that we don't need to check the `null` node during the update.
 
-![](../../.gitbook/assets/image%20%2876%29.png)
+![Doubly Linked List&#x521D;&#x59CB;&#x72C0;&#x614B;](../../.gitbook/assets/image%20%2876%29.png)
 
 ```python
 class ListNode:
