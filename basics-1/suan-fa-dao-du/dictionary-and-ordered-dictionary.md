@@ -23,20 +23,70 @@ old python: When resizing, every hash/key/value entry is moved or copied during 
 UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.   
 但為什麼舊版會用很多space呢？因為原始hash table需要規劃出很多未使用空間\(24 bytes\)等待使用。新版用Doubly Linked List解決了這space consuming問題。
 
-#### Common Functions
+### Common Functions
 
-| **Method** | **Description** |
-| :--- | :--- |
-| clear\(\) | This removes all the items from the dictionary |
-| copy\(\) | This method returns a copy of the Python dictionary |
-| fromkeys\(\) | This returns a different directory with only the key : value pairs that have been specified |
-| get\(\) | This returns the value of the key mentioned |
-| items\(\) | This method returns the a thuple for every key: value pair in the dictionary |
-| keys\(\) | This returns a list of all the Python dictionary keys in the dictionary |
-| pop\(\) | This **removes only the key** that is mentioned |
-| popitem\(\) | In the latest version, this method **deletes** the **most recently added** item |
-| update\(\) | This method updates the dictionary with certain key-value pairs that are mentioned |
-| values\(\) | This method simply returns the values of all the items in the list |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left"><b>Method</b>
+      </th>
+      <th style="text-align:left"><b>Description</b>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">clear()</td>
+      <td style="text-align:left">This removes all the items from the dictionary</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">copy()</td>
+      <td style="text-align:left">This method returns a copy of the Python dictionary</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">fromkeys()</td>
+      <td style="text-align:left">This returns a different directory with only the key : value pairs that
+        have been specified</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">get()</td>
+      <td style="text-align:left">This returns the value of the key mentioned</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">items()</td>
+      <td style="text-align:left">This method returns the a thuple for every key: value pair in the dictionary</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">keys()</td>
+      <td style="text-align:left">This returns a list of all the Python dictionary keys in the dictionary</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">pop()</td>
+      <td style="text-align:left">This <b>removes only the key</b> that is mentioned</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">popitem()</td>
+      <td style="text-align:left">
+        <p>OrderedDict.popitem()</p>
+        <p>In the latest version, this method <b>deletes</b> the <b>most recently added</b> item,</p>
+        <p>meaning in <b>LIFO</b> order, just like a stack.</p>
+        <p>
+          <br />OrderedDict.popitem(last = False)</p>
+        <p>with <b>last = False</b> param, meaning in FIFO order. It deletes oldest
+          added item, just like a queue.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">update()</td>
+      <td style="text-align:left">This method updates the dictionary with certain key-value pairs that are
+        mentioned</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">values()</td>
+      <td style="text-align:left">This method simply returns the values of all the items in the list</td>
+    </tr>
+  </tbody>
+</table>
 
 ## How Python Dictionary works internally
 
