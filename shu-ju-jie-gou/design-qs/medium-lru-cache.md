@@ -41,6 +41,8 @@ class LRUCache:
 
     def get(self, key: int) -> int:
         if key in self.store:
+            # 第二種寫法：
+            # value = self.store.move_to_end(key)
             value = self.store.pop(key)   # remove old one (top one)
             self.store[key] = value       # then move it to the last
             return value
@@ -60,8 +62,9 @@ class LRUCache:
             self.store.popitem(last = False)  #一般popitem會丟出最上面的
                                               #這裡popitem(last = False)會丟最下面
         # case1: in store, but popped    
-        # case2: not in the store, meaning we need to create one
-        # always stores at the top
+        # case2: in store, but full capacity
+        # case3: not in the store, meaning we need to create one
+        # this pair always stores at the top
         self.store[key] = value
 ```
 

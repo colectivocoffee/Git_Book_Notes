@@ -342,15 +342,17 @@ for char in s:
 ### Type Conversion
 
 ```python
-(1)String to Array
+(1)String -> Array
 array = astring.split(',')     
 # -> ['Bob', 'is', 'Enola', 'Holmes']
  
-(2)String to Array of chars 
+(2)String -> Array of chars 
 array = list(astring)          
 # -> ['B','o','b',' ','i','s'] (including space)
 
-
+(3)Array -> String
+astring = ''.join(array)
+# ['a','p','p'] -> 'app'
 ```
 
 ### Replace
