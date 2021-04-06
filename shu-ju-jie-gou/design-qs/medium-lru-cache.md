@@ -120,5 +120,13 @@ class LRUCache extends LinkedHashMap<Integer, Integer>{
 {% endtab %}
 {% endtabs %}
 
-### 2. Dict + DoubleLinkedList / HashMap + DoubleLinkedList:    O\(1\) / O\(capacity\)
+### 2. Dict + DoublyLinkedList / HashMap + DoubleLinkedList:    O\(1\) / O\(capacity\)
+
+![](../../.gitbook/assets/image%20%2879%29.png)
+
+One advantage of _double_ linked list is that the node can remove itself without other reference. In addition, it takes constant time to add and remove nodes from the head or tail.
+
+One particularity about the double linked list implemented here is that there are _pseudo head_ and _pseudo tail_ to mark the boundary, so that we don't need to check the `null` node during the update.
+
+![](../../.gitbook/assets/image%20%2876%29.png)
 

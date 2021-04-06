@@ -2,6 +2,14 @@
 
 ## Linked List核心技巧
 
+{% hint style="info" %}
+如果需要建Linked List，就是要維持**`prevNode -> node -> nextNode`**的關係。  
+因此會有以下性質：  
+\(1\) node = prevNode.next  
+\(2\) nextNode = node.next  
+\(3\) nextNode = prevNode.next.next    \(skip current node\)
+{% endhint %}
+
 下面是Linked List Traversal/Insert的性質
 
 * Linked List是一串葡萄，只要拿head就會得到從head開始，所有的elements。

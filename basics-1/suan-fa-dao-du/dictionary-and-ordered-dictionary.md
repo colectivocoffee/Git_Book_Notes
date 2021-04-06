@@ -6,9 +6,9 @@ OrderedDict is implemented with **HashMap + Doubly Linked List** internally.
 
 ## Python Hash Table
 
-![old version python dict using hash table](../../.gitbook/assets/image%20%2877%29.png)
+![old version python dict using hash table](../../.gitbook/assets/image%20%2878%29.png)
 
-![new version python dict, using doubly linked list](../../.gitbook/assets/image%20%2876%29.png)
+![new version python dict, using doubly linked list](../../.gitbook/assets/image%20%2877%29.png)
 
 #### Advantages of dictionary \(待修改\)
 
