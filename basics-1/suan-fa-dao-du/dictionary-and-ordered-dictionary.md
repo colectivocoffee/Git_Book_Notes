@@ -32,7 +32,7 @@ UPDATE: 新版Python dictionary 3.7後已改進至少30-95%memory usage.
 | items\(\) | This method returns the a thuple for every key: value pair in the dictionary |
 | keys\(\) | This returns a list of all the Python dictionary keys in the dictionary |
 | pop\(\) | This **removes only the key** that is mentioned |
-| popitem\(\) | In the latest version, this method deletes the **most recently added** item |
+| popitem\(\) | In the latest version, this method **deletes** the **most recently added** item |
 | update\(\) | This method updates the dictionary with certain key-value pairs that are mentioned |
 | values\(\) | This method simply returns the values of all the items in the list |
 
