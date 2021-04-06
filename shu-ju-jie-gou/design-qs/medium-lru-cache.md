@@ -40,6 +40,8 @@ If a candidate answers using an orderedDict, I allow them to do so. But I go in-
 * Time complexity : `O(1)` both for `put` and `get` since all operations with ordered dictionary : `get/in/set/move_to_end/popitem` \(`get/containsKey/put/remove`\) are done in a constant time.
 * Space complexity : `O(capacity)` since the space is used only for an ordered dictionary with at most `capacity + 1` elements.
 
+{% tabs %}
+{% tab title="Python" %}
 ```python
 class LRUCache:
 
@@ -89,6 +91,34 @@ class LRUCache:
         # this pair always stores at the top
         self.store[key] = value
 ```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+class LRUCache extends LinkedHashMap<Integer, Integer>{
+    private int capacity;
+    
+    public LRUCache(int capacity) {
+        super(capacity, 0.75F, true);
+        this.capacity = capacity;
+    }
+
+    public int get(int key) {
+        return super.getOrDefault(key, -1);
+    }
+
+    public void put(int key, int value) {
+        super.put(key, value);
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+        return size() > capacity; 
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ### 2. Dict + DoubleLinkedList / HashMap + DoubleLinkedList:    O\(1\) / O\(capacity\)
 
