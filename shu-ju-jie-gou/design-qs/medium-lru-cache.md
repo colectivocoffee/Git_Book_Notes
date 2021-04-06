@@ -157,12 +157,14 @@ class ListNode:
         self.prev = None
         self.next = None
 
-#| head 
-#|  | node    _insertToHead(node)
-#|  | node    _removeFromMiddle(node)
-#|  v node \   
-#| tail     \ _removeFromTail()
-# -----
+# LRU構造
+#              _insertToHead(node)
+# | head    /  
+# |  | node    
+# |  | node    _removeFromMiddle(node)
+# |  v node    
+# | tail    \  _removeFromTail()
+#  -----
 class LRUCache:
     
     #  head  --> tail                       
