@@ -225,8 +225,8 @@ class LRUCache:
         if len(self.store) == 0:
             return
         tail_node = self.tail.prev
-        del self.store[tail_node.key]
-        self._removeFromMiddle(tail_node)
+        del self.store[tail_node.key]     # 1. delete from hashMap
+        self._removeFromMiddle(tail_node) # 2. delete from linked list
         
         # head -> headNext -> ....
         # head -> node -> headNext -> ....
