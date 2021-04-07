@@ -252,7 +252,93 @@ To determine the least frequently used key, a **use counter** is maintained for 
 
 When a key is first inserted into the cache, its **use counter** is set to `1` \(due to the `put` operation\). The **use counter** for a key in the cache is incremented either a `get` or `put` operation is called on it.
 
+## Code
+
 和LRU Cache概念相同，就是需要一個額外的Counter來計算Frequency。
+
+#### Here is how the algorithm works
+
+**get\(key\)**
+
+1. query the `node` by calling `self._node[key]`
+2. find the frequency by checking `node.freq`, assigned as `f`, and query the `DLinkedList` that this node is in, through calling `self._freq[f]`
+3. pop this node
+4. update node's frequence, append the node to the new `DLinkedList` with frequency `f+1`
+5. if the `DLinkedList` is empty and `self._minfreq == f`, update `self._minfreq` to `f+1`.
+6. return `node.val`
+
+**put\(key, value\)**
+
+* If key is already in cache, do the same thing as `get(key)`, and update `node.val` as `value`
+* Otherwise:
+  1. if the cache is full, pop the least frequenly used element \(\*\)
+  2. add new node to `self._node`
+  3. add new node to `self._freq[1]`
+  4. reset `self._minfreq` to 1
+
+\(\*\) The least frequently used element is the **tail element in the DLinkedList with frequency self.\_minfreq**
+
+### 1. Dict + OrderedDict + DoublyLinkedList
+
+```python
+class LRUCache(object):
+    
+    class ListNode(object):
+        def __init__(self, k, v):
+            self.k, self.v = k, v
+            self.prev, self.next = None, None
+
+    def __init__(self, capacity):
+        """
+        :type capacity: int
+        """
+        self.capacity, self.size, self.d = capacity, 0, {}
+        self.head, self.tail = self.ListNode(0, 0), self.ListNode(0, 0)
+        self.head.next, self.tail.prev = self.tail, self.head
+    
+    def __unlink_node(self, node):
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        node.prev, node.next = None, None
+    
+    def __insert_at_head(self, node):
+        node.prev, node.next = self.head, self.head.next
+        self.head.next.prev = node
+        self.head.next = node
+
+    def get(self, key):
+        """
+        :rtype: int
+        """
+        if key not in self.d:
+            return -1
+        node = self.d[key]
+        self.__unlink_node(node)
+        self.__insert_at_head(node)
+        return node.v
+        
+    def set(self, key, value):
+        """
+        :type key: int
+        :type value: int
+        :rtype: nothing
+        """
+        if key in self.d:  # hit
+            node = self.d[key]
+            node.v = value
+            self.__unlink_node(node)
+            self.__insert_at_head(node)
+        else:  # insert
+            if self.size == self.capacity:
+                least_recently_used_node = self.tail.prev
+                self.__unlink_node(least_recently_used_node)
+                del self.d[least_recently_used_node.k]
+                self.size -= 1
+            new_node = self.ListNode(key, value)
+            self.__insert_at_head(new_node)
+            self.d[key] = new_node
+            self.size += 1
+```
 
 #### Reference
 
