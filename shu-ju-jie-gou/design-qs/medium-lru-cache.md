@@ -254,3 +254,7 @@ When a key is first inserted into the cache, its **use counter** is set to `1` \
 
 和LRU Cache概念相同，就是需要一個額外的Counter來計算Frequency。
 
+#### Reference
+
+1. [LRU & LFU](https://izhen.me/2019/09/01/lru_lfu/)
+
