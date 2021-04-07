@@ -29,6 +29,8 @@ If a candidate answers using an orderedDict, I allow them to do so. But I go in-
 
 ## Code
 
+![&#x7528;hashmap&#x8F14;&#x52A9;&#xFF0C;hashmap&#x7684;value&#x7D00;&#x9304;&#x6BCF;&#x500B;linked list&#x7BC0;&#x9EDE;&#x7684;&#x5F15;&#x7528;](../../.gitbook/assets/image%20%2880%29.png)
+
 > LRU Cache is just repositioning the pointers by **adding/removing Least Recently Used** items. Change the position of the node means we need two different operations:   
 > `Insert` & `Delete`.   
 >   
@@ -149,6 +151,8 @@ One particularity about the double linked list implemented here is that there ar
 
 ![Doubly Linked List&#x521D;&#x59CB;&#x72C0;&#x614B;](../../.gitbook/assets/image%20%2876%29.png)
 
+这样删除的时候，直接删除尾指针指向的结点，并删除hashmap中的pair。在挪动结点的时候是不必更新hashmap的，因为hashmap存储的是引用而非绝对位置。
+
 ```python
 class ListNode:
     def __init__(self, key, value):
@@ -239,4 +243,14 @@ class LRUCache:
         node.next = headNext
         headNext.prev = node
 ```
+
+## [\[Hard\] LFU Cache](https://leetcode.com/problems/lfu-cache/)       \(1933/150\)
+
+Design and implement a data structure for a [Least Frequently Used \(LFU\)](https://en.wikipedia.org/wiki/Least_frequently_used) cache.
+
+To determine the least frequently used key, a **use counter** is maintained for each key in the cache. The key with the smallest **use counter** is the least frequently used key.
+
+When a key is first inserted into the cache, its **use counter** is set to `1` \(due to the `put` operation\). The **use counter** for a key in the cache is incremented either a `get` or `put` operation is called on it.
+
+和LRU Cache概念相同，就是需要一個額外的Counter來計算Frequency。
 
