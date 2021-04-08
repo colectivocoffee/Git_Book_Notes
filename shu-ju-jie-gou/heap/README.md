@@ -2,13 +2,16 @@
 
 ## Heap 大小事
 
-#### What is a Priority Queue?
+#### What is a Heap/Priority Queue?
 
 Priority Queue is an advanced data type \(ADT\) which is a more refined version of a Queue. It dequeues higher-priority items before the lower-priority items. Most programming languages such as Python use Binary heap to implement it.
 
 Python heapq, as stated in the beginning, provides a min-heap implementation.
 
 #### What is a Heap?
+
+* Heap in Computer -&gt; a memory area in a program used for dynamic memory allocation
+* Heap in Data Structure -&gt; a complete binary tree 
 
 A heap has multiple meaning in computer science. Sometimes, it refers to a memory area in a program used for dynamic allocation. However, we are talking about the Heap Data Structure here, which is a complete binary tree. It helps in implementing priority queues \(PQ\), the heapsort, and some graph-based algorithms.
 
@@ -22,7 +25,7 @@ A heap has the following two variants:
 ![](../../.gitbook/assets/minheap_maxheap.jpeg)
 
 在Python中，會用**`heapq`**來建`min heap`。  
-min heap是binary tree的一種特殊型態，min heap有下面幾種特性：  
+**min heap是binary tree的一種特殊型態**，min heap有下面幾種特性：  
 \(1\) root node 可以得到整個binary tree裡的最小值。  
 \(2\) 每加一個element到heap時，還是會維持這種root有最小值的狀態。  
 \(3\) heap的高度總是logn  
