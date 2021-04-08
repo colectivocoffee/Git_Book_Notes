@@ -31,7 +31,7 @@ class MedianFinder:
         return statistics.median(self.arr)
 ```
 
-### 2. general sort:  O\(NlogN\) / O\(N\)
+### 2. General Sort:  O\(NlogN\) / O\(N\)
 
 ```python
 class MedianFinder:
@@ -59,4 +59,15 @@ class MedianFinder:
         # (len//2) & (len//2 + 1)
         return (self.arr[length//2] + self.arr[length//2+1])/2.0
 ```
+
+### 3. Heapq:  
+
+From the general sort solution we could realize that: 
+
+1. If we could maintain direct access to median elements at all times, then finding the median would take a constant amount of time.
+2. If we could find a reasonably fast way of adding numbers to our containers, additional penalties incurred could be lessened.
+
+But perhaps the most important insight, which is not readily observable, is the fact that we _only_ need a consistent way to access the median elements. **Keeping the** _**entire**_ **input sorted is not a requirement. We only need two numbers min/max to maintain this.** 
+
+\*\*\*\*
 
