@@ -147,6 +147,7 @@
   * [\[Medium\] Level Order/N-ary Tree Level Order/Zigzag Level Order/Right Side View/Vertical Order](shu-ju-jie-gou/binary-tree/medium-binary-tree-level-order-traversal.md)
   * [\[Medium\] Binary Tree Inorder / Preorder / Postorder Traversal Series](shu-ju-jie-gou/binary-tree/medium-binary-tree-traversal-series-inorder-preorder-postorder.md)
 * [Design Qs](shu-ju-jie-gou/design-qs/README.md)
+  * [\[Hard\] Find Median from Data Stream](shu-ju-jie-gou/design-qs/hard-find-median-from-data-stream.md)
   * [\[Medium\] LRU Cache](shu-ju-jie-gou/design-qs/medium-lru-cache.md)
 
 ## System Design
