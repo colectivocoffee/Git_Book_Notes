@@ -7,6 +7,16 @@ Given a string, find the first non-repeating character in it and return its inde
 
 ## Thought Process
 
+### 0. Two Pointers Brute Force: O\(N^2\) / O\(\)
+
+```python
+for left in range(len(s)):
+    for right in range(left+1, len(s)):
+        ....
+        return
+return 
+```
+
 ### 1. Ordered Dictionary: O\(N\) / O\(1\)   \(beats 53%\)
 
 Time Complexity: O\(N\)    as we go thru the string s two times with length N.  
