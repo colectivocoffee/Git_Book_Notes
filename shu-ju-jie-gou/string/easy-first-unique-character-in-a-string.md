@@ -46,3 +46,7 @@ def firstUniqChar(self, s: str) -> int:
     return -1
 ```
 
+## First Repeated Character in a String
+
+解法跟上面相同，就是需要把`if chars[char] == 2`
+

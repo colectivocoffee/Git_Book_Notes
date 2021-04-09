@@ -1,6 +1,7 @@
 # \[Medium\] Longest Substring without Repeating Characters
 
-[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)  
+## [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+
 Given a string, find the length of the **longest substring** without repeating characters.
 
 #### Example
@@ -11,7 +12,7 @@ Output: 3
 Explanation: The answer is "abc", with the length of 3. 
 ```
 
-## Thought Process
+
 
 ### 1. Two Pointers\(-&gt;/-&gt;\) + Hashset: O\(n^2\)/O\( $$\Sigma \ charset$$ \)
 
