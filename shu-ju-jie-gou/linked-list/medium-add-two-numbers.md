@@ -52,7 +52,36 @@ def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
     return result.next
 ```
 
-### 2. a, b = Divmod\(curr\_sum,10\) :      O\(max\(m,n\)\) / O\(max\(m,n\)\)
+或者是用**divmod** `a, b = divmod(curr_sum,10)` 
+
+```python
+place holder
+```
+
+### 2. Yield:  
+
+```python
+def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def decode(n: ListNode):
+        i = 1
+        while n is not None:
+            yield n.val * i
+            i = 10 * i
+            n = n.next
+    
+    def encode(i: int):
+        temp = None
+        for val in str(i):
+            node = ListNode(val)
+            node.next = temp
+            temp = node
+        return node
+    
+    i1 = sum(decode(l1))
+    i2 = sum(decode(l2))
+    
+    return encode(i1 + i2)
+```
 
 ## Follow Up
 
