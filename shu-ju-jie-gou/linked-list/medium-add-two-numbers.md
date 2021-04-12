@@ -60,8 +60,14 @@ place holder
 
 ### 2. Yield:  
 
+STEP1. Convert the linked lists to integers, perform the addition  
+STEP2. Convert the sum back to a linked list.
+
 ```python
 def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    
+    # convert link list to integers, 
+    # and then perform the addition.
     def decode(n: ListNode):
         i = 1
         while n is not None:
@@ -69,6 +75,7 @@ def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
             i = 10 * i
             n = n.next
     
+    # convert back to a linked list 
     def encode(i: int):
         temp = None
         for val in str(i):
