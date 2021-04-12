@@ -48,11 +48,7 @@ Why is it interesting to know? There is a bunch of practical problems related to
 **Trajectory repeat for 4 times:**   
 查看是否四個循環後，會回到原點？
 
-![](../.gitbook/assets/4_cycle_back_limit_cycle_2.png)
-
 ![ If at the end of one cycle the robot doesn&apos;t face north, that&apos;s the limit cycle trajectory](../.gitbook/assets/diverging_vs_limit_cycle_2.png)
-
-![After 4 cycles the limit cycle trajectory returns to the initial point x = 0, y = 0](../.gitbook/assets/4_cycle_back_limit_cycle.png)
 
 ### 1. instructions\*4 ＋ Directions：O\(N\) / O\(N\)
 
@@ -60,10 +56,14 @@ This solution is based on two facts about the limit cycle trajectory.
 
 * After at most 4 cycles, the limit cycle trajectory returns to the initial point `x = 0, y = 0`. That is related to the fact that 4 directions \(north, east, south, west\) define the repeated cycles' plane symmetry.
 
+![After 4 cycles the limit cycle trajectory returns to the initial point x = 0, y = 0](../.gitbook/assets/4_cycle_back_limit_cycle.png)
+
 We do not need to run 4 cycles to identify the limit cycle trajectory. One cycle is enough. There could be two situations here.
 
 * First, **if the robot returns to the initial point after one cycle**, that's the **limit cycle trajectory**.
 * Second, **if the robot doesn't face north at the end of the first cycle**, that's the **limit cycle trajectory**. Once again, that's the consequence of the plane symmetry for the repeated cycles.
+
+![If at the end of one cycle the robot doesn&apos;t face north, that&apos;s the limit cycle trajectory](../.gitbook/assets/4_cycle_back_limit_cycle_2.png)
 
 _If at the end of one cycle the robot doesn't face north, that's the limit cycle trajectory_
 
@@ -115,7 +115,7 @@ def move(self, direction, x, y):
         return (x,y-1)
 ```
 
-### 2. \(Better solution\)
+### 2. One Pass + Modulous: O\(N\) / O\(1\) 
 
 {% tabs %}
 {% tab title="Python" %}
