@@ -10,7 +10,15 @@ Output: [7,0,8]
 Explanation: 342 + 465 = 807.
 ```
 
+Each node contains a single digit and the digits are stored in reverse order.
+
 ### 1. Division, Modulous + DummyNode : O\(max\(m,n\)\) / O\(max\(m,n\)\)
+
+![Visualization of the addition of two numbers: 342 + 465 = 807](../../.gitbook/assets/image%20%2885%29.png)
+
+由於linked list `l1` & `l2`都是reversed order，這跟我們正常加法一樣。  
+從個位數開始加，再十位數，再百位數，....  
+但我們需要一個變量 `carry` 來紀錄下一位是否要+1。carry只可能是`1 or 0`。
 
 ```python
 def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
