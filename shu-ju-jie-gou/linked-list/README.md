@@ -109,8 +109,6 @@ dummy                                   dummy.next = head
   odd:      (1) -> 3 -> 4 -> 5 -> None 
 ```
 
-
-
 ## Reverse Linked List \(In-Place\)
 
 In a lot of problems, you may be asked to reverse the links between a set of nodes of a linked list. Often, the constraint is that you need to do this in-place, i.e., using the existing node objects and without using extra memory. This is where the above-mentioned pattern is useful. 
@@ -121,7 +119,13 @@ This pattern reverses one node at a time starting with one variable \(current\) 
 
 ### **Reverse Linked List的指針移動步驟**
 
-The trick to reversing one list into another is inserting at the head, rather than at the back, of the target list. You need to traverse your original list in the regular way by following the `next` pointers, but rather than adding elements to the end of the target list, create a new node, and replace the header of the target with it.
+The trick to reversing one list into another is **inserting at the head**, rather than at the back, of the target list. You need to traverse your original list in a regular way by following the `next` pointers, but **rather than adding elements to the end of the target list, create a new node, and replace the header of the target with it**.
+
+STEP1. Create a Dummy Node  
+STEP2. Inserting at the head of the target list  
+STEP3. First node --&gt; Dummy Node  
+              Second node --&gt; First node --&gt; Dummy Node  
+              .... 
 
 ```python
 sourceHead -> "A" -> "B" -> "C" -> NULL
