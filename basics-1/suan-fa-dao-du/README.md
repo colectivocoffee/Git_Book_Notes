@@ -375,7 +375,7 @@ astring = ''.join(array)
 
 * **List Deep Copy**  `copied_list = original_list[::]`  直接深度拷貝原始List。
 
-### Division 除法
+### Division 除法應用
 
 e.g.  $$5 \div 2 = 2.5\  ...\ 1  $$   
        `5 // 2 >>> 2  
@@ -385,6 +385,20 @@ e.g.  $$5 \div 2 = 2.5\  ...\ 1  $$
 * //：商 \(int version\)               &gt;&gt;&gt; 2
 * / ：商 \(float version\)            &gt;&gt;&gt; 2.5
 * % : modulo operation 餘數  &gt;&gt;&gt; 1
+
+#### 想得到十位數\(商\)，個位數\(餘\)
+
+&lt;法一&gt; **使用 // 和 %**   
+e.g.2. $$curr\ sum = 15$$  
+想得十位數 `curr_sum // 10  >>> 1`  
+想得個位數 `curr_sum % 10   >>> 5`
+
+&lt;法二&gt; **使用divmod**  
+e.g.3 $$curr\ sum = 15$$   
+`商, 餘數 = divmod(15, 10)`   商和餘可以用變量a,b來接住
+
+*     商 \(x / y\)          &gt;&gt;&gt; 1
+* 餘數 \(x%y\)           &gt;&gt;&gt; 5
 
  a /= ...  可以用來連續除法  
 a %= ...
