@@ -10,10 +10,6 @@ Output: [7,0,8]
 Explanation: 342 + 465 = 807.
 ```
 
-## Follow Up
-
-What if the the digits in the linked list are stored in non-reversed order? For example: $$(3 \to 4 \to 2) + (4 \to 6 \to 5) = 8 \to 0 \to 7$$ 
-
 ### 1. Division, Modulous + DummyNode : O\(max\(m,n\)\) / O\(max\(m,n\)\)
 
 ```python
@@ -49,4 +45,8 @@ def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 ```
 
 ### 2. a, b = Divmod\(curr\_sum,10\) :      O\(max\(m,n\)\) / O\(max\(m,n\)\)
+
+## Follow Up
+
+What if the the digits in the linked list are stored in **non-reversed order**? For example: $$(3 \to 4 \to 2) + (4 \to 6 \to 5) = 8 \to 0 \to 7$$ 
 
