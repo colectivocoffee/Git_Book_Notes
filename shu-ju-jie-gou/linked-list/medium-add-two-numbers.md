@@ -58,7 +58,7 @@ def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 place holder
 ```
 
-### 2. Yield:  
+### 2. Yield:   O\(max\(m,n\)\) / O\(max\(m,n\)\)
 
 STEP1. Convert the linked lists to integers, perform the addition  
 STEP2. Convert the sum back to a linked list.
