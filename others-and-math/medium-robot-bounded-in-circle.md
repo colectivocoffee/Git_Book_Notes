@@ -2,6 +2,11 @@
 
 `Amazon Tag 265`
 
+{% hint style="info" %}
+這是一個trajectory attractor: diverging vs limited cycle證明題。  
+要讓Robot回到原點，可以讓Robot instructions **最多 \* 4**，就可以知道是否能回來。
+{% endhint %}
+
 ## [\[Medium\] Robot Bounded In Circle](https://leetcode.com/problems/robot-bounded-in-circle/)       \(1040/309\)
 
 On an infinite plane, a robot initially stands at `(0, 0)` and faces north. The robot can receive one of three instructions:
