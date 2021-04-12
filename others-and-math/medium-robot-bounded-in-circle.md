@@ -82,3 +82,65 @@ def move(self, direction, x, y):
         return (x,y-1)
 ```
 
+### 2. \(Better solution\)
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+def isRobotBounded(self, instructions: str) -> bool:
+    # north = 0, east = 1, south = 2, west = 3
+    directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+    # Initial position is in the center
+    x = y = 0
+    # facing north
+    idx = 0
+
+    for i in instructions:
+        if i == "L":
+            idx = (idx + 3) % 4
+        elif i == "R":
+            idx = (idx + 1) % 4
+        else:
+            x += directions[idx][0]
+            y += directions[idx][1]
+
+    # after one cycle:
+    # robot returns into initial position
+    # or robot doesn't face north
+    return (x == 0 and y == 0) or idx != 0
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+// need to double check again on modulous 
+public boolean isRobotBounded(String instructions) {
+    int x = 0;
+    int y = 0;
+    int dx = 0;
+    int dy = 1; // Initially face North.
+    
+    for (int i = 0; i < instructions.length(); i++) {
+        char instruction = instructions.charAt(i);
+        
+        if (instruction == 'G') {
+            x = x + dx;
+            y = y + dy;
+        } else if (instruction == 'L') {
+            int tmp = dy;
+            dy = dx;
+            dx = -tmp;
+        } else if (instruction == 'R') {
+            int tmp = dx;
+            dx = dy;
+            dy = -tmp;
+        }
+    }
+    
+    return (x == 0 && y == 0) || dy != 1;
+}
+}
+```
+{% endtab %}
+{% endtabs %}
+
