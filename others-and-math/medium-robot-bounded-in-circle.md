@@ -32,7 +32,40 @@ Output: true
 Explanation: The robot moves from (0, 0) -> (0, 1) -> (-1, 1) -> (-1, 0) -> (0, 0) -> ...
 ```
 
-### 1. instructions\*4 法則 ＋ Directions：O\(N\) / O\(N\)
+**Draw some trajectories**
+
+robot trajectory\(軌跡\)有兩種可能：  
+\(1\) Diverging -- 開放式，永遠不會回來   
+\(2\) Limit cycle -- 閉合式，會回到原點
+
+**Is this trajectory attractor in limited cycle or not**  
+Why is it interesting to know? There is a bunch of practical problems related to topology, networks planning, and password brute-forcing. For all these problems, the first thing to understand is do we work within a limited space or the behavior of our system could drastically diverge at some point?  
+  
+[Here is a Jupiter notebook used to draw all figures in this article](https://github.com/leetcode/solution_assets/blob/master/solution_assets/1041_robot_bounded_in_circle/robot_trajectory.ipynb). Do not hesitate to play with it in local or on the online platforms. Drawing different trajectories might help to notice some patterns.
+
+![Diverging Trajectory vs Limit Cycle Trajectory](../.gitbook/assets/screen-shot-2021-04-12-at-12.51.45-pm.png)
+
+**Trajectory repeat for 4 times:**   
+查看是否四個循環後，會回到原點？
+
+![](../.gitbook/assets/4_cycle_back_limit_cycle_2.png)
+
+![ If at the end of one cycle the robot doesn&apos;t face north, that&apos;s the limit cycle trajectory](../.gitbook/assets/diverging_vs_limit_cycle_2.png)
+
+![After 4 cycles the limit cycle trajectory returns to the initial point x = 0, y = 0](../.gitbook/assets/4_cycle_back_limit_cycle.png)
+
+### 1. instructions\*4 ＋ Directions：O\(N\) / O\(N\)
+
+This solution is based on two facts about the limit cycle trajectory.
+
+* After at most 4 cycles, the limit cycle trajectory returns to the initial point `x = 0, y = 0`. That is related to the fact that 4 directions \(north, east, south, west\) define the repeated cycles' plane symmetry.
+
+We do not need to run 4 cycles to identify the limit cycle trajectory. One cycle is enough. There could be two situations here.
+
+* First, **if the robot returns to the initial point after one cycle**, that's the **limit cycle trajectory**.
+* Second, **if the robot doesn't face north at the end of the first cycle**, that's the **limit cycle trajectory**. Once again, that's the consequence of the plane symmetry for the repeated cycles.
+
+_If at the end of one cycle the robot doesn't face north, that's the limit cycle trajectory_
 
 ```python
 def isRobotBounded(self, instructions: str) -> bool:
