@@ -64,10 +64,11 @@
   * [\[Medium\] Search In a 2D Matrix](binary-search/medium-search-in-a-2d-matrix.md)
   * [\[Medium\] Search In 2D Matrix II](binary-search/medium-search-in-2d-matrix-ii.md)
   * [\[Easy\] Search Insert Position](binary-search/easy-search-insert-position.md)
-* [Multiple Solutions](multiple-solutions-1/README.md)
-  * [\[Easy\] Longest Common Prefix](multiple-solutions-1/easy-longest-common-prefix.md)
-  * [\[Medium\] Word Break](multiple-solutions-1/medium-word-break.md)
-  * [\[Easy\] Climbing Stairs](multiple-solutions-1/easy-climbing-stairs.md)
+* [Others & Math](others-and-math/README.md)
+  * [\[Medium\] Robot Bounded In Circle](others-and-math/medium-robot-bounded-in-circle.md)
+  * [\[Easy\] Longest Common Prefix](others-and-math/easy-longest-common-prefix.md)
+  * [\[Medium\] Word Break](others-and-math/medium-word-break.md)
+  * [\[Easy\] Climbing Stairs](others-and-math/easy-climbing-stairs.md)
 
 ## 數據結構
 
