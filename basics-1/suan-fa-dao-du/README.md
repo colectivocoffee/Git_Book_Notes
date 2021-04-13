@@ -198,6 +198,50 @@ if not curr:   <--- if curr is None:
 
 ### Try/Except
 
+### Loop Control - pass/continue/break, yield/return
+
+Pass / Continue / Break 用作於改變function執行流程：
+
+* pass - pass the iteration               什麼都不變，還是會往下執行
+* continue - continue the iteration                       結束此iteration i，skip剩下的statement，執行iteration i + 1 
+* break - break the iteration              結束整個for loop
+
+Yield / Return 用作於function需要返回東西的時候：
+
+* yield  - returns an Iterator function, known as a generator.              由於返回的是`generator`，我們自己不能控制輸出，是靠著 generator.next\(\)來一個接一個返回東西。因此yield通常只會跟for loop同時出現。 yield對於要輸出大量data時很有用，可以一部份一部份輸出。 如果直接輸出yield，就會直接返回generator object，需要unpack才可以。 yield有以下幾種用法：
+  * yield
+  * yield send
+  * yield from
+* return -  
+
+```python
+s = 'wallet'
+
+for i in s:
+    if s[i] == 'e':
+        print('loop control: pass/continue/break')
+        pass/continue/break
+    print(s[i])
+    
+# pass:     w-a-l-l-'loop control'-e-t
+# continue: w-a-l-l-'loop control'  -t
+# break:    w-a-l-l-'loop control'
+#--------
+
+def get_char(s):
+    for i in range(len(s)):
+        yield s[i]
+        
+char_generator = get_char(s)        
+for i in char_generator:
+    print(i)
+
+# print(char_generator) >>> <class 'generator'>
+# print(i)              >>> w-a-l-l-e-t
+```
+
+**Reference** [https://www.askpython.com/python/python-yield-examples](https://www.askpython.com/python/python-yield-examples)
+
 ### Add Item
 
 在**List**上加東西有兩種方法： \(要注意返回的東西不同\)  
