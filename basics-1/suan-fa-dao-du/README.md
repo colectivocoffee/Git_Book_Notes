@@ -202,17 +202,17 @@ if not curr:   <--- if curr is None:
 
 Pass / Continue / Break 用作於改變function執行流程：
 
-* pass - pass the iteration               什麼都不變，還是會往下執行
-* continue - continue the iteration                       結束此iteration i，skip剩下的statement，執行iteration i + 1 
-* break - break the iteration              結束整個for loop
+* **pass** - pass the iteration               什麼都不變，還是會往下執行。通常用於reserve empty function
+* **continue** - continue the iteration                       結束此iteration i，skip剩下的statement，執行iteration i + 1 
+* **break** - break the iteration              結束整個for loop
 
 Yield / Return 用作於function需要返回東西的時候：
 
-* yield  - returns an Iterator function, known as a generator.              由於返回的是`generator`，我們自己不能控制輸出，是靠著 generator.next\(\)來一個接一個返回東西。因此yield通常只會跟for loop同時出現。 yield對於要輸出大量data時很有用，可以一部份一部份輸出。 如果直接輸出yield，就會直接返回generator object，需要unpack才可以。 yield有以下幾種用法：
+* **yield**  - returns an Iterator function, known as a generator.              由於返回的是`generator`，我們自己不能控制輸出，是靠著 generator.next\(\)來一個接一個返回東西。因此yield通常只會跟for loop同時出現。 yield對於要輸出大量data時很有用，可以一部份一部份輸出。 如果直接輸出yield，就會直接返回generator object，需要unpack才可以。 yield有以下幾種用法：
   * yield
   * yield send
   * yield from
-* return -  
+* **return** -  
 
 ```python
 s = 'wallet'
