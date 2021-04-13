@@ -145,6 +145,29 @@ your pointer                        ^
 targetHead -> "C" -> "B" -> "A" -> NULL
 ```
 
+```python
+# 模板
+def reverseList(self, head: ListNode) -> ListNode:
+    # edge case
+    if head == None:
+        return head
+    # init reverse head
+    new_head = None
+    
+    while head != None:
+        # step1. preserve head.next's value
+        temp = head.next
+        # step2. override head.next
+        head.next = new_head
+        
+        # step3. move new_head
+        new_head = head
+        # step4. move original head
+        head = temp
+    
+    return new_head
+```
+
 ### Reverse Linked List Pattern: 
 
 * If you’re asked to **reverse a linked list without using extra memory**
@@ -154,5 +177,5 @@ targetHead -> "C" -> "B" -> "A" -> NULL
 * Reverse a Sub-list \(medium\)
 * Reverse every K-element Sub-list \(medium\)
 * [x] Reverse Linked List \(easy\)
-* [ ] Reverse Linked List II \(medium\)
+* [x] Reverse Linked List II \(medium\)
 
