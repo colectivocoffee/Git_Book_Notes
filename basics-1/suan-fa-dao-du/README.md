@@ -200,13 +200,15 @@ if not curr:   <--- if curr is None:
 
 ```python
 try:
-    get value from dictionary
-except KeyError:
-    handle the KeyError, e.g. print(KeyError, 'blablabla')
+    # get value from dictionary
+except KeyError as k:
+    # handle the KeyError
+    print(k, 'blablabla')  >>> 'KeyError, blablabla'
 #else:
 #    doing different exception handling
-finally: # optional
-    clean up actions that must be excecuted all the time. 
+finally:  
+    # (optional)
+    # clean up actions that must be excecuted all the time. 
   
 ```
 

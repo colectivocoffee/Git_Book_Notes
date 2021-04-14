@@ -38,8 +38,16 @@ The exception is handled by **try,** **except** and **finally.**
 
 ### Raise an Error
 
-```text
+> 用`if` 和 `raise` 的組合來產生Error。  
+> （如果在class-class之間，通常會需要try/except來捕獲這個Error，否則會一直向上層傳遞。
 
+```python
+num = 'python'
+
+if not type(num) is int:
+    raise TypeError('Only integers are allowed here')
+
+# >>> TypeError: Only integers are allowed here
 ```
 
 **Reference**  
