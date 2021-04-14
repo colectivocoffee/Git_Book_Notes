@@ -5,6 +5,7 @@
 ## Basics <a id="basics-1"></a>
 
 * [算法導讀](basics-1/suan-fa-dao-du/README.md)
+  * [\[Python\] List vs Set](basics-1/suan-fa-dao-du/python-list-vs-set.md)
   * [\[Python\] Dict & OrderedDict \| \[Java\] HashTable & HashMap](basics-1/suan-fa-dao-du/dictionary-and-ordered-dictionary.md)
 * [面試準備技巧](basics-1/zhun-bei-ji-qiao.md)
 
