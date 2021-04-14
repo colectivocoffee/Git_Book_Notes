@@ -69,5 +69,32 @@ From the general sort solution we could realize that:
 
 But perhaps the most important insight, which is not readily observable, is the fact that we _only_ need a consistent way to access the median elements. **Keeping the** _**entire**_ **input sorted is not a requirement. We only need two numbers min/max to maintain this.** 
 
+```python
+from heapq import heappush, heappop
+class MedianFinder:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.minHeap = []   #minHeap
+        self.maxHeap = []   #maxHeap
+        
+
+    def addNum(self, num: int) -> None:
+        
+        heappush(self.maxHeap, -num)
+        smallest = heappop(self.maxHeap)
+        heappush(self.minHeap, -smallest)
+        if len(self.minHeap) > len(self.maxHeap):
+            pop_min = heappop(self.minHeap)
+            heappush(self.maxHeap, -small)
+
+    def findMedian(self) -> float:
+        if len(self.maxHeap) == len(self.minHeap):
+            return (self.minHeap[0] - self.maxHeap[0])/2.0
+        return -self.maxHeap[0]
+```
+
 \*\*\*\*
 
