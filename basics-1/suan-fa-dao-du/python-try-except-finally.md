@@ -6,10 +6,34 @@ The exception is handled by **try,** **except** and **finally.**
 
 * `try` – It checks the error in the block of code
 * `except` – It handles the error
-* `finally` – It executes the code.
+* `finally` – Optional, it's a clean-up action that must be executed all the time.
 
-```text
+```python
+try:
+    list = [1,2,3,5,6,7]
+    print(list[8])
 
+# 下面只會三選一
+except IndexError as e:
+    print(e)
+except:                       # 如果不是indexError，就會執行這個
+    print('Some other error')
+else:
+    print('content is not here')
+    
+# 不管怎樣都會執行
+print('continuing to this')    # except後，還是會繼續執行
+
+# 這也是不管怎樣都會執行
+finally: 
+    # optional
+    # clean up action that must be excecuted all the time. 
+    print('always print the finally block')    
+
+
+>>> IndexError, list index out of range 
+>>> continuing to this
+>>> always print the finally block 
 ```
 
 ### Types of Error in Python
