@@ -198,6 +198,18 @@ if not curr:   <--- if curr is None:
 
 ### Try/Except
 
+```python
+try:
+    get value from dictionary
+except KeyError:
+    handle the KeyError, e.g. print(KeyError, 'blablabla')
+else:
+    doing different exception handling
+finally: # optional
+    clean up actions that must be excecuted all the time. 
+  
+```
+
 ### Loop Control - pass/continue/break, yield/return
 
 Pass / Continue / Break 用作於改變function執行流程：
