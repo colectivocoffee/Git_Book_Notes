@@ -7,6 +7,7 @@
 * [算法導讀](basics-1/suan-fa-dao-du/README.md)
   * [\[Python\] List vs Set](basics-1/suan-fa-dao-du/python-list-vs-set.md)
   * [\[Python\] Dict & OrderedDict \| \[Java\] HashTable & HashMap](basics-1/suan-fa-dao-du/dictionary-and-ordered-dictionary.md)
+  * [\[Python\] Try/Except/Finally](basics-1/suan-fa-dao-du/python-try-except-finally.md)
 * [面試準備技巧](basics-1/zhun-bei-ji-qiao.md)
 
 ## 算法

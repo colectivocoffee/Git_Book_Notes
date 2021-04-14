@@ -196,15 +196,15 @@ if curr:       <--- if curr != None:
 if not curr:   <--- if curr is None:
 ```
 
-### Try/Except
+### Try/Except/Finally
 
 ```python
 try:
     get value from dictionary
 except KeyError:
     handle the KeyError, e.g. print(KeyError, 'blablabla')
-else:
-    doing different exception handling
+#else:
+#    doing different exception handling
 finally: # optional
     clean up actions that must be excecuted all the time. 
   
