@@ -47,7 +47,7 @@ smallest = heapq.nsmallest(1,alist)  # heapq.nsmallest(# of items, arr)
 largest = heapq.nlargest(2,alist)    # heapq.nlargest(# of items, arr)
                                      # largest -> [18,15]  in descending order
                                      # alist keeps the same
-# 3.Get root node
+# 3.Get smallest root node
 smallest = heapq.heappop(alist)      # heapq.heappop(arr)
                                      # smallest -> 2
                                      # 2 was removed from alist, ordering was changed too
