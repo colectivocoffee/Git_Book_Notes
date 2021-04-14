@@ -36,6 +36,20 @@ finally:
 >>> always print the finally block 
 ```
 
+### Raise an Error
+
+> 用`if` 和 `raise` 的組合來產生Error。  
+> （如果在class-class之間，通常會需要try/except來捕獲這個Error，否則會一直向上層傳遞。
+
+```python
+num = 'python'
+
+if not type(num) is int:
+    raise TypeError('Only integers are allowed here')
+
+# >>> TypeError: Only integers are allowed here
+```
+
 ### Types of Error in Python
 
 | Error Type | How to trigger it? |
@@ -59,20 +73,6 @@ finally:
 | ValueError | It occurs when the function gets a correct argument and an incorrect value |
 | TypeError | It occurs when the function or operation is incorrect |
 | SystemError | It occurs when the interpreter detects an internal error |
-
-### Raise an Error
-
-> 用`if` 和 `raise` 的組合來產生Error。  
-> （如果在class-class之間，通常會需要try/except來捕獲這個Error，否則會一直向上層傳遞。
-
-```python
-num = 'python'
-
-if not type(num) is int:
-    raise TypeError('Only integers are allowed here')
-
-# >>> TypeError: Only integers are allowed here
-```
 
 **Reference**  
 [https://pythonguides.com/python-exceptions-handling/](https://pythonguides.com/python-exceptions-handling/)
