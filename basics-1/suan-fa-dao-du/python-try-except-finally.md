@@ -5,7 +5,7 @@
 The exception is handled by **try,** **except** and **finally.**
 
 * `try` – It checks the error in the block of code
-* `except` – It handles the error
+* `except` – It handles the error，並且不會再往上傳遞。
 * `finally` – Optional, it's a clean-up action that must be executed all the time.
 
 ```python
