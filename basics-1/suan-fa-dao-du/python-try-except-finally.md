@@ -1,6 +1,16 @@
-# \[Python\] Try/Except/Finally
+# \[Python\] Try/Except/Else/Finally
 
+## How to Handle Exceptions/Errors? 
 
+The exception is handled by **try,** **except** and **finally.**
+
+* `try` – It checks the error in the block of code
+* `except` – It handles the error
+* `finally` – It executes the code.
+
+```text
+
+```
 
 ### Types of Error in Python
 
@@ -25,4 +35,13 @@
 | ValueError | It occurs when the function gets a correct argument and an incorrect value |
 | TypeError | It occurs when the function or operation is incorrect |
 | SystemError | It occurs when the interpreter detects an internal error |
+
+### Raise an Error
+
+```text
+
+```
+
+**Reference**  
+[https://pythonguides.com/python-exceptions-handling/](https://pythonguides.com/python-exceptions-handling/)
 
