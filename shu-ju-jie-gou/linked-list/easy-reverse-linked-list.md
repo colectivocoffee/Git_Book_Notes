@@ -128,7 +128,38 @@ def helper(self, head, node):
 
 ## [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) 
 
-### Thought Process
+### 1. LinkedList -&gt; List -&gt; LinkedList: O\(N\) / O\(N\)
+
+```python
+def reverseBetween(self, head: ListNode, left: int, right: int) -> ListNode:
+    
+    if not head:
+        return head
+    
+    #STEP1. LL -> List: convert to list
+    r_list = []
+    while head:
+        r_list.append(head.val)
+        head = head.next
+    
+    #STEP2. reverse middle
+    if left <= len(r_list) and right <= len(r_list): 
+        middle = r_list[left-1:right]
+        middle.reverse()
+        # attach them back to r_list
+        r_list = r_list[:left-1] + middle + r_list[right:]      
+            
+    #STEP3. List -> LL: convert back to LL
+    dummy = pointer = ListNode(0)
+    for i in range(len(r_list)):
+        pointer.next = ListNode(r_list[i])
+        pointer = pointer.next
+    
+    #STEP4. dummy node next
+    return dummy.next
+```
+
+### **Follow up:** Could you do it in one pass?    O\(N\) / O\(N\)
 
 Find linked list \[m,n\], reverse it. Then connect m with n+1, connect n with m-1.
 
@@ -139,8 +170,6 @@ Find linked list \[m,n\], reverse it. Then connect m with n+1, connect n with m-
 5. Get result from dummy.next
 
 ![](../../.gitbook/assets/reverselinkedlist_ii.jpg)
-
-### Code
 
 ```python
 def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
