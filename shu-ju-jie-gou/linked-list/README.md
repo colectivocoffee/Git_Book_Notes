@@ -51,7 +51,7 @@ DummyNode 一般不存儲有意義的值，而是用於`佔位`。這樣的好�
 
 ### 4. Linked List Basic Operations
 
-\(1\) 往後移一格
+\(1\) 往後移一格 `head = head.next`
 
 ```text
 Head->Head
@@ -60,7 +60,8 @@ Head->Head
       (2)-> 3 -> 4 -> 5 -> None
 ```
 
-\(2\) Skip/Remove Duplicates 跳過，直接往下下一格走
+\(2\) Skip/Remove Duplicates 跳過，直接往下下一格走  
+`head.next = head.next.next`
 
 ```text
 Head     ->Head
@@ -69,7 +70,7 @@ Head     ->Head
            (3)-> 4 -> 5 -> None
 ```
 
-\(3\) 把B LinkedList 黏到 A 上
+\(3\) 把B LinkedList 黏到 A 上 `A.next = B`
 
 ```text
 node A: (1) -> 3 -> 5 -> None
@@ -79,7 +80,9 @@ node B: (2) -> 4 -> None           A.next = B
 ```
 
 \(4\) 在head最前面加上一個dummy node  
-      dummyNode的目的在於，讓我們方便回到原來head。
+      dummyNode的目的在於，讓我們方便回到原來head。  
+           `dummy = ListNode(0)  
+dummy.next = head` 
 
 ```text
      Head 
