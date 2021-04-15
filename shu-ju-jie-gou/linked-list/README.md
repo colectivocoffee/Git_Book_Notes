@@ -121,6 +121,23 @@ This pattern reverses one node at a time starting with one variable \(current\) 
 
 The trick to reversing one list into another is **inserting at the head**, rather than at the back, of the target list. You need to traverse your original list in a regular way by following the `next` pointers, but **rather than adding elements to the end of the target list, create a new node, and replace the header of the target with it**.
 
+{% hint style="info" %}
+口訣：**`自己 -- 別人 -- 自己 -- 移動`**  
+\(口訣上都是記等號右邊的指針情況\)  
+  
+temp = head.next  
+\(1\) **自己** head.next  
+  
+head.next = new\_head  
+\(2\) **別人**`new_head`  
+  
+new\_head = head  
+\(3\) **自己** head  
+  
+head = temp  
+\(4\) **移動** temp
+{% endhint %}
+
 STEP1. Create a Dummy Node  
 STEP2. Inserting at the head of the target list  
 STEP3. First node --&gt; Dummy Node  
@@ -155,14 +172,14 @@ def reverseList(self, head: ListNode) -> ListNode:
     new_head = None
     
     while head != None:
-        # step1. preserve head.next's value
+        # step1. [自己] preserve head.next's value
         temp = head.next
-        # step2. override head.next
+        # step2. [別人] override head.next
         head.next = new_head
         
-        # step3. move new_head
+        # step3. [自己] move new_head
         new_head = head
-        # step4. move original head
+        # step4. [移動] move original head
         head = temp
     
     return new_head
