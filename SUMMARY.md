@@ -162,5 +162,8 @@
 * [Design Pattern](system-design/design-pattern.md)
 * [HTTP Status Code](system-design/http-status-code.md)
 * [ACID Meaning](system-design/acid-meaning.md)
-* [Behavioral Questions](system-design/behavioral-questions.md)
+
+## INTERVIEW Qs
+
+* [Behavioral Questions](interview-qs/behavioral-questions.md)
 
