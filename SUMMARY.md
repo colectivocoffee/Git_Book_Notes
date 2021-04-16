@@ -102,6 +102,7 @@
   * [\[Medium\] Add Two Numbers](shu-ju-jie-gou/linked-list/medium-add-two-numbers.md)
 * [Array](shu-ju-jie-gou/array/README.md)
   * [\[Interview\] Airplane Seats Assignment](shu-ju-jie-gou/array/interview-airplane-seats-assignment.md)
+  * [\[Medium\] Merge Intervals](shu-ju-jie-gou/array/medium-merge-intervals.md)
   * [\[Easy\] Move Zeros](shu-ju-jie-gou/array/easy-move-zeros.md)
   * [\[Easy\] Check if Array is Sorted and Rotated](shu-ju-jie-gou/array/easy-check-if-array-is-sorted-and-rotated.md)
   * [\[Hard\] Median of Two Sorted Arrays](shu-ju-jie-gou/array/hard-median-of-two-sorted-arrays.md)
