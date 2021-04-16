@@ -112,6 +112,28 @@ dummy                                   dummy.next = head
   odd:      (1) -> 3 -> 4 -> 5 -> None 
 ```
 
+## Convert Linked List
+
+### Linked List -&gt; List
+
+```python
+new_list = []
+while head:
+    new_list.append(head.val)
+    head = head.next
+```
+
+### List -&gt; Linked List
+
+```python
+dummy = pointer = ListNode(0)          # 兩個pointer: dummy, pointer
+for i in range(len(r_list)):
+    pointer.next = ListNode(r_list[i]) # list[i] -> LL
+    pointer = pointer.next             # 用pointer iterate
+
+return dummy.next                      # 用dummy回到LL的頭
+```
+
 ## Reverse Linked List \(In-Place\)
 
 In a lot of problems, you may be asked to reverse the links between a set of nodes of a linked list. Often, the constraint is that you need to do this in-place, i.e., using the existing node objects and without using extra memory. This is where the above-mentioned pattern is useful. 
