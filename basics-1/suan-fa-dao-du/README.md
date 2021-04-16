@@ -429,6 +429,10 @@ astring = ''.join(array)
 
 * **Last Element Slicing**   `curr_string[:-1]`  返回整個`curr_string`，除了末尾最後一個char。 e.g.    `curr_string = 'bookmark'` `curr_string[:-1] = 'bookmar'` 
 
+### 用min/max來簡化判斷條件
+
+很多時候，在處理\(1\)merge intervals \(2\)Dynamic Programming時，會有很多判斷條件要寫。然而，我們大可以不必這麼麻煩，可以就利用一個`min/max`來更新所要的答案。
+
 ### Copy
 
 * **List Deep Copy**  `copied_list = original_list[::]`  直接深度拷貝原始List。
