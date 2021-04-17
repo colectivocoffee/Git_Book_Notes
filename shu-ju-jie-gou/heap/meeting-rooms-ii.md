@@ -89,9 +89,7 @@ def minMeetingRooms(self, intervals: List[List[int]]) -> int:
     
 ```
 
-## \[Medium\] Meeting Rooms II
-
-請參見（用Heap）
+## 
 
 {% page-ref page="meeting-rooms-ii.md" %}
 

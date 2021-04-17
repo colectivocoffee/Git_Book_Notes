@@ -64,3 +64,7 @@ def merge(self, intervals: List[List[int]]) -> List[List[int]]:
     return result
 ```
 
+## \[Medium\] Meeting Rooms II
+
+請參見（用Heap）
+
