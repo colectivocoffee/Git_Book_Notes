@@ -91,7 +91,5 @@ def minMeetingRooms(self, intervals: List[List[int]]) -> int:
 
 ## 
 
-{% page-ref page="meeting-rooms-ii.md" %}
-
 
 

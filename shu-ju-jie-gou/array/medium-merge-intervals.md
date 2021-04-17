@@ -2,7 +2,7 @@
 
 ![](../../.gitbook/assets/image%20%2886%29.png)
 
-## \[Medium\] Merge Intervals         \(7039/376\)
+## [\[Medium\] Merge Intervals](https://leetcode.com/problems/merge-intervals/)         \(7039/376\)
 
 Given an array of `intervals` where `intervals[i] = [starti, endi]`, merge all overlapping intervals, and return _an array of the non-overlapping intervals that cover all the intervals in the input_.
 
@@ -37,7 +37,7 @@ Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
 
 * Space complexity : O\(logN\) \(or O\(n\)\)
 
-  If we can sort `intervals` in place, we do not need more than constant additional space, although the sorting itself takes O\(\log n\)O\(logn\) space. Otherwise, we must allocate linear space to store a copy of `intervals` and sort that.
+  If we can sort `intervals` in place, we do not need more than constant additional space, although the sorting itself takes O\(logn\) space. Otherwise, we must allocate linear space to store a copy of `intervals` and sort that.
 
 ```python
 def merge(self, intervals: List[List[int]]) -> List[List[int]]:
@@ -67,4 +67,8 @@ def merge(self, intervals: List[List[int]]) -> List[List[int]]:
 ## \[Medium\] Meeting Rooms II
 
 請參見（用Heap）
+
+{% page-ref page="../heap/meeting-rooms-ii.md" %}
+
+
 
