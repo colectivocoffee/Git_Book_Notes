@@ -1,5 +1,13 @@
 # Heap
 
+## 什麼時候想到要用Heap?
+
+{% hint style="info" %}
+min Heap總是可以用O\(1\)，提供所有已知裡面最小的一個；  
+而max Heap可以用O\(1\)，提供所有已知裡面最大的一個。  
+-&gt; 題目要求在iterate的時候，**隨時要求目前最小/最大值**
+{% endhint %}
+
 ## Heap 大小事
 
 #### What is a Heap/Priority Queue?

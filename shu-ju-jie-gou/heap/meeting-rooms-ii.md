@@ -92,6 +92,35 @@ def minMeetingRooms(self, intervals: List[List[int]]) -> int:
     
 ```
 
+### 2. min Heap2 \(Preferred\): O\(NlogN\) / O\(N\)
+
+```python
+import heapq
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        
+        # sort by begin time, O(nlogn)
+        intervals = sorted(intervals, key = lambda x:x[0])
+        
+        # min heap, to retrieve earliest available time by end time 
+        free_rooms = []
+        
+        # first end time
+        first_end = intervals[0][1]
+        heapq.heappush(free_rooms, first_end)
+        
+        for item in intervals[1:]:
+            
+            # all meeting rooms are occupied, meaning end time is greater than first start time on min heap
+            if item[0] >= free_rooms[0]: 
+                heapq.heappop(free_rooms)
+            
+            # update free rooms by end time
+            heapq.heappush(free_rooms, item[1])
+        
+        return len(free_rooms)
+```
+
 ## 
 
 
