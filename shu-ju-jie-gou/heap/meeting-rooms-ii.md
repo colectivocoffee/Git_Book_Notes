@@ -19,7 +19,7 @@ Output: 1
 
 ## Analysis & Code
 
-### **1.Chronological Ordering: O\(nlogn\) / O\(n\)**
+### **1. Chronological Ordering: O\(nlogn\) / O\(n\)**
 
 Time Complexity: `O(nlogn)` sorting two arrays need `nlogn` time.  
 Space Complexity: `O(n)`  Extra two arrays N, start&end are needed.
@@ -59,7 +59,7 @@ def minMeetingRooms(self, intervals: List[List[int]]) -> int:
             end_id += 1 
 ```
 
-### 2.min Heap:    O\(NlogN\) / O\(N\)
+### 2. min Heap:    O\(NlogN\) / O\(N\)
 
 ```python
 def minMeetingRooms(self, intervals: List[List[int]]) -> int:
