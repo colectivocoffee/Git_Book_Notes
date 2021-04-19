@@ -26,8 +26,11 @@ Output: 1
 \(3\) **current earliest available room** \(by fetching min end time\) `free_rooms[0]`  
 要拿到min end time最方便的辦法，便是使用**min heap**。  
   
+An ending event tells us that a previously occupied room has now become free.  
 因此我們要拿每個start time和`free_rooms[0]`比較，如果`free_rooms[0]`比較大，代表連最早有可能空出位置來的`free_rooms`都滿了，我們只能開闢一個新房間，即heappop\(min heap\)。
 {% endhint %}
+
+A naive way to check if a room is available or not is to iterate on all the rooms and see if one is available when we have a new meeting at hand. However, we can do better than this by making use of Priority Queues or the Min-Heap data structure.
 
 The first part of the tuple is the start time for the meeting and the second value represents the ending time. We are considering the meetings in sorted order of their start times. The first diagram depicts the first three meetings where each of them requires a new room because of collisions.
 
@@ -35,9 +38,15 @@ The first part of the tuple is the start time for the meeting and the second val
 
 The next 3 meetings start to occupy some of the existing rooms. However, the last one requires a new room altogether and overall we have to use 4 different rooms to accommodate all the meetings.
 
-![](../../.gitbook/assets/image%20%2888%29.png)
+![](../../.gitbook/assets/image%20%2890%29.png)
+
+
 
 ### **1. Chronological Ordering: O\(nlogn\) / O\(n\)**
+
+![](../../.gitbook/assets/image%20%2888%29.png)
+
+![](../../.gitbook/assets/image%20%2887%29.png)
 
 Time Complexity: `O(nlogn)` sorting two arrays need `nlogn` time.  
 Space Complexity: `O(n)`  Extra two arrays N, start&end are needed.
