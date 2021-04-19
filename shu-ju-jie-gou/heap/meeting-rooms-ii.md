@@ -24,7 +24,7 @@ Output: 1
 \(1\) **start time** -- `intervals[i][0]`   
 \(2\) **end time** -- `intervals[i][1]`  
 \(3\) **current earliest available room** \(by fetching min end time\) `free_rooms[0]`  
-要拿到min end time最方便的辦法，便是使用min heap。  
+要拿到min end time最方便的辦法，便是使用**min heap**。  
   
 因此我們要拿每個start time和`free_rooms[0]`比較，如果`free_rooms[0]`比較大，代表連最早有可能空出位置來的`free_rooms`都滿了，我們只能開闢一個新房間，即heappop\(min heap\)。
 {% endhint %}
@@ -129,7 +129,8 @@ class Solution:
         
         for item in intervals[1:]:
             
-            # all meeting rooms are occupied, meaning end time is greater than first start time on min heap
+            # all meeting rooms are occupied, 
+            # meaning end time is greater than first start time on min heap
             if item[0] >= free_rooms[0]: 
                 heapq.heappop(free_rooms)
             
