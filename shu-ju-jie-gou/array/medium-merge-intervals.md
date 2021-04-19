@@ -1,6 +1,6 @@
 # \[Medium\] Merge Intervals
 
-![](../../.gitbook/assets/image%20%2886%29.png)
+![](../../.gitbook/assets/image%20%2887%29.png)
 
 ## [\[Medium\] Merge Intervals](https://leetcode.com/problems/merge-intervals/)         \(7039/376\)
 
