@@ -1,4 +1,4 @@
-# \[Medium\] Merge Intervals
+# \[Medium\] Merge Intervals / Meeting Rooms II / Insert Intervals
 
 ![](../../.gitbook/assets/image%20%2893%29.png)
 
@@ -70,7 +70,7 @@ def merge(self, intervals: List[List[int]]) -> List[List[int]]:
 
 {% page-ref page="../heap/meeting-rooms-ii.md" %}
 
-## \[Medium\] Insert Intervals
+## [\[Medium\] Insert Intervals](https://leetcode.com/problems/insert-interval/)             \(2799/244\)
 
 Given a set of _non-overlapping_ intervals, insert a new interval into the intervals \(merge if necessary\).  
 You may assume that the intervals were initially sorted according to their start times.
@@ -141,9 +141,9 @@ def insert(self, intervals: 'List[Interval]', newInterval: 'Interval') -> 'List[
 
 ![](../../.gitbook/assets/image%20%2890%29.png)
 
-![](../../.gitbook/assets/image%20%2887%29.png)
+![Add to the output all the intervals starting before newInterval.](../../.gitbook/assets/image%20%2887%29.png)
 
-![](../../.gitbook/assets/image%20%2886%29.png)
+![Add to the output newInterval. Merge it with the last added interval if newInterval starts before the last added interval.](../../.gitbook/assets/image%20%2886%29.png)
 
-![](../../.gitbook/assets/image%20%2892%29.png)
+![Add the next intervals one by one. Merge with the last added interval if the current interval starts before the last added interval.](../../.gitbook/assets/image%20%2892%29.png)
 
