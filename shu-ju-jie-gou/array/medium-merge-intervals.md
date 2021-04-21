@@ -1,6 +1,6 @@
 # \[Medium\] Merge Intervals
 
-![](../../.gitbook/assets/image%20%2889%29.png)
+![](../../.gitbook/assets/image%20%2893%29.png)
 
 ## [\[Medium\] Merge Intervals](https://leetcode.com/problems/merge-intervals/)         \(7039/376\)
 
@@ -70,5 +70,80 @@ def merge(self, intervals: List[List[int]]) -> List[List[int]]:
 
 {% page-ref page="../heap/meeting-rooms-ii.md" %}
 
+## \[Medium\] Insert Intervals
 
+Given a set of _non-overlapping_ intervals, insert a new interval into the intervals \(merge if necessary\).  
+You may assume that the intervals were initially sorted according to their start times.
+
+```python
+Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
+Output: [[1,5],[6,9]]
+```
+
+### 1. Sorting + max\(a,b\):    O\(NlogN\) / O\(N\)
+
+```python
+def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    
+    result = []
+    
+    intervals.append(newInterval)
+    intervals = sorted(intervals, key = lambda x:x[0])
+    
+    for item in intervals:
+        if not result or result[-1][1] < item[0]:
+            result.append(item)  
+        else:
+            result[-1][1] = max(result[-1][1], item[1])
+            
+    return result
+```
+
+### 2. Modify first/last overlapping interval with Binary Search:    O\(N\) / O\(N\)
+
+your interviewer would expect you to reason about the lower bound of your time complexity. In this problem, your lower bound is O\(N\) due to the possible shifting of every element after the new\_interval. So binary search is a good option, but kind of meaningless, unfortunately.
+
+### 3. Greedy:   O\(N\)/O\(N\)
+
+```python
+def insert(self, intervals: 'List[Interval]', newInterval: 'Interval') -> 'List[Interval]':
+    # init data
+    new_start, new_end = newInterval
+    idx, n = 0, len(intervals)
+    output = []
+    
+    # add all intervals starting before newInterval
+    while idx < n and new_start > intervals[idx][0]:
+        output.append(intervals[idx])
+        idx += 1
+        
+    # add newInterval
+    # if there is no overlap, just add the interval
+    if not output or output[-1][1] < new_start:
+        output.append(newInterval)
+    # if there is an overlap, merge with the last interval
+    else:
+        output[-1][1] = max(output[-1][1], new_end)
+    
+    # add next intervals, merge with newInterval if needed
+    while idx < n:
+        interval = intervals[idx]
+        start, end = interval
+        idx += 1
+        # if there is no overlap, just add an interval
+        if output[-1][1] < start:
+            output.append(interval)
+        # if there is an overlap, merge with the last interval
+        else:
+            output[-1][1] = max(output[-1][1], end)
+    return output
+```
+
+![](../../.gitbook/assets/image%20%2890%29.png)
+
+![](../../.gitbook/assets/image%20%2887%29.png)
+
+![](../../.gitbook/assets/image%20%2886%29.png)
+
+![](../../.gitbook/assets/image%20%2892%29.png)
 

@@ -34,19 +34,19 @@ A naive way to check if a room is available or not is to iterate on all the room
 
 The first part of the tuple is the start time for the meeting and the second value represents the ending time. We are considering the meetings in sorted order of their start times. The first diagram depicts the first three meetings where each of them requires a new room because of collisions.
 
-![](../../.gitbook/assets/image%20%2886%29.png)
+![](../../.gitbook/assets/image%20%2888%29.png)
 
 The next 3 meetings start to occupy some of the existing rooms. However, the last one requires a new room altogether and overall we have to use 4 different rooms to accommodate all the meetings.
 
-![](../../.gitbook/assets/image%20%2890%29.png)
+![](../../.gitbook/assets/image%20%2894%29.png)
 
 
 
 ### **1. Chronological Ordering: O\(nlogn\) / O\(n\)**
 
-![](../../.gitbook/assets/image%20%2888%29.png)
+![](../../.gitbook/assets/image%20%2891%29.png)
 
-![](../../.gitbook/assets/image%20%2887%29.png)
+![](../../.gitbook/assets/image%20%2889%29.png)
 
 Time Complexity: `O(nlogn)` sorting two arrays need `nlogn` time.  
 Space Complexity: `O(n)`  Extra two arrays N, start&end are needed.
