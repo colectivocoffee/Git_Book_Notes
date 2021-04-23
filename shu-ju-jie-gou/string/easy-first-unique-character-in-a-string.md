@@ -1,8 +1,8 @@
-# \[Easy\] First Unique Character in a String
+# \[Easy\] First Unique Character in a String / \[Easy\] First Repeated Char in a String
 
 ## First Unique Character In a String
 
-\*\*\*\*[**First Unique Character in a String**](https://leetcode.com/problems/first-unique-character-in-a-string/)    \(2575/129\)  
+\*\*\*\*[**\[Easy\] First Unique Character in a String**](https://leetcode.com/problems/first-unique-character-in-a-string/)    \(2575/129\)  
 Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
 
 ## Thought Process

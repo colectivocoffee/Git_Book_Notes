@@ -122,7 +122,7 @@
   * [\[Medium\] Longest Palindromic Substring](shu-ju-jie-gou/string/medium-longest-palindromic-substring.md)
   * [\[Easy\] Palindrome Permutation](shu-ju-jie-gou/string/easy-palindrome-permutation.md)
   * [\[Easy\] Valid Palindrome/ \[Easy\] Valid Palindrome II/ \[Easy\] Palindrome Number](shu-ju-jie-gou/string/easy-valid-palindrome.md)
-  * [\[Easy\] First Unique Character in a String](shu-ju-jie-gou/string/easy-first-unique-character-in-a-string.md)
+  * [\[Easy\] First Unique Character in a String / \[Easy\] First Repeated Char in a String](shu-ju-jie-gou/string/easy-first-unique-character-in-a-string.md)
   * [\[Easy\] Length of Last Word](shu-ju-jie-gou/string/easy-length-of-last-word.md)
   * [\[Easy\] implement strStr\(\) \(aka .indexOf\(\) function\)](shu-ju-jie-gou/string/easy-implement-strstr-aka-.indexof-function.md)
 * [Heap](shu-ju-jie-gou/heap/README.md)
