@@ -31,7 +31,7 @@ for left in range(n):
 ### 2. DP + Memoization: O\(n^2\) / O\(n\)
 
 * Build a 2D True/False DP Matrix: 如果判斷為True，便可以往下走。
-* First loop from right to left, second loop from left to right。 意即start從右往左掃，並且end從左往右掃。用這樣的方式，來不斷地減短長度，看是否為palindrome。
+* First loop from right to left, second loop from left to right。 意即**start從右往左掃**，並且**end從左往右掃**。用這樣的方式，來不斷地減短長度，看是否為palindrome。
 * Set the is Palindrome check along with dp\[i\]\[j\] check to update result。
 * return the result with s\[start:start+max\_len\]
 
