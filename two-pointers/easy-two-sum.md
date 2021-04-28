@@ -1,6 +1,7 @@
 # \[Easy\] Two Sum / Two Sum Less Than K
 
-[Two Sum](https://leetcode.com/problems/two-sum/)  
+## [\[Easy\] Two Sum](https://leetcode.com/problems/two-sum/)
+
 Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.  
 You may assume that each input would have _**exactly**_ one solution, and you may not use the _same_ element twice.
 
