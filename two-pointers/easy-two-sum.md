@@ -6,23 +6,22 @@
 2. 如果用Two Pointers，需要先`nums = sorted(nums)`
 {% endhint %}
 
+Category: Array/TwoSum
+
 ## [\[Easy\] Two Sum](https://leetcode.com/problems/two-sum/)
 
 Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.  
 You may assume that each input would have _**exactly**_ one solution, and you may not use the _same_ element twice.
 
-#### Example
-
 ```text
+Example
 Given nums = [2, 7, 11, 15], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 ```
 
-## Thought Process
-
-### Category: Array/TwoSum
+### Thought Process
 
 經典的Coding題。最容易想到的就是暴力解，用for i & for j，雙重for loop來看 nums\[i\] + nums\[j\] == target，Time Complexity O\(n^2\)。但這有兩個問題：1. for loop會重複算同樣的nums\[i\] which is not allowed，2. O\(n^2\)太大。
 
@@ -75,7 +74,7 @@ Space Complexity: O\(n\)**
 4. 如果 nums\[L\]\[1\] + nums\[R\]\[1\] `> target`，則要 R -= 1  
 5. 如果 `< target`，則 L += 1
 
-## Code
+### Code
 
 #### \(1\) Dictionary\(Hashmap\)
 
