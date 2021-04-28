@@ -22,3 +22,15 @@ For the Binary Search tree, it has **two Worst case time complexity** i.e _**min
 * When BST is skewed then maximum worst-case time complexity is considered O\(N\).
 * Where N is the height of the tree.
 
+## 如何求解
+
+![](../../.gitbook/assets/image%20%2895%29.png)
+
+### 1. Inorder Recursive
+
+### 2. Inorder Iterative
+
+### 3. BFS
+
+
+
