@@ -55,7 +55,7 @@
   * [\[Medium\] Longest Substring without Repeating Characters](two-pointers/medium-longest-substring-without-repeating-characters.md)
   * [\[Medium\] Find K Closest Elements](two-pointers/medium-find-k-closest-elements.md)
   * [\[Medium\] 3 Sum / 3 Sum Closest](two-pointers/medium-3-sum.md)
-  * [\[Easy\] Two Sum](two-pointers/easy-two-sum.md)
+  * [\[Easy\] Two Sum / Two Sum Less Than K](two-pointers/easy-two-sum.md)
 * [Binary Search](binary-search/README.md)
   * [\[Easy\] First Bad Version](binary-search/easy-first-bad-version.md)
   * [\[Easy\] Intersection of Two Arrays / \[Easy\] Intersection II](binary-search/easy-medium-intersection-of-two-arrays.md)

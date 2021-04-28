@@ -1,4 +1,4 @@
-# \[Easy\] Two Sum
+# \[Easy\] Two Sum / Two Sum Less Than K
 
 [Two Sum](https://leetcode.com/problems/two-sum/)  
 Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.  
@@ -47,7 +47,7 @@ for i in len(nums):
 **Cons:** 當nums裡有重複的數時\(ex: \[-1,-1,-1,-1,2\] \)，此解法就會有問題。因此需要用Two Pointers來過濾重複的答案。
 {% endhint %}
 
-### \(2\) Two Pointers \(同向雙指針\)
+### \(2\) Two Pointers \(-&gt;/&lt;-\):       O\(NlogN\) / O\(N\)
 
 **Time Complexity: O\(nlogn\)  
 Space Complexity: O\(n\)**
@@ -127,5 +127,60 @@ def twoSum(self, nums, target):
 {% endtab %}
 {% endtabs %}
 
+## \[Easy\] Two Sum Less Than K  
 
+### 1. Two Pointers \(-&gt;/&lt;-\):   O\(NlogN\) / O\(logN\)-O\(N\)
+
+```python
+def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+    
+    result = -1
+    nums = sorted(nums)
+    left, right = 0, len(nums)-1
+    
+    while left < right:
+        current = nums[left] + nums[right]
+        if current < k:
+            result = max(result, current)
+            left += 1
+        else:
+            right -= 1
+    return result
+```
+
+### 2. Brute Force:    O\(N^2\) / O\(N\)
+
+```python
+def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+    nums.sort()
+    answer = -1
+    left = 0
+    right = len(nums) -1
+    while left < right:
+        sum = nums[left] + nums[right]
+        if (sum < k):
+            answer = max(answer, sum)
+            left += 1
+        else:
+            right -= 1
+    return answer
+```
+
+### 3. Binary Search:   O\(NlogN\) / O\(N\)
+
+```python
+def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+    answer = -1
+    nums.sort()
+    for i in range(len(nums)):
+        j = bisect_left(nums, k - nums[i], i + 1) - 1
+        if j > i:
+            answer = max(answer, nums[i] + nums[j])
+    return answer
+```
+
+**Further Thoughts**
+
+Always clarify the problem constraints and inputs during an interview. This would help you choose the right approach.  
+The `Two Pointers approach` is a good choice **when the number of elements is large**, and the range of possible values is not constrained. Also, if the **input array is already sorted**, this approach provides a linear time complexity and does **not require additional memory**.
 
