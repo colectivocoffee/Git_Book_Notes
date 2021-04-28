@@ -27,7 +27,13 @@ Test Input TreeNode as below:
 
 ### Thought Process 
 
+> Inorder/BST特性：  
+> left nodes所有數都 `root.left < root`，right nodes所有數都`root.right > root`。
+
 ### 1. Inorder Recursive + Two Pointers \(-&gt;/&lt;-\):   O\(N\) / O\(N\)
+
+STEP1. BST -&gt; Inorder Recursive -&gt; List  
+STEP2. Two Pointers \(-&gt;/&lt;-\) compare with target k
 
 ```python
 def findTarget(self, root: TreeNode, k: int) -> bool:
