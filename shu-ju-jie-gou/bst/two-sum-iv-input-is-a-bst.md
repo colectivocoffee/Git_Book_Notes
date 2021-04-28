@@ -118,7 +118,7 @@ if __name__ == "__main__":
 	# Expected Result should be [8, 3]
 ```
 
-### 3. Hashset:   O\(N\) / O\(N\)
+### 3. Set/Hashset:   O\(N\) / O\(N\)
 
 The simplest solution will be to traverse over the whole tree and consider every possible pair of nodes to determine if they can form the required sum k.
 
