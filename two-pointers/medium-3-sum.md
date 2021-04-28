@@ -102,5 +102,49 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
 {% endtab %}
 {% endtabs %}
 
+## [\[Medium\] 3 Sum Closest](https://leetcode.com/problems/3sum-closest/)
 
+### 1. Two Pointers \(L-&gt;/&lt;-R\):     O\(n^2\) / O\(logn\)-O\(n\)
+
+> 利用sorted array的特性，我們可以比較容易找出哪三個連續數的sum最接近target。  
+>   
+> 如何決定哪三個連續數？  
+> 用`nums[i], nums[left], nums[right]`。  
+> `nums[i]` 由左至右, `0 ~ len(nums)`  
+> `nums[left]` 由左至右, `i + 1 ~ len(nums)-1`   
+> `nums[right]`  由右至左, `len(nums)-1 ~ left`
+
+![](../.gitbook/assets/3sum_closest.png)
+
+The two-pointers pattern requires the array to be sorted, so we do sorting first.
+
+In the sorted array, we process each value from left to right. For value `v`, we need to find a pair which sum, ideally, is equal to `target - v`. We will follow the same two pointers approach as for 3Sum, however, since this 'ideal' pair may not exist, we will track the smallest absolute difference between the sum and the target. The two pointers approach naturally enumerates pairs so that the sum moves toward the target.
+
+```python
+def threeSumClosest(self, nums: List[int], target: int) -> int:
+    
+    nums = sorted(nums)         # O(nlogn)
+    diff = float('inf')
+    
+    for i in range(len(nums)):               # O(n^2), two loops
+        left, right = i + 1, len(nums) - 1
+        while left < right:
+            total = nums[i] + nums[left] + nums[right]
+            
+            # found smaller diff, then we need to update
+            if abs(target - total) < abs(diff):
+                diff = target - total
+            # move left pointer 
+            if total < target:
+                left += 1
+            # move right pointer
+            else:
+                right -= 1
+                
+        # possibly end the loop early
+        if diff == 0:
+            break
+    
+    return target - diff
+```
 
