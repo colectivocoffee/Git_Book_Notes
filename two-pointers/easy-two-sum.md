@@ -20,7 +20,7 @@ return [0, 1].
 經典的Coding題。最容易想到的就是暴力解，用for i & for j，雙重for loop來看 nums\[i\] + nums\[j\] == target，Time Complexity O\(n^2\)。但這有兩個問題：1. for loop會重複算同樣的nums\[i\] which is not allowed，2. O\(n^2\)太大。  
 
 
-### \(1\) Dictionary \(Hashmap\)
+### \(1\) Dictionary \(Hashmap\):  O\(N\) / O\(N\)
 
 **Time Complexity O\(n\)  
 Space Complexity O\(n\)**  
@@ -58,10 +58,6 @@ Space Complexity: O\(n\)**
 3. if `nums[L][1] + nums[R][1] == target`時，返回原來的index，即 `[nums[L][0], nums[R][0]]`。  
 4. 如果 nums\[L\]\[1\] + nums\[R\]\[1\] `> target`，則要 R -= 1  
 5. 如果 `< target`，則 L += 1
-
-延伸題型：  
-3 Sum  
-4 Sum 
 
 ## Code
 
@@ -152,17 +148,12 @@ def twoSumLessThanK(self, nums: List[int], k: int) -> int:
 
 ```python
 def twoSumLessThanK(self, nums: List[int], k: int) -> int:
-    nums.sort()
     answer = -1
-    left = 0
-    right = len(nums) -1
-    while left < right:
-        sum = nums[left] + nums[right]
-        if (sum < k):
-            answer = max(answer, sum)
-            left += 1
-        else:
-            right -= 1
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            sum = nums[i] + nums[j]
+            if sum < k:
+                answer = max(answer, sum)
     return answer
 ```
 
@@ -179,8 +170,41 @@ def twoSumLessThanK(self, nums: List[int], k: int) -> int:
     return answer
 ```
 
-**Further Thoughts**
+### 4. Counting Sort:  O\(N+M\) / O\(M\)
+
+* Time Complexity: O\(n+m\), where m corresponds to the range of values in the input array.
+* Space Complexity: O\(m\) to count each value.
+
+We can leverage the fact that the input number range is limited to `[1..1000]` and use a counting sort. Then, we can use the two pointers pattern to enumerate pairs in the `[1..1000]` range.
+
+> Note that the result can be a sum of two identical numbers, and that means that `lo` can be equal to `hi`. In this case, we need to check if the count for that number is greater than one.
+
+```python
+def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+    answer = -1
+    count = [0] * 1001
+    for num in nums:
+        count[num] += 1
+    lo = 1
+    hi = 1000
+    while lo <= hi:
+        if lo + hi >= k or count[hi] == 0:
+            hi -= 1
+        else:
+            if count[lo] > (0 if lo < hi else 1):
+                answer = max(answer, lo + hi)
+            lo += 1
+    return answer
+```
+
+## **Further Thoughts**
 
 Always clarify the problem constraints and inputs during an interview. This would help you choose the right approach.  
 The `Two Pointers approach` is a good choice **when the number of elements is large**, and the range of possible values is not constrained. Also, if the **input array is already sorted**, this approach provides a linear time complexity and does **not require additional memory**.
+
+### Two Sum 延伸題型
+
+* Two Sum Series
+* 3 Sum Series
+* 4 Sum Series
 
