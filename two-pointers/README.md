@@ -1,8 +1,10 @@
 # Two Pointers
 
-## 思路
+## 什麼時候用Two Pointers?
 
-Two Pointers解法的精髓，是透過兩個指針控制一個區間\(window\)，保證區間滿足特定的條件。
+{% hint style="info" %}
+Two Pointers解法的精髓，是透過**兩個指針控制一個區間\(window\)**，保證區間滿足特定的條件。
+{% endhint %}
 
 ## 1. 同向指針\(L-&gt;/R-&gt;\): O\(n\)
 
@@ -121,7 +123,7 @@ When should I use Fast&Slow pointers over the Two Pointer method mentioned above
 * Palindrome Linked List \(medium\)
 * Cycle in a Circular Array \(hard\)
 
-## 題目類型
+### 題目類型
 
 1. Remove Duplicates
 2. Sliding Window
