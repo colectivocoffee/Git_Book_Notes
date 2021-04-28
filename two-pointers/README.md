@@ -131,7 +131,7 @@ When should I use Fast&Slow pointers over the Two Pointer method mentioned above
 
 ## 2. 相向指針\(L-&gt;/&lt;-R\): O\(n\)
 
-#### 相向指針模板 \(1\) While Loop 
+### \(1\) While Loop 模板 
 
 ```python
 L, R = 0, len(nums)-1
@@ -151,13 +151,13 @@ while L < R:
     R -= 1
 ```
 
-#### \(2\) For Loop
+### \(2\) For Loop 模板 
 
 ```java
 for (int i = 0, j = nums.size()-1; i < j; i++, j--)
 ```
 
-### \(3\)-&gt;/&lt;-指針 isPalindrome 模板
+### \(3\) isPalindrome \(-&gt;/&lt;-\) 模板
 
 {% tabs %}
 {% tab title="Python" %}
@@ -191,6 +191,34 @@ def isPalindrome(self, s):
 * [x] Longest Palindromic Substring
 * [x] Palindromic Substring
 * [ ] Find K Closest Elements
+
+### \(4\) Two Sum / 3 Sum \(-&gt;/&lt;-\) 模板
+
+先決條件：arrays needs to be **sorted**，如果沒有，就需要先preserve order
+
+Two Sum: O\(n\) + possible O\(nlogn\) = O\(nlogn\)  
+3 Sum: O\(n^2\) + possible O\(nlogn\) = O\(n^2\)，兩重loop:  for + while
+
+```python
+# 1.Preserve Order: enumerate and sort nums   O(nlogn)
+enumerate(nums)
+sorted(nums) 
+
+# 2.init two pointers 
+L, R = 0, len(nums)-1 
+
+# 3. L should always be smaller than R      O(n)
+while L < R:
+    total = nums[L] + nums[R]
+    if total == target: # meet the condition
+        return result 
+    elif total < target: # L
+        L += 1
+    else: # R
+        R -= 1
+        
+return result
+```
 
 ## 練習
 
