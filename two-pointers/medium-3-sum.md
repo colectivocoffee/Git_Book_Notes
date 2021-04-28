@@ -1,7 +1,8 @@
-# \[Medium\] 3 Sum
+# \[Medium\] 3 Sum / 3 Sum Closest
 
-[3 Sum  
-](https://leetcode.com/problems/3sum/)Given an array `nums` of _n_ integers, are there elements _a_, _b_, _c_ in `nums` such that _a_ + _b_ + _c_ = 0? Find all unique triplets in the array which gives the sum of zero.
+## [\[Medium\] 3 Sum](https://leetcode.com/problems/3sum/)
+
+Given an array `nums` of _n_ integers, are there elements _a_, _b_, _c_ in `nums` such that _a_ + _b_ + _c_ = 0? Find all unique triplets in the array which gives the sum of zero.
 
 **Note:**  
 The solution set must not contain duplicate triplets.
@@ -143,7 +144,7 @@ def threeSumClosest(self, nums: List[int], target: int) -> int:
             else:
                 right -= 1
                 
-        # possibly end the loop early
+        # it is possible to end the loop early, catch it here
         if diff == 0:
             break
     

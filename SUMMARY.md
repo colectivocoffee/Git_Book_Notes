@@ -54,7 +54,7 @@
   * [\[Hard\] Minimum Window Substring](two-pointers/hard-minimum-window-substring.md)
   * [\[Medium\] Longest Substring without Repeating Characters](two-pointers/medium-longest-substring-without-repeating-characters.md)
   * [\[Medium\] Find K Closest Elements](two-pointers/medium-find-k-closest-elements.md)
-  * [\[Medium\] 3 Sum](two-pointers/medium-3-sum.md)
+  * [\[Medium\] 3 Sum / 3 Sum Closest](two-pointers/medium-3-sum.md)
   * [\[Easy\] Two Sum](two-pointers/easy-two-sum.md)
 * [Binary Search](binary-search/README.md)
   * [\[Easy\] First Bad Version](binary-search/easy-first-bad-version.md)
