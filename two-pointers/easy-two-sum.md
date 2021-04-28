@@ -1,4 +1,4 @@
-# \[Easy\] Two Sum / Two Sum Less Than K
+# \[Easy\] Two Sum / Two Sum Less Than K / Sorted Array
 
 {% hint style="info" %}
 \[**總結\]**  
@@ -212,7 +212,7 @@ def twoSumLessThanK(self, nums: List[int], k: int) -> int:
     return answer
 ```
 
-## \[Easy\] Two Sum - Sorted Array
+## [\[Easy\] Two Sum - Sorted Array](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 
 ### 1. Two Pointers:  O\(N\)  / O\(1\)
 
