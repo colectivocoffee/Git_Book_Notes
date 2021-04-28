@@ -17,8 +17,17 @@ return [0, 1].
 
 ### Category: Array/TwoSum
 
-經典的Coding題。最容易想到的就是暴力解，用for i & for j，雙重for loop來看 nums\[i\] + nums\[j\] == target，Time Complexity O\(n^2\)。但這有兩個問題：1. for loop會重複算同樣的nums\[i\] which is not allowed，2. O\(n^2\)太大。  
+經典的Coding題。最容易想到的就是暴力解，用for i & for j，雙重for loop來看 nums\[i\] + nums\[j\] == target，Time Complexity O\(n^2\)。但這有兩個問題：1. for loop會重複算同樣的nums\[i\] which is not allowed，2. O\(n^2\)太大。
 
+### \(0\) Brute Force:  O\(N^2\) / O\(N\)
+
+雙重for loop:  第一重 -&gt; `nums[i]` 第二重 -&gt; `nums[j]`
+
+```python
+for i in range(len(nums)):
+    for j in range(1, len(nums)):
+        total = nums[i] + nums[j]
+```
 
 ### \(1\) Dictionary \(Hashmap\):  O\(N\) / O\(N\)
 
