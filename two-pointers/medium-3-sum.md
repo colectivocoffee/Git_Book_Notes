@@ -108,6 +108,8 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
 
 > 利用sorted array的特性，我們可以比較容易找出哪三個連續數的sum最接近target。  
 >   
+> 首先要知道目前離target多遠，我們用`diff`來紀錄so far最近的difference。  
+>   
 > 如何決定哪三個連續數？  
 > 用`nums[i], nums[left], nums[right]`。  
 > `nums[i]` 由左至右, `0 ~ len(nums)`  
@@ -134,10 +136,10 @@ def threeSumClosest(self, nums: List[int], target: int) -> int:
             # found smaller diff, then we need to update
             if abs(target - total) < abs(diff):
                 diff = target - total
-            # move left pointer 
+            # total在target左邊，move left pointer 
             if total < target:
                 left += 1
-            # move right pointer
+            # total在target右邊，move right pointer
             else:
                 right -= 1
                 
