@@ -1,5 +1,11 @@
 # \[Easy\] Two Sum / Two Sum Less Than K
 
+{% hint style="info" %}
+\[**總結\]**  
+1. 用**Two Pointers \(-&gt;/&lt;-\)**方法解題最萬用，從2 Sum Series, 3 Sum Series, ... 都可以解。  
+2. 如果用Two Pointers，需要先`nums = sorted(nums)`
+{% endhint %}
+
 ## [\[Easy\] Two Sum](https://leetcode.com/problems/two-sum/)
 
 Given an array of integers, return **indices** of the two numbers such that they add up to a specific target.  
@@ -205,6 +211,29 @@ def twoSumLessThanK(self, nums: List[int], k: int) -> int:
                 answer = max(answer, lo + hi)
             lo += 1
     return answer
+```
+
+## \[Easy\] Two Sum - Sorted Array
+
+### 1. Two Pointers:  O\(N\)  / O\(1\)
+
+```python
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        
+        left, right = 0, len(numbers)-1
+        total = float('-inf')
+        
+        while left < right:
+            current = numbers[left] + numbers[right]
+            
+            if current == target:
+                return [left+1, right+1]
+            elif current < target:
+                total = max(total, current)
+                left += 1
+            else:
+                right -= 1
+        return [-1,-1]
 ```
 
 ## **Further Thoughts**
