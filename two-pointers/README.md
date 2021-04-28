@@ -3,6 +3,8 @@
 ## 什麼時候用Two Pointers?
 
 {% hint style="info" %}
+Ans: 需要控制一個區間\(window\)，並且讓window滿足特定條件。  
+  
 Two Pointers解法的精髓，是透過**兩個指針控制一個區間\(window\)**，保證區間滿足特定的條件。
 {% endhint %}
 
