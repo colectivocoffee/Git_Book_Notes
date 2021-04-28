@@ -120,6 +120,10 @@ if __name__ == "__main__":
 
 ### 3. Hashset:   O\(N\) / O\(N\)
 
+The simplest solution will be to traverse over the whole tree and consider every possible pair of nodes to determine if they can form the required sum k.
+
+If the sum of two elements x + y equals k, and we already know that x exists in the given tree, we only need to check if an element y exists in the given tree, such that `y = k - x`. 
+
 {% tabs %}
 {% tab title="Java" %}
 ```java
