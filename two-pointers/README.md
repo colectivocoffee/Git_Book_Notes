@@ -196,7 +196,7 @@ def isPalindrome(self, s):
 * [x] Palindromic Substring
 * [ ] Find K Closest Elements
 
-### \(4\) Two Sum / 3 Sum \(-&gt;/&lt;-\) 模板
+### \(4\) 2 Sum / 3 Sum \(-&gt;/&lt;-\) 模板
 
 先決條件：arrays needs to be **sorted**，如果沒有，就需要先preserve order
 
