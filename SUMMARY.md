@@ -70,6 +70,7 @@
   * [\[Medium\] Robot Bounded In Circle](others-and-math/medium-robot-bounded-in-circle.md)
   * [\[Easy\] Longest Common Prefix](others-and-math/easy-longest-common-prefix.md)
   * [\[Medium\] Word Break](others-and-math/medium-word-break.md)
+  * [\[Easy\] Reverse Integer](others-and-math/easy-reverse-integer.md)
   * [\[Easy\] Climbing Stairs](others-and-math/easy-climbing-stairs.md)
 
 ## 數據結構
