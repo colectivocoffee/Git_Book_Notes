@@ -1,6 +1,6 @@
 # \[Medium\] Insert Delete GetRandom O\(1\)
 
-## \[Medium\] Insert Delete GetRandom O\(1\)
+## [\[Medium\] Insert Delete GetRandom O\(1\)](https://leetcode.com/problems/insert-delete-getrandom-o1/)         \(3452/206\)
 
 ### 1. Dictionary + List:   O\(1\) / O\(N\)
 
@@ -18,8 +18,8 @@
 | Dictionary | \(key, value\) --&gt; \(val, insert\_idx\)                                    | Used for O\(1\) Insert / Delete |
 | List | index, item --&gt; \(insert\_idx, val\) | 1.Used for getting index O\(1\) at getRandom method           2.Used for insert val O\(1\) at insert method |
 
-難點2. **如何讓Deletey在List裡從O\(N\)降至O\(1\)?**  
-To delete a value at arbitrary index takes linear time. The solution here is to **always delete the last value**:
+難點2. **如何讓Delete在List裡從O\(N\)降至O\(1\)?**  
+To delete a value at an arbitrary index takes linear time. The solution here is to **always delete the last value**:
 
 * Swap the element to delete with the last one.
 * Pop the last element out.
