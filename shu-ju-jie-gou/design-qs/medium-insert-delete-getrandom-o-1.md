@@ -24,6 +24,20 @@ To delete a value at arbitrary index takes linear time. The solution here is to 
 * Swap the element to delete with the last one.
 * Pop the last element out.
 
+![](../../.gitbook/assets/image%20%2895%29.png)
+
+#### `def insert(self, val):`
+
+![](../../.gitbook/assets/image%20%2896%29.png)
+
+#### **`def delete(self, val):`**
+
+![](../../.gitbook/assets/image%20%2897%29.png)
+
+#### `def getRandom(self):`
+
+GetRandom could be implemented in \mathcal{O}\(1\)O\(1\) time with the help of standard `random.choice` in Python and `Random` object in Java.
+
 {% tabs %}
 {% tab title="Python" %}
 ```python
@@ -122,20 +136,6 @@ class RandomizedSet {
 ```
 {% endtab %}
 {% endtabs %}
-
-![](../../.gitbook/assets/image%20%2895%29.png)
-
-#### `def insert(self, val):`
-
-![](../../.gitbook/assets/image%20%2896%29.png)
-
-#### **`def delete(self, val):`**
-
-![](../../.gitbook/assets/image%20%2897%29.png)
-
-#### `def getRandom(self):`
-
-GetRandom could be implemented in \mathcal{O}\(1\)O\(1\) time with the help of standard `random.choice` in Python and `Random` object in Java.
 
 
 
