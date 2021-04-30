@@ -137,5 +137,10 @@ class RandomizedSet {
 {% endtab %}
 {% endtabs %}
 
+### Other Thoughts
 
+在第一時間，我們會想說因為題目叫RandomizedSet，是否可以用Set來完成呢？
+
+Ans:  **Set\(\)需要O\(N\)來getRandom**，因此不可行。  
+雖然Set是利用HashMap來implenment，但內部的`random.sample() - java / choice() - Python`，是把hashMap先轉換成list，再取值，因此需要O\(N\)
 
