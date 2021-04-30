@@ -402,8 +402,11 @@ for char in s:
 ```python
 (1)String -> Array
 array = astring.split(',')     
-# -> ['Bob', 'is', 'Enola', 'Holmes']
- 
+# -> ['Bob', 'is', 'Enola', 'Holmes']    split words by comma
+
+array = astring.split(' ')
+# -> ['Bob', 'is', 'Enola', 'Holmes']    split words by space
+   
 (2)String -> Array of chars 
 array = list(astring)          
 # -> ['B','o','b',' ','i','s'] (including space)
