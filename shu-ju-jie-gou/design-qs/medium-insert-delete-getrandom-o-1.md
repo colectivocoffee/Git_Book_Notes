@@ -137,7 +137,7 @@ class RandomizedSet {
 {% endtab %}
 {% endtabs %}
 
-### Other Thoughts
+### Why Not Set?
 
 在第一時間，我們會想說因為題目叫RandomizedSet，是否可以用Set來完成呢？
 
