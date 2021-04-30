@@ -144,3 +144,8 @@ class RandomizedSet {
 Ans:  **Set\(\)需要O\(N\)來getRandom**，因此不可行。  
 雖然Set是利用HashMap來implenment，但內部的`random.sample() - java / choice() - Python`，是把hashMap先轉換成list，再取值，因此需要O\(N\)
 
+### How are these methods being used in real life?
+
+why this weird combination? The structure looks quite theoretical, but it's widely used in popular statistical algorithms like [Markov chain Monte Carlo](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) and [Metropolis–Hastings algorithm](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm). These algorithms are for sampling from a probability distribution when it's difficult to compute the distribution itself.  
+
+
