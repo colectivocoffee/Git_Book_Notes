@@ -118,9 +118,6 @@ count = 0
 def printIndent(n):
    for i in range(len(n)):
       print('   ')  # a tab
-      
-      
-
 ```
 {% endtab %}
 
@@ -139,7 +136,7 @@ void printIndent(int n) {
 {% endtab %}
 {% endtabs %}
 
-{% page-ref page="./" %}
+{% page-ref page="ru-he-geng-hao-di-debug-recursion.md" %}
 
 ### 判斷和修改 Empty, Blank, None:
 
