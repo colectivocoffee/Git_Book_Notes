@@ -47,7 +47,7 @@ def printIndent(n):                    # +
 
 def dp(ring, i, key, j):
     printIndent(count+=1)              # +
-    print('i = %d, j = %d\n', i, j)    # +
+    print('i = ', i, 'j = ', j,'\n')   # +
     
     if j == len(key):
         printIndent(count-=1)          # +
@@ -59,7 +59,7 @@ def dp(ring, i, key, j):
         result = min(result, dp(ring, j, key, i + 1))
     
     printIndent(count-=1)              # +
-    print('return %d\n', result)       # +
+    print('return ', result, '\n')     # +
     return result
 
 ```
