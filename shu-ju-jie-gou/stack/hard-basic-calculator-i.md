@@ -82,7 +82,34 @@ def calculate(self, s: str) -> int:
     return result
 ```
 
-#### Sample Answer of Follow Up Q: to support ternary operator 
+### Without parenthesis version: 
+
+```python
+def calculate(self, s: str) -> int:
+           
+    s = list(s)
+    s.append('+')    # 額外'+'，來確保最後一個數字被加到result
+    
+    result = 0
+    sign = 1    # 1 or -1
+    num = 0
+    
+    for char in s:
+        # space
+        if char == ' ':
+            continue
+        # num, check if num is a 2or more digits ones
+        elif char.isdigit():            
+            num = num*10 + int(char)
+        # +, -
+        elif char in '+-':
+            result += sign * num
+            sign = 1 if char == '+' else -1
+            num = 0
+    return result
+```
+
+### Follow Up Q: to support ternary operator 
 
 ```python
 # s = "(1+(4+5+2)-3)+(6+8)?23:-1"
