@@ -31,6 +31,8 @@ def dp(ring, i, key, j):
 每進入下一層recursion深度，就會多一個tab。  
 而每當碰到return時，就減少一個tab。
 
+{% tabs %}
+{% tab title="Python" %}
 ```python
 #### 加了debug helper function
 
@@ -61,6 +63,39 @@ def dp(ring, i, key, j):
     return result
 
 ```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+int count = 0;
+void printIndent(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("   ");
+    }
+}
+
+int dp(string& ring, int i, string& key, int j) {
+    // printIndent(count++);
+    // printf("i = %d, j = %d\n", i, j);
+
+    if (j == key.size()) {
+        // printIndent(--count);
+        // printf("return 0\n");
+        return 0;
+    }
+
+    int res = INT_MAX;
+    for (int k : charToIndex[key[j]]) {
+        res = min(res, dp(ring, j, key, i + 1));
+    }
+
+    // printIndent(--count);
+    // printf("return %d\n", res);
+    return res;
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ![](../../.gitbook/assets/image%20%2899%29.png)
 
