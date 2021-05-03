@@ -19,7 +19,7 @@ Do you think the solutions have the best time complexity? Yes. Cool, so which on
 
 At this moment I already gained scores for 1. data structures 2. algorithms 3. communication. And I think you'd propose me to implement the ordered dictionary one only we were running out of time at this moment. Otherwise, there is a place for your further questions like "ok, what if you'd need to implement LFU cache instead ?"
 
-### Follow Up Questions:
+### Follow Ups Qs: how orderedDict preserving order?
 
 If a candidate answers using an orderedDict, I allow them to do so. But I go in-depth on the data structure fundamentals e.g. 
 
@@ -53,6 +53,8 @@ If a candidate answers using an orderedDict, I allow them to do so. But I go in-
   * If the key does not exist, you check whether the cache size is already at limit.
     * If the cache size is at limit, **pop** the key-value pair at the **beginning** of the cache and **push** the new key-value pair at the **end** of the cache.
     * If the cache is still under the size limit, simply push the new key-value pair at the end of the cache.
+
+![](../../.gitbook/assets/image%20%28101%29.png)
 
 ### 1. OrderedDict / LinkedHashMap:    O\(1\) / O\(capacity\)
 
