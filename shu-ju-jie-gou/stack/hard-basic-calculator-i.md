@@ -1,6 +1,7 @@
 # \[Hard\] Basic Calculator I / \[Medium\] Basic Calculator II
 
-\*\*\*\*[**Basic Calculator I**](https://leetcode.com/problems/basic-calculator/) **\(1890/148\)**  
+## \*\*\*\*[**Basic Calculator I**](https://leetcode.com/problems/basic-calculator/) **\(1890/148\)**
+
 Given a string `s` representing an expression, implement a basic calculator to evaluate it.
 
 ```text
@@ -83,6 +84,12 @@ def calculate(self, s: str) -> int:
 ```
 
 ### Without parenthesis version: 
+
+普通版不需要額外用stack。stack是拿來存正負號的。
+
+```python
+
+```
 
 ```python
 def calculate(self, s: str) -> int:
@@ -169,7 +176,39 @@ def calculate(self, s: str) -> int:
     return sec_choice
 ```
 
-## Basic Calculator II
+## [\[Medium\] Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/)         \(2342/360\)
 
+```python
+def calculate(self, s: str) -> int:
+    
+    stack = []
+    pre_sign = '+'
+    num = 0
+    
+    for char in s+'+':
+        
+        if char == ' ':
+            continue
+        
+        elif char.isdigit():
+            num = 10*num + int(char)
+            
+        else:
+            if pre_sign == '+':
+                stack.append(num)
 
+            elif pre_sign == '-':
+                stack.append(-num)
+            
+            elif pre_sign == '*':
+                stack.append( stack.pop() * num )
+
+            elif pre_sign == '/':
+                stack.append( math.trunc(stack.pop() / num) )
+            
+            num = 0
+            pre_sign = char
+        
+    return sum(stack)
+```
 
