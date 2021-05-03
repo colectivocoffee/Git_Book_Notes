@@ -8,6 +8,7 @@
   * [\[Python\] List vs Set](basics-1/suan-fa-dao-du/python-list-vs-set.md)
   * [\[Python\] Dict & OrderedDict \| \[Java\] HashTable & HashMap](basics-1/suan-fa-dao-du/dictionary-and-ordered-dictionary.md)
   * [\[Python\] Try/Except/Else/Finally](basics-1/suan-fa-dao-du/python-try-except-finally.md)
+  * [如何更好地Debug Recursion](basics-1/suan-fa-dao-du/ru-he-geng-hao-di-debug-recursion.md)
 * [面試準備技巧](basics-1/zhun-bei-ji-qiao.md)
 
 ## 算法

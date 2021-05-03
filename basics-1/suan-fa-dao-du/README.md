@@ -102,6 +102,43 @@ class BinaryTreeTraversal:
         self.traverse(root.right)
 ```
 
+### 如何更好地Debug Recursion?
+
+正常我們會設定IDE的Break Point，來一步一步看Recursion每一層發生了什麼事。然而，在面試的時候並不可能有Break Point給我們用，我們就要利用普通print來完成。
+
+> 直接在Recursion內部print關鍵值，配合**縮進**，更能直觀地觀察函數執行情況。
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# 全局變量，紀錄目前Recursion層數
+count = 0
+
+# 根據總層數n，決定有多少個tabs
+def printIndent(n):
+   for i in range(len(n)):
+      print('   ')  # a tab
+      
+      
+
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+// 全局變量，紀錄目前Recursion層數
+int count = 0
+
+// 根據總層數n，決定有多少個tabs
+void printIndent(int n) {
+    for (i = 0; i < n; i++) {
+        printf("    ")
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ### 判斷和修改 Empty, Blank, None:
 
 在做判斷empty & None時，Python的寫法和Java不太一樣。
