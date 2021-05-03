@@ -43,6 +43,8 @@ num| sign | stack        |result
 
 ### 1. Stack:O\(n\)/O\(n\)
 
+stack存的是之前的正負號。
+
 ```python
 def calculate(self, s: str) -> int:
 
