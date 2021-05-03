@@ -18,8 +18,8 @@ Output: 23
 
 在做這題之前，有幾個要點需要先想明白：
 
-\(1\) Implication of precedence by parenthesis：即內括號要先處理，再算外括號  
-\(2\) The rules of addition and substraction：正負號的關係，即 負負得正
+\(1\) Implication of **precedence by parenthesis**：即內括號要先處理，再算外括號  
+\(2\) The rules of **addition and substraction**：正負號的關係，即 負負得正
 
 ```python
 e.g. '3-(2+(9-4))'
