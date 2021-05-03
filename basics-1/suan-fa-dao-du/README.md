@@ -139,6 +139,8 @@ void printIndent(int n) {
 {% endtab %}
 {% endtabs %}
 
+{% page-ref page="./" %}
+
 ### 判斷和修改 Empty, Blank, None:
 
 在做判斷empty & None時，Python的寫法和Java不太一樣。
