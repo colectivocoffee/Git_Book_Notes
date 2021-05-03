@@ -28,11 +28,11 @@ To delete a value at an arbitrary index takes linear time. The solution here is 
 
 #### `def insert(self, val):`
 
-![](../../.gitbook/assets/image%20%2896%29.png)
+![](../../.gitbook/assets/image%20%2897%29.png)
 
 #### **`def delete(self, val):`**
 
-![](../../.gitbook/assets/image%20%2897%29.png)
+![](../../.gitbook/assets/image%20%2898%29.png)
 
 #### `def getRandom(self):`
 

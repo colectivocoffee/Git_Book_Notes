@@ -1,5 +1,7 @@
 # 如何更好地Debug Recursion
 
+## Debug Recursion模板
+
 ```python
 # 全局變量，紀錄目前Recursion層數
 count = 0
@@ -25,6 +27,9 @@ def dp(ring, i, key, j):
     
     return result
 ```
+
+每進入下一層recursion深度，就會多一個tab。  
+而每當碰到return時，就減少一個tab。
 
 ```python
 #### 加了debug helper function
@@ -55,6 +60,11 @@ def dp(ring, i, key, j):
     print('return %d\n', result)       # +
     return result
 
-
 ```
+
+![](../../.gitbook/assets/image%20%2899%29.png)
+
+不只可以看到Recursion過程，還可以看到recursion tree。
+
+![](../../.gitbook/assets/image%20%2896%29.png)
 

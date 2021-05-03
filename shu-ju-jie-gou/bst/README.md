@@ -24,7 +24,7 @@ For the Binary Search tree, it has **two Worst case time complexity** i.e _**min
 
 ## 如何求解
 
-![](../../.gitbook/assets/image%20%2898%29.png)
+![](../../.gitbook/assets/image%20%28100%29.png)
 
 ### 1. Inorder Recursive
 
