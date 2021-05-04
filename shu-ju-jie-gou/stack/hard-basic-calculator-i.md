@@ -251,7 +251,7 @@ def calculate(input_s):
       'twelve': 12
    }
 
-   operators = ['plus', 'minus', 'times']
+   operators = ['plus', 'minus', 'times', 'divides']
 
    # s as list
    s = input_s.split(' ')
@@ -290,6 +290,7 @@ def test(inp, expected):
 print('Correct/Wrong, input, actual')
 test('one plus one', 2)
 test('two times two', 4)
+test('six divides two', 3)
 ```
 
 ### Follow Up Q: Add Parenthesis --&gt; Basic Calculator III
