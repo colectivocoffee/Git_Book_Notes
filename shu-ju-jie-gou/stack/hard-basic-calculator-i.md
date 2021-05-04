@@ -199,6 +199,10 @@ Output: 5
 
 ![](../../.gitbook/assets/image%20%28101%29.png)
 
+* If the current operation is addition `(+)` or subtraction `(-)`, then the expression is evaluated based on the precedence of the next operation.
+* If the current operator is multiplication `(*)` or division `(/)`, then the expression is evaluated irrespective of the next operation. This is because in the given set of operations `(+,-,*,/)`, the `*` and `/` operations have the highest precedence and therefore must be evaluated first. 
+  * Multiplication `(*)` or Division `(/)`: **Pop the top values from the stack and evaluate the current expression. Push the evaluated value back to the stack.**
+
 ```python
 def calculate(self, s: str) -> int:
     
@@ -207,29 +211,23 @@ def calculate(self, s: str) -> int:
     num = 0
     
     for char in s+'+':
-        
         if char == ' ':
             continue
-        
         elif char.isdigit():
             num = 10*num + int(char)
-            
         else:
             if pre_sign == '+':
                 stack.append(num)
-
             elif pre_sign == '-':
                 stack.append(-num)
-            
+            # 碰到'乘除'時，先做運算，即先pop再append
             elif pre_sign == '*':
                 stack.append( stack.pop() * num )
-
             elif pre_sign == '/':
                 stack.append( math.trunc(stack.pop() / num) )
-            
             num = 0
             pre_sign = char
-        
+    #最後做加減運算
     return sum(stack)
 ```
 
@@ -271,6 +269,7 @@ def calculate(input_s):
 				stack.append(num)
 			elif prev_operand == 'minus':
 				stack.append(-num)
+			# 碰到'乘除'時，先做運算，即先pop再append
 			elif prev_operand == 'times':
 				prev = stack.pop()
 				stack.append(prev * num)
