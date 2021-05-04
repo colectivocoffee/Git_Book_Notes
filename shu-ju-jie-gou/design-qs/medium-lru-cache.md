@@ -54,7 +54,7 @@ If a candidate answers using an orderedDict, I allow them to do so. But I go in-
     * If the cache size is at limit, **pop** the key-value pair at the **beginning** of the cache and **push** the new key-value pair at the **end** of the cache.
     * If the cache is still under the size limit, simply push the new key-value pair at the end of the cache.
 
-![](../../.gitbook/assets/image%20%28101%29.png)
+![](../../.gitbook/assets/image%20%28102%29.png)
 
 ### 1. OrderedDict / LinkedHashMap:    O\(1\) / O\(capacity\)
 

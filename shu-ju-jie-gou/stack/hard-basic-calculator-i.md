@@ -197,6 +197,8 @@ Output: 5
 > 1.使用stack來存所有的數字。  
 > 2.最後用`sum(stack)`來把所有數字加總
 
+![](../../.gitbook/assets/image%20%28101%29.png)
+
 ```python
 def calculate(self, s: str) -> int:
     
@@ -234,57 +236,54 @@ def calculate(self, s: str) -> int:
 ## Basic Calculator II - 文字版
 
 ```python
+import math
+
 def calculate(input_s):
+	num_dict = {
+		'one': 1,
+		'two': 2,
+		'three': 3,
+		'four': 4,
+		'five': 5,
+		'six': 6,
+		'seven': 7,
+		'eight': 8,
+		'nine': 9,
+		'ten': 10,
+		'eleven': 11,
+		'twelve': 12
+	}
+	operands = ['plus', 'minus', 'times', 'divides']
 
-   num_dict = {
-      'one': 1,
-      'two': 2,
-      'three': 3,
-      'four': 4,
-      'five': 5,
-      'six': 6,
-      'seven': 7,
-      'eight': 8,
-      'nine': 9,
-      'ten': 10,
-      'eleven': 11,
-      'twelve': 12
-   }
+	# s as list
+	s = input_s.split(' ')
+	s.append('plus')
+	stack = []
+	num = 0
+	prev_operand = 'plus'
 
-   operators = ['plus', 'minus', 'times', 'divides']
+	for word in s:
+		if word in num_dict:
+			num = num_dict.get(word, 'Invalid num')
 
-   # s as list
-   s = input_s.split(' ')
-   s.append('plus')
+		elif word in operands:
+			if prev_operand == 'plus':
+				stack.append(num)
+			elif prev_operand == 'minus':
+				stack.append(-num)
+			elif prev_operand == 'times':
+				prev = stack.pop()
+				stack.append(prev * num)
+			elif prev_operand == 'divides':
+				prev = stack.pop()
+				stack.append(math.trunc(prev / num))
+			num = 0
+			prev_operand = word  # saves the operator for later use
+	return sum(stack)
 
-   stack = []
-   num = 0
-   prev_sign = 'plus'
-
-   for word in s:
-      if word in num_dict:
-         num = num_dict[word]
-
-      elif word in operators:
-         if prev_sign == 'plus':
-            stack.append(num)
-         elif prev_sign == 'minus':
-            stack.append(-num)
-         elif prev_sign == 'times':
-            prev = stack.pop()
-            stack.append(prev * num)
-         elif prev_sign == 'divides'
-            stack.append( math.trunc(stack.pop() / num) )
-         num = 0
-         prev_sign = word  # saves the operator for later use
-
-   return sum(stack)
-
-
-#################################
 def test(inp, expected):
-   result = calculate(inp)
-   print('Ans {} | {}="{}"'.format(result == expected, inp, result))
+	result = calculate(inp)
+	print('Ans {} | {}="{}"'.format(result == expected, inp, result))
 
 
 print('Correct/Wrong, input, actual')
