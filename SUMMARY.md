@@ -81,7 +81,7 @@
   * [\[Hard\] Longest Valid Parentheses](shu-ju-jie-gou/stack/hard-longest-valid-parentheses.md)
   * [\[Medium\] Task Scheduler](shu-ju-jie-gou/stack/medium-task-scheduler.md)
   * [\[Medium\] Simplify Path](shu-ju-jie-gou/stack/medium-simplify-path.md)
-  * [\[Hard\] Basic Calculator I / \[Medium\] Basic Calculator II](shu-ju-jie-gou/stack/hard-basic-calculator-i.md)
+  * [\[Hard\] Basic Calculator I / \[Medium\] Basic Calculator II / 文字版](shu-ju-jie-gou/stack/hard-basic-calculator-i.md)
   * [\[Medium\] Remove All Adjacent Duplicates in a String II / \[Easy\] in a String I](shu-ju-jie-gou/stack/medium-remove-all-adjacent-duplicates-in-a-string-ii.md)
   * [\[Medium\] Remove K Digits](shu-ju-jie-gou/stack/medium-remove-k-digits.md)
   * [\[Hard\] Largest Rectangle in a Histogram                   / \[Hard\] Maximal Rectangle](shu-ju-jie-gou/stack/hard-largest-rectangle-in-a-histogram.md)

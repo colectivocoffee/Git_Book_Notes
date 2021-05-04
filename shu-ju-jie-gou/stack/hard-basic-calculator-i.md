@@ -1,4 +1,4 @@
-# \[Hard\] Basic Calculator I / \[Medium\] Basic Calculator II
+# \[Hard\] Basic Calculator I / \[Medium\] Basic Calculator II / 文字版
 
 ## \*\*\*\*[**Basic Calculator I**](https://leetcode.com/problems/basic-calculator/) **\(1890/148\)**
 
