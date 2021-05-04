@@ -174,6 +174,9 @@ def calculate(self, s: str) -> int:
 
 ## [\[Medium\] Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/)         \(2342/360\)
 
+Given a string `s` which represents an expression, _evaluate this expression and return its value_.   
+The integer division should truncate toward zero.
+
 ```python
 Example 1:
 Input: s = "3+2*2"
@@ -289,7 +292,29 @@ test('one plus one', 2)
 test('two times two', 4)
 ```
 
-### Follow Up Q: Add Parenthesis
+### Follow Up Q: Add Parenthesis --&gt; Basic Calculator III
 
 If we need to process parenthesis? What will you do? 
+
+## [\[Hard\] Basic Calculator III](https://leetcode.com/problems/basic-calculator-iii/)            \(604/222\)
+
+Implement a basic calculator to evaluate a simple expression string.  
+The expression string contains only non-negative integers, `'+'`, `'-'`, `'*'`, `'/'` operators, and open `'('` and closing parentheses `')'`. The integer division should **truncate toward zero**.  
+You may assume that the given expression is always valid. All intermediate results will be in the range of `[-231, 231 - 1]`.
+
+```python
+Example 1:
+Input: s = "1+1"
+Output: 2
+
+Example 2:
+Input: s = "6-4/2"
+Output: 4
+
+Example 3:
+Input: s = "2*(5+5*2)/3+(6/2+8)"
+Output: 21
+```
+
+**Follow up:** Could you solve the problem without using built-in library functions?
 
