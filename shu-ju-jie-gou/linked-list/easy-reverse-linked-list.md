@@ -8,8 +8,8 @@
 * 用temp一個一個移動到prev
 
 {% hint style="info" %}
-先寫\(1\)\(4\) temp &lt;--&gt; head         ：保存head.next的關係，並且移動一格  
-在寫\(2\)\(3\) new\_head &lt;--&gt; head：
+先寫\(1\)\(4\) `temp <--> head`       ：\(1\)保存head.next的關係，並且\(4\)移動一格  
+在寫\(2\)\(3\) `new_head <--> head`：\(2\)把head.next換成`new_head`，並且\(4\)new\_head跟著head移動
 {% endhint %}
 
 ```python
