@@ -8,8 +8,8 @@
 * 用temp一個一個移動到prev
 
 {% hint style="info" %}
-先寫\(1\)\(4\) temp &lt;--&gt; head  
-在寫\(2\)\(3\) new\_head &lt;--&gt; head
+先寫\(1\)\(4\) temp &lt;--&gt; head         ：保存head.next的關係，並且移動一格  
+在寫\(2\)\(3\) new\_head &lt;--&gt; head：
 {% endhint %}
 
 ```python
