@@ -7,12 +7,17 @@
 * curr.next --&gt; prev.next
 * 用temp一個一個移動到prev
 
+{% hint style="info" %}
+先寫\(1\)\(4\) temp &lt;--&gt; head  
+在寫\(2\)\(3\) new\_head &lt;--&gt; head
+{% endhint %}
+
 ```python
 模板：
-     temp = curr.next   #       tmp   curr.next
-curr.next = temp.next   # curr.next
-temp.next = prev.next   #             prev.next
-prev.next = temp        # prev.next   tmp
+     temp = curr.next   #(1)       tmp   curr.next
+curr.next = temp.next   #(2) curr.next
+temp.next = prev.next   #(3)             prev.next
+prev.next = temp        #(4) prev.next   tmp
 ```
 
 **Reverse Linked List的指針移動步驟**
@@ -37,7 +42,7 @@ targetHead -> "C" -> "B" -> "A" -> NULL
 
 ![](../../.gitbook/assets/reversedlinkedlist.jpg)
 
-## [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+## [\[Easy\] Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 Reverse a singly linked list.
 
@@ -61,9 +66,7 @@ Step4. **恢復原始temp**：提取step1的temp值，移動head到temp。
 
 ![](../../.gitbook/assets/reverselinkedlist.jpg)
 
-### Code
-
-#### 1. Iterative Version: O\(n\)/O\(1\)
+### 1. Iterative + no dummy head: O\(n\)/O\(1\)
 
 ```python
 def reverseList(self, head: ListNode) -> ListNode:
@@ -78,16 +81,15 @@ def reverseList(self, head: ListNode) -> ListNode:
         temp = head.next
         # step2. override head.next
         head.next = new_head
-        
         # step3. move new_head
         new_head = head
         # step4. move original head
         head = temp
     
     return new_head
-        
-         
 ```
+
+### 2. Iterative + dummy head: O\(n\) / O\(1\)
 
 ```python
 def reverseList(self, head: ListNode) -> ListNode:
@@ -112,7 +114,7 @@ def reverseList(self, head: ListNode) -> ListNode:
     return dummy.next
 ```
 
-#### 2. Recursive Version: O\(n\)/O\(1\)
+### 2. Recursive: O\(n\)/O\(1\)
 
 ```python
 def reverseList(self, head: ListNode) -> ListNode:
