@@ -185,6 +185,17 @@ targetHead -> "B" -> "A" -> NULL
 sourceHead -> "A" -> "B" -> "C" -> NULL
 your pointer                        ^
 targetHead -> "C" -> "B" -> "A" -> NULL
+
+---------------
+                    STEP4[移動]
+                    STEP1[自己]
+sourceHead -> "A" -> "B" -> ....
+  [自己] STEP3 ^      |
+               |      v  STEP2[別人]
+targetHead -> "A" -> NULL
+
+
+
 ```
 
 ```python
