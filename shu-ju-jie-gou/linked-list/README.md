@@ -157,7 +157,7 @@ head.next = new\_head
 \(2\) **別人**`new_head`  
   
 new\_head = head  
-\(3\) **自己** head  
+\(3\) **自己** head   \(INSERT AT HEAD rather than at the back\)  
   
 head = temp  
 \(4\) **移動** temp
@@ -190,12 +190,9 @@ targetHead -> "C" -> "B" -> "A" -> NULL
                     STEP4[移動]
                     STEP1[自己]
 sourceHead -> "A" -> "B" -> ....
-  [自己] STEP3 ^      |
-               |      v  STEP2[別人]
+   STEP3[自己]  |      ^
+INSERT_AT_HEAD v      |  STEP2[別人]
 targetHead -> "A" -> NULL
-
-
-
 ```
 
 ```python
