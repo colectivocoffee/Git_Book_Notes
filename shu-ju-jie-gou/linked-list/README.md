@@ -144,7 +144,7 @@ This pattern reverses one node at a time starting with one variable \(current\) 
 
 ### **Reverse Linked List的指針移動步驟**
 
-The trick to reversing one list into another is **inserting at the head**, rather than at the back, of the target list. You need to traverse your original list in a regular way by following the `next` pointers, but **rather than adding elements to the end of the target list, create a new node, and replace the header of the target with it**.
+The trick to reversing one list into another is """**inserting at the head"""**, rather than at the back, of the target list. You need to traverse your original list in a regular way by following the `next` pointers, but **rather than adding elements to the end of the target list, create a new node, and replace the header of the target with it**.
 
 {% hint style="info" %}
 口訣：**`自己 -- 別人 -- 自己 -- 移動`**  
