@@ -2,6 +2,11 @@
 
 ## [\[Medium\] Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)    \(3870/671\)
 
+### 1. 用r, c, idx pointer來更新方向 + dp table:    O\(N\) / O\(N\)
+
+關鍵點：  
+每到邊界時，就要換個方向走。而這個方向是 right -&gt; down -&gt; left -&gt; up 
+
 ```python
 def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
     
@@ -17,6 +22,7 @@ def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
     #  |       |
     #  |       |
     #  <-----  v
+    # traversal direction
     # clockwise: right -> down -> left -> up
     #          (1,0)->(0,1)->(-1,0)->(0,-1)
     direction_c = [1, 0, -1, 0]
