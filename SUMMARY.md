@@ -69,6 +69,7 @@
   * [\[Medium\] Search In 2D Matrix II](binary-search/medium-search-in-2d-matrix-ii.md)
   * [\[Easy\] Search Insert Position](binary-search/easy-search-insert-position.md)
 * [Others & Math](others-and-math/README.md)
+  * [\[Medium\] Random Pick with Weight](others-and-math/medium-random-pick-with-weight.md)
   * [\[Medium\] Robot Bounded In Circle](others-and-math/medium-robot-bounded-in-circle.md)
   * [\[Easy\] Longest Common Prefix](others-and-math/easy-longest-common-prefix.md)
   * [\[Medium\] Word Break](others-and-math/medium-word-break.md)

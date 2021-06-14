@@ -4,7 +4,7 @@
 
 Given an `m x n` `matrix`, return _all elements of the_ `matrix` _in spiral order_.
 
-![](../../.gitbook/assets/image%20%28104%29.png)
+![](../../.gitbook/assets/image%20%28106%29.png)
 
 ```text
 Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
@@ -62,7 +62,7 @@ def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
 
 ### 2. Layer by Layer:    O\(N\) / O\(1\)
 
-![](../../.gitbook/assets/image%20%28103%29.png)
+![](../../.gitbook/assets/image%20%28105%29.png)
 
 ```python
 def spiralOrder(self, matrix):
