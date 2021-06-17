@@ -23,9 +23,12 @@ To understand the problem better, let us imagine that there is a line in the spa
 ![](../.gitbook/assets/image%20%28104%29.png)
 
 > **prefix sum == cumulative sum**  
-> the sum of all previous numbers in the sequence plus the number itself.
+> the sum of all previous numbers in the sequence plus the number itself.  
+>   
+> **target**  
+> To throw a ball on the line is to find an _offset_ to place the ball. Let us call this offset _target_.
 
-### 1. Prefix Sum + Linear Search: O\(N\) / O\(N\) & O\(1\)
+### 1. Prefix Sum + Linear Search: O\(N\) & O\(N\) / O\(N\) & O\(1\)
 
 Time Complexity: **O\(N\)** due to the init/construction of the prefix sums.  
 Space Complexity: **O\(N\)**  init/constructor function is O\(N\)    
@@ -49,7 +52,8 @@ Space Complexity: **O\(N\)**  init/constructor function is O\(N\)
     picking 1 has the probability of 1/10.  
     '''
     def pickIndex(self) -> int:
-        
+    
+        # an offset to place the ball. 
         target = self.total * random.random()
         
         for i, current in enumerate(self.prefix_sums):
@@ -58,4 +62,6 @@ Space Complexity: **O\(N\)**  init/constructor function is O\(N\)
 ```
 {% endtab %}
 {% endtabs %}
+
+### 2. Prefix Sum + Binary Search: O\(N\) / O\(logN\) / O\(N\) & O\(1\)
 
