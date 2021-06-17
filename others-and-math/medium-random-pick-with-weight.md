@@ -65,3 +65,40 @@ Space Complexity: **O\(N\)**  init/constructor function is O\(N\)
 
 ### 2. Prefix Sum + Binary Search: O\(N\) / O\(logN\) / O\(N\) & O\(1\)
 
+{% tabs %}
+{% tab title="Python" %}
+```python
+def __init__(self, w: List[int]):
+    """
+    [] prefix_sum: represents the list of the prefix sum so far.
+    int total_sum: represents the total sum that 
+                   has been added to prefix_sum so far.
+    """
+    
+    self.prefix_sum = []
+    current = 0
+    for weight in w:
+        current += weight
+        self.prefix_sum.append(current)
+    self.total_sum = current
+
+
+def pickIndex(self) -> int:
+
+    # an offset to place the ball. 
+    target = self.total_sum * random.random()
+
+    # run the binary search to search the target
+    start, end = 0, len(self.prefix_sum)
+    while start < end:
+        mid = start + (end - start) // 2
+        if self.prefix_sum[mid] < target:
+            start = mid + 1
+        else:
+            end = mid
+
+    return start
+```
+{% endtab %}
+{% endtabs %}
+
