@@ -28,7 +28,7 @@ To understand the problem better, let us imagine that there is a line in the spa
 > **target**  
 > To throw a ball on the line is to find an _offset_ to place the ball. Let us call this offset _target_.
 
-### 1. Prefix Sum + Linear Search: O\(N\) & O\(N\) / O\(N\) & O\(1\)
+### 1. Prefix Sum + Linear Search: O\(N\)&O\(N\) / O\(N\)&O\(1\)
 
 Time Complexity: **O\(N\)** due to the init/construction of the prefix sums.  
 Space Complexity: **O\(N\)**  init/constructor function is O\(N\)    
@@ -37,37 +37,47 @@ Space Complexity: **O\(N\)**  init/constructor function is O\(N\)
 {% tabs %}
 {% tab title="Python" %}
 ```python
-    def __init__(self, w: List[int]):
-        
-        self.prefix_sums = []
-        current = 0
-        for weight in w:
-            current += weight
-            self.prefix_sums.append(current)
-        self.total = current
-        
-    '''
-    This pickIndex function returns the result along with that number's probability.
-    e.g. arr = [1,9], then picking 9 has the probability of 9/10.
-    picking 1 has the probability of 1/10.  
-    '''
-    def pickIndex(self) -> int:
+# Time Complexity: O(N), still need O(N) to constructor function
+# Space Comlexity: O(N)
+def __init__(self, w: List[int]):
     
-        # an offset to place the ball. 
-        target = self.total * random.random()
-        
-        for i, current in enumerate(self.prefix_sums):
-            if target < current:
-                return i
+    self.prefix_sums = []
+    current = 0
+    for weight in w:
+        current += weight
+        self.prefix_sums.append(current)
+    self.total = current
+    
+'''
+This pickIndex function returns the result along with that number's probability.
+e.g. arr = [1,9], then picking 9 has the probability of 9/10.
+picking 1 has the probability of 1/10.  
+'''
+# Time Complexity: O(N)
+# Space Complexity: O(1)
+def pickIndex(self) -> int:
+
+    # an offset to place the ball. 
+    target = self.total * random.random()
+    
+    # linear search O(N)
+    for i, current in enumerate(self.prefix_sums):
+        if target < current:
+            return i
 ```
 {% endtab %}
 {% endtabs %}
 
-### 2. Prefix Sum + Binary Search: O\(N\) / O\(logN\) / O\(N\) & O\(1\)
+### 2. Prefix Sum + Binary Search: O\(N\)&O\(logN\) / O\(N\)&O\(1\)
+
+原法一在pickIndex使用的是Linear Search, 需要O\(N\)來完成。  
+我們可以發現prefix\_sum是sorted list，因此可以使用Binary Search來增速。這樣就可以減少至O\(logN\)。
 
 {% tabs %}
 {% tab title="Python" %}
 ```python
+# Time Complexity: O(N), still need O(N) to constructor function
+# Space Complexity: O(N)
 def __init__(self, w: List[int]):
     """
     [] prefix_sum: represents the list of the prefix sum so far.
@@ -82,12 +92,14 @@ def __init__(self, w: List[int]):
         self.prefix_sum.append(current)
     self.total_sum = current
 
-
+# Time Complexity: O(logN)
+# Space Complexity: O(1)
 def pickIndex(self) -> int:
 
     # an offset to place the ball. 
     target = self.total_sum * random.random()
 
+    # binary search O(logN)
     # run the binary search to search the target
     start, end = 0, len(self.prefix_sum)
     while start < end:
