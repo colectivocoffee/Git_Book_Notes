@@ -6,6 +6,8 @@ Merge two sorted linked lists and return it as a **sorted** list. The list shoul
 
 ![](../../.gitbook/assets/image%20%28103%29.png)
 
+### 1. Linked List -&gt; List -&gt; Linked List: O\(n+m\) / O\(n+m\)
+
 ```python
 def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
     
@@ -31,5 +33,34 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         pointer = pointer.next
     
     return dummy.next
+```
+
+### 2. Iteration: O\(n+m\) / O\(1\)
+
+![](../../.gitbook/assets/merge_two_sorted_list.png)
+
+STEP1. 使用一個dummy head \(跟法一相同\)  
+STEP2. 比較`l1.val & l2.val`，看哪個大，就放到dummy head.next。並且把已經放了的item往後移一格。
+
+```python
+def mergeTwoLists(self, l1, l2):
+    # maintain an unchanging reference to node ahead of the return node.
+    prehead = ListNode(-1)
+
+    prev = prehead
+    while l1 and l2:
+        if l1.val <= l2.val:
+            prev.next = l1
+            l1 = l1.next
+        else:
+            prev.next = l2
+            l2 = l2.next            
+        prev = prev.next
+
+    # At least one of l1 and l2 can still have nodes at this point, so connect
+    # the non-null list to the end of the merged list.
+    prev.next = l1 if l1 is not None else l2
+
+    return prehead.next
 ```
 
