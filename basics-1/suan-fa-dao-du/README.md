@@ -433,7 +433,7 @@ for char in s:
 
 * 數字移位 / 保存上一位數字： 保存兩位以上數字: `num = num * 10 + curr`。num是想得到的數字，curr是目前int             數字減少位: `x //= 10`。e.g. 12345 -&gt; 1234 -&gt; 123 -&gt; 12 ...     取得目前位數字:  `x % 10` 。同上例    5   -&gt;    4    -&gt;   3    -&gt;    2 ... 以上這些方法都需要搭配while loop or for loop使用。 注意， `x /= 10` 給的是包含小數位的值。 e.g. 1234.5
 
-### Type Conversion
+### Type Conversion/切分＋組合
 
 ```python
 (1)String -> Array
