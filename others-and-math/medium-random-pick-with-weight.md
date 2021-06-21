@@ -18,7 +18,7 @@ Let us look at a simple example. Given an input list of values `[1, 9]`, when we
 
 To understand the problem better, let us imagine that there is a line in the space, we then project each number into the line according to its value, _i.e._ a large number would occupy a broader range on the line compared to a small number. For example, the range for the number `9` should be exactly nine times as the range for the number `1`. 踢球踢到9區間的概率是1區間的9倍。
 
-![](../.gitbook/assets/image%20%28103%29.png)
+![](../.gitbook/assets/image%20%28107%29.png)
 
 ![](../.gitbook/assets/image%20%28104%29.png)
 

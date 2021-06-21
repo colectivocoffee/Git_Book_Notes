@@ -96,6 +96,7 @@
   * [Next Greater Element II](shu-ju-jie-gou/stack/next-greater-element-ii.md)
 * [Linked List](shu-ju-jie-gou/linked-list/README.md)
   * [\[Easy\] Palindrome Linked List](shu-ju-jie-gou/linked-list/easy-palindrome-linked-list.md)
+  * [\[Easy\] Merge Two Sorted Lists](shu-ju-jie-gou/linked-list/easy-merge-two-sorted-lists.md)
   * [\[Hard\] Reverse Nodes in k-Group](shu-ju-jie-gou/linked-list/hard-reverse-nodes-in-k-group.md)
   * [\[Medium\] Swap Nodes in Pairs](shu-ju-jie-gou/linked-list/medium-swap-nodes-in-pairs.md)
   * [\[Medium\] Odd Even Linked List](shu-ju-jie-gou/linked-list/medium-odd-even-linked-list.md)
