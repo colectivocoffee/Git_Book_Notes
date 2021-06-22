@@ -2,47 +2,9 @@
 
 #### Reverse Linked List 核心要素：
 
-* 取dummy node \(ListNode\(0\)\)，防止m=1翻轉時，沒有前面的node狀況。
-* 建curr&prev，分別代表改前&改後
-* curr.next --&gt; prev.next
-* 用temp一個一個移動到prev
-
-{% hint style="info" %}
-先寫\(1\)\(4\) `temp <--> head`       ：\(1\)保存head.next的關係，並且\(4\)移動一格  
-在寫\(2\)\(3\) `new_head <--> head`：\(2\)把head.next換成`new_head`，並且\(4\)new\_head跟著head移動
-{% endhint %}
-
-```python
-模板：
-     temp = curr.next   #(1)       tmp   curr.next
-curr.next = temp.next   #(2) curr.next
-temp.next = prev.next   #(3)             prev.next
-prev.next = temp        #(4) prev.next   tmp
-```
-
 **Reverse Linked List的指針移動步驟**
 
 ![](../../.gitbook/assets/reverse_linked_list.png)
-
-```python
-sourceHead -> "A" -> "B" -> "C" -> NULL
-your pointer   ^
-targetHead -> NULL
-
-sourceHead -> "A" -> "B" -> "C" -> NULL
-your pointer          ^
-targetHead -> "A" -> NULL
-
-sourceHead -> "A" -> "B" -> "C" -> NULL
-your pointer                 ^
-targetHead -> "B" -> "A" -> NULL
-
-sourceHead -> "A" -> "B" -> "C" -> NULL
-your pointer                        ^
-targetHead -> "C" -> "B" -> "A" -> NULL
-```
-
-![](../../.gitbook/assets/reversedlinkedlist.jpg)
 
 ## [\[Easy\] Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
@@ -61,14 +23,19 @@ Output: 5->4->3->2->1->NULL
 
 在這裡，我們需要去維護的就是`Head & Head.next` 這兩個Nodes。下面四個步驟就是拆解Head&Head.next，並且建立新的Reversed Linked List方法。
 
-Step1. **Copy head.next：**確立Head & temp的關係，並且利用temp拷貝head.next原來的值。即 temp = head.next  
-Step2. **Override head.next**：移動head.next到new\_head  
-Step3. **Override Head**：移動new\_head到原head的位置。  
-Step4. **恢復原始temp**：提取step1的temp值，移動head到temp。 
+Step1. **「備份」** Copy head.next, ****確立Head & temp的關係，並且利用temp拷貝head.next原來的值。即 temp = head.next  
+Step2. **「修改」** Override head.next為new\_head  
+Step3. **「移動」** Override Head**,** 移動new\_head到原head的位置。  
+Step4. **「移動」** 恢復原始temp**,** 提取step1的temp值，移動head到temp。 
 
 ![](../../.gitbook/assets/reverselinkedlist.jpg)
 
 ### 1. Iterative + no dummy head: O\(n\)/O\(1\)
+
+{% hint style="info" %}
+先寫\(1\)\(4\) `temp <--> head`       ：\(1\)保存head.next的關係，並且\(4\)移動一格  
+在寫\(2\)\(3\) `new_head <--> head`：\(2\)把head.next換成`new_head`，並且\(4\)new\_head跟著head移動
+{% endhint %}
 
 {% tabs %}
 {% tab title="Python" %}
@@ -115,6 +82,19 @@ public ListNode reverseList(ListNode head) {
 {% endtabs %}
 
 ### 2. Iterative + dummy head: O\(n\) / O\(1\)
+
+* 取dummy node \(ListNode\(0\)\)，防止m=1翻轉時，沒有前面的node狀況。
+* 建curr&prev，分別代表改前&改後
+* curr.next --&gt; prev.next
+* 用temp一個一個移動到prev
+
+```python
+模板：
+     temp = curr.next   #(1)       tmp   curr.next
+curr.next = temp.next   #(2) curr.next
+temp.next = prev.next   #(3)             prev.next
+prev.next = temp        #(4) prev.next   tmp
+```
 
 ```python
 def reverseList(self, head: ListNode) -> ListNode:
@@ -243,6 +223,26 @@ def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
 #### ===========================
 
 #### 雜七雜八
+
+```python
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer   ^
+targetHead -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer          ^
+targetHead -> "A" -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer                 ^
+targetHead -> "B" -> "A" -> NULL
+
+sourceHead -> "A" -> "B" -> "C" -> NULL
+your pointer                        ^
+targetHead -> "C" -> "B" -> "A" -> NULL
+```
+
+![](../../.gitbook/assets/reversedlinkedlist.jpg)
 
 
 
