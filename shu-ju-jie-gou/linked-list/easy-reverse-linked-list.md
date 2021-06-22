@@ -6,6 +6,15 @@
 
 ![](../../.gitbook/assets/reverse_linked_list.png)
 
+{% hint style="info" %}
+使用三根指針，**head** & **new\_head** & **temp \(head.next\)**  
+  
+STEP1 \[備份\]：備份head.next  
+STEP2 \[修改\]：修改指向，舊 --&gt;新。原head指向head.next，變成head指向`new_head`  
+STEP3 \[移動\]：移動`new_head`，把`new_head`移到head，重新再來  
+                           移動`head`，把head移到原備份head.next，重新再來
+{% endhint %}
+
 ## [\[Easy\] Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 Reverse a singly linked list.
