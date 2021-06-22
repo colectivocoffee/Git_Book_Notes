@@ -22,6 +22,8 @@ prev.next = temp        #(4) prev.next   tmp
 
 **Reverse Linked List的指針移動步驟**
 
+![](../../.gitbook/assets/reverse_linked_list.png)
+
 ```python
 sourceHead -> "A" -> "B" -> "C" -> NULL
 your pointer   ^
@@ -68,6 +70,8 @@ Step4. **恢復原始temp**：提取step1的temp值，移動head到temp。
 
 ### 1. Iterative + no dummy head: O\(n\)/O\(1\)
 
+{% tabs %}
+{% tab title="Python" %}
 ```python
 def reverseList(self, head: ListNode) -> ListNode:
     # edge case
@@ -88,6 +92,27 @@ def reverseList(self, head: ListNode) -> ListNode:
     
     return new_head
 ```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+public ListNode reverseList(ListNode head) {
+    ListNode newHead = null;
+    
+    //head：旧链表的头，由于头部的节点不断地被放到新链表，所以相当于是取旧链表的头节点
+    //newHead:新链表的头，由于新链表在头部不断增加新节点,所以就是取每次新增加的那个头节点
+    //temp:保存当前head的下一个节点，head断开旧链表后，用temp更新新的head
+    //以上三个节点在同一时间是相邻的：newHead->head->temp
+    while(head != null){
+        ListNode temp = head.next;
+        head.next = newHead;
+        newHead = head;
+        head = temp;
+    }
+    return newHead;
+```
+{% endtab %}
+{% endtabs %}
 
 ### 2. Iterative + dummy head: O\(n\) / O\(1\)
 

@@ -782,3 +782,7 @@ Else
 1. [Slice Assignment](https://stackoverflow.com/questions/10623302/how-assignment-works-with-python-list-slice/10623352#10623352)
 2. [Python OrderedDict](https://www.pythoninsight.com/2018/08/dictionaries-preserve-ordering/) & [original design update](https://mail.python.org/pipermail/python-dev/2012-December/123028.html)
 
+參考的頻道或部落格條列如下，提供給大家參考：  
+ＹＴ：[花花醬](https://www.youtube.com/channel/UC5xDNEcvb1vgw3lE21Ack2Q) / [Cspiration 官方频道](https://www.youtube.com/channel/UCTWuRL33U8xBPqk3LehXjFw/featured) / [Jacob Huang](https://www.youtube.com/channel/UCF8C7SraW-e1Ht3JakcNqGQ) ／[basketwangCoding](https://www.youtube.com/channel/UCE35PnPX7EZi8nHSegjMn6Q)／[今天比昨天厲害](https://www.youtube.com/channel/UCVSx6i7KfyFhFK1U8FHMJLg)／[来Offer – LaiOffer](https://www.youtube.com/channel/UC12XyYzyyZwFiIgafl_Ga6w)／[小Q刷Leetcode](https://www.youtube.com/channel/UCQqpw2-neEiAHWsU5hv1xDw)  
+Ｂlog：[Grandyang](https://www.cnblogs.com/grandyang/)／
+
