@@ -122,7 +122,7 @@ def reverseList(self, head: ListNode) -> ListNode:
     
 def helper(self, head, node):
     if not head:
-        return node
+        return node     # 這裡是返回node
     temp = head.next
     head.next = node
     return self.helper(temp, head)
