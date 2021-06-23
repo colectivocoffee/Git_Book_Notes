@@ -15,6 +15,12 @@ STEP3 \[移動\]：移動`new_head`，把`new_head`移到head，重新再來
                            移動`head`，把head移到原備份head.next，重新再來
 {% endhint %}
 
+关于链表的头指针？
+
+* 头指针直接指向第一个存储数据的节点
+* 为什么这题里边new\_head初始化为Null?
+  * 作为新链表的最后一个节点
+
 ## [\[Easy\] Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 Reverse a singly linked list.
