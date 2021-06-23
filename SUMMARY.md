@@ -75,6 +75,7 @@
   * [\[Medium\] Word Break](others-and-math/medium-word-break.md)
   * [\[Easy\] Reverse Integer](others-and-math/easy-reverse-integer.md)
   * [\[Easy\] Climbing Stairs](others-and-math/easy-climbing-stairs.md)
+  * [Convert Strings](others-and-math/convert-strings.md)
 
 ## 數據結構
 
