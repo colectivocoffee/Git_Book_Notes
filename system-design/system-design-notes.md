@@ -186,60 +186,45 @@
           <li>Can you give me a specific DB name? Explain your choice.</li>
           <li>Both SQL and NoSQL DB can scale and perform well, let me evaluate both
             types.</li>
+          <li>Ask questions below</li>
           <li>
-            <p>Ask questions below</p>
+            <p></p>
             <table>
               <thead>
                 <tr>
                   <th style="text-align:left">
                     <ul>
-                      <li>
-                        <table>
-                          <thead>
-                            <tr>
-                              <th style="text-align:left">
-                                <ul>
-                                  <li>
-                                    <table>
-                                      <thead>
-                                        <tr>
-                                          <th style="text-align:left"></th>
-                                          <th style="text-align:left">
-                                            <ul>
-                                              <li>How to scale writes?</li>
-                                            </ul>
-                                            <p>How to scale reads?</p>
-                                            <p>How to make both writes and reads fast?</p>
-                                          </th>
-                                        </tr>
-                                      </thead>
-                                      <tbody></tbody>
-                                    </table>
-                                  </li>
-                                </ul>
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody></tbody>
-                        </table>
-                      </li>
+                      <li>How to scale writes?</li>
+                      <li>How to scale reads?</li>
+                      <li>How to make both writes and reads fast?</li>
+                      <li>How not losing data in case of hardware faults and network partitions?</li>
+                      <li>How to recover data in case of an outage?</li>
+                      <li>How to ensure data security?</li>
+                      <li>How to make it extensible for data model changes in the future?</li>
                     </ul>
                   </th>
                 </tr>
               </thead>
               <tbody></tbody>
             </table>
-          </li>
-          <li>
-            <p>sss</p>
             <table>
               <thead>
                 <tr>
-                  <th style="text-align:left">
-                    <ul>
-                      <li></li>
-                    </ul>
-                  </th>
+                  <th style="text-align:left"></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </li>
+          <li>How SQL handle these requirements---</li>
+          <li>Sharding (several SQL DBs work together)</li>
+          <li></li>
+          <li>
+            <p>How</p>
+            <table>
+              <thead>
+                <tr>
+                  <th style="text-align:left"></th>
                 </tr>
               </thead>
               <tbody></tbody>
