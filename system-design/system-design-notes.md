@@ -1,5 +1,11 @@
 # System Design Notes
 
+|  | sssss |
+| :--- | :--- |
+
+
+## System Design Interview - Step by Step Guide
+
 <table>
   <thead>
     <tr>
@@ -74,10 +80,11 @@
               try to make it as <b>fast</b> as possible.
               <br />
               <br />--&gt; then we use CAP theorem
-              <br />CAP theorem tells me we can&apos;t have Consistency, Availability,
+              <br />CAP theorem tells me we can&apos;t have <b>C</b>onsistency, <b>A</b>vailability,
               <br
-              />Partition Tolerance all at once. Then I&apos;ll
-              <br />choose availability over consistency.
+              /><b>P</b>erformance/Partition Tolerance all at once. Then I&apos;ll
+              <br
+              />choose availability over consistency.
               <br />* <b>Scalable</b> (tens of thousands of video views per sec)
               <br />* <b>High Performant</b> (few tens of milliseconds to return
               <br />total views count for a video)
@@ -86,13 +93,164 @@
               <br />* Consistency
               <br />* Cost (hardware, development, maintenance)
               <br />
-              <br />
-              <br />
             </p>
           </li>
-          <li>sss</li>
         </ul>
       </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        <p>===Chapter 2 Drive the Conversation: What to Store===</p>
+        <p></p>
+        <ul>
+          <li>starts with...</li>
+          <li><b>Data</b>
+            <br />-&gt; We need to think what data we want to store and how
+            <br />-&gt; We need to define data model</li>
+          <li>
+            <p>What do we <b>store</b>?</p>
+            <table>
+              <thead>
+                <tr>
+                  <th style="text-align:left">Individual Events</th>
+                  <th style="text-align:left">vs</th>
+                  <th style="text-align:left">Aggregate Data (Batch Events)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align:left">Store <b>Raw Events</b>
+                  </td>
+                  <td style="text-align:left">Func</td>
+                  <td style="text-align:left"><b>Aggregate</b> data in real-time</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left"><b>Stream</b> Data Processing</td>
+                  <td style="text-align:left"></td>
+                  <td style="text-align:left"><b>Batch</b> Data Processing</td>
+                </tr>
+                <tr>
+                  <td style="text-align:left">
+                    <p>*fast <b>writes</b>
+                    </p>
+                    <p>*can slice however we need</p>
+                    <p>*can recalculate numbers if needed</p>
+                  </td>
+                  <td style="text-align:left">Pros</td>
+                  <td style="text-align:left">
+                    <p>*fast <b>reads</b>
+                    </p>
+                    <p>*data is ready for decision making</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align:left">
+                    <p>*slow reads</p>
+                    <p>*<b>Costly </b>for large scale</p>
+                    <p>(many events to be stored)</p>
+                  </td>
+                  <td style="text-align:left">Cons</td>
+                  <td style="text-align:left">
+                    <p>*can <b>only query</b> the way it was <b>aggregated</b>
+                    </p>
+                    <p>*<b>requires</b>  <b>data aggregation</b> pipeline (Hard!)</p>
+                    <p>*hard or even impossible to
+                      <br />fix errors</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Then ask interviewer <b>expected delay. <br />Time between when event happened &lt;--&gt; when event was processed<br /><br /></b>(1)<b> </b>if
+            expected delay is<b> less than several mins<br /> </b>--&gt; aggregate
+            data on the fly<b><br /></b>(2) if expected delay is<b> okay for several hours <br /> </b>--&gt;
+            store raw events and process them in the background
+            <br />(3) <b>combine both</b> approach, store raw events and batch process data
+            <br
+            />--&gt; Flexibility up
+            <br />--&gt; <b>Raw Data:</b> store only several days/weeks raw data + purge old
+            data
+            <br /> <b>Batch Data</b>: store aggregated data (view counts) in real-time
+            <br
+            />--&gt; Costly, expensive</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        <p>===Chapter 3 === Database</p>
+        <p></p>
+        <ul>
+          <li>Can you give me a specific DB name? Explain your choice.</li>
+          <li>Both SQL and NoSQL DB can scale and perform well, let me evaluate both
+            types.</li>
+          <li>
+            <p>Ask questions below</p>
+            <table>
+              <thead>
+                <tr>
+                  <th style="text-align:left">
+                    <ul>
+                      <li>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th style="text-align:left">
+                                <ul>
+                                  <li>
+                                    <table>
+                                      <thead>
+                                        <tr>
+                                          <th style="text-align:left"></th>
+                                          <th style="text-align:left">
+                                            <ul>
+                                              <li>How to scale writes?</li>
+                                            </ul>
+                                            <p>How to scale reads?</p>
+                                            <p>How to make both writes and reads fast?</p>
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody></tbody>
+                                    </table>
+                                  </li>
+                                </ul>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                        </table>
+                      </li>
+                    </ul>
+                  </th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </li>
+          <li>
+            <p>sss</p>
+            <table>
+              <thead>
+                <tr>
+                  <th style="text-align:left">
+                    <ul>
+                      <li></li>
+                    </ul>
+                  </th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
@@ -101,6 +259,5 @@
   </tbody>
 </table>
 
-* sss
-* aaa
+* * aaa
 
