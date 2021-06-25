@@ -216,26 +216,91 @@
               <tbody></tbody>
             </table>
           </li>
-          <li>How SQL handle these requirements---</li>
-          <li>Sharding (several SQL DBs work together)</li>
-          <li></li>
-          <li>
-            <p>How</p>
-            <table>
-              <thead>
-                <tr>
-                  <th style="text-align:left"></th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+          <li>============================================
+            <br />How SQL handle these requirements--- Step by Step</li>
+        </ul>
+        <p><b><code>@@@@ Scalability and Performance @@@@</code></b>
+        </p>
+        <ul>
+          <li>How to reduce the load on a single SQL machine?</li>
+          <li><b>(1)</b>  <b>Add</b>  <b>Sharding DB</b> (several SQL DBs work together)</li>
+        </ul>
+        <p></p>
+        <ul>
+          <li>How to route the traffic better?</li>
+          <li><b>(2) Add Cluster Proxy</b> (a proxy machine and route traffic to correct
+            shard)
+            <br />
+            <br />
+            <img src="../.gitbook/assets/sys_design_cluster_proxy (1).png" alt/>
+            <br />
+          </li>
+          <li>How do we make cluster proxy be aware of newly added DB?</li>
+          <li><b>(3)</b>  <b>Add Configuration Service </b>(to maintain health check)
+            <br
+            />-&gt; config service maintains a health check connection to all shards)
+            <br
+            />-&gt; config service always know which DB is available
+            <br />
+            <br />
+            <img src="../.gitbook/assets/sys_design_db2_config_service.png" alt/>
+            <br />
+          </li>
+          <li>Instead of calling shard DB instance directly, we add shard proxy
+            <br />(4) <b>Add Shard Proxy</b> (a DB helper to add more useful functions)
+            <br
+            />--&gt; 1. shard proxy can cache query results
+            <br />--&gt; 2. monitor DB instance health
+            <br />--&gt; 3. publish metrics
+            <br />--&gt; 4. terminate query that takes too long</li>
+        </ul>
+        <p>
+          <img src="../.gitbook/assets/sys_design_db3_shard_proxy.png" alt/>
+          <br />
+          <br />
+          <br /><b><code>@@@@ Availability @@@@</code></b>
+        </p>
+        <ul>
+          <li>What if DB shard died?</li>
+          <li>How to ensure data is not lost?
+            <br />
+          </li>
+          <li>(5) Add Replicas between different data center
+            <br />--&gt; [<b>Write]</b> when the cluster proxy sends data to a shard(DB),
+            <br
+            />--&gt; data is sync or async replicated to corresponding read replica.
+            <br
+            />--&gt; <b>[Read]</b> when the cluster proxy retrieve data from a shard,
+            <br
+            />--&gt; data will be retrieved either from master or read replica.
+            <br />
+            <img src="../.gitbook/assets/sys_design_db4_replica.png" alt/>
+            <br />
+          </li>
+          <li>e.g. Youtube built a DB solution to scale and manage large clusters
+            <br
+            />of MySQL instance, called Vitess.
+            <br />
+            <br />
+          </li>
+          <li>=============================================</li>
+          <li>How NoSQL handle these requirements --- Step by Step</li>
+        </ul>
+        <p>
+          <br /><b><code>@@@@ Scalability and Performance @@@@</code></b>
+        </p>
+        <ul>
+          <li>Split data into chunks, we call it <b>nodes (= shards in SQL)</b>
+          </li>
+          <li><b><br /></b>
+            <br />
+            <br />
           </li>
         </ul>
+        <p><b>&lt;code&gt;&lt;/code&gt;</b>
+        </p>
+        <p>ssss</p>
       </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
@@ -243,6 +308,8 @@
     </tr>
   </tbody>
 </table>
+
+![](../.gitbook/assets/sys_design_cluster_proxy.png)
 
 * * aaa
 
