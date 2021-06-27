@@ -229,7 +229,8 @@
         <ul>
           <li>How to route the traffic better?</li>
           <li><b>(2) Add Cluster Proxy</b> (a proxy machine and route traffic to correct
-            shard)
+            shard)</li>
+          <li>Cluster proxy is the only one who knew about all shards info.
             <br />
             <br />
             <img src="../.gitbook/assets/sys_design_cluster_proxy (1).png" alt/>
@@ -285,6 +286,7 @@
           </li>
           <li>=============================================</li>
           <li>How NoSQL handle these requirements --- Step by Step</li>
+          <li>NoSQL DB (Cassandra)</li>
         </ul>
         <p>
           <br /><b><code>@@@@ Scalability and Performance @@@@</code></b>
@@ -292,7 +294,43 @@
         <ul>
           <li>Split data into chunks, we call it <b>nodes (= shards in SQL)</b>
           </li>
-          <li><b><br /></b>
+          <li>We don&apos;t need config service to manage each node, instead, we
+            <br
+            />let nodes talk to each other and exchange information about
+            <br />their state.</li>
+          <li>Every sec node exchanges information with a few other nodes
+            <br />(less than 3). State information about every node propagates
+            <br />throughout the cluster -- <b>gossip protocol</b>.
+            <br />This way, we also don&apos;t need cluster proxy anymore.</li>
+        </ul>
+        <p><b> </b>
+          <img src="../.gitbook/assets/sys_design_db5_nosql_routing.png"
+          alt/>
+        </p>
+        <ul>
+          <li>NoSQL Routing Process</li>
+          <li>e.g. Processing service is asking us to store views count B, then
+            <br />Node4 has been selected. Node4 served as the coordinator node.
+            <br />which node do we store this view count B?
+            <br />(1) Round Robin Algorithm
+            <br />(2) Consistent Hashing Algorithm: choose a node that
+            <br />is closest to the client
+            <br />
+          </li>
+          <li><b>Quorum Writes: sends a &apos;successful&apos; message while 2 out of 3 <br />(not all) of replicas are successfully stored.<br /><br /></b>A
+            coordinator node (node4) calls multiple nodes
+            <br />to replicate data, to store multiple copies(3 copies) of data.
+            <br />However, waiting for all (3 responses) from replicas maybe
+            <br />too slow, we can send a &apos;successful&apos; message once some
+            <br />(2 requests) succeeded.</li>
+        </ul>
+        <p><b> </b>
+          <img src="../.gitbook/assets/sys_deign_db6_nosql_readquorum.png"
+          alt/>
+        </p>
+        <ul>
+          <li><b>Read Quorum</b>: read quorum defines a minimum number of nodes
+            <br />that have to agree on the response.<b><br /></b>
             <br />
             <br />
           </li>
