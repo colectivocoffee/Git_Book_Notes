@@ -317,6 +317,8 @@
             <br />is closest to the client
             <br />
           </li>
+          <li><b>Data Replication Using Quorum(&#x6CD5;&#x5B9A;&#x4EBA;&#x6578;)</b>
+          </li>
           <li><b>Quorum Writes: sends a &apos;successful&apos; message while 2 out of 3 <br />(not all) of replicas are successfully stored.<br /><br /></b>A
             coordinator node (node4) calls multiple nodes
             <br />to replicate data, to store multiple copies(3 copies) of data.
@@ -329,7 +331,7 @@
           alt/>
         </p>
         <ul>
-          <li><b>Read Quorum</b>: read quorum defines a minimum number of nodes
+          <li><b>Quorum Read</b>: read quorum defines a minimum number of nodes
             <br />that have to agree on the response.<b><br /></b>
             <br />
             <br />
