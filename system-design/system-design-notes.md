@@ -1,8 +1,6 @@
 # System Design Notes
 
-|  | sssss |
-| :--- | :--- |
-
+## s
 
 ## System Design Interview - Step by Step Guide
 
@@ -282,10 +280,15 @@
             <br
             />of MySQL instance, called Vitess.
             <br />
-          </li>
+            <br />s</li>
           <li>Design Data Model for relationalSQL, steps are
             <br />1) <b>Define Nouns</b>: we start with <b>nouns</b> in the system
-            <br />2) <b>Convert Nouns to Tables</b>: s
+            <br />2) <b>Convert Nouns to Tables</b>:
+            <br />3) <b>Use Foreign Keys to reference related data</b>:
+            <br />4) <b>Minimize data duplication across different tables: <br /></b>e.g.
+            only store video name in video info table.
+            <br />5)
+            <br />
             <br />
           </li>
           <li>=============================================</li>
