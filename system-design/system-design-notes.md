@@ -280,15 +280,6 @@
             <br
             />of MySQL instance, called Vitess.
             <br />
-            <br />s</li>
-          <li>Design Data Model for relationalSQL, steps are
-            <br />1) <b>Define Nouns</b>: we start with <b>nouns</b> in the system
-            <br />2) <b>Convert Nouns to Tables</b>:
-            <br />3) <b>Use Foreign Keys to reference related data</b>:
-            <br />4) <b>Minimize data duplication across different tables: <br /></b>e.g.
-            only store video name in video info table.
-            <br />5)
-            <br />
             <br />
           </li>
           <li>=============================================</li>
@@ -365,9 +356,27 @@
             <br />
             <br />
           </li>
-          <li>##Data Store##</li>
-          <li>How we store data?
-            <br />
+          <li>======How to Store Data=======</li>
+          <li>
+            <p>How we store data in relational DB?
+              <br />First, we need to design Data Model, with the following steps</p>
+            <table>
+              <thead>
+                <tr>
+                  <th style="text-align:left">
+                    <ul>
+                      <li>1) <b>Define Nouns</b>: we start with nouns in the system<b> </b>
+                        <br />2) <b>Convert Nouns to Tables</b>:
+                        <br />3) <b>Use Foreign Keys to reference related data</b>:
+                        <br />4) <b>Minimize data duplication across different tables: <br /></b>e.g.
+                        only store video name in video info table.
+                        <br />5)</li>
+                    </ul>
+                  </th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </li>
         </ul>
         <p><b>&lt;code&gt;&lt;/code&gt;</b>
