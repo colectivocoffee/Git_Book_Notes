@@ -282,6 +282,10 @@
             <br
             />of MySQL instance, called Vitess.
             <br />
+          </li>
+          <li>Design Data Model for relationalSQL, steps are
+            <br />1) <b>Define Nouns</b>: we start with <b>nouns</b> in the system
+            <br />2) <b>Convert Nouns to Tables</b>: s
             <br />
           </li>
           <li>=============================================</li>
@@ -321,6 +325,9 @@
           </li>
           <li><b>Data Replication Using Quorum(&#x6CD5;&#x5B9A;&#x4EBA;&#x6578;)</b>
           </li>
+          <li>Why? Because synchronous data replication is slow. We usually
+            <br />replicate data asynchronously. <b>  <br /> </b>
+          </li>
           <li><b>Quorum Writes: </b>sends a &apos;successful&apos; message while 2 out
             of 3
             <br />(not all) of replicas are successfully stored.<b><br /><br /></b>A coordinator
@@ -338,8 +345,25 @@
           <li><b>Quorum Read</b>: read quorum defines a minimum number of nodes
             <br />that have to agree on the response.</li>
           <li>Cassandra uses version number technique to determine the staleness of
-            data.<b><br /></b>
+            data.<b><br /><br /></b>
+          </li>
+          <li>For non-functional requirements, in this case, we choose
+            <br /><b>Availability over Consistency<br /></b>--&gt; We prefer to show stale
+            data over no data at all.</li>
+          <li>For the case of <b>Leader-Follower replication</b>, some read replicas
+            <br
+            />may be behind their master.
+            <br />--&gt; Different user would see <em>different view count</em> for a video.
+            <br
+            />--&gt; But this is temporary, this situation will be resolved over time.
+            <br
+            />--&gt; we call it <b>Eventual Consistency.<br /></b>--&gt; Cassandra -
+            tunable consistency
             <br />
+            <br />
+          </li>
+          <li>##Data Store##</li>
+          <li>How we store data?
             <br />
           </li>
         </ul>
