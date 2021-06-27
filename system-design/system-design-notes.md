@@ -309,7 +309,5 @@
   </tbody>
 </table>
 
-![](../.gitbook/assets/sys_design_cluster_proxy.png)
-
 * * aaa
 
