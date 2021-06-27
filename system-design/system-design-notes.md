@@ -357,20 +357,28 @@
             <br />
           </li>
           <li>======How to Store Data=======</li>
+          <li>How we store data in relational DB?
+            <br />First, we need to design Data Model, with the following steps</li>
           <li>
-            <p>How we store data in relational DB?
-              <br />First, we need to design Data Model, with the following steps</p>
+            <p>
+              <img src="../.gitbook/assets/sys_deign_db7_nosql_store.png" alt/>
+            </p>
             <table>
               <thead>
                 <tr>
                   <th style="text-align:left">
                     <ul>
-                      <li>1) <b>Define Nouns</b>: we start with nouns in the system<b> </b>
-                        <br />2) <b>Convert Nouns to Tables</b>:
-                        <br />3) <b>Use Foreign Keys to reference related data</b>:
-                        <br />4) <b>Minimize data duplication across different tables: <br /></b>e.g.
-                        only store video name in video info table.
-                        <br />5)</li>
+                      <li>
+                        <p>relational DB start with Nouns</p>
+                        <p>1) <b>Define Nouns</b>: we start with nouns in the system<b> </b>
+                          <br />2) <b>Convert Nouns to Tables</b>:
+                          <br />3) <b>Use Foreign Keys to reference related data</b>:
+                          <br />4) Normalization: to m<b>inimize data duplication across different tables <br /></b>e.g.
+                          only store video name in video info table.
+                          <br />To minimize changes across different tables -&gt; cuz
+                          <br />inconsistent data is possible.
+                          <br />5)</p>
+                      </li>
                     </ul>
                   </th>
                 </tr>
@@ -378,6 +386,8 @@
               <tbody></tbody>
             </table>
           </li>
+          <li>How we store data in NoSQL DB?</li>
+          <li>NoSQL starts with <b>Queries</b> ss</li>
         </ul>
         <p><b>&lt;code&gt;&lt;/code&gt;</b>
         </p>
