@@ -317,10 +317,14 @@
             <br />is closest to the client
             <br />
           </li>
+          <li><b>###Consistent Hashing###</b>
+          </li>
           <li><b>Data Replication Using Quorum(&#x6CD5;&#x5B9A;&#x4EBA;&#x6578;)</b>
           </li>
-          <li><b>Quorum Writes: sends a &apos;successful&apos; message while 2 out of 3 <br />(not all) of replicas are successfully stored.<br /><br /></b>A
-            coordinator node (node4) calls multiple nodes
+          <li><b>Quorum Writes: </b>sends a &apos;successful&apos; message while 2 out
+            of 3
+            <br />(not all) of replicas are successfully stored.<b><br /><br /></b>A coordinator
+            node (node4) calls multiple nodes
             <br />to replicate data, to store multiple copies(3 copies) of data.
             <br />However, waiting for all (3 responses) from replicas maybe
             <br />too slow, we can send a &apos;successful&apos; message once some
@@ -332,7 +336,9 @@
         </p>
         <ul>
           <li><b>Quorum Read</b>: read quorum defines a minimum number of nodes
-            <br />that have to agree on the response.<b><br /></b>
+            <br />that have to agree on the response.</li>
+          <li>Cassandra uses version number technique to determine the staleness of
+            data.<b><br /></b>
             <br />
             <br />
           </li>
