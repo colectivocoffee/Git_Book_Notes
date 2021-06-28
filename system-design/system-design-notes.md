@@ -357,7 +357,8 @@
             <br />
           </li>
           <li>======How to Store Data=======</li>
-          <li>How we store data in relational DB?
+          <li><b>relational database, SQL</b>
+            <br />How do we store data in relational DB?
             <br />First, we need to design Data Model, with the following steps</li>
           <li>
             <p>
@@ -386,17 +387,55 @@
               <tbody></tbody>
             </table>
           </li>
-          <li>How we store data in NoSQL DB?</li>
-          <li>NoSQL starts with <b>Queries</b> ss</li>
+          <li><b>NoSQL</b>
+            <br />How do we store data in NoSQL DB?</li>
+          <li>NoSQL starts with <b>Queries</b>
+          </li>
         </ul>
-        <p><b>&lt;code&gt;&lt;/code&gt;</b>
+        <p>
+          <img src="../.gitbook/assets/sys_deign_db8_nosql_query.png" alt/>
         </p>
+        <ul>
+          <li>There are 4 types of NoSQL DB:
+            <br />(1) Column
+            <br />(2) Document
+            <br />(3) Key-Value
+            <br />(4) Graph
+            <br />
+          </li>
+          <li><b>About Cassandra DB</b>
+          </li>
+          <li>Cassandra DB&apos;s benefit:
+            <br />* fault tolerant
+            <br />* scalable (both read and write throughput increases linearly as new
+            <br
+            />* machine is added)
+            <br />* supports multi datacenter replication
+            <br />* works well with time-series data</li>
+          <li>Cassandra is <b>Column DB</b> that supports asynchronous
+            <br />masterless replication.
+            <br />
+          </li>
+          <li><b>About HBase</b>
+          </li>
+          <li>HBase is Column DB, similar to Cassandra, but it has a master-based
+            <br
+            />architecture
+            <br />
+          </li>
+          <li><b>About MongoDB</b>
+          </li>
+          <li>MongoDB is <b>Documented-oriented DB</b>, uses leader-based replication
+            <br
+            />
+          </li>
+        </ul>
         <p>ssss</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">==== Chapter 4 ==== Data Processing</td>
     </tr>
   </tbody>
 </table>
