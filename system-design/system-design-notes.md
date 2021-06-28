@@ -435,7 +435,87 @@
     </tr>
     <tr>
       <td style="text-align:left"></td>
-      <td style="text-align:left">==== Chapter 4 ==== Data Processing</td>
+      <td style="text-align:left">
+        <p>==== Chapter 4 ==== Data Processing</p>
+        <p></p>
+        <ul>
+          <li>starts with... requirements</li>
+          <li>Requirements
+            <br />1) we want to scale the processing service to scale together when
+            <br />the video views increase. &lt;-- scalable
+            <br />2) we want to process events quickly. &lt;-- performance/fast
+            <br />3) we don&apos;t want to lose data &lt;-- availability/reliable
+            <br />
+          </li>
+          <li>The above questions turn into statements below:</li>
+          <li>How to <b>scale</b>?</li>
+          <li>How to achieve <b>high throughput</b>?</li>
+          <li>How to <b>not losing data</b> when processing node crashes?</li>
+          <li>What to do when DB is <b>unavailable</b> or slow?
+            <br />--&gt; How to make data processing <b>scalable, fast, and reliable?</b>
+          </li>
+        </ul>
+        <p>&lt;b&gt;&lt;/b&gt;</p>
+        <ul>
+          <li><b>Scalable == partitioning</b>
+          </li>
+          <li><b>Fast == in-memory &amp; minimize disk reads</b>
+          </li>
+          <li><b>Reliable == Replication and checkpointing</b>
+          </li>
+        </ul>
+        <p><b><br />++ Data Aggregation Basics</b>
+        </p>
+        <p><code>@@@ </code><b><code>Should we aggregate data first?</code></b><code> @@@</code>
+        </p>
+        <ul>
+          <li><b> </b>
+            <img src="../.gitbook/assets/sys_deign_process1_data_aggregation.png"
+            alt/>
+          </li>
+          <li>1st option, increment counter by 1 when an event comes (+1 +1 +1)</li>
+          <li>2nd option, accumulate data in the processing service memory for
+            <br />several seconds. And add accumulated value to the DB counter. (+3)</li>
+        </ul>
+        <p><code>@@@ </code><b><code>Push or Pull?</code></b><code> @@@</code>
+        </p>
+        <ul>
+          <li><b>Push &amp; Pull &#x600E;&#x9EBC;&#x770B;&#xFF1F;<br />&#x90FD;&#x662F;&#x4EE5;Processing Service&#x70BA;&#x57FA;&#x6E96;&#xFF0C;either push&#x5230;PS&#xFF0C;<br />&#x6216;&#x662F;pull&#x56DE;PS<br /><br /> </b>
+            <img
+            src="../.gitbook/assets/sys_deign_process2_push_pull.png" alt/>
+          </li>
+          <li><b>Push</b>: some other service sends events synchronously to the
+            <br />processing service
+            <br />
+            <br />[serviceA] -- event --&gt; [processing service]
+            <br />
+          </li>
+          <li><b>[v] Pull</b>: the processing service pulls events from some temp storage.
+            <br
+            />
+            <br />[]
+            <br />
+          </li>
+          <li><b>Pull option has more advantages</b>, as it provides a better fault
+            <br
+            />tolerance support and easier to scale.
+            <br />
+            <br />Why? Because if processing service crashes, we still have events in
+            <br
+            />the storage and can re-process them.
+            <br />
+          </li>
+          <li><b>++ Checkpointing</b>
+            <br />
+          </li>
+        </ul>
+        <p>&lt;b&gt;&lt;/b&gt;</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>
