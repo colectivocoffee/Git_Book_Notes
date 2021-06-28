@@ -547,11 +547,30 @@
         <p>@@@ Processing Service (Detailed Design) @@@</p>
         <ul>
           <li><b>Partition Consumer + De-duplication Cache</b>:
-            <br />* Partition Consumer: we need a component to read events
-            <br />* De-duplication Cache:</li>
-          <li><b>Aggregator + In-memory Store</b>:</li>
+            <br />* <b>Partition Consumer</b>: we need a component to read events.
+            <br />from byte array and turn it to actual object.
+            <br />Here we <b>prefer single thread</b> to read data. Otherwise, if we use
+            <br
+            />multi-threaded, checkpointing will be much harder to ensure order.
+            <br
+            />* <b>De-duplication Cache</b>: to <b>avoid double counting</b>. Messages
+            that
+            <br />get send to partition/shard could have duplicates. Meaning same
+            <br />message could be sent multiple times. Then we need de-duplication
+            <br />cache.
+            <br />This distributed cache <b>stores unique event identifiers</b>(uniq event
+            id)
+            <br />for last 10 mins. Then if several identical messages arrived within
+            <br
+            />10 mins interval, only one of them(first one) would be processed.
+            <br />
+            <br />
+          </li>
+          <li><b>Aggregator + In-memory Store</b>:
+            <br />* Aggregator: It does in-memory counting/</li>
           <li><b>Internal Queue</b>: s</li>
           <li><b>Database Writer + Embedded DB + Dead-Letter Queue</b>: ss</li>
+          <li>State Store:</li>
         </ul>
         <p>
           <br />
@@ -567,5 +586,7 @@
   </tbody>
 </table>
 
-* * aaa
+## Ch5 
 
+* * aaa
+* 
