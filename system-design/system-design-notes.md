@@ -644,11 +644,19 @@
 
 ## === Ch5 === Data Ingestion
 
-### Data Ingestion Path
+#### Data Ingestion Path
 
 
 
 ![](../.gitbook/assets/sys_design_di1_data_ingestion_path.png)
+
+### API Gateway/Partitioner Service Client
+
+### Load Balancer
+
+### Partitioner Service
+
+
 
 * * aaa
 * 
