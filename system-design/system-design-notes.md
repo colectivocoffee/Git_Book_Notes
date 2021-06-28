@@ -24,7 +24,7 @@
       <td style="text-align:left">
         <p>===Chapter 1===</p>
         <ul>
-          <li>When interviewer gives you a Q:</li>
+          <li>When a interviewer gives you a Q:</li>
           <li>Then Ask Interviewers about 4 categories to
             <br />get requirement clarifications.
             <br />(1) Users/Customers
@@ -406,11 +406,11 @@
           <li><b>About Cassandra DB</b>
           </li>
           <li>Cassandra DB&apos;s benefit:
-            <br />* fault tolerant
+            <br />* fault-tolerant
             <br />* scalable (both read and write throughput increases linearly as new
             <br
             />* machine is added)
-            <br />* supports multi datacenter replication
+            <br />* supports multi-datacenter replication
             <br />* works well with time-series data</li>
           <li>Cassandra is <b>Column DB</b> that supports asynchronous
             <br />masterless replication.
@@ -515,7 +515,11 @@
         <ul>
           <li><b>++ Checkpointing ++</b>
           </li>
-          <li>Checkpointing happens in the queue.</li>
+          <li>Checkpointing is a technique to <b>add fault-tolerance into the system</b>.
+            <br
+            />It consists of saving a snapshot of the application&apos;s state, so it
+            can
+            <br />restart at the point where it failed. It happens in the queue.</li>
           <li>After we processed several events and successfully stored them in
             <br />the DB, we write checkpoint to some persistent storage.
             <br />If processing service machine fails, it will be replaced with another
