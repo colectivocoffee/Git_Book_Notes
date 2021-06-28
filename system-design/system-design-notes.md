@@ -1,6 +1,8 @@
 # System Design Notes
 
-## s
+## Data Flow Simulation  
+
+![](../.gitbook/assets/sys_design_001_all.png)
 
 ## System Design Interview - Step by Step Guide
 
@@ -567,26 +569,86 @@
             <br />
           </li>
           <li><b>Aggregator + In-memory Store</b>:
-            <br />* Aggregator: It does in-memory counting/</li>
-          <li><b>Internal Queue</b>: s</li>
-          <li><b>Database Writer + Embedded DB + Dead-Letter Queue</b>: ss</li>
-          <li>State Store:</li>
+            <br />* <b>Aggregator (passport check officer, consumption)</b>:
+            <br />It does in-memory counting.
+            <br />[hash table1] --&gt; [hash table2] --&gt; [hash table3] ...
+            <br />1 1 1 1 1(stop) -&gt; 1 1 1 +1...
+            <br />While adding hash table2,
+            <br />The hash table1(complete) was sent to internal queue.
+            <br />
+            <br />A <b>hash table</b> that accumulates data for some period of time.
+            <br />This hash table is stored in the in-memory store.
+            <br />Periodically, we stop writing to the current hash table and create
+            <br
+            />a new one. Then a new hash table keeps accumulating incoming
+            <br />data. While old hash table is no longer counting any data and each
+            <br
+            />counter from old hash table is sent to the internal queue for furhter
+            <br
+            />processing.
+            <br />
+            <br />Why aggregator is connected with Internal Queue?
+            <br />Ans: To speed up processing, with multiple threads.
+            <br />We can also do the other way around, where queue -&gt; aggregator.
+            <br
+            />Especially if processing data takes time. By sending data to the
+            <br />internal queue, <b>we decouple consumption and processing</b>.
+            <br />
+          </li>
+          <li><b>Internal Queue (multi-lines luggage check, processing)</b>:
+            <br />Internal queue speeds up processing with mulitple threads.
+            <br />Processing data takes longer time.
+            <br />
+          </li>
+          <li><b>Database Writer + Embedded DB + Dead-Letter Queue</b>:
+            <br />* <b>DB writer</b> can be either single thread or multi-threaded.
+            <br />Single thread: <b>checkpointing is easy</b> / but slow
+            <br />Multi threaded: checkpointing is hard / but <b>increases throughput</b>.
+            <br
+            />
+            <br />[Dead-Letter Queue is useful]
+            <br />How do we handle undelivered data?
+            <br />* <b>(1)</b>  <b>Dead-Letter Queue</b>: To temporary store data when data
+            cannot
+            <br />be routed to their destination.
+            <br />DLQ Pros: To protect DB performance or availability issues.
+            <br />Very useful when we need to preserve data incase of downstream
+            <br />services degradation. (availiability up)
+            <br />* <b>(2) Local Disk Storage / Data Enrichment</b>:
+            <br />To temporary store undelivered messages. Minimal information, like
+            <br
+            />video identifier and timestamp. We don&apos;t need to store video titile
+            or
+            <br />channel name or video creation date.
+            <br />* <b>Embedded DB</b>:
+            <br />To store additional attributes, like video title or channel name.
+            <br />Embedded DB is on local machine, which eliminates a need for
+            <br />remote calls.
+            <br />
+          </li>
+          <li><b>State Store (Recover from prev un-lost state)</b>:
+            <br />State management. To periodically save the entire in-memory data
+            <br />to a durable storage. It helps to recover when PS is down, and then
+            <br
+            />embedded DB/in-memory state is lost.
+            <br />If breakdown happends, just re-create the point where it failed.
+            <br />A new machine just have to re-load this state into its memory
+            <br />when started.</li>
         </ul>
-        <p>
-          <br />
-        </p>
         <p>&lt;b&gt;&lt;/b&gt;</p>
         <p></p>
       </td>
     </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-    </tr>
   </tbody>
 </table>
 
-## Ch5 
+## === Ch5 === Data Ingestion
+
+### Data Ingestion Path
+
+
+
+![](../.gitbook/assets/sys_design_di1_data_ingestion_path.png)
 
 * * aaa
 * 
