@@ -464,7 +464,7 @@
           <li><b>Reliable == Replication and checkpointing</b>
           </li>
         </ul>
-        <p><b><br />++ Data Aggregation Basics</b>
+        <p><b><br />%%%% Data Aggregation Basics %%%%</b>
         </p>
         <p><code>@@@ </code><b><code>Should we aggregate data first?</code></b><code> @@@</code>
         </p>
@@ -504,11 +504,54 @@
             <br
             />the storage and can re-process them.
             <br />
-          </li>
-          <li><b>++ Checkpointing</b>
             <br />
           </li>
+          <li>How data aggregation happens during event processing?</li>
+          <li>Checkpointing &amp; Partitioning</li>
         </ul>
+        <p>
+          <img src="../.gitbook/assets/sys_deign_ps3_data_aggregation.png" alt/>
+        </p>
+        <ul>
+          <li><b>++ Checkpointing ++</b>
+          </li>
+          <li>Checkpointing happens in the queue.</li>
+          <li>After we processed several events and successfully stored them in
+            <br />the DB, we write checkpoint to some persistent storage.
+            <br />If processing service machine fails, it will be replaced with another
+            <br
+            />one and this new machine will resume processing where the failed
+            <br />machine left off. (key in stream data processing)
+            <br />
+          </li>
+          <li><b>++ partitioning ++</b>
+          </li>
+          <li>Partitioning also happens in the queue.</li>
+          <li>Each queue is independent from the others. Every queue physically
+            <br />lives on its own machine and stores a subset of all events
+            <br />(AA / BBB / C)
+            <br />We compute a hash based on video identifier and use this hash number to
+            pick a queue.</li>
+          <li>Partitioning allows us to <b>parallelize events processing</b>. More events
+            <br
+            />we get, more partitions we create.</li>
+        </ul>
+        <p></p>
+        <p>
+          <img src="../.gitbook/assets/sys_deign_ps4_ps_design.png" alt/>
+        </p>
+        <p>@@@ Processing Service (Detailed Design) @@@</p>
+        <ul>
+          <li><b>Partition Consumer + De-duplication Cache</b>:
+            <br />* Partition Consumer: we need a component to read events
+            <br />* De-duplication Cache:</li>
+          <li><b>Aggregator + In-memory Store</b>:</li>
+          <li><b>Internal Queue</b>: s</li>
+          <li><b>Database Writer + Embedded DB + Dead-Letter Queue</b>: ss</li>
+        </ul>
+        <p>
+          <br />
+        </p>
         <p>&lt;b&gt;&lt;/b&gt;</p>
         <p></p>
       </td>
