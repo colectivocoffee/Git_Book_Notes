@@ -650,6 +650,17 @@
 
 ![](../.gitbook/assets/sys_design_di1_data_ingestion_path.png)
 
+## Ingestion Path Components
+
+| Partitioner Service Client/API Gateway | Load Balancer | Partitioner Service and Partitions |
+| :--- | :--- | :--- |
+| Blocking vs non-blocking I/O | Software vs hardware balancing | Partition Strategy |
+| Buffering and batching | Networking Protocols | Service Discovery |
+| Timeouts | Load balancing algorithms | Replication |
+| Retrics | DNS | Message Format |
+| Exponential backoff and jitter | Health Checking |  |
+| Circuit breaker | High Availiability |  |
+
 ### API Gateway/Partitioner Service Client
 
 ### Load Balancer
