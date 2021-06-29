@@ -714,8 +714,10 @@
 
 ### Load Balancer
 
-* Hardware and Software Load Balancing
-
+* Hardware vs Software Load Balancing:
+  * **Hardware Load Balancer**: Hardware load balancers are network devices we buy, such as CPU cores, memories that are optimized to handle very high throughput. Millions of requests per second.
+  * **Software Load Balancer**:  Software load balancer  Many of them are open source.
+* 
 ### Partitioner Service
 
 
