@@ -663,6 +663,29 @@
 
 ### API Gateway/Partitioner Service Client
 
+* **Blocking vs non-blocking I/O**:
+
+  **Blocking I/O  \(one socket per connection style\)**
+
+  \(1\) One thread per connection. New client, new thread, new connection.  
+  \(2\) Initiated the connection by using sockets.   
+  \(3\) \[Single execution thread\] When a client makes a request, the socket that handles the connection on the server is blocked. We can then track progress of the request. \(Easy to debug\)  
+  \(4\) We can use   
+  \(5\) Pros: Not complex, **easy to debug**.  
+       Cons: **Not efficient**    
+  \(6\) When server starts to experience a slow down, the whole cluster of machines may die \(一起掛）  
+  \(7\) How to solve this? We need **Rate Limiter**. 
+
+  * **Rate Limiter**: Help to keep system stable during traffic peeks.   
+
+  **Non-Blocking I/O \(Queue Style\)**  
+  \(1\) Single thread to handle multiple concurrent connections.   
+  \(2\) Server just **queues** the request and the actual I/O is then processed at some later point.  
+  \(3\) Piling up requests in queue are far less expensive than piling up threads.   
+  \(4\) Pros: **More efficient** and has **higher throughput**.    
+       ****Cons: **Adding more complexity** of operations.
+
+* 
 ### Load Balancer
 
 ### Partitioner Service
