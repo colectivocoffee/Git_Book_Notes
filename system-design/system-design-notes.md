@@ -714,6 +714,8 @@
 
 ### Load Balancer
 
+* Hardware and Software Load Balancing
+
 ### Partitioner Service
 
 
