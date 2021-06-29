@@ -665,7 +665,7 @@
 
 * **Blocking vs non-blocking I/O**:
 
-  **Blocking I/O  \(one socket per connection style\)**
+  **Blocking I/O  `(one socket per connection style)`**
 
   \(1\) One thread per connection. New client, new thread, new connection.  
   \(2\) Initiated the connection by using sockets.   
@@ -678,7 +678,7 @@
 
   * **Rate Limiter**: Help to keep system stable during traffic peeks.   
 
-  **Non-Blocking I/O \(Queue Style\)**  
+  **Non-Blocking I/O `(Queue Style)`**  
   \(1\) Single thread to handle multiple concurrent connections.   
   \(2\) Server just **queues** the request and the actual I/O is then processed at some later point.  
   \(3\) Piling up requests in queue are far less expensive than piling up threads.   
@@ -686,14 +686,14 @@
        ****Cons: **Adding more complexity** of operations.  
   
 
-* **Buffering and Batching \(send group events in one shot\) Batching** \(send group events together in a single request\) **Buffer** \(a place to put grouped events\) \(1\) Instead of sending each event individually, we first put events into a buffer.  \(2\) We then wait up to several seconds before buffer's content or until batch fills up.  \(3\) Pros: **Increases throughput**, **save on cost**, **effective request compression**       Cons: **More complex** both on client and server side. \(4\) e.g. In a batch request, some events fail, while other succeed.       Should we resend whole batch or only failed events? 
-* **Timeouts \(wait until xx time and leave\)**  
+* **Buffering and Batching `(send group events in one shot)` Batching** \(send group events together in a single request\) **Buffer** \(a place to put grouped events\) \(1\) Instead of sending each event individually, we first put events into a buffer.  \(2\) We then wait up to several seconds before buffer's content or until batch fills up.  \(3\) Pros: **Increases throughput**, **save on cost**, **effective request compression**       Cons: **More complex** both on client and server side. \(4\) e.g. In a batch request, some events fail, while other succeed.       Should we resend whole batch or only failed events? 
+* **Timeouts `(wait until xx time and leave)`**  
   \(1\) Timeouts define how much time a client is willing to wait for a response from a server.
 
   * **Connection Timeout:  \*** connection timeout defines how much time a client is willing to wait for a connection to establish. \* usually connection timeout is small, 10/milliseconds. Because there's no heavy request happening just yet.
   * **Request Timeout: \*** request timeout happens when request processing takes too much time, and a client is not willing to wait any longer.  \* How to choose request timeout value? We need to **analyze latency percentiles**.  e.g. latency **1% of the slowest requests** in the system and set it as req timeout. 
 
-* **Retries** **\(what to do with failed requests? Use retries, try again.\)** \(1\) Timeout is probably due to a bad machine was hitted. The second attempt may hit a different server machine. \(2\) Retry smart. We **shouldn't do all retries at the same time**. We may create a so-called  **retry storm event** and overload server with too many requests.  
+* **Retries** **`(what to do with failed requests? Use retries, try again.)`** \(1\) Timeout is probably due to a bad machine was hitted. The second attempt may hit a different server machine. \(2\) Retry smart. We **shouldn't do all retries at the same time**. We may create a so-called  **retry storm event** and overload server with too many requests.  
 * **Exponential Backoff and Jitter Algorithms \(how not to do all retries at the same time?\)**  
   \(1\) To prevent all retries start at the same time, we need exponential backoff and jitter algorithms. 
 
@@ -703,7 +703,7 @@
   \(2\)  Be aware of too many retries.   
          e.g.  when partitioner service is down or degraded, then retries would never succeed.    
 
-* **Circuit Breaker \(stops unlimited retries with a threshold\)**   
+* **Circuit Breaker `(stops unlimited retries with a threshold)`**   
   \(1\) Circuit breaker pattern stops a client from repeatedly trying to execute an operation that is likely to fail.  
   \(2\) We simply calculate how many requests have failed recently. If error threshold is exceeded, we stop calling a downstream service.   
   \(3\) **\[Retry with limited requests\]** Somtime later, limited number of requests from the client are allowed to pass through and invoke the operation. If requests are successful, it is assumed that the fault has been fixed.  
