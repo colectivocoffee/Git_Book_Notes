@@ -67,7 +67,7 @@
       <td style="text-align:left">
         <p>===Chapter 1===</p>
         <ul>
-          <li>When a interviewer gives you a Q:</li>
+          <li>When an interviewer gives you a Q:</li>
           <li>Then Ask Interviewers about 4 categories to
             <br />get requirement clarifications.
             <br />(1) Users/Customers
@@ -769,8 +769,27 @@
             <br />what could happen?</li>
           <li>
             <p>What are the techniques to improve</p>
-            <p>availability, scalability?</p>
+            <p>availability, scalability?
+              <br />
+            </p>
           </li>
+          <li>How to improve efficiency of events delivery?
+            <br />
+          </li>
+          <li>Efficiency is solved, what if grouped events cannot be delivered?
+            <br />
+          </li>
+          <li>We need to set a timeout to prevent infinite try.
+            <br />What are the two different ways of timeout?
+            <br />
+          </li>
+          <li>If event still not being delivered, should we retry?
+            <br />
+          </li>
+          <li>What are the retry techniques?
+            <br />
+          </li>
+          <li>What if retry still not successful, should we set a threshold?</li>
         </ul>
       </td>
       <td style="text-align:left">
@@ -778,25 +797,65 @@
           <li>Blocking &amp; Non-blocking I/O
             <ul>
               <li>Blocking I/O - 1 thread per connection</li>
-              <li>Non-Blocking I/O - Queue style</li>
+              <li>Non-Blocking I/O - Queue style
+                <br />
+              </li>
             </ul>
           </li>
           <li>Batching &amp; Buffering
             <ul>
               <li>Batching - send events in a group</li>
-              <li>Buffering - put grouped events in a buffer</li>
+              <li>Buffering - put grouped events in a buffer
+                <br />
+              </li>
             </ul>
           </li>
-          <li></li>
+          <li>Timeouts
+            <ul>
+              <li>Request Timeout - during request, the request takes too long, then a client
+                is not willing to wait</li>
+              <li>Connection Timeout - Init the request, how much time a client is willing
+                to wait for a connection
+                <br />
+              </li>
+            </ul>
+          </li>
+          <li>Retries
+            <ul>
+              <li>Prevent all retries at the same time
+                <br />
+              </li>
+            </ul>
+          </li>
+          <li>Exponential Backoff &amp; Jitter
+            <ul>
+              <li>Exponential Backoff - wait time increases
+                <br />1-&gt;2-&gt;5-&gt;10-&gt;30-&gt;60</li>
+              <li>Jitter - add randomness to retry intervals
+                <br />
+              </li>
+            </ul>
+          </li>
+          <li>Circuit Breaker
+            <ul>
+              <li>set a threshold to stop infinite retrying</li>
+            </ul>
+          </li>
         </ul>
-        <p>quick notes</p>
-        <p>key thoughts and takeaways</p>
-        <p>from lecture</p>
+        <p></p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
-      <td style="text-align:left">Summary</td>
+      <td style="text-align:left">
+        <p><b>Summary</b>
+        </p>
+        <p>This API Gateway Chapter explains
+          <br />(1) how messages/events are being delivered</p>
+        <p>(2) techniques of improving success rate of message delivery</p>
+        <p>(3) ways of unblocking resources when events could not be delivered for
+          a long period of time.</p>
+      </td>
     </tr>
   </tbody>
 </table>
