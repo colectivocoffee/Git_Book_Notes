@@ -716,9 +716,36 @@
 
 * Hardware vs Software Load Balancing:
   * **Hardware Load Balancer**: Hardware load balancers are network devices we buy, such as CPU cores, memories that are optimized to handle very high throughput. Millions of requests per second.
-  * **Software Load Balancer**:  Software load balancer  Many of them are open source.
-* 
-### Partitioner Service
+  * **Software Load Balancer**:  lv2 Software load balancers are provided by public clouds \(e.g. ELB Elastic Load Balancing from AWS\)  lv1 Software LB is what traffic they serve TCP or HTTP.   Many of them are open source. 
+* Networking Protocols:
+  * **TCP Load Balancers**  TCP Load Balancers are simply forward network packets without inspecting the content of packets. Think of it as if we established a single end-to-end TCP connection between a client and a server. This allows TCP LB to be super fast and handle millions of requests per second. HTTP load balancers, in contrast, HTTP LB terminates the connection.    
+  * **HTTP Load Balancers**  
+    \(1\) Load Balancers gets an HTTP request from a client, establishes a connection to a server, and sends a request to this server.   
+    \(2\) HTTP LB can look inside a message and make a load-balancing decision based on the content of the message.  
+    \(3\) Based on cookie information or a header, LB may use several algorithms to distribute the load.   
+    e.g. Round Robin Algorithm, Least Connection Algorithm
+
+    * **Round Robin Algorithm**
+
+            Round Robin algorithm distributes requests in sequencial order across the list of servers. 
+
+    * **Least Connection Algorithm**  Least Connection Algorithm sends requests to **the server with the lowest number of active connections**. 
+    * **Least Response Time Algorithm**  Least Response Time Algorithm sends requests to **the server with the** **fastest response time**. 
+    * **Hash-based Algorithm** Hash-based algorithms distribute requests **based on a key we define, such as the client IP address or the request URL**. 
+
+How does our API gateway/Partitioner service client know about our Load Balancer?  
+How does Load Balancer know about partitioner service machines?   
+How does Load Balancer guarantee high availability? \(LB could be a single point of failure\)
+
+* **DNS - Domain Name System  DNS between Load Balancer and web IP address**  DNS is like a **phone book for the internet**. It maintains a directory of domain names and translates them to IP addresses.  \(1\) We register our partitioner service in DNS, specify the domain name. \(e.g. partitionerservice.domain.com\) \(2\) And then we associate DNS with the IP address of the load balancer device.  partitionerservice.elb1.domain.com &lt;----&gt; Load balancer 1  partitionerservice.elb2.domain.com &lt;----&gt; Load balancer 2 .... \(3\) When the client hits the domain name, requests are forwarded to the load balancer device.  \(4\) We need to explictly tell the load balancer the IP address of each machine. \(5\) Both Software and Hardware LB provide API to register and unregister servers. 
+* **Health Checking** Load balancer checks the health of each server.  \(6\) LB needs to know which server from the registered list is healthy and which is unavailable at the moment. This way, LB ensures that traffic is routed to healthy servers only.  \(7\) LB pings each server periodically. If the unhealthy server is identified, LB stops sending traffic to it.  \(8\) LB will then resume routing traffic to that server when it detects that the server is healthy again. 
+* **High Availability** High availability of load balancers.  \(1\) To achieve high availability of load balancers, we utilize the concept of primary and secondary nodes.  \(2\) **Primary Node / Primary Load Balancer**: The Primary LB accepts connections and serves requests, while the Secondary LB monitors the primary.   \(3\) **Secondary Node / Secondary Load Balancer:**   The Secondary LB monitors the primary. If for any reason, the primary LB is unable to accept the connections, the secondary LB takes over. Primary and Secondary LB live in different data centers, in case one data center goes down.
+
+| Cues/Recall | Notes |
+| :--- | :--- |
+|  |  |
+
+### Partitioner Service and Partitions
 
 
 
