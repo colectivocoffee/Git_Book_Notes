@@ -741,9 +741,31 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
 * **Health Checking** Load balancer checks the health of each server.  \(6\) LB needs to know which server from the registered list is healthy and which is unavailable at the moment. This way, LB ensures that traffic is routed to healthy servers only.  \(7\) LB pings each server periodically. If the unhealthy server is identified, LB stops sending traffic to it.  \(8\) LB will then resume routing traffic to that server when it detects that the server is healthy again. 
 * **High Availability** High availability of load balancers.  \(1\) To achieve high availability of load balancers, we utilize the concept of primary and secondary nodes.  \(2\) **Primary Node / Primary Load Balancer**: The Primary LB accepts connections and serves requests, while the Secondary LB monitors the primary.   \(3\) **Secondary Node / Secondary Load Balancer:**   The Secondary LB monitors the primary. If for any reason, the primary LB is unable to accept the connections, the secondary LB takes over. Primary and Secondary LB live in different data centers, in case one data center goes down.
 
-| Cues/Recall | Notes |
-| :--- | :--- |
-|  |  |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Cues/Recall</th>
+      <th style="text-align:left">Cornell Notes Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p>Keywords</p>
+        <p>Questions</p>
+      </td>
+      <td style="text-align:left">
+        <p>quick notes</p>
+        <p>key thoughts and takeaways</p>
+        <p>from lecture</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Summary</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Partitioner Service and Partitions
 
