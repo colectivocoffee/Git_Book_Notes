@@ -691,7 +691,7 @@
 
 ![](../.gitbook/assets/sys_design_di1_data_ingestion_path.png)
 
-## Ingestion Path Components
+### Ingestion Path Components
 
 | Partitioner Service Client/API Gateway | Load Balancer | Partitioner Service and Partitions |
 | :--- | :--- | :--- |
@@ -702,7 +702,7 @@
 | Exponential backoff and jitter | Health Checking |  |
 | Circuit breaker | High Availiability |  |
 
-### API Gateway/Partitioner Service Client
+## API Gateway/Partitioner Service Client
 
 * **Blocking vs non-blocking I/O**:
 
@@ -753,7 +753,7 @@
   \(5\) Pros: Have a threshold to stop requests.   
        Cons: **Hard to test the system,** Error **threshold** and timers are **hard to set** 
 
-#### Summary
+### Summary
 
 <table>
   <thead>
@@ -863,7 +863,7 @@
   </tbody>
 </table>
 
-### Load Balancer
+## Load Balancer
 
 * **Hardware vs Software Load Balancing:**
   * **Hardware Load Balancer**: Hardware load balancers are network devices we buy, such as CPU cores, memories that are optimized to handle very high throughput. Millions of requests per second.
@@ -937,7 +937,36 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
   </tbody>
 </table>
 
-### Partitioner Service and Partitions
+## Partitioner Service and Partitions
+
+#### Partitioner Service
+
+Partitioner Service is a web service that gets requests from clients, looks inside each request to retrieve individual video view events \(because remember we batch events on the client-side\), and route each event/message to some partition.
+
+#### Partitions
+
+Partition is also a web service, which gets messages and stores them on a disk, in the form of the append-only log file. Therefore, we have a totally ordered sequence of messages ordered by time. This is not a large single log file, but a set of files of the predefined size.
+
+Partitioner service has to use some rule, partition strategy, that defines which partition gets what message.  
+
+### 1. Partition Strategy
+
+To send messages to partitions, the partitioner service needs to know about every partition.  
+
+* **Hash Function Strategy  \(key-value pair between item &lt;-&gt; machine\)** A simple strategy is to **calculate a hash function based on some key**, let's say video identifier, **and** **choose a machine based on this hash**.  However, this strategy does not work very well on large scale. As it may lead to so-called "hot partitions."   **Hot Partitions Problem** For example, when we have a very popular video or set of videos, all view events go to the same partition. Approaches to deal with hot partition:  \(1\) **To Include Event Time** To include event time \(a minute\) to the video identifier/partition key. All video events within the current minute interval are forwarded to some partition. The next minute, all events go to a different partition.   Within one minute interval, a single partition gets a lot of data, but over several minutes, data is **spread more evenly among partitions**.  \| ---- 11:30am ---- \| ---- 11:31am ---- \| ---- 11:32 am --- \| ---- 11:33 am ---- \| ---- 11:34 am ---- \| ---- ....    A A A A A A A       B B B B B            C C C C C C C C   A A A                    B B B B B B B B    C C   \(2\) **Split Original Hot Partition in Half** Another solution is to split this hot partition into two partitions.  How does this approach actually look like? Consistent hashing algorithm and how adding a new node to the consistent hashing ring split a range of keys into two new ranges.    Furthermore, we can also explicitly **allocate dedicated partitions** for some popular video channels. All video view events from such channels go to their allocated partitions. And view events from all other channels never go to those partitions.  
+
+![](../.gitbook/assets/sys_design_di1_consistent_hashing.png)
+
+* sss
+
+### 2. Service Discovery
+
+In order to let partitioner service know every partition, we need service discovery. There are two types of service discovery: 
+
+* **Service-side discovery**  We've already looked at server-side discovery when talked about load balancers. Clients know about load balancer, load balancer knows about server-side instances. But we don't need an LB between partitioner service and partitions. **Partitioner service itself acts as a load balance**r by distributing events over partitions. 
+* **Client-side discovery** For client-side discovery, **every server instance registers itself in some commonplace**, named service registry.   **Service Registry** The service registry is another highly available web service, which can perform health checks to determine the health of each registered instance.  The client then queries the service registry and obtains a list of available servers.  E.g. Zookeeper.  In our case, each partition registers itself in Zookeeper, while every partitioner service instance queries Zookeeper for the list of partitions. 
+
+
 
 
 
