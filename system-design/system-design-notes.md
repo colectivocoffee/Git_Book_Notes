@@ -4,6 +4,47 @@
 
 ![](../.gitbook/assets/sys_design_001_all.png)
 
+#### Cornell Note Taking Technique
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Cues/Recall</th>
+      <th style="text-align:left">Cornell Notes Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p>Keywords</p>
+        <p>Questions</p>
+      </td>
+      <td style="text-align:left">
+        <p>quick notes</p>
+        <p>key thoughts and takeaways</p>
+        <p>from lecture</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Summary</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">
+        <ul>
+          <li></li>
+        </ul>
+      </th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
 ## System Design Interview - Step by Step Guide
 
 <table>
@@ -35,7 +76,7 @@
             <br />(4) Cost
             <br />
           </li>
-          <li>Why to things above?</li>
+          <li>Why do things above?</li>
           <li>Get functional requirements &amp; non-functional requirements
             <br />(1) <b>Functional Requirements (what system will do)</b>:
             <br />system behavior, specific APIs,
@@ -676,7 +717,7 @@
   \(6\) When server starts to experience a slow down, the whole cluster of machines may die \(一起掛）  
   \(7\) How to solve this? We need **Rate Limiter**. 
 
-  * **Rate Limiter**: Help to keep system stable during traffic peeks.   
+  * **Rate Limiter**: Help to keep the system stable during traffic peeks.   
 
   **Non-Blocking I/O `(Queue Style)`**  
   \(1\) Single thread to handle multiple concurrent connections.   
@@ -706,11 +747,59 @@
 * **Circuit Breaker `(stops unlimited retries with a threshold)`**   
   \(1\) Circuit breaker pattern stops a client from repeatedly trying to execute an operation that is likely to fail.  
   \(2\) We simply calculate how many requests have failed recently. If error threshold is exceeded, we stop calling a downstream service.   
-  \(3\) **\[Retry with limited requests\]** Somtime later, limited number of requests from the client are allowed to pass through and invoke the operation. If requests are successful, it is assumed that the fault has been fixed.  
+  \(3\) **\[Retry with limited requests\]** Sometime later, a limited number of requests from the client are allowed to pass through and invoke the operation. If requests are successful, it is assumed that the fault has been fixed.  
   \(4\) **\[Success, then allow all\]** Then we allow all requests at this point and start counting failed requests from scratch \(start over again.\) 
 
   \(5\) Pros: Have a threshold to stop requests.   
        Cons: **Hard to test the system,** Error **threshold** and timers are **hard to set** 
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Recall / Questions / Keywords</th>
+      <th style="text-align:left">Cornell Notes Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p></p>
+        <ul>
+          <li>When data flows into API gateway,
+            <br />what could happen?</li>
+          <li>
+            <p>What are the techniques to improve</p>
+            <p>availability, scalability?</p>
+          </li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <ul>
+          <li>Blocking &amp; Non-blocking I/O
+            <ul>
+              <li>Blocking I/O - 1 thread per connection</li>
+              <li>Non-Blocking I/O - Queue style</li>
+            </ul>
+          </li>
+          <li>Batching &amp; Buffering
+            <ul>
+              <li>Batching - send events in a group</li>
+              <li>Buffering - put grouped events in a buffer</li>
+            </ul>
+          </li>
+          <li></li>
+        </ul>
+        <p>quick notes</p>
+        <p>key thoughts and takeaways</p>
+        <p>from lecture</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Summary</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Load Balancer
 
@@ -740,32 +829,6 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
 * **DNS - Domain Name System  DNS between Load Balancer and web IP address**  DNS is like a **phone book for the internet**. It maintains a directory of domain names and translates them to IP addresses.  \(1\) We register our partitioner service in DNS, specify the domain name. \(e.g. partitionerservice.domain.com\) \(2\) And then we associate DNS with the IP address of the load balancer device.  partitionerservice.elb1.domain.com &lt;----&gt; Load balancer 1  partitionerservice.elb2.domain.com &lt;----&gt; Load balancer 2 .... \(3\) When the client hits the domain name, requests are forwarded to the load balancer device.  \(4\) We need to explictly tell the load balancer the IP address of each machine. \(5\) Both Software and Hardware LB provide API to register and unregister servers. 
 * **Health Checking** Load balancer checks the health of each server.  \(6\) LB needs to know which server from the registered list is healthy and which is unavailable at the moment. This way, LB ensures that traffic is routed to healthy servers only.  \(7\) LB pings each server periodically. If the unhealthy server is identified, LB stops sending traffic to it.  \(8\) LB will then resume routing traffic to that server when it detects that the server is healthy again. 
 * **High Availability** High availability of load balancers.  \(1\) To achieve high availability of load balancers, we utilize the concept of primary and secondary nodes.  \(2\) **Primary Node / Primary Load Balancer**: The Primary LB accepts connections and serves requests, while the Secondary LB monitors the primary.   \(3\) **Secondary Node / Secondary Load Balancer:**   The Secondary LB monitors the primary. If for any reason, the primary LB is unable to accept the connections, the secondary LB takes over. Primary and Secondary LB live in different data centers, in case one data center goes down.
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Cues/Recall</th>
-      <th style="text-align:left">Cornell Notes Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">
-        <p>Keywords</p>
-        <p>Questions</p>
-      </td>
-      <td style="text-align:left">
-        <p>quick notes</p>
-        <p>key thoughts and takeaways</p>
-        <p>from lecture</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">Summary</td>
-    </tr>
-  </tbody>
-</table>
 
 ### Partitioner Service and Partitions
 
