@@ -872,11 +872,11 @@ How does our API gateway/Partitioner service client know about our Load Balancer
 How does Load Balancer know about partitioner service machines?   
 How does Load Balancer guarantee high availability? \(LB could be a single point of failure\)
 
-
-
 * **DNS - Domain Name System  DNS between Load Balancer and web IP address**  DNS is like a **phone book for the internet**. It maintains a directory of domain names and translates them to IP addresses.  \(1\) We register our partitioner service in DNS, specify the domain name. \(e.g. partitionerservice.domain.com\) \(2\) And then we associate DNS with the IP address of the load balancer device.  partitionerservice.elb1.domain.com &lt;----&gt; Load balancer 1  partitionerservice.elb2.domain.com &lt;----&gt; Load balancer 2 .... \(3\) When the client hits the domain name, requests are forwarded to the load balancer device.  \(4\) We need to explictly tell the load balancer the IP address of each machine. \(5\) Both Software and Hardware LB provide API to register and unregister servers. 
 * **Health Checking** Load balancer checks the health of each server.  \(6\) LB needs to know which server from the registered list is healthy and which is unavailable at the moment. This way, LB ensures that traffic is routed to healthy servers only.  \(7\) LB pings each server periodically. If the unhealthy server is identified, LB stops sending traffic to it.  \(8\) LB will then resume routing traffic to that server when it detects that the server is healthy again. 
 * **High Availability** High availability of load balancers.  \(1\) To achieve high availability of load balancers, we utilize the concept of primary and secondary nodes.  \(2\) **Primary Node / Primary Load Balancer**: The Primary LB accepts connections and serves requests, while the Secondary LB monitors the primary.   \(3\) **Secondary Node / Secondary Load Balancer:**   The Secondary LB monitors the primary. If for any reason, the primary LB is unable to accept the connections, the secondary LB takes over. Primary and Secondary LB live in different data centers, in case one data center goes down.
+
+#### Summary
 
 <table>
   <thead>
