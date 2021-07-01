@@ -32,19 +32,6 @@
   </tbody>
 </table>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">
-        <ul>
-          <li></li>
-        </ul>
-      </th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-
 ## System Design Interview - Step by Step Guide
 
 <table>
@@ -621,12 +608,9 @@
             <br />This hash table is stored in the in-memory store.
             <br />Periodically, we stop writing to the current hash table and create
             <br
-            />a new one. Then a new hash table keeps accumulating incoming
-            <br />data. While old hash table is no longer counting any data and each
-            <br
-            />counter from old hash table is sent to the internal queue for furhter
-            <br
-            />processing.
+            />a new one. Then a new hash table keeps accumulating incoming data. While
+            old hash table is no longer counting any data and each counter from old
+            hash table is sent to the internal queue for further processing.
             <br />
             <br />Why aggregator is connected with Internal Queue?
             <br />Ans: To speed up processing, with multiple threads.
@@ -993,7 +977,49 @@ Popular binary formats are **Thrift**, **Protocol Buffers**, and **Avro**.
   * Cons:  
 * **Why Schema is important for message format?**  \(1\) Schema are crucial for binary formats. Message producers need to know the schema to serialize the data. Message consumers \(processing service in our case\) require the data. \(2\) Schema are usually stored in some shared database where both producers and consumers can retrieve them.  \(3\) Important to mention that schemas may and will change over time. We may want to add more attributes into messages and use them later for counting or filtering.  \(4\) Apache Avro is a good choice for our counting system. 
 
+### Summary
 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Recall / Questions / Keywords</th>
+      <th style="text-align:left">Cornell Notes Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p></p>
+        <ul>
+          <li>When data flows into API gateway,
+            <br />what could happen?</li>
+          <li></li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <ul>
+          <li>Blocking &amp; Non-blocking I/O
+            <ul>
+              <li>Blocking I/O - 1 thread per connection</li>
+              <li>Non-Blocking I/O - Queue style
+                <br />
+              </li>
+            </ul>
+          </li>
+          <li></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        <p><b>Summary</b>
+        </p>
+        <p>This xxxx Chapter explains</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 * * aaa
 * 
