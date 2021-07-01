@@ -957,16 +957,41 @@ To send messages to partitions, the partitioner service needs to know about ever
 
 ![](../.gitbook/assets/sys_design_di1_consistent_hashing.png)
 
-* sss
-
 ### 2. Service Discovery
 
 In order to let partitioner service know every partition, we need service discovery. There are two types of service discovery: 
 
 * **Service-side discovery**  We've already looked at server-side discovery when talked about load balancers. Clients know about load balancer, load balancer knows about server-side instances. But we don't need an LB between partitioner service and partitions. **Partitioner service itself acts as a load balance**r by distributing events over partitions. 
-* **Client-side discovery** For client-side discovery, **every server instance registers itself in some commonplace**, named service registry.   **Service Registry** The service registry is another highly available web service, which can perform health checks to determine the health of each registered instance.  The client then queries the service registry and obtains a list of available servers.  E.g. Zookeeper.  In our case, each partition registers itself in Zookeeper, while every partitioner service instance queries Zookeeper for the list of partitions. 
+* **Client-side discovery** For client-side discovery, **every server instance registers itself in some commonplace**, named service registry.   **Service Registry** The service registry is another highly available web service, which can perform health checks to determine the health of each registered instance.  The client then queries the service registry and obtains a list of available servers.  E.g. Zookeeper.  In our case, each partition registers itself in Zookeeper, while every partitioner service instance queries Zookeeper for the list of partitions.   During distributed cache design, when cache client needs to pick a cache shard that stores the data. // Check Distributed Cache design video
 
+**Service Discovery Technique in Cassandra Nodes**  
+Similar to the Cassandra nodes knowing each other technique, every node in the cluster knows about other nodes. It means clients need to contact one node from the server cluster to figure out information about the whole cluster. 
 
+### 3. Replication
+
+We must not lose events when storing them in partitions. When an event is persisted in a partition, we need to replicate it. If this partition machine goes down, events are not lost. There are three main approaches to replication: 
+
+* **Single Leader Replication** Think about how to scale a SQL database.  \[Cluster proxy\]  ------  \[Actual Read\]   \[Read Replica1\]  \[Read Replica2\]  \[Read Replica3\]  Each partition will have a leader and several followers. We always write events and read them from the leader only.  While a leader stays alive, all followers copy events from their leader. And if the leader dies, we choose a new leader from their followers.  The leader keeps track of all its followers, to check whether the followers are alive and whether any of the followers are too far behind. If a follower dies, gets stuck, or falls behind, the leader will remove it from the list of its followers.  
+* **Multi Leader Replication** Multi leader replication is mostly being used in several data centers. 
+* **Leaderless Replication** Think about how Cassandra Quorum Read/Quorum Write works. We consider a write to be successful, when a predefined number of replicas acknowledge \(acked\) the write.  Similar concept applies to partitions. When partitioner service makes a call to a partition, we may send response back as soon as leader partition persisted the message, or only when message was replicated to a specified number of replicas. When we write to a leader only, we may still lose data if leader goes down before replication really happened. When we wait for the replication to complete, we increase durability of the system, but latency will increase \(Availability up, Performance down\).  Plus if required number of replicas is not available at the moment, availability will suffer.
+
+### 4. Message Format
+
+We can use either textual or binary format for messages.   
+**Textual Formats**  
+Popular textual formats are **XML**, **CSV**, and **JSON**.   
+**Binary Formats**  
+Popular binary formats are **Thrift**, **Protocol Buffers**, and **Avro**. 
+
+* **Textual Formats** When represented data in JSON format, every message contains field name, which greatly increase total message size. 
+  * XML, CSV, JSON
+  * Pros: Human readable, well-known, widely supported, and heavily used by many distributed systems.
+  * Cons:
+* **Binary Formats** Very good for **large scale real-time processing** system that provide much more benefits. Format require a schema, and when schema is defined, we no longer need to keep field names. \(有了schema, 便知道格式長什麼樣, 就不需要field names了\)  e.g. Apache Thrift and Protocol Buffers use **field tag** instead of field names. Tags are just numbers and they act like aliases for fields. Tags occupy less space when encoded. 
+  * Thrift, Protocol Buffers, Avro
+  * Pros: Messages in binary format are more compat, and faster to parse
+  * Cons:  
+* **Why Schema is important for message format?**  \(1\) Schema are crucial for binary formats. Message producers need to know the schema to serialize the data. Message consumers \(processing service in our case\) require the data. \(2\) Schema are usually stored in some shared database where both producers and consumers can retrieve them.  \(3\) Important to mention that schemas may and will change over time. We may want to add more attributes into messages and use them later for counting or filtering.  \(4\) Apache Avro is a good choice for our counting system. 
 
 
 
