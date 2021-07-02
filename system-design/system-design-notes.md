@@ -849,6 +849,16 @@
 
 ## Load Balancer
 
+### 1. Hardware vs Software Load Balancing
+
+### 2. Networking Protocols
+
+### 3. DNS - Domain Name System
+
+### 4. Health Checking
+
+### 5. High Availability
+
 * **Hardware vs Software Load Balancing:**
   * **Hardware Load Balancer**: Hardware load balancers are network devices we buy, such as CPU cores, memories that are optimized to handle very high throughput. Millions of requests per second.
   * **Software Load Balancer**:  lv2 Software load balancers are provided by public clouds \(e.g. ELB Elastic Load Balancing from AWS\)  lv1 Software LB is what traffic they serve TCP or HTTP.   Many of them are open source. 
