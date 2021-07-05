@@ -851,7 +851,7 @@
 
 To increase scalability and reduce redundancy, we can add load balancer \(LB\) to the following three places:  
 \(1\) between the **user** and **web server**  
-\(2\) between **web server** and **application server**  
+\(2\) between **web server** and **application server \(e.g. cache service, application server\)**  
 \(3\) between **application server** and **database server** 
 
 ![](../.gitbook/assets/sys_design_lb_places.png)
@@ -865,7 +865,7 @@ To increase scalability and reduce redundancy, we can add load balancer \(LB\) t
 ### 2. Networking Protocols
 
 * **Networking Protocols:**
-  * **TCP Load Balancers**  TCP Load Balancers are simply forward network packets without inspecting the content of packets. Think of it as if we established a single end-to-end TCP connection between a client and a server. This allows TCP LB to be super fast and handle millions of requests per second. HTTP load balancers, in contrast, HTTP LB terminates the connection.    
+  * **TCP Load Balancers**  ![](../.gitbook/assets/tcp-load-balancer-diagram.png)  TCP \(Transmission Control Protocol\) Load Balancers are simply forward network packets without inspecting the content of packets. TCP LB operates at lv4 the transport layer.   Think of it as if we established a single end-to-end TCP connection between a client and a server. This allows TCP LB to be super fast and handle millions of requests per second. HTTP load balancers, in contrast, HTTP LB terminates the connection.  Where does TCP LB being used? TCP LB is used where the application that do not speak HTTP. TCP LB verifies information sent to IP addresses, which ensures the data arrives error-free to non-HTTP applications.  Where does HTTP LB being used? HTTP LB is a simple HTTP request/response architecture.   
   * **HTTP Load Balancers**  
     \(1\) Load Balancers gets an HTTP request from a client, establishes a connection to a server, and sends a request to this server.   
     \(2\) HTTP LB can look inside a message and make a load-balancing decision based on the content of the message.  
