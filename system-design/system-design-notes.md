@@ -849,19 +849,21 @@
 
 ## Load Balancer
 
+To increase scalability and reduce redundancy, we can add load balancer \(LB\) to the following three places:  
+\(1\) between the **user** and **web server**  
+\(2\) between **web server** and **application server**  
+\(3\) between **application server** and **database server** 
+
+![](../.gitbook/assets/sys_design_lb_places.png)
+
 ### 1. Hardware vs Software Load Balancing
-
-### 2. Networking Protocols
-
-### 3. DNS - Domain Name System
-
-### 4. Health Checking
-
-### 5. High Availability
 
 * **Hardware vs Software Load Balancing:**
   * **Hardware Load Balancer**: Hardware load balancers are network devices we buy, such as CPU cores, memories that are optimized to handle very high throughput. Millions of requests per second.
   * **Software Load Balancer**:  lv2 Software load balancers are provided by public clouds \(e.g. ELB Elastic Load Balancing from AWS\)  lv1 Software LB is what traffic they serve TCP or HTTP.   Many of them are open source. 
+
+### 2. Networking Protocols
+
 * **Networking Protocols:**
   * **TCP Load Balancers**  TCP Load Balancers are simply forward network packets without inspecting the content of packets. Think of it as if we established a single end-to-end TCP connection between a client and a server. This allows TCP LB to be super fast and handle millions of requests per second. HTTP load balancers, in contrast, HTTP LB terminates the connection.    
   * **HTTP Load Balancers**  
@@ -882,11 +884,19 @@ How does our API gateway/Partitioner service client know about our Load Balancer
 How does Load Balancer know about partitioner service machines?   
 How does Load Balancer guarantee high availability? \(LB could be a single point of failure\)
 
-* **DNS - Domain Name System  DNS between Load Balancer and web IP address**  DNS is like a **phone book for the internet**. It maintains a directory of domain names and translates them to IP addresses.  \(1\) We register our partitioner service in DNS, specify the domain name. \(e.g. partitionerservice.domain.com\) \(2\) And then we associate DNS with the IP address of the load balancer device.  partitionerservice.elb1.domain.com &lt;----&gt; Load balancer 1  partitionerservice.elb2.domain.com &lt;----&gt; Load balancer 2 .... \(3\) When the client hits the domain name, requests are forwarded to the load balancer device.  \(4\) We need to explictly tell the load balancer the IP address of each machine. \(5\) Both Software and Hardware LB provide API to register and unregister servers. 
+### 3. DNS - Domain Name System
+
+* **DNS - Domain Name System  DNS between Load Balancer and web IP address**  DNS is like a **phone book for the internet**. It maintains a directory of domain names and translates them to IP addresses.  \(1\) We register our partitioner service in DNS, specify the domain name. \(e.g. partitionerservice.domain.com\) \(2\) And then we associate DNS with the IP address of the load balancer device.  partitionerservice.elb1.domain.com &lt;----&gt; Load balancer 1  partitionerservice.elb2.domain.com &lt;----&gt; Load balancer 2 .... \(3\) When the client hits the domain name, requests are forwarded to the load balancer device.  \(4\) We need to explictly tell the load balancer the IP address of each machine. \(5\) Both Software and Hardware LB provide API to register and unregister servers.
+
+### 4. Health Checking
+
 * **Health Checking** Load balancer checks the health of each server.  \(6\) LB needs to know which server from the registered list is healthy and which is unavailable at the moment. This way, LB ensures that traffic is routed to healthy servers only.  \(7\) LB pings each server periodically. If the unhealthy server is identified, LB stops sending traffic to it.  \(8\) LB will then resume routing traffic to that server when it detects that the server is healthy again. 
+
+### 5. High Availability
+
 * **High Availability** High availability of load balancers.  \(1\) To achieve high availability of load balancers, we utilize the concept of primary and secondary nodes.  \(2\) **Primary Node / Primary Load Balancer**: The Primary LB accepts connections and serves requests, while the Secondary LB monitors the primary.   \(3\) **Secondary Node / Secondary Load Balancer:**   The Secondary LB monitors the primary. If for any reason, the primary LB is unable to accept the connections, the secondary LB takes over. Primary and Secondary LB live in different data centers, in case one data center goes down.
 
-#### Summary
+### Summary
 
 <table>
   <thead>
@@ -900,19 +910,40 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
       <td style="text-align:left">
         <p></p>
         <ul>
-          <li>When data flows into API gateway,
-            <br />what could happen?</li>
-          <li></li>
+          <li>Load Balancing</li>
+          <li>How do we balance load when
+            <br />there are lots of requests?</li>
+          <li>What are the different techniques
+            <br />
+          </li>
+          <li>Once we have LB, how do we manage them?</li>
         </ul>
       </td>
       <td style="text-align:left">
         <ul>
-          <li>Blocking &amp; Non-blocking I/O
+          <li>Hardware vs Software Load Balancer
             <ul>
-              <li>Blocking I/O - 1 thread per connection</li>
-              <li>Non-Blocking I/O - Queue style
+              <li>Hardware Load Balancer -
+                <br />More CPU cores, more memories</li>
+              <li>Software Load Balancer -
+                <ul>
+                  <li>networking protocols TCP/HTTP LB</li>
+                  <li>public cloud LB, e.g. AWS ELK</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Networking Protocols
+            <ul>
+              <li>TCP LB</li>
+              <li>HTTP LB
                 <br />
               </li>
+            </ul>
+          </li>
+          <li>Domain Name System (DNS)
+            <ul>
+              <li>route DNS to specific instance</li>
             </ul>
           </li>
           <li></li>
