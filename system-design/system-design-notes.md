@@ -42,6 +42,142 @@
 
 ![CAP Theorem - Consistency, Availability, and Partition Tolerance](../.gitbook/assets/cap_theorem.png)
 
+## === Ch1 Reqiurements Gathering  === 
+
+* When an interviewer gives you a Q:
+* Then Ask Interviewers about 4 categories to  get requirement clarifications. \(1\) Users/Customers \(2\) Scale \(Read/Write\) \(3\) Performance \(4\) Cost 
+* Why do things above?
+* Get functional requirements & non-functional requirements \(1\) **Functional Requirements \(what system will do\)**:  system behavior, specific APIs,  set of operations that system will support \(2\) **Non-Functional Requirements \(what system is  supposed to be\)**:  system qualities, such as fast, fault-tolerant, secure 
+* **Functional Requirements - API**  
+  Below are the steps to generalize APIs  
+  
+  e.g. The system has to `count` _video_ view **events.** 
+
+  --&gt; def `count`View**Event**\(videoId\):  
+       \# get eventType such as 'view', 'like', 'share'
+
+  --&gt; def  `count`**Event**\(videoId, eventType\):   
+       \# sum all different functions such as 'count', 'sum', 'average'  
+  --&gt; def process**Event**\(videoId, eventType, function\):  
+       \# generalize events, APIs  
+  --&gt; def process**Event**s\(listOfEvents\)   
+       \# each event is an object which contains info about video,   
+           type of the event, time of the event...   
+  
+  e.g.2 Data Retrieval API   
+  The system has to return _video_ views count for a time period.
+
+  --&gt; def getViewsCount\(videoId, startTime, endTime\)  
+  \# video views -&gt; 'likes', 'dislikes', 'view'  
+  --&gt; def getCount\(videoId, eventType, startTime, endTime\)  
+  \# get stats and functions to the method  
+  --&gt; def getStats\(videoId, eventType, function, startTime, endTime\)  
+
+* **non-Functional Requirements**
+
+  Interviewer Reply: Let's design xxx at **scale,**   
+  let's try to make it as **fast** as possible.  
+  
+  --&gt; then we use CAP theorem  
+  CAP theorem tells me we can't have **C**onsistency, **A**vailability,   
+  **P**erformance/Partition Tolerance all at once. Then I'll   
+  choose availability over consistency.   
+  \* **Scalable** \(tens of thousands of video views per sec\)  
+  \* **High Performant** \(few tens of milliseconds to return  
+  total views count for a video\)  
+  \* **Highly Available** \(survives hardware/network failures,   
+  no single point of failure\)  
+  \* Consistency  
+  \* Cost \(hardware, development, maintenance\)
+
+### Summary
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Cues/Recall</th>
+      <th style="text-align:left">Cornell Notes Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p></p>
+        <ul>
+          <li>
+            <p>What is the most important</p>
+            <p>component for a successful
+              <br />system design interview?
+              <br />
+            </p>
+          </li>
+          <li>What should we focus on the most
+            <br />while preparing for one?
+            <br />
+          </li>
+          <li>How to break down requirements
+            <br />that the interviewer answered?
+            <br />
+          </li>
+          <li>What&apos;s inside functional requirements?</li>
+          <li>
+            <p>What&apos;s inside non-functional</p>
+            <p>requirements?</p>
+          </li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p></p>
+        <ul>
+          <li>Where to start?</li>
+          <li>To get requirement clarifications, we need
+            <br />information to include the following categories
+            <ul>
+              <li>Users (amount of users)</li>
+              <li>Scale (highly scalable, or just single)</li>
+              <li>Performance (high, low)</li>
+              <li>Cost (high, low)</li>
+            </ul>
+          </li>
+          <li>Functional Requirements -
+            <br />how to break down requirements into smaller
+            <br />pieces
+            <ul>
+              <li>generalize APIs</li>
+            </ul>
+          </li>
+          <li>Non-Functional Requirements
+            <br />The use of CAP Theorem
+            <ul>
+              <li>Consistency --&gt; Same Data, scalable</li>
+              <li>Availability --&gt; Highly available</li>
+              <li>Partition Tolerance --&gt; High performant</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        <p><b>Summary</b>
+        </p>
+        <p>This Requirement Gathering chapter explains</p>
+        <p>(1) Categories to ask interviewers to further</p>
+        <p>explain the exptectation</p>
+        <p>(2) Functional Requirements
+          <br />(<b>What system will do</b>)</p>
+        <p>(3) Non-Functional Requirements</p>
+        <p>(What size of this system is supposed to be)</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## === Ch2 What to Store ===
+
+
+
 <table>
   <thead>
     <tr>
@@ -1028,7 +1164,7 @@ CDN is a kind of cache that comes into play for sites serving large amount of me
 
 ## Partitioner Service and Partitions
 
-Why partition? Because we need to process events/messages/data more faster and accurate.
+Why partition? Because we need to process events/messages/data more faster and more accurate.
 
 #### Partitioner Service
 
@@ -1046,7 +1182,7 @@ To send messages to partitions, the partitioner service needs to know about ever
 
 * **Hash Function Strategy  \(key-value pair between item &lt;-&gt; machine\)** A simple strategy is to **calculate a hash function based on some key**, let's say video identifier, **and** **choose a machine based on this hash**.  However, this strategy does not work very well on large scale. As it may lead to so-called "hot partitions."   **Hot Partitions Problem** For example, when we have a very popular video or set of videos, all view events go to the same partition. Approaches to deal with hot partition:  \(1\) **To Include Event Time** To include event time \(a minute\) to the video identifier/partition key. All video events within the current minute interval are forwarded to some partition. The next minute, all events go to a different partition.   Within one minute interval, a single partition gets a lot of data, but over several minutes, data is **spread more evenly among partitions**.  \| ---- 11:30am ---- \| ---- 11:31am ---- \| ---- 11:32 am --- \| ---- 11:33 am ---- \| ---- 11:34 am ---- \| ---- ....    A A A A A A A       B B B B B            C C C C C C C C   A A A                    B B B B B B B B    C C   \(2\) **Split Original Hot Partition in Half** Another solution is to split this hot partition into two partitions.  How does this approach actually look like? Consistent hashing algorithm and how adding a new node to the consistent hashing ring split a range of keys into two new ranges.    Furthermore, we can also explicitly **allocate dedicated partitions** for some popular video channels. All video view events from such channels go to their allocated partitions. And view events from all other channels never go to those partitions.  
 
-![](../.gitbook/assets/sys_design_di1_consistent_hashing.png)
+![Distributed Hash Table](../.gitbook/assets/sys_design_di1_consistent_hashing.png)
 
 ### 2. Service Discovery
 
