@@ -44,7 +44,7 @@ The following steps are needed to run through the system design interview
 
 * STEP1.  **Requirements Gathering -** user/scale/performance/cost
 * STEP2.  **Define System Interface** - Define what APIs are expected
-* STEP3.  **Estimate Scale** - focus on scaling, partitioning, load balancing, and caching
+* STEP3.  **Estimate Scale** - Using CAP Theorem. Then focusing on scaling, partitioning, load balancing, and caching
 * STEP4.  **Define Data Model** - def data model helps us to clarify data flow between different of the system
 * STEP5.  **High Level Design** - draw components diagram
 * STEP6.  **Detailed Level Design** - get interviewer's feedback and check which part of the system needs to explain further
