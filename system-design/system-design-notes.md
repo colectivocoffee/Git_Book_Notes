@@ -962,6 +962,10 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
   </tbody>
 </table>
 
+## Caching
+
+Load balancing helps you to scale horizontally across servers, but caching will help you better use of the resources you already have.   
+
 ## Partitioner Service and Partitions
 
 #### Partitioner Service
