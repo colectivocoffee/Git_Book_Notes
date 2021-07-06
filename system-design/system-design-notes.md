@@ -978,6 +978,15 @@ Load balancing helps you to scale horizontally across servers, but caching will 
 
 CDN is a kind of cache that comes into play for sites serving large amount of media.  
 
+### Cache Eviction Policies
+
+1. FIFO \(First In First Out\)
+2. LIFO \(Last In First Out\)
+3. LRU \(Least Recently Used\)
+4. MRU \(Most Recently Used\)
+5. LFU \(Least Frequently Used\)
+6. RR \(Random Replacement\)
+
 ## Partitioner Service and Partitions
 
 #### Partitioner Service
