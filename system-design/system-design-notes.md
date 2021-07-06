@@ -8,7 +8,7 @@
 
 ![Youtube Design Diagram](../.gitbook/assets/design_diagram_youtube.png)
 
-![Uber Design Diagram](../.gitbook/assets/design_diagram_uber_backend.png)
+![Uber Backend Sys Design Diagram](../.gitbook/assets/design_diagram_uber_backend.png)
 
 #### Cornell Note Taking Technique
 
