@@ -933,7 +933,10 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
             <br />to this instance or not?
             <br />
           </li>
-          <li>s</li>
+          <li>
+            <p>How do we ensure web servers are always</p>
+            <p>available to us?</p>
+          </li>
         </ul>
       </td>
       <td style="text-align:left">
@@ -953,9 +956,7 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
           <li>LB in Networking Protocols Layer
             <ul>
               <li>TCP LB</li>
-              <li>HTTP LB
-                <br />
-              </li>
+              <li>HTTP LB</li>
             </ul>
           </li>
           <li>Domain Name System (DNS)
@@ -964,6 +965,13 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
             </ul>
           </li>
           <li>Health Checking
+            <ul>
+              <li>ping every instance periodically,
+                <br />makes sure we only route
+                <br />traffic to healthy instances</li>
+            </ul>
+          </li>
+          <li>High Availability
             <ul>
               <li>to get high availability, we need to
                 <br />keep monitoring health of each
