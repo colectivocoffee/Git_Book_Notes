@@ -919,6 +919,8 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
             <br />
           </li>
           <li>Once we have LB, how do we manage them?</li>
+          <li>How does our client know about our LB?</li>
+          <li>How does LB know about our partitioner service machines?</li>
         </ul>
       </td>
       <td style="text-align:left">
@@ -935,7 +937,7 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
               </li>
             </ul>
           </li>
-          <li>Networking Protocols
+          <li>LB in Networking Protocols Layer
             <ul>
               <li>TCP LB</li>
               <li>HTTP LB
