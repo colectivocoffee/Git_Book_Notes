@@ -675,7 +675,7 @@
   </tbody>
 </table>
 
-## === Ch5 === Data Ingestion
+## === Ch5 Data Ingestion ===
 
 #### Data Ingestion Path
 
@@ -683,7 +683,7 @@
 
 ![](../.gitbook/assets/sys_design_di1_data_ingestion_path.png)
 
-### Ingestion Path Components
+#### Ingestion Path Components
 
 | Partitioner Service Client/ API Gateway | Load Balancer | Partitioner Service and Partitions |
 | :--- | :--- | :--- |
@@ -994,6 +994,8 @@ CDN is a kind of cache that comes into play for sites serving large amount of me
 6. RR \(Random Replacement\)
 
 ## Partitioner Service and Partitions
+
+Why partition? Because we need to process events/messages/data more faster and accurate.
 
 #### Partitioner Service
 
