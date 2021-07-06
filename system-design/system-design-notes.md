@@ -1457,6 +1457,8 @@ We must not lose events when storing them in partitions. When an event is persis
 
 ### 4. Message Format
 
+Formats for Encoding Data
+
 We can use either textual or binary format for messages.   
 **Textual Formats**  
 Popular textual formats are **XML**, **CSV**, and **JSON**.   
