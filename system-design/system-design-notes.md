@@ -47,7 +47,7 @@
 * When an interviewer gives you a Q:
 * Then Ask Interviewers about 4 categories to  get requirement clarifications. \(1\) Users/Customers \(2\) Scale \(Read/Write\) \(3\) Performance \(4\) Cost 
 * Why do things above?
-* Get functional requirements & non-functional requirements \(1\) **Functional Requirements \(what system will do\)**:  system behavior, specific APIs,  set of operations that system will support \(2\) **Non-Functional Requirements \(what system is  supposed to be\)**:  system qualities, such as fast, fault-tolerant, secure 
+* Get functional requirements & non-functional requirements \(1\) **Functional Requirements \(what system will do\)**:  system behavior, specific APIs,  set of operations that system will support \(2\) **Non-Functional Requirements \(what quality of this system is  supposed to be\)**:  system qualities, such as fast, fault-tolerant, secure 
 * **Functional Requirements - API**  
   Below are the steps to generalize APIs  
   
@@ -129,24 +129,32 @@
       <td style="text-align:left">
         <p></p>
         <ul>
-          <li>Where to start?</li>
-          <li>To get requirement clarifications, we need
+          <li>Where to start? Requirement gathering
+            <br />
+          </li>
+          <li>To get <b>requirement clarifications</b>, we need
             <br />information to include the following categories
             <ul>
-              <li>Users (amount of users)</li>
-              <li>Scale (highly scalable, or just single)</li>
-              <li>Performance (high, low)</li>
-              <li>Cost (high, low)</li>
+              <li><b>Users (amount of users)</b>
+              </li>
+              <li><b>Scale (highly scalable, or just single)</b>
+              </li>
+              <li><b>Performance (high, low)</b>
+              </li>
+              <li><b>Cost (high, low)<br /></b>
+              </li>
             </ul>
           </li>
-          <li>Functional Requirements -
+          <li><b>Functional Requirements</b> -
             <br />how to break down requirements into smaller
             <br />pieces
             <ul>
-              <li>generalize APIs</li>
+              <li>generalize APIs
+                <br />
+              </li>
             </ul>
           </li>
-          <li>Non-Functional Requirements
+          <li><b>Non-Functional Requirements </b>
             <br />The use of CAP Theorem
             <ul>
               <li>Consistency --&gt; Same Data, scalable</li>
@@ -168,7 +176,7 @@
         <p>(2) Functional Requirements
           <br />(<b>What system will do</b>)</p>
         <p>(3) Non-Functional Requirements</p>
-        <p>(What size of this system is supposed to be)</p>
+        <p>(<b>What quality of this system is supposed to be</b>)</p>
       </td>
     </tr>
   </tbody>
