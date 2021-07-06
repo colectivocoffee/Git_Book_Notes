@@ -4,6 +4,12 @@
 
 ![](../.gitbook/assets/sys_design_001_all.png)
 
+#### Design Diagram Examples
+
+![Youtube Design Diagram](../.gitbook/assets/design_diagram_youtube.png)
+
+![Uber Design Diagram](../.gitbook/assets/design_diagram_uber_backend.png)
+
 #### Cornell Note Taking Technique
 
 <table>
@@ -34,7 +40,7 @@
 
 ## System Design Interview - Step by Step Guide
 
-![](../.gitbook/assets/cap_theorem.png)
+![CAP Theorem - Consistency, Availability, and Partition Tolerance](../.gitbook/assets/cap_theorem.png)
 
 <table>
   <thead>
