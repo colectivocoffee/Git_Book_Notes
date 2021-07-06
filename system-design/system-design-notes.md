@@ -45,7 +45,7 @@
 ## === Ch1 Reqiurements Gathering  === 
 
 * When an interviewer gives you a Q:
-* Then Ask Interviewers about 4 categories to  get requirement clarifications. \(1\) Users/Customers \(2\) Scale \(Read/Write\) \(3\) Performance \(4\) Cost 
+* Then Ask Interviewers about 4 categories to get requirement clarifications. **\(1\) Users/Customers \(2\) Scale \(Read/Write\) \(3\) Performance \(4\) Cost** 
 * Why do things above?
 * Get functional requirements & non-functional requirements \(1\) **Functional Requirements \(what system will do\)**:  system behavior, specific APIs,  set of operations that system will support \(2\) **Non-Functional Requirements \(what quality of this system is  supposed to be\)**:  system qualities, such as fast, fault-tolerant, secure 
 * **Functional Requirements - API**  
