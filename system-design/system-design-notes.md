@@ -926,7 +926,14 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
           </li>
           <li>Once we have LB, how do we manage them?</li>
           <li>How does our client know about our LB?</li>
-          <li>How does LB know about our partitioner service machines?</li>
+          <li>How does LB know about our partitioner service machines?
+            <br />
+          </li>
+          <li>How do we know whether LB could route
+            <br />to this instance or not?
+            <br />
+          </li>
+          <li>s</li>
         </ul>
       </td>
       <td style="text-align:left">
@@ -953,10 +960,21 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
           </li>
           <li>Domain Name System (DNS)
             <ul>
-              <li>route DNS to specific instance</li>
+              <li>route assigned address from LB to specific instance</li>
             </ul>
           </li>
-          <li></li>
+          <li>Health Checking
+            <ul>
+              <li>to get high availability, we need to
+                <br />keep monitoring health of each
+                <br />instance</li>
+              <li>Primary LB - served as primary</li>
+              <li>
+                <p>Secondary LB - backup, also checks</p>
+                <p>health of primary LB</p>
+              </li>
+            </ul>
+          </li>
         </ul>
       </td>
     </tr>
