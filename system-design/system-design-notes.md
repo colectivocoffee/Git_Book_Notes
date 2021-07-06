@@ -90,7 +90,7 @@
   \* Consistency  
   \* Cost \(hardware, development, maintenance\)
 
-### Summary
+### Req Gathering Summary
 
 <table>
   <thead>
@@ -184,7 +184,252 @@
 
 ## === Ch2 What to Store ===
 
+### 1. Aggregated Data or Individual Events
 
+### 2. Expected Delay
+
+* starts with...
+* **Data** -&gt; We need to think what data we want to store and how -&gt; We need to define data model
+* What do we **store**?
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:left">Individual Events</th>
+        <th style="text-align:left">vs</th>
+        <th style="text-align:left">Aggregate Data (Batch Events)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:left">Store <b>Raw Events</b>
+        </td>
+        <td style="text-align:left">Func</td>
+        <td style="text-align:left"><b>Aggregate</b> data in real-time</td>
+      </tr>
+      <tr>
+        <td style="text-align:left"><b>Stream</b> Data Processing</td>
+        <td style="text-align:left"></td>
+        <td style="text-align:left"><b>Batch</b> Data Processing</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <p>*fast <b>writes</b>
+          </p>
+          <p>*can slice however we need</p>
+          <p>*can recalculate numbers if needed</p>
+        </td>
+        <td style="text-align:left">Pros</td>
+        <td style="text-align:left">
+          <p>*fast <b>reads</b>
+          </p>
+          <p>*data is ready for decision making</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <p>*slow reads</p>
+          <p>*<b>Costly </b>for large scale</p>
+          <p>(many events to be stored)</p>
+        </td>
+        <td style="text-align:left">Cons</td>
+        <td style="text-align:left">
+          <p>*can <b>only query</b> the way it was <b>aggregated</b>
+          </p>
+          <p>*<b>requires</b>  <b>data aggregation</b> pipeline (Hard!)</p>
+          <p>*hard or even impossible to
+            <br />fix errors</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+* Then ask interviewer **expected delay.  Time between when event happened &lt;--&gt; when event was processed**  \(1\) ****if expected delay is **less than several mins**  --&gt; aggregate data on the fly ****\(2\) if expected delay is **okay for several hours**   --&gt; store raw events and process them in the background \(3\) **combine both** approach, store raw events and batch process data --&gt; Flexibility up  --&gt; **Raw Data:** store only several days/weeks raw data + purge old data      **Batch Data**: store aggregated data \(view counts\) in real-time  --&gt; Costly, expensive
+
+### What to Store Summary
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Cues/Recall</th>
+      <th style="text-align:left">Cornell Notes Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p>Keywords</p>
+        <p>Questions</p>
+      </td>
+      <td style="text-align:left">
+        <p>quick notes</p>
+        <p>key thoughts and takeaways</p>
+        <p>from lecture</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Summary</td>
+    </tr>
+  </tbody>
+</table>
+
+## === Ch3 Database Design ===
+
+### 1. Scalability and Performance
+
+### 2. Availability
+
+### 3. How to Store Data? SQL or NoSQL
+
+* Can you give me a specific DB name? Explain your choice.
+* Both SQL and NoSQL DB can scale and perform well, let me evaluate both types.
+* Ask questions below
+*   <table>
+    <thead>
+      <tr>
+        <th style="text-align:left">
+          <ul>
+            <li>How to scale writes?</li>
+            <li>How to scale reads?</li>
+            <li>How to make both writes and reads fast?</li>
+            <li>How not losing data in case of hardware faults and network partitions?</li>
+            <li>How to recover data in case of an outage?</li>
+            <li>How to ensure data security?</li>
+            <li>How to make it extensible for data model changes in the future?</li>
+          </ul>
+        </th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  |  |
+  | :--- |
+
+* ============================================ How SQL handle these requirements--- Step by Step 
+
+**`@@@@ Scalability and Performance @@@@`**
+
+* How to reduce the load on a single SQL machine? 
+* **\(1\)** **Add** **Sharding DB** \(several SQL DBs work together\)
+
+ 
+
+* How to route the traffic better?
+* **\(2\) Add Cluster Proxy** \(a proxy machine and route traffic to correct shard\)
+* Cluster proxy is the only one who knew about all shards info.   ![](../.gitbook/assets/sys_design_cluster_proxy%20%281%29.png) 
+* How do we make cluster proxy be aware of newly added DB?
+* **\(3\)** **Add Configuration Service** \(to maintain health check\) -&gt; config service maintains a health check connection to all shards\) -&gt; config service always know which DB is available   ![](../.gitbook/assets/sys_design_db2_config_service.png)  
+* Instead of calling shard DB instance directly, we add shard proxy \(4\) **Add Shard Proxy** \(a DB helper to add more useful functions\) --&gt; 1. shard proxy can cache query results --&gt; 2. monitor DB instance health --&gt; 3. publish metrics --&gt; 4. terminate query that takes too long 
+
+ ![](../.gitbook/assets/sys_design_db3_shard_proxy.png)   
+  
+  
+**`@@@@ Availability @@@@`**
+
+* What if DB shard died?
+* How to ensure data is not lost? 
+* \(5\) Add Replicas between different data center --&gt; \[**Write\]** when the cluster proxy sends data to a shard\(DB\),  --&gt; data is sync or async replicated to corresponding read replica. --&gt; **\[Read\]** when the cluster proxy retrieve data from a shard,  --&gt; data will be retrieved either from master or read replica.  ![](../.gitbook/assets/sys_design_db4_replica.png)  
+* e.g. Youtube built a DB solution to scale and manage large clusters  of MySQL instance, called Vitess.  
+* =============================================
+* How NoSQL handle these requirements  --- Step by Step
+* NoSQL DB \(Cassandra\)
+
+  
+**`@@@@ Scalability and Performance @@@@`**
+
+* Split data into chunks, we call it **nodes \(= shards in SQL\)**
+* We don't need config service to manage each node, instead, we  let nodes talk to each other and exchange information about their state.
+* Every sec node exchanges information with a few other nodes  \(less than 3\). State information about every node propagates throughout the cluster -- **gossip protocol**. This way, we also don't need cluster proxy anymore.   
+
+ ****![](../.gitbook/assets/sys_design_db5_nosql_routing.png) 
+
+* NoSQL Routing Process
+* e.g. Processing service is asking us to store views count B, then Node4 has been selected. Node4 served as the coordinator node. which node do we store this view count B?  \(1\) Round Robin Algorithm \(2\) Consistent Hashing Algorithm: choose a node that  is closest to the client   
+* **\#\#\#Consistent Hashing\#\#\#**
+* **Data Replication Using Quorum\(法定人數\)**
+* Why? Because synchronous data replication is slow. We usually replicate data asynchronously.     ****
+* **Quorum Writes:** sends a 'successful' message while 2 out of 3  \(not all\) of replicas are successfully stored.  ****A coordinator node \(node4\) calls multiple nodes to replicate data, to store multiple copies\(3 copies\) of data. However, waiting for all \(3 responses\) from replicas maybe too slow, we can send a 'successful' message once some  \(2 requests\) succeeded.
+
+ ****![](../.gitbook/assets/sys_deign_db6_nosql_readquorum.png) 
+
+* **Quorum Read**: read quorum defines a minimum number of nodes that have to agree on the response.
+* Cassandra uses version number technique to determine the staleness of data.  ****
+* For non-functional requirements, in this case, we choose  **Availability over Consistency** --&gt; We prefer to show stale data over no data at all.
+* For the case of **Leader-Follower replication**, some read replicas may be behind their master. --&gt; Different user would see _different view count_ for a video.  --&gt; But this is temporary, this situation will be resolved over time. --&gt; we call it **Eventual Consistency.** --&gt; Cassandra - tunable consistency  
+* ======How to Store Data=======
+* **relational database, SQL** How do we store data in relational DB?   First, we need to design Data Model, with the following steps
+* ![](../.gitbook/assets/sys_deign_db7_nosql_store.png) 
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:left">
+          <ul>
+            <li>
+              <p>relational DB start with Nouns</p>
+              <p>1) <b>Define Nouns</b>: we start with nouns in the system<b> </b>
+                <br />2) <b>Convert Nouns to Tables</b>:
+                <br />3) <b>Use Foreign Keys to reference related data</b>:
+                <br />4) Normalization: to m<b>inimize data duplication across different tables <br /></b>e.g.
+                only store video name in video info table.
+                <br />To minimize changes across different tables -&gt; cuz
+                <br />inconsistent data is possible.
+                <br />5)</p>
+            </li>
+          </ul>
+        </th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+* **NoSQL** How do we store data in NoSQL DB?  
+* NoSQL starts with **Queries**
+
+ ![](../.gitbook/assets/sys_deign_db8_nosql_query.png) 
+
+* There are 4 types of NoSQL DB: \(1\) Column \(2\) Document \(3\) Key-Value \(4\) Graph 
+* **About Cassandra DB**
+* Cassandra DB's benefit:  \* fault-tolerant  \* scalable \(both read and write throughput increases linearly as new \* machine is added\) \* supports multi-datacenter replication \* works well with time-series data
+* Cassandra is **Column DB** that supports asynchronous  masterless replication.  
+* **About HBase**
+* HBase is Column DB, similar to Cassandra, but it has a master-based architecture 
+* **About MongoDB**
+* MongoDB is **Documented-oriented DB**, uses leader-based replication
+
+### DB Summary
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Cues/Recall</th>
+      <th style="text-align:left">Cornell Notes Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p>Keywords</p>
+        <p>Questions</p>
+      </td>
+      <td style="text-align:left">
+        <p>quick notes</p>
+        <p>key thoughts and takeaways</p>
+        <p>from lecture</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Summary</td>
+    </tr>
+  </tbody>
+</table>
+
+## === Ch4 Data Processing ===
+
+### Data Processing Summary
 
 <table>
   <thead>
@@ -889,7 +1134,7 @@
   \(5\) Pros: Have a threshold to stop requests.   
        Cons: **Hard to test the system,** Error **threshold** and timers are **hard to set** 
 
-### Summary
+### API Gateway Summary
 
 <table>
   <thead>
