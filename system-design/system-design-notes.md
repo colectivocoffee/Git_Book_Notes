@@ -994,7 +994,11 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
       <td style="text-align:left">
         <p><b>Summary</b>
         </p>
-        <p>This xxxx Chapter explains
+        <p>This Load Balancer Chapter explains
+          <br />(1) Different types of LB
+          <br />(2) How LB works internally
+          <br />(3) LB in Networking Protocols Layer
+          <br />(4) Benefits of using LB
           <br />.</p>
       </td>
     </tr>
