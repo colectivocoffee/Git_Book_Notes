@@ -34,6 +34,8 @@
 
 ## System Design Interview - Step by Step Guide
 
+![](../.gitbook/assets/cap_theorem.png)
+
 <table>
   <thead>
     <tr>
@@ -677,7 +679,7 @@
 
 ### Ingestion Path Components
 
-| Partitioner Service Client/API Gateway | Load Balancer | Partitioner Service and Partitions |
+| Partitioner Service Client/ API Gateway | Load Balancer | Partitioner Service and Partitions |
 | :--- | :--- | :--- |
 | Blocking vs non-blocking I/O | Software vs hardware balancing | Partition Strategy |
 | Buffering and batching | Networking Protocols | Service Discovery |
@@ -965,6 +967,14 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
 ## Caching
 
 Load balancing helps you to scale horizontally across servers, but caching will help you better use of the resources you already have.   
+
+* Application Server Cache 
+* Distributed Cache
+* Global Cache
+
+#### CDN Content Distribution Network
+
+CDN is a kind of cache that comes into play for sites serving large amount of media.  
 
 ## Partitioner Service and Partitions
 
