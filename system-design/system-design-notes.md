@@ -920,12 +920,15 @@ How does Load Balancer guarantee high availability? \(LB could be a single point
         <ul>
           <li>Load Balancing</li>
           <li>How do we balance load when
-            <br />there are lots of requests?</li>
-          <li>What are the different techniques
+            <br />there are lots of incoming requests?</li>
+          <li>What are the different techniques?
             <br />
           </li>
           <li>Once we have LB, how do we manage them?</li>
-          <li>How does our client know about our LB?</li>
+          <li>How does our client know about our LB?
+            <br />How to sync between client and server?
+            <br />
+          </li>
           <li>How does LB know about our partitioner service machines?
             <br />
           </li>
