@@ -54,6 +54,17 @@ The following steps are needed to run through the system design interview
 
 ![CAP Theorem - Consistency, Availability, and Partition Tolerance](../.gitbook/assets/cap_theorem.png)
 
+## === Prerequisite ===
+
+Here are the basic components of a system.
+
+User --&gt; Web Proxy --&gt; Web Server --&gt; Application Server --&gt; Database Server
+
+Application Server 跟 Web Server 的差異又為何呢？
+
+* _**Web Server**_：如 Nginx、Apache，只能拿來處理靜態資源，負載平衡、代理，所謂動態的資源，是指會把需求轉發到程式語言起的 Application Server，由Application Server 處理完後，再丟 response 回去，由 Web Server 進行回應，最後才回到 Client 端。
+* _**Application Server**_：就是可以用程式語言建立出的 Server，且可以靜態跟動態解析。
+
 ## === Ch1 Reqiurements Gathering  === 
 
 * When an interviewer gives you a Q:
@@ -440,6 +451,60 @@ The following steps are needed to run through the system design interview
 </table>
 
 ## === Ch4 Data Processing ===
+
+* starts with... requirements
+* Requirements 1\) we want to scale the processing service to scale together when the video views increase.                         &lt;-- scalable 2\) we want to process events quickly.   &lt;-- performance/fast 3\) we don't want to lose data                  &lt;-- availability/reliable  
+* The above questions turn into statements below:
+* How to **scale**?
+* How to achieve **high throughput**?
+* How to **not losing data** when processing node crashes?
+* What to do when DB is **unavailable** or slow? --&gt; How to make data processing **scalable, fast, and reliable?**
+
+\*\*\*\*
+
+* **Scalable == partitioning**
+* **Fast == in-memory & minimize disk reads**
+* **Reliable == Replication and checkpointing**
+
+  
+**%%%% Data Aggregation Basics %%%%**
+
+`@@@` **`Should we aggregate data first?`** `@@@`
+
+*  ****![](../.gitbook/assets/sys_deign_process1_data_aggregation.png) 
+* 1st option, increment counter by 1 when an event comes \(+1 +1 +1\)
+* 2nd option, accumulate data in the processing service memory for several seconds. And add accumulated value to the DB counter. \(+3\)
+
+`@@@` **`Push or Pull?`** `@@@`
+
+* **Push & Pull 怎麼看？ 都是以Processing Service為基準，either push到PS， 或是pull回PS**   ![](../.gitbook/assets/sys_deign_process2_push_pull.png) 
+* **Push**: some other service sends events synchronously to the  processing service  \[serviceA\] -- event --&gt; \[processing service\] 
+* **\[v\] Pull**: the processing service pulls events from some temp storage.  \[\] 
+* **Pull option has more advantages**, as it provides a better fault tolerance support and easier to scale.   Why? Because if processing service crashes, we still have events in  the storage and can re-process them.  
+* How data aggregation happens during event processing? 
+* Checkpointing & Partitioning
+
+![](../.gitbook/assets/sys_deign_ps3_data_aggregation.png) 
+
+* **++ Checkpointing ++**
+* Checkpointing is a technique to **add fault-tolerance into the system**.  It consists of saving a snapshot of the application's state, so it can restart at the point where it failed. It happens in the queue.
+* After we processed several events and successfully stored them in the DB, we write checkpoint to some persistent storage. If processing service machine fails, it will be replaced with another one and this new machine will resume processing where the failed machine left off. \(key in stream data processing\) 
+* **++ partitioning ++**
+* Partitioning also happens in the queue.
+* Each queue is independent from the others. Every queue physically lives on its own machine and stores a subset of all events  \(AA / BBB / C\) We compute a hash based on video identifier and use this hash number to pick a queue.
+* Partitioning allows us to **parallelize events processing**. More events  we get, more partitions we create.
+
+
+
+![](../.gitbook/assets/sys_deign_ps4_ps_design.png) 
+
+@@@ Processing Service \(Detailed Design\) @@@
+
+* **Partition Consumer + De-duplication Cache**:  \* **Partition Consumer**: we need a component to read events. from byte array and turn it to actual object.  Here we **prefer single thread** to read data. Otherwise, if we use multi-threaded, checkpointing will be much harder to ensure order. \* **De-duplication Cache**: to **avoid double counting**. Messages that  get send to partition/shard could have duplicates. Meaning same  message could be sent multiple times. Then we need de-duplication cache.  This distributed cache **stores unique event identifiers**\(uniq event id\) for last 10 mins. Then if several identical messages arrived within  10 mins interval, only one of them\(first one\) would be processed.    
+* **Aggregator + In-memory Store**:  \* **Aggregator \(passport check officer, consumption\)**:  It does in-memory counting.  \[hash table1\]   --&gt;  \[hash table2\] --&gt; \[hash table3\] ... 1 1 1 1 1\(stop\) -&gt; 1 1 1 +1... While adding hash table2,  The hash table1\(complete\) was sent to internal queue.  A **hash table** that accumulates data for some period of time.  This hash table is stored in the in-memory store. Periodically, we stop writing to the current hash table and create a new one. Then a new hash table keeps accumulating incoming data. While old hash table is no longer counting any data and each  counter from old hash table is sent to the internal queue for further processing.  Why aggregator is connected with Internal Queue? Ans: To speed up processing, with multiple threads. We can also do the other way around, where queue -&gt; aggregator. Especially if processing data takes time. By sending data to the  internal queue, **we decouple consumption and processing**. 
+* **Internal Queue \(multi-lines luggage check, processing\)**:  Internal queue speeds up processing with mulitple threads. Processing data takes longer time.  
+* **Database Writer + Embedded DB + Dead-Letter Queue**:  \* **DB writer** can be either single thread or multi-threaded. Single thread: **checkpointing is easy** / but slow Multi threaded: checkpointing is hard / but **increases throughput**.  \[Dead-Letter Queue is useful\] How do we handle undelivered data?  \* **\(1\)** **Dead-Letter Queue**: To temporary store data when data cannot  be routed to their destination.  DLQ Pros: To protect DB performance or availability issues.  Very useful when we need to preserve data incase of downstream services degradation. \(availiability up\) \* **\(2\) Local Disk Storage / Data Enrichment**:  To temporary store undelivered messages. Minimal information, like  video identifier and timestamp. We don't need to store video titile or channel name or video creation date. \* **Embedded DB**:  To store additional attributes, like video title or channel name. Embedded DB is on local machine, which eliminates a need for remote calls.  
+* **State Store \(Recover from prev un-lost state\)**:  State management. To periodically save the entire in-memory data to a durable storage. It helps to recover when PS is down, and then embedded DB/in-memory state is lost. If breakdown happends, just re-create the point where it failed. A new machine just have to re-load this state into its memory  when started.
 
 ### Data Processing Summary
 
@@ -1259,11 +1324,15 @@ The following steps are needed to run through the system design interview
 ## Load Balancer
 
 To increase scalability and reduce redundancy, we can add load balancer \(LB\) to the following three places:  
-\(1\) between the **user** and **web server**  
+\(1\) between the **user** and **web server \(e.g. reverse proxy\)**  
 \(2\) between **web server** and **application server \(e.g. cache service, application server\)**  
 \(3\) between **application server** and **database server** 
 
 ![](../.gitbook/assets/sys_design_lb_places.png)
+
+\(4\) Examples of Load Balancer Tools   
+       1\) user &lt;-&gt; web server: Nginx, HAProxy  
+       2\) web server &lt;-&gt; app server: AWS ELB \(Elastic Load Balancing\)
 
 ### 1. Hardware vs Software Load Balancing
 
@@ -1292,6 +1361,20 @@ To increase scalability and reduce redundancy, we can add load balancer \(LB\) t
 How does our API gateway/Partitioner service client know about our Load Balancer?  
 How does Load Balancer know about partitioner service machines?   
 How does Load Balancer guarantee high availability? \(LB could be a single point of failure\)
+
+#### Load Balancer in Network Layer - Reverse Proxy:  
+
+大家在網址輸入 **github.com** 時要怎麼 **平均分配流量** 到每一台機器呢？這時候就要靠 Reverse Proxy 了。
+
+Reverse Proxy 會把背後的機器藏起來，當瀏覽器發出請求到 **github.com** 時，他就把請求轉發給後面有空的機器處理，處理完再回覆給瀏覽器。
+
+對於使用者（瀏覽器）來說，他只知道 Reverse Proxy 這台機器的 IP 位址，至於這台機器是怎麼把他的請求轉發給背後的機器處理，使用者（瀏覽器）完全不需要也沒辦法知道
+
+而對於網站開發者來說，Reverse Proxy 除了做 **負載均衡** 之外也可以避免外界直接攻擊到背後的 API server，畢竟 **所有請求都要經過 Reverse Proxy** ，可以把一些奇怪的請求先行過濾掉  
+
+![](../.gitbook/assets/reverse_proxy.png)
+
+
 
 ### 3. DNS - Domain Name System
 
