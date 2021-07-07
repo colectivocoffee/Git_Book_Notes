@@ -1795,6 +1795,9 @@ This approach is a bit slower than stream processing, but faster than batch proc
 
 ## Final Summary
 
+STEP0. **Requirements Gathering**: we start with requirements gathering  
+STEP1. **Functional Requirements \(API\)**:  
+
 1. Functional Requirements \(API\)
 2. Non-Functional Requirements \(qualities\)
 
