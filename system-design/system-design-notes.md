@@ -1795,8 +1795,11 @@ This approach is a bit slower than stream processing, but faster than batch proc
 
 ## Final Summary
 
-STEP0. **Requirements Gathering**: we start with requirements gathering  
-STEP1. **Functional Requirements \(API\)**:  
+STEP0. **Requirements Gathering**: we start with requirements clarification  
+STEP1. **Functional Requirements \(API\)**: we need to define APIs, what exactly our system is supposed to do.   
+STEP2. **Non-Functional Requirements \(qualities\)**: we then discuss non-functional requirements with the interviewer and figure out what qualities of the system he is most interested in.    
+STEP3. High-level Design: we can now outline a high-level architecture of the system. Then draw some key components on the whiteboard.  
+STEP4. Detailed Design: At the next stage we should dive deep into several of those components.
 
 1. Functional Requirements \(API\)
 2. Non-Functional Requirements \(qualities\)
