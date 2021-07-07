@@ -1789,5 +1789,9 @@ maybe because number of events is huge,
 maybe processing of a single event is complicated and time consuming  
    
 Ans: We batch events and store them in the Object Storage service \(Cold\), for example AWS S3. Then every time when we persist a batch of events, we send a message to a message broker, for example AWS SQS.   
-Then we have a big cluster of machines, for example AWS EC2, that retrieve messages from SQS
+Then we have a big cluster of machines, for example AWS EC2, that retrieve messages from SQS.  
+Then EC2 reads a corresponding batch of events from S3 thru SQS and processes each event.  
+This approach is a bit slower than stream processing, but faster than batch processing.
+
+## Final Summary
 
