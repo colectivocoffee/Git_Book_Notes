@@ -1798,7 +1798,28 @@ This approach is a bit slower than stream processing, but faster than batch proc
 STEP0. **Requirements Gathering**: we start with requirements clarification  
 STEP1. **Functional Requirements \(API\)**: we need to define APIs, what exactly our system is supposed to do.   
 STEP2. **Non-Functional Requirements \(qualities\)**: we then discuss non-functional requirements with the interviewer and figure out what qualities of the system he is most interested in.    
-STEP3. High-level Design: we can now outline a high-level architecture of the system. Then draw some key components on the whiteboard.  
+STEP3. **High-level Design**: we can now outline a high-level architecture of the system. Then draw some key components on the whiteboard.  
 STEP4. Detailed Design: At the next stage we should dive deep into several of those components.   
-STEP5. Bottlenecks and Tradeoffs: At the last important step is to discuss bottlenecks and how to deal with them. We should also address tradeoffs.
+STEP5. **Bottlenecks and Tradeoffs**: At the last important step is to discuss bottlenecks and how to deal with them. We should also address tradeoffs.  
+
+
+* Functional Requirements \(API\):   
+  To define APIs, we discuss with the interviewer what specific behaviors or functions of the system we need to design. 
+
+  * **Write down verbs**  we write down verbs characterizing these functions and start thinking about input parameters. 
+  * **Define input parameters and return values**
+  * **Make several iterations** we then can make several iterations to brush up the APIs.
+
+  After these steps, we should be clear on what the scope of the design is. 
+
+* Non-functional Requirements \(qualities\): To define qualities, just know what your options are. Open a list of non-functional requirements on wiki, or just focus on **scalability, availability, and performance**. Pick top 3.
+  * Scalability
+  * Availability
+  * Performance
+  * And others .... consistency, durability, maintainability and cost. 
+* High-Level Design: To outline a high-level design, think about how data gets into the system,  
+  * Data
+* s 
+
+
 
