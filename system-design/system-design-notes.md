@@ -506,6 +506,8 @@ Application Server 跟 Web Server 的差異又為何呢？
 * **Database Writer + Embedded DB + Dead-Letter Queue**:  \* **DB writer** can be either single thread or multi-threaded. Single thread: **checkpointing is easy** / but slow Multi threaded: checkpointing is hard / but **increases throughput**.  \[Dead-Letter Queue is useful\] How do we handle undelivered data?  \* **\(1\)** **Dead-Letter Queue**: To temporary store data when data cannot  be routed to their destination.  DLQ Pros: To protect DB performance or availability issues.  Very useful when we need to preserve data incase of downstream services degradation. \(availiability up\) \* **\(2\) Local Disk Storage / Data Enrichment**:  To temporary store undelivered messages. Minimal information, like  video identifier and timestamp. We don't need to store video titile or channel name or video creation date. \* **Embedded DB**:  To store additional attributes, like video title or channel name. Embedded DB is on local machine, which eliminates a need for remote calls.  
 * **State Store \(Recover from prev un-lost state\)**:  State management. To periodically save the entire in-memory data to a durable storage. It helps to recover when PS is down, and then embedded DB/in-memory state is lost. If breakdown happends, just re-create the point where it failed. A new machine just have to re-load this state into its memory  when started.
 
+
+
 ### Data Processing Summary
 
 <table>
@@ -1510,7 +1512,7 @@ CDN is a kind of cache that comes into play for sites serving large amount of me
 5. LFU \(Least Frequently Used\)
 6. RR \(Random Replacement\)
 
-## Partitioner Service and Partitions
+## Messaging System/Partitioner Service and Partitions
 
 Why partition? Because we need to process events/messages/data more faster and more accurate.
 
@@ -1614,5 +1616,178 @@ Popular binary formats are **Thrift**, **Protocol Buffers**, and **Avro**.
   </tbody>
 </table>
 
-* * aaa
-* 
+## 
+
+## === Ch6 Tech Stacks ===
+
+## Tech Stacks That We Can Choose From
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Client-side</th>
+      <th style="text-align:left">Load Balancing</th>
+      <th style="text-align:left">
+        <p>Messaging Systems/</p>
+        <p>Partitioner Service &amp; Partitions</p>
+      </th>
+      <th style="text-align:left">Data Processing</th>
+      <th style="text-align:left">Storage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">Netty</td>
+      <td style="text-align:left">Citrix NetScaler</td>
+      <td style="text-align:left">Apache Kafka</td>
+      <td style="text-align:left">Apache Spark</td>
+      <td style="text-align:left">Apache Cassandra</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Netflix Hystrix</td>
+      <td style="text-align:left">Nginx</td>
+      <td style="text-align:left">AWS Kinesis</td>
+      <td style="text-align:left">Apache Flink</td>
+      <td style="text-align:left">Apache HBase</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Polly</td>
+      <td style="text-align:left">AWS ELB</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">AWS Kinesis Data Analytics</td>
+      <td style="text-align:left">InfluxDB</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Apache Hadoop</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">AWS Redshift</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">AWS S3</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+| Other Useful Tech Stacks | Binary Messaging Format |
+| :---: | :--- |
+| **Vitess** \(manage large DB instances\) | Thrift |
+| **Redis** \(scale read data queries & message deduplication\) | Protocol Buffer |
+| **AWS SQS / RabbitMQ** \(message broker, dead letter queue\) | Avro |
+| **RocksDB** \(data enrichment, key-value data\) |  |
+| **Apache Zookeeper** \(manage service discovery, distributed config service\) |  |
+| **Netflix Eureka** \(service discovery\) |  |
+| **AWS CloudWatch** **/ Elasticsearch, Logstash, Kibana**  \(logs management, monitor components on the cloud\) |  |
+| **MurmurHash** \(for partitioner service to partition\) |  |
+
+### 1. Client-side \(Netty, Hystrix, Polly\)
+
+* **Netty**: A high-performance non-blocking IO framework for network applications
+* **Netflix Hystrix / Polly**: Hystrix and Polly simplifies implementation of many client-side concepts that we discussed before, such as timeouts, retries, circuit breaker pattern.
+
+### 2. Load Balancing \(NetScaler, Nginx, AWS ELB\)
+
+* **Citrix NetScaler**: The most famous hardware load balancer. 
+* **Nginx**: A popular software load balancer. 
+* **AWS Elastic Load Balancer \(AWS ELB\)**: When running LB on the cloud, then AWS ELB is great.
+
+### 3. Messaging Systems \(Kafka, AWS Kinesis\)
+
+* **Apache Kafka**: Kafka implements partitioner service and partitions concept. 
+* **Amazon Kinesis**: messaging system on the cloud.
+
+### 4. Stream Data Processing \(Spark, Flink, Kinesis Data Analytics\)
+
+* **Apache Spark**: To process events and aggregate them in memory, we can use **stream-data-processing framework** such as Spark. 
+* **Apache Flink**: same as Spark.
+* **AWS Kinesis Data Analytics**: stream data processing solution on the cloud.
+
+### 5. Database Storage \(Cassandra, HBase, InfluxDB, Hadoop, AWS Redshift\)
+
+* **Apache Cassandra**: A good choice for storing **time-series** data, **wide column DB**.
+* **Apache HBase/Influx DB**:  Another choice for time-series data, and also a **wide column DB**. 
+* **Apache Hadoop**: Hadoop is a good choice for storing **raw event**. Raw events are used to recalculate counts in case of any error or if customers need to run ad-hoc queries.
+* **AWS Redshift**: A cloud data warehouse. 
+* **AWS S3**: When we need to roll up the data and **archive it on the cloud**, AWS S3 is a good choice. 
+
+### 6. Other
+
+* **Scaling and Managing large clusters of DB instances -- Vitess:**   A DB solution for **scaling and managing large clusters** of MySQL instances.  Vitess has been serving all Youtube DB traffic since 2011. 
+* **Distributed Cache -- Redis**: Redis is for **message deduplication** and to **scale read data queries**.  
+* **Message Broker -- RabbitMQ**: For a **dead-letter queue** mechanism, we need to **temporarily queue undelivered messages**, we can use an open source **messaage broker** like RabbitMQ. 
+* **Message Broker -- AWS SQS**: Message broker solution on the cloud.
+* **Data Enrichment -- RocksDB**: For data enrichment, when we store video and channel related information locally on the machine and inject this information in real-time, we may use RocksDB.  RocksDB is a **high performance embedded DB for key-value data**. 
+* **Service Discovery, distributed config service -- Zookeeper**: To do leader election for partitions and to **manage service discovery**, we can use Apache Zookeeper.  Zookeeper is a distributed configuration service. 
+* **Service Discovery -- Netflix Eureka**: Netflix Eureka is a service discovery alternative compare to Zookeeper.
+* **Logs Management / Monitor Components --  AWS CloudWatch / Elasticsearch, Logstash, Kibana**:  \(AWS\) To monitor each of our system design components, we can choose AWS CloudWatch.  \(Open Source Frameworks\) Elasticsearch, Logstash, Kibana.  
+* **For Partitioner service to partition data -- MurmurHash:** For partitioner service to partition, MurmurHash has good hashing function. 
+* **Binary Messaging Format -- Thrift, Protocol Buffer, Avro**
+
+## === Ch7 Identify Bottlenecks ===
+
+Interviewer Q: How to identify bottlenecks?  
+Ans: We need to **test it under a heavy load**. Then we need to do performance testing.
+
+Performance testing includes the following
+
+* **Load Testing**: when we measure behavior of a system under a specific expected load.  With load testing, we want to understand that our system is indeed scalable and can handle a load we expect.  For example, a 2x or 3x increase in traffic.  
+* **Stress Testing**: when we test beyond normal operational capacity, often to a breaking point. With stress testing, we want to identify a breaking point in the system, **which component will start to suffer first**. If so, what resource it will be: memory, CPU, network, disk IO? 
+* **Soak Testing**: when we test a system with a typical production load for an extended period of time. With soak testing, we want to find leaks in resources. For example, **memory leaks**. 
+
+**Tech Stack: JMeter**  
+Therefore generating high load is a key, tools like **Apache JMeter** can be used to generate a desired load.  
+
+Interviewer Q: How to you make sure the system is running healthy?  
+Ans: All the components of our system must be instrumented with monitoring of the health. Metrics, dashboards, and alerts should be our friends all the time.
+
+* **Metric**: Metric is a variable that we measure, like error count or processing time. 
+* **Dashboard**: Dashboard provides a summary view of a service's core metrics. 
+* **Alert**: Alert is a notification sent to service owners in a reaction to some issue happening in the service. 
+
+#### 4 Golden Signals of Monitoring: Latency, Traffic, Errors, and Saturation. 
+
+* Latency
+* Traffic 
+* Errors 
+* Saturation
+
+
+
+### Lambda Architecture
+
+Interviewer Q: How to make sure the system produces accurate results?  
+Ans: We can build an **audit system**. There can be two flavors of audit systems, weak audit, and strong audit. 
+
+* Weak Audit System:  Weak audit system is a **continuously running end-to-end test**. Let's say once a minute we generate several video view events in the system, call query service and validate that returned value equals to the expected results. This simple test gives us a high confidence that the system counts correctly. And it is easy to implement and maintain such test. - Not 100% Reliable However, it may not be 100% reliable. What if our system loses events in some rare scenarios? Then weak audit test may not identify this issue for a long period of time.  
+* Strong Audit System:  Strong audit system calculates video views using a completely different path than weak audit testing.  For example, we store raw events in Hadoop and use MapReduce to count events. And then compare results of both systems. 
+
+Weak and Strong Audit System are doing almost the same, however, this thing has a name called Lambda Architecture. The key idea of Lambda Architecture is to **send events to a batch system and a stream processing system in parallel**. Then stitch together the result from both systems at query time. 
+
+### What tech to choose? MapReduce if not latency sensitive
+
+We should use a batch processing framework \(e.g. MapReduce\) if we are not latency sensitive. MapReduce based system would have a much higher latency.   
+Use a stream processing framework if we are not trying to do both at the same time unless we absolutely must. 
+
+### Q: Processing Service Cannot Keep up with the Load
+
+Interviewer Q: What if the processing service cannot keep up with the speed when new messages arrive?  --&gt; processing service cannot keep up with the load,   
+maybe because number of events is huge,   
+maybe processing of a single event is complicated and time consuming  
+   
+Ans: We batch events and store them in the Object Storage service \(Cold\), for example AWS S3. Then every time when we persist a batch of events, we send a message to a message broker, for example AWS SQS.   
+Then we have a big cluster of machines, for example AWS EC2, that retrieve messages from SQS
+
