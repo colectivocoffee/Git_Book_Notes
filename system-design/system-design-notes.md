@@ -1799,7 +1799,7 @@ STEP0. **Requirements Gathering**: we start with requirements clarification
 STEP1. **Functional Requirements \(API\)**: we need to define APIs, what exactly our system is supposed to do.   
 STEP2. **Non-Functional Requirements \(qualities\)**: we then discuss non-functional requirements with the interviewer and figure out what qualities of the system he is most interested in.    
 STEP3. **High-level Design**: we can now outline a high-level architecture of the system. Then draw some key components on the whiteboard.  
-STEP4. Detailed Design: At the next stage we should dive deep into several of those components.   
+STEP4. **Detailed Design**: At the next stage we should dive deep into several of those components.   
 STEP5. **Bottlenecks and Tradeoffs**: At the last important step is to discuss bottlenecks and how to deal with them. We should also address tradeoffs.  
 
 
@@ -1822,11 +1822,11 @@ STEP5. **Bottlenecks and Tradeoffs**: At the last important step is to discuss b
   * **How data gets Out**
   * **Where data is stored inside the system**
   * **Try to drive the conversation** While designing specific components, start with data. 
-* Detailed Design While designing specific components, start with data. 
+* Detailed Design: While designing specific components, start with data. 
   * **It's all about data** \(storage, transfer, processing\)
   * Use fundamental concepts and then **make small incremental improvements**.
   * **Apply relevant technologies**
-* Bottlenecks and tradeoffs
+* Bottlenecks and Tradeoffs
   * **Listen carefully to the interviewer** \(what he wants to focus on\) As he sees bottlenecks of our design, in his questions there will be some hints of what those bottlenecks are
   * **Know the tradeoffs** pick and apply the proper one.
 
