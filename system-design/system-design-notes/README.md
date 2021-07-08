@@ -96,7 +96,7 @@ Application Server 跟 Web Server 的差異又為何呢？
   \# get stats and functions to the method  
   --&gt; def getStats\(videoId, eventType, function, startTime, endTime\)  
 
-* **non-Functional Requirements**
+* **Non-Functional Requirements**
 
   Interviewer Reply: Let's design xxx at **scale,**   
   let's try to make it as **fast** as possible.  
