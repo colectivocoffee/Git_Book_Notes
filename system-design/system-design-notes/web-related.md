@@ -31,7 +31,20 @@ There are three significant and distinct approaches for building APIs that use H
     Benefits of gRPC:  
     Disadvantages of gRPC:
 
-* **REST** The most common API model is REST, REST is an entity-oriented model. Which is simpler, more regular, easier to understand, and more stable than simple RPC models.   Plus, the entity-oriented model provides an overall organization for the system behaviors. Let's say we are having an online shopping cart, we are able to visualize products, carts, orders, accounts for this online shopping cart. On the other side, if we use RPC procedures, it would result in a long, unstructured list of procedures for adding products to carts, checking out, returning products, and others.   
+* **REST** The most common API model is REST, REST is an entity-oriented model. Which is simpler, more regular, easier to understand, and more stable than simple RPC models.   Plus, the entity-oriented model provides an overall organization for the system behaviors. Let's say we are having an online shopping cart, we are able to visualize products, carts, orders, accounts for this online shopping cart. On the other side, if we use RPC procedures, it would result in a long, unstructured list of procedures for adding products to carts, checking out, returning products, and others.
+
+### Conclusion 
+
+RPC-style endpoints are great when you want only one job done well. Meaning useful for one or two app clients \(Great for internal service use cases\). This adds simplicity and clarity to the service.  
+\(1\) Faster to transfer, because it is binary  
+\(2\) Great for internal services that just have one or two clients requesting data  
+\(3\) Suitable for monolithic system   
+\(4\) MVC systems with a basic CRUD can benefit from RPC when there is little need to scale.
+
+For REST endpoint, it provides domain data, which becomes helpful when segregating data into different domains. This makes it useful when you have any number of apps requesting data.  
+\(1\) Slower to transfer, because it has to send field names in text.  
+\(2\) Great for distributed large scale system that many apps are requesting data  
+\(3\) Suitable for distributed system
 
 #### Reference
 
