@@ -54,7 +54,7 @@ The following steps are needed to run through the system design interview
 
 ![CAP Theorem - Consistency, Availability, and Partition Tolerance](../../.gitbook/assets/cap_theorem.png)
 
-## === Prerequisite ===
+## === Prerequisite, Basic Components ===
 
 Here are the basic components of a system.
 
@@ -73,7 +73,7 @@ In Requirements Gathering Stage, there will be three important pieces to be cove
 \(3\) Non-Functional Requirements
 
 * When an interviewer gives you a Q:
-* Then Ask Interviewers about 4 categories to get requirement clarifications. **\(1\) Users/Customers \(2\) Scale \(Read/Write\) \(3\) Performance \(4\) Cost** 
+* Then ask interviewers about 4 categories to get requirement clarifications. **\(1\) Users/Customers \(2\) Scale \(Read/Write\) \(3\) Performance \(4\) Cost** 
 * Why do things above?
 * Get functional requirements & non-functional requirements \(1\) **Functional Requirements \(what system will do\)**:  system behavior, specific APIs,  set of operations that system will support \(2\) **Non-Functional Requirements \(what quality of this system is  supposed to be\)**:  system qualities, such as fast, fault-tolerant, secure 
 
