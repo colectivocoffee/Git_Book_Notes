@@ -76,6 +76,9 @@ In Requirements Gathering Stage, there will be three important pieces to be cove
 * Then Ask Interviewers about 4 categories to get requirement clarifications. **\(1\) Users/Customers \(2\) Scale \(Read/Write\) \(3\) Performance \(4\) Cost** 
 * Why do things above?
 * Get functional requirements & non-functional requirements \(1\) **Functional Requirements \(what system will do\)**:  system behavior, specific APIs,  set of operations that system will support \(2\) **Non-Functional Requirements \(what quality of this system is  supposed to be\)**:  system qualities, such as fast, fault-tolerant, secure 
+
+### 1. Functional Requirements - API Design
+
 * **Functional Requirements - API**  
   Below are the steps to generalize APIs  
   
@@ -99,7 +102,9 @@ In Requirements Gathering Stage, there will be three important pieces to be cove
   \# video views -&gt; 'likes', 'dislikes', 'view'  
   --&gt; def getCount\(videoId, eventType, startTime, endTime\)  
   \# get stats and functions to the method  
-  --&gt; def getStats\(videoId, eventType, function, startTime, endTime\)  
+  --&gt; def getStats\(videoId, eventType, function, startTime, endTime\)
+
+### 2. Non-Functional Requirements - CAP Theorem
 
 * **Non-Functional Requirements**
 
