@@ -1,6 +1,6 @@
 # Web Related
 
-## API Model for HTTP Transfer
+## 1. Web API Model for HTTP Transfer
 
 ### RPC vs REST
 
@@ -52,5 +52,5 @@ For REST endpoint, it provides domain data, which becomes helpful when segregati
 
 1. gRPC and REST: [https://cloud.google.com/blog/products/api-management/understanding-grpc-openapi-and-rest-and-when-to-use-them](https://cloud.google.com/blog/products/api-management/understanding-grpc-openapi-and-rest-and-when-to-use-them)
 
-
+### 2. CDN \(Content Delivery Network\)
 
