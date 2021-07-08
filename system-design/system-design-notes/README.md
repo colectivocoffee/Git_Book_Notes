@@ -162,7 +162,7 @@ def getStats(videoId, eventType, function)
 
 #### \(2\) API Returns
 
-What should this API returns? Normally the name of this function will be what should be returned. 
+What should this API returns? Generally speaking, the name of this function will be what this function should be returned. 
 
 ```python
 # return uploaded/shared/view video -> return processed video object
