@@ -112,9 +112,8 @@ In Requirements Gathering Stage, there will be three important pieces to be cove
   let's try to make it as **fast** as possible.  
   
   --&gt; then we use CAP theorem  
-  CAP theorem tells me we can't have **C**onsistency, **A**vailability,   
-  **P**erformance/Partition Tolerance all at once. Then I'll   
-  choose availability over consistency.   
+  CAP theorem tells me we can't have **C**onsistency, **A**vailability, **P**erformance/Partition Tolerance all at once.   
+  Then I'll choose availability over consistency.   
   \* **Scalable** \(tens of thousands of video views per sec\)  
   \* **High Performant** \(few tens of milliseconds to return  
   total views count for a video\)  
