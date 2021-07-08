@@ -2,13 +2,13 @@
 
 ## Data Flow Simulation  
 
-![](../.gitbook/assets/sys_design_001_all.png)
+![](../../.gitbook/assets/sys_design_001_all.png)
 
 #### Design Diagram Examples
 
-![Youtube Design Diagram](../.gitbook/assets/design_diagram_youtube.png)
+![Youtube Design Diagram](../../.gitbook/assets/design_diagram_youtube.png)
 
-![Uber Backend Sys Design Diagram](../.gitbook/assets/design_diagram_uber_backend.png)
+![Uber Backend Sys Design Diagram](../../.gitbook/assets/design_diagram_uber_backend.png)
 
 #### Cornell Note Taking Technique
 
@@ -52,7 +52,7 @@ The following steps are needed to run through the system design interview
 
 
 
-![CAP Theorem - Consistency, Availability, and Partition Tolerance](../.gitbook/assets/cap_theorem.png)
+![CAP Theorem - Consistency, Availability, and Partition Tolerance](../../.gitbook/assets/cap_theorem.png)
 
 ## === Prerequisite ===
 
@@ -341,19 +341,19 @@ Application Server 跟 Web Server 的差異又為何呢？
 
 * How to route the traffic better?
 * **\(2\) Add Cluster Proxy** \(a proxy machine and route traffic to correct shard\)
-* Cluster proxy is the only one who knew about all shards info.   ![](../.gitbook/assets/sys_design_cluster_proxy%20%281%29.png) 
+* Cluster proxy is the only one who knew about all shards info.   ![](../../.gitbook/assets/sys_design_cluster_proxy%20%281%29.png) 
 * How do we make cluster proxy be aware of newly added DB?
-* **\(3\)** **Add Configuration Service** \(to maintain health check\) -&gt; config service maintains a health check connection to all shards\) -&gt; config service always know which DB is available   ![](../.gitbook/assets/sys_design_db2_config_service.png)  
+* **\(3\)** **Add Configuration Service** \(to maintain health check\) -&gt; config service maintains a health check connection to all shards\) -&gt; config service always know which DB is available   ![](../../.gitbook/assets/sys_design_db2_config_service.png)  
 * Instead of calling shard DB instance directly, we add shard proxy \(4\) **Add Shard Proxy** \(a DB helper to add more useful functions\) --&gt; 1. shard proxy can cache query results --&gt; 2. monitor DB instance health --&gt; 3. publish metrics --&gt; 4. terminate query that takes too long 
 
- ![](../.gitbook/assets/sys_design_db3_shard_proxy.png)   
+ ![](../../.gitbook/assets/sys_design_db3_shard_proxy.png)   
   
   
 **`@@@@ Availability @@@@`**
 
 * What if DB shard died?
 * How to ensure data is not lost? 
-* \(5\) Add Replicas between different data center --&gt; \[**Write\]** when the cluster proxy sends data to a shard\(DB\),  --&gt; data is sync or async replicated to corresponding read replica. --&gt; **\[Read\]** when the cluster proxy retrieve data from a shard,  --&gt; data will be retrieved either from master or read replica.  ![](../.gitbook/assets/sys_design_db4_replica.png)  
+* \(5\) Add Replicas between different data center --&gt; \[**Write\]** when the cluster proxy sends data to a shard\(DB\),  --&gt; data is sync or async replicated to corresponding read replica. --&gt; **\[Read\]** when the cluster proxy retrieve data from a shard,  --&gt; data will be retrieved either from master or read replica.  ![](../../.gitbook/assets/sys_design_db4_replica.png)  
 * e.g. Youtube built a DB solution to scale and manage large clusters  of MySQL instance, called Vitess.  
 * =============================================
 * How NoSQL handle these requirements  --- Step by Step
@@ -366,7 +366,7 @@ Application Server 跟 Web Server 的差異又為何呢？
 * We don't need config service to manage each node, instead, we  let nodes talk to each other and exchange information about their state.
 * Every sec node exchanges information with a few other nodes  \(less than 3\). State information about every node propagates throughout the cluster -- **gossip protocol**. This way, we also don't need cluster proxy anymore.   
 
- ****![](../.gitbook/assets/sys_design_db5_nosql_routing.png) 
+ ****![](../../.gitbook/assets/sys_design_db5_nosql_routing.png) 
 
 * NoSQL Routing Process
 * e.g. Processing service is asking us to store views count B, then Node4 has been selected. Node4 served as the coordinator node. which node do we store this view count B?  \(1\) Round Robin Algorithm \(2\) Consistent Hashing Algorithm: choose a node that  is closest to the client   
@@ -375,7 +375,7 @@ Application Server 跟 Web Server 的差異又為何呢？
 * Why? Because synchronous data replication is slow. We usually replicate data asynchronously.     ****
 * **Quorum Writes:** sends a 'successful' message while 2 out of 3  \(not all\) of replicas are successfully stored.  ****A coordinator node \(node4\) calls multiple nodes to replicate data, to store multiple copies\(3 copies\) of data. However, waiting for all \(3 responses\) from replicas maybe too slow, we can send a 'successful' message once some  \(2 requests\) succeeded.
 
- ****![](../.gitbook/assets/sys_deign_db6_nosql_readquorum.png) 
+ ****![](../../.gitbook/assets/sys_deign_db6_nosql_readquorum.png) 
 
 * **Quorum Read**: read quorum defines a minimum number of nodes that have to agree on the response.
 * Cassandra uses version number technique to determine the staleness of data.  ****
@@ -383,7 +383,7 @@ Application Server 跟 Web Server 的差異又為何呢？
 * For the case of **Leader-Follower replication**, some read replicas may be behind their master. --&gt; Different user would see _different view count_ for a video.  --&gt; But this is temporary, this situation will be resolved over time. --&gt; we call it **Eventual Consistency.** --&gt; Cassandra - tunable consistency  
 * ======How to Store Data=======
 * **relational database, SQL** How do we store data in relational DB?   First, we need to design Data Model, with the following steps
-* ![](../.gitbook/assets/sys_deign_db7_nosql_store.png) 
+* ![](../../.gitbook/assets/sys_deign_db7_nosql_store.png) 
 
   <table>
     <thead>
@@ -411,7 +411,7 @@ Application Server 跟 Web Server 的差異又為何呢？
 * **NoSQL** How do we store data in NoSQL DB?  
 * NoSQL starts with **Queries**
 
- ![](../.gitbook/assets/sys_deign_db8_nosql_query.png) 
+ ![](../../.gitbook/assets/sys_deign_db8_nosql_query.png) 
 
 * There are 4 types of NoSQL DB: \(1\) Column \(2\) Document \(3\) Key-Value \(4\) Graph 
 * **About Cassandra DB**
@@ -471,20 +471,20 @@ Application Server 跟 Web Server 的差異又為何呢？
 
 `@@@` **`Should we aggregate data first?`** `@@@`
 
-*  ****![](../.gitbook/assets/sys_deign_process1_data_aggregation.png) 
+*  ****![](../../.gitbook/assets/sys_deign_process1_data_aggregation.png) 
 * 1st option, increment counter by 1 when an event comes \(+1 +1 +1\)
 * 2nd option, accumulate data in the processing service memory for several seconds. And add accumulated value to the DB counter. \(+3\)
 
 `@@@` **`Push or Pull?`** `@@@`
 
-* **Push & Pull 怎麼看？ 都是以Processing Service為基準，either push到PS， 或是pull回PS**   ![](../.gitbook/assets/sys_deign_process2_push_pull.png) 
+* **Push & Pull 怎麼看？ 都是以Processing Service為基準，either push到PS， 或是pull回PS**   ![](../../.gitbook/assets/sys_deign_process2_push_pull.png) 
 * **Push**: some other service sends events synchronously to the  processing service  \[serviceA\] -- event --&gt; \[processing service\] 
 * **\[v\] Pull**: the processing service pulls events from some temp storage.  \[\] 
 * **Pull option has more advantages**, as it provides a better fault tolerance support and easier to scale.   Why? Because if processing service crashes, we still have events in  the storage and can re-process them.  
 * How data aggregation happens during event processing? 
 * Checkpointing & Partitioning
 
-![](../.gitbook/assets/sys_deign_ps3_data_aggregation.png) 
+![](../../.gitbook/assets/sys_deign_ps3_data_aggregation.png) 
 
 * **++ Checkpointing ++**
 * Checkpointing is a technique to **add fault-tolerance into the system**.  It consists of saving a snapshot of the application's state, so it can restart at the point where it failed. It happens in the queue.
@@ -496,7 +496,7 @@ Application Server 跟 Web Server 的差異又為何呢？
 
 
 
-![](../.gitbook/assets/sys_deign_ps4_ps_design.png) 
+![](../../.gitbook/assets/sys_deign_ps4_ps_design.png) 
 
 @@@ Processing Service \(Detailed Design\) @@@
 
@@ -737,7 +737,7 @@ Application Server 跟 Web Server 的差異又為何呢？
           <li>Cluster proxy is the only one who knew about all shards info.
             <br />
             <br />
-            <img src="../.gitbook/assets/sys_design_cluster_proxy (1).png" alt/>
+            <img src="../../.gitbook/assets/sys_design_cluster_proxy (1).png" alt/>
             <br />
           </li>
           <li>How do we make cluster proxy be aware of newly added DB?</li>
@@ -748,7 +748,7 @@ Application Server 跟 Web Server 的差異又為何呢？
             />-&gt; config service always know which DB is available
             <br />
             <br />
-            <img src="../.gitbook/assets/sys_design_db2_config_service.png" alt/>
+            <img src="../../.gitbook/assets/sys_design_db2_config_service.png" alt/>
             <br />
           </li>
           <li>Instead of calling shard DB instance directly, we add shard proxy
@@ -760,7 +760,7 @@ Application Server 跟 Web Server 的差異又為何呢？
             <br />--&gt; 4. terminate query that takes too long</li>
         </ul>
         <p>
-          <img src="../.gitbook/assets/sys_design_db3_shard_proxy.png" alt/>
+          <img src="../../.gitbook/assets/sys_design_db3_shard_proxy.png" alt/>
           <br />
           <br />
           <br /><b><code>@@@@ Availability @@@@</code></b>
@@ -779,7 +779,7 @@ Application Server 跟 Web Server 的差異又為何呢？
             <br
             />--&gt; data will be retrieved either from master or read replica.
             <br />
-            <img src="../.gitbook/assets/sys_design_db4_replica.png" alt/>
+            <img src="../../.gitbook/assets/sys_design_db4_replica.png" alt/>
             <br />
           </li>
           <li>e.g. Youtube built a DB solution to scale and manage large clusters
@@ -808,7 +808,7 @@ Application Server 跟 Web Server 的差異又為何呢？
             <br />This way, we also don&apos;t need cluster proxy anymore.</li>
         </ul>
         <p><b> </b>
-          <img src="../.gitbook/assets/sys_design_db5_nosql_routing.png"
+          <img src="../../.gitbook/assets/sys_design_db5_nosql_routing.png"
           alt/>
         </p>
         <ul>
@@ -838,7 +838,7 @@ Application Server 跟 Web Server 的差異又為何呢？
             <br />(2 requests) succeeded.</li>
         </ul>
         <p><b> </b>
-          <img src="../.gitbook/assets/sys_deign_db6_nosql_readquorum.png"
+          <img src="../../.gitbook/assets/sys_deign_db6_nosql_readquorum.png"
           alt/>
         </p>
         <ul>
@@ -868,7 +868,7 @@ Application Server 跟 Web Server 的差異又為何呢？
             <br />First, we need to design Data Model, with the following steps</li>
           <li>
             <p>
-              <img src="../.gitbook/assets/sys_deign_db7_nosql_store.png" alt/>
+              <img src="../../.gitbook/assets/sys_deign_db7_nosql_store.png" alt/>
             </p>
             <table>
               <thead>
@@ -899,7 +899,7 @@ Application Server 跟 Web Server 的差異又為何呢？
           </li>
         </ul>
         <p>
-          <img src="../.gitbook/assets/sys_deign_db8_nosql_query.png" alt/>
+          <img src="../../.gitbook/assets/sys_deign_db8_nosql_query.png" alt/>
         </p>
         <ul>
           <li>There are 4 types of NoSQL DB:
@@ -976,7 +976,7 @@ Application Server 跟 Web Server 的差異又為何呢？
         </p>
         <ul>
           <li><b> </b>
-            <img src="../.gitbook/assets/sys_deign_process1_data_aggregation.png"
+            <img src="../../.gitbook/assets/sys_deign_process1_data_aggregation.png"
             alt/>
           </li>
           <li>1st option, increment counter by 1 when an event comes (+1 +1 +1)</li>
@@ -988,7 +988,7 @@ Application Server 跟 Web Server 的差異又為何呢？
         <ul>
           <li><b>Push &amp; Pull &#x600E;&#x9EBC;&#x770B;&#xFF1F;<br />&#x90FD;&#x662F;&#x4EE5;Processing Service&#x70BA;&#x57FA;&#x6E96;&#xFF0C;either push&#x5230;PS&#xFF0C;<br />&#x6216;&#x662F;pull&#x56DE;PS<br /><br /> </b>
             <img
-            src="../.gitbook/assets/sys_deign_process2_push_pull.png" alt/>
+            src="../../.gitbook/assets/sys_deign_process2_push_pull.png" alt/>
           </li>
           <li><b>Push</b>: some other service sends events synchronously to the
             <br />processing service
@@ -1016,7 +1016,7 @@ Application Server 跟 Web Server 的差異又為何呢？
           <li>Checkpointing &amp; Partitioning</li>
         </ul>
         <p>
-          <img src="../.gitbook/assets/sys_deign_ps3_data_aggregation.png" alt/>
+          <img src="../../.gitbook/assets/sys_deign_ps3_data_aggregation.png" alt/>
         </p>
         <ul>
           <li><b>++ Checkpointing ++</b>
@@ -1048,7 +1048,7 @@ Application Server 跟 Web Server 的差異又為何呢？
         </ul>
         <p></p>
         <p>
-          <img src="../.gitbook/assets/sys_deign_ps4_ps_design.png" alt/>
+          <img src="../../.gitbook/assets/sys_deign_ps4_ps_design.png" alt/>
         </p>
         <p>@@@ Processing Service (Detailed Design) @@@</p>
         <ul>
@@ -1149,7 +1149,7 @@ Application Server 跟 Web Server 的差異又為何呢？
 
 
 
-![](../.gitbook/assets/sys_design_di1_data_ingestion_path.png)
+![](../../.gitbook/assets/sys_design_di1_data_ingestion_path.png)
 
 #### Ingestion Path Components
 
@@ -1330,7 +1330,7 @@ To increase scalability and reduce redundancy, we can add load balancer \(LB\) t
 \(2\) between **web server** and **application server \(e.g. cache service, application server\)**  
 \(3\) between **application server** and **database server** 
 
-![](../.gitbook/assets/sys_design_lb_places.png)
+![](../../.gitbook/assets/sys_design_lb_places.png)
 
 \(4\) Examples of Load Balancer Tools   
        1\) user &lt;-&gt; web server: Nginx, HAProxy  
@@ -1345,7 +1345,7 @@ To increase scalability and reduce redundancy, we can add load balancer \(LB\) t
 ### 2. Networking Protocols
 
 * **Load Balancing in Networking Protocols Layer**
-  * **TCP Load Balancers**  ![](../.gitbook/assets/tcp-load-balancer-diagram.png)  TCP \(Transmission Control Protocol\) Load Balancers are simply forward network packets without inspecting the content of packets. TCP LB operates at lv4 the transport layer.   Think of it as if we established a single end-to-end TCP connection between a client and a server. This allows TCP LB to be super fast and handle millions of requests per second. HTTP load balancers, in contrast, HTTP LB terminates the connection.  Where does TCP LB being used? TCP LB is used where the application that do not speak HTTP. TCP LB verifies information sent to IP addresses, which ensures the data arrives error-free to non-HTTP applications.  Where does HTTP LB being used? HTTP LB is a simple HTTP request/response architecture.   
+  * **TCP Load Balancers**  ![](../../.gitbook/assets/tcp-load-balancer-diagram.png)  TCP \(Transmission Control Protocol\) Load Balancers are simply forward network packets without inspecting the content of packets. TCP LB operates at lv4 the transport layer.   Think of it as if we established a single end-to-end TCP connection between a client and a server. This allows TCP LB to be super fast and handle millions of requests per second. HTTP load balancers, in contrast, HTTP LB terminates the connection.  Where does TCP LB being used? TCP LB is used where the application that do not speak HTTP. TCP LB verifies information sent to IP addresses, which ensures the data arrives error-free to non-HTTP applications.  Where does HTTP LB being used? HTTP LB is a simple HTTP request/response architecture.   
   * **HTTP Load Balancers**  
     \(1\) Load Balancers gets an HTTP request from a client, establishes a connection to a server, and sends a request to this server.   
     \(2\) HTTP LB can look inside a message and make a load-balancing decision based on the content of the message.  
@@ -1374,7 +1374,7 @@ Reverse Proxy 會把背後的機器藏起來，當瀏覽器發出請求到 **git
 
 而對於網站開發者來說，Reverse Proxy 除了做 **負載均衡** 之外也可以避免外界直接攻擊到背後的 API server，畢竟 **所有請求都要經過 Reverse Proxy** ，可以把一些奇怪的請求先行過濾掉  
 
-![](../.gitbook/assets/reverse_proxy.png)
+![](../../.gitbook/assets/reverse_proxy.png)
 
 
 
@@ -1532,7 +1532,7 @@ To send messages to partitions, the partitioner service needs to know about ever
 
 * **Hash Function Strategy  \(key-value pair between item &lt;-&gt; machine\)** A simple strategy is to **calculate a hash function based on some key**, let's say video identifier, **and** **choose a machine based on this hash**.  However, this strategy does not work very well on large scale. As it may lead to so-called "hot partitions."   **Hot Partitions Problem** For example, when we have a very popular video or set of videos, all view events go to the same partition. Approaches to deal with hot partition:  \(1\) **To Include Event Time** To include event time \(a minute\) to the video identifier/partition key. All video events within the current minute interval are forwarded to some partition. The next minute, all events go to a different partition.   Within one minute interval, a single partition gets a lot of data, but over several minutes, data is **spread more evenly among partitions**.  \| ---- 11:30am ---- \| ---- 11:31am ---- \| ---- 11:32 am --- \| ---- 11:33 am ---- \| ---- 11:34 am ---- \| ---- ....    A A A A A A A       B B B B B            C C C C C C C C   A A A                    B B B B B B B B    C C   \(2\) **Split Original Hot Partition in Half** Another solution is to split this hot partition into two partitions.  How does this approach actually look like? Consistent hashing algorithm and how adding a new node to the consistent hashing ring split a range of keys into two new ranges.    Furthermore, we can also explicitly **allocate dedicated partitions** for some popular video channels. All video view events from such channels go to their allocated partitions. And view events from all other channels never go to those partitions.  
 
-![Distributed Hash Table](../.gitbook/assets/sys_design_di1_consistent_hashing.png)
+![Distributed Hash Table](../../.gitbook/assets/sys_design_di1_consistent_hashing.png)
 
 ### 2. Service Discovery
 
