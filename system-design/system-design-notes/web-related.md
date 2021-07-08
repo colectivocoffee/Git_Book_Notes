@@ -52,5 +52,18 @@ For REST endpoint, it provides domain data, which becomes helpful when segregati
 
 1. gRPC and REST: [https://cloud.google.com/blog/products/api-management/understanding-grpc-openapi-and-rest-and-when-to-use-them](https://cloud.google.com/blog/products/api-management/understanding-grpc-openapi-and-rest-and-when-to-use-them)
 
-### 2. CDN \(Content Delivery Network\)
+## 2. CDN \(Content Delivery Network\)
+
+CDN \(Content Delivery Network\) concept is similar to a physical cache that serves your local region. With CDN, your website greatly improves the speed of loading the webpage by fetching content that is close to your region. 
+
+Definition:  
+A CDN is a system of distributed servers that deliver web content to a user based on the geographic locations of the user, the origin of the web page, and a content delivery server. Below are several benefits of CDNs:  
+\(1\) CDNs replicate content in multiple places.  
+\(2\) CDN machines make heavy use of caching and can mostly serve content/videos out of memory. 
+
+### Where is CDN in system design?
+
+
+
+![](../../.gitbook/assets/q_design_twitter%20%281%29.png)
 
