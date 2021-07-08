@@ -166,13 +166,13 @@
 ## System Design
 
 * [System Design Notes](system-design/system-design-notes/README.md)
+  * [HTTP Status Code](system-design/system-design-notes/http-status-code.md)
+  * [ACID Meaning](system-design/system-design-notes/acid-meaning.md)
   * [Web Related](system-design/system-design-notes/web-related.md)
 * [RabbitMQ](system-design/rabbitmq.md)
 * [JMS \(Java Messaging System\)](system-design/jms-java-messaging-system.md)
 * [J2EE](system-design/j2ee.md)
 * [Design Pattern](system-design/design-pattern.md)
-* [HTTP Status Code](system-design/http-status-code.md)
-* [ACID Meaning](system-design/acid-meaning.md)
 
 ## INTERVIEW Qs
 
