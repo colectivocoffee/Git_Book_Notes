@@ -1813,13 +1813,22 @@ STEP5. **Bottlenecks and Tradeoffs**: At the last important step is to discuss b
   After these steps, we should be clear on what the scope of the design is. 
 
 * Non-functional Requirements \(qualities\): To define qualities, just know what your options are. Open a list of non-functional requirements on wiki, or just focus on **scalability, availability, and performance**. Pick top 3.
-  * Scalability
-  * Availability
-  * Performance
+  * **Scalability**
+  * **Availability**
+  * **Performance**
   * And others .... consistency, durability, maintainability and cost. 
-* High-Level Design: To outline a high-level design, think about how data gets into the system,  
-  * Data
-* s 
+* High-Level Design: To outline a high-level design, think about how data gets into the system, try to think the following parts and then draw components on the whiteboard. It's okay to be generic here. Our goal here is to get an understanding of what components to focus on next. 
+  * **How data gets In**
+  * **How data gets Out**
+  * **Where data is stored inside the system**
+  * **Try to drive the conversation** While designing specific components, start with data. 
+* Detailed Design While designing specific components, start with data. 
+  * **It's all about data** \(storage, transfer, processing\)
+  * Use fundamental concepts and then **make small incremental improvements**.
+  * **Apply relevant technologies**
+* Bottlenecks and tradeoffs
+  * **Listen carefully to the interviewer** \(what he wants to focus on\) As he sees bottlenecks of our design, in his questions there will be some hints of what those bottlenecks are
+  * **Know the tradeoffs** pick and apply the proper one.
 
 
 
