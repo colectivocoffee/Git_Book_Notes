@@ -16,7 +16,7 @@ There are three significant and distinct approaches for building APIs that use H
 \(2\) REST \(e.g. JSON\)  
 \(3\) OpenAPI
 
-* RPC
+* **RPC**
 
   For RPC, the entities are procedures, and the data is hidden behind the procedures.
 
@@ -31,7 +31,7 @@ There are three significant and distinct approaches for building APIs that use H
     Benefits of gRPC:  
     Disadvantages of gRPC:
 
-* REST The most common API model is REST, REST is an entity-oriented model. Which is simpler, more regular, easier to understand, and more stable than simple RPC models.   Plus, the entity-oriented model provides an overall organization for the system behaviors. Let's say we are having an online shopping cart, we are able to visualize products, carts, orders, accounts for this online shopping cart. On the other side, if we use RPC procedures, it would result in a long, unstructured list of procedures for adding products to carts, checking out, returning products, and others.   
+* **REST** The most common API model is REST, REST is an entity-oriented model. Which is simpler, more regular, easier to understand, and more stable than simple RPC models.   Plus, the entity-oriented model provides an overall organization for the system behaviors. Let's say we are having an online shopping cart, we are able to visualize products, carts, orders, accounts for this online shopping cart. On the other side, if we use RPC procedures, it would result in a long, unstructured list of procedures for adding products to carts, checking out, returning products, and others.   
 
 #### Reference
 
