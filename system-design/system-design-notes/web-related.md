@@ -1,6 +1,6 @@
 # Web Related
 
-## API Model
+## Web API Model for HTTP Transfer
 
 ### RPC vs REST
 
