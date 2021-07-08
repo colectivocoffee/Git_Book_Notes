@@ -131,7 +131,53 @@ Q: The following requirements should be met
   
 Ans: Let's start with API design based on those requirement keywords above.  
 We should iterate the API and improve it over time.  
+  
+Below are the parts that need to be covered: **\(1\) parameters \(2\) returns**
 
+#### \(1\) API Parameters
+
+```python
+# upload videos
+# share videos, view videos
+def uploadVideo()
+def shareVideo()
+def viewVideo()
+
+# what's the parameter for APIs? -> videoId 
+def xxxVideo(videoId)
+# combine upload/share/view? -> add eventType parameter
+# Rename method: upload+share+view -> process
+def processVideo(videoId, eventType)
+
+#----
+# sys should have total view count 
+def getTotalViewCount(videoId)
+
+# sys should record stats of videos
+# add more stats(e.g. like/dislike, total view count, ...)
+# like/dislike + total view count -> funtions 
+def getStats(videoId, eventType, function)
+
+```
+
+#### \(2\) API Returns
+
+What should this API returns? Normally the name of this function will be what should be returned. 
+
+```python
+# return uploaded/shared/view video -> return processed video object
+def processVideo(videoId, eventType)
+    return videoObj
+
+# total view count API
+# -> return total view count
+def getTotalViewCount(videoId)
+    return totalViewCount
+# like/dislike + total view count API -> return stats object
+def getStats(videoId, eventType, function)
+    return statsObj   # stats obj includes all stats such as viewCount, like...
+    
+```
 
 **What will be covered in Non-Functional Requirements?**  
 Q: The following non-func req should be met  
