@@ -67,6 +67,11 @@ Application Server 跟 Web Server 的差異又為何呢？
 
 ## === Ch1 Reqiurements Gathering  === 
 
+In Requirements Gathering Stage, there will be three important pieces to be covered:  
+\(1\) Get Requirements Clarifications  
+\(2\) Functional Requirements  
+\(3\) Non-Functional Requirements
+
 * When an interviewer gives you a Q:
 * Then Ask Interviewers about 4 categories to get requirement clarifications. **\(1\) Users/Customers \(2\) Scale \(Read/Write\) \(3\) Performance \(4\) Cost** 
 * Why do things above?
@@ -112,6 +117,23 @@ Application Server 跟 Web Server 的差異又為何呢？
   no single point of failure\)  
   \* Consistency  
   \* Cost \(hardware, development, maintenance\)
+
+**What will be covered in Functional Requirements?**  
+Q: The following requirements should be met  
+\(1\) Users should be able to upload videos  
+\(2\) Users should be able to share and view videos  
+\(3\) Users can perform searches based on video titles  
+\(4\) Our sys should be able to record stats of videos, such as likes/dislikes, total views...  
+  
+Ans: Let's start with API design based on those requirement keywords above.  
+We should iterate the API and improve it over time.  
+
+
+**What will be covered in Non-Functional Requirements?**  
+Q: The following non-func req should be met  
+\(1\) The sys should be highly reliable, and video uploaded should not be lost  
+\(2\) The sys should be highly available. Consistency can take a hit, if a user doesn't see a video for a while, it should be fine.  
+\(3\) User should have real-time experience while watching videos and should not feel any lag.
 
 ### Req Gathering Summary
 
