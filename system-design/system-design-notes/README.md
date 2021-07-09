@@ -1875,35 +1875,48 @@ STEP4. **Detailed Design**: At the next stage we should dive deep into several o
 STEP5. **Bottlenecks and Tradeoffs**: At the last important step is to discuss bottlenecks and how to deal with them. We should also address tradeoffs.  
 
 
-* Functional Requirements \(API\):   
-  To define APIs, we discuss with the interviewer what specific behaviors or functions of the system we need to design. 
-
-  * **Ask Q including**
+* **Requirements Gathering \(Ask Qs, 5 mins\)**: Requirements Gathering for Functional Requirements & Non-Functional Requirements
+  * Functional Requirements Ask Q including
     * User - who will be the users
     * Usage - how does this app being used? include UI? periodical request? or interface?
     * Error - What kind of error would be most unwanted?
-    * Confirm Again - Am I covered all core functions? 
+    * Confirm Again - Am I covered all core functions?
+  * Non-Functional Requirements
+    * Consistency
+    * Reliability
+    * Performance/Throughput
+    * Read/Write Ratio
+    * Scalability
+    * Misc... 
+* **Functional Requirements \(API\)**:   
+  To define APIs, we discuss with the interviewer what specific behaviors or functions of the system we need to design. 
+
   * **Write down verbs**  we write down verbs characterizing these functions and start thinking about input parameters. 
   * **Define input parameters and return values**
   * **Make several iterations** we then can make several iterations to brush up the APIs.
 
   After these steps, we should be clear on what the scope of the design is. 
 
-* Non-functional Requirements \(qualities\): To define qualities, just know what your options are. Open a list of non-functional requirements on wiki, or just focus on **scalability, availability, and performance**. Pick top 3.
+* **Non-functional Requirements \(qualities\)**: To define qualities, just know what your options are. Open a list of non-functional requirements on wiki, or just focus on **scalability, availability, and performance**. Pick top 3.
   * **Scalability**
   * **Availability**
   * **Performance**
   * And others .... consistency, durability, maintainability and cost. 
-* High-Level Design: To outline a high-level design, think about how data gets into the system, try to think the following parts and then draw components on the whiteboard. It's okay to be generic here. Our goal here is to get an understanding of what components to focus on next. 
+* **High-Level Design**: To outline a high-level design, think about how data gets into the system, try to think the following parts and then draw components on the whiteboard. It's okay to be generic here. Our goal here is to get an understanding of what components to focus on next. 
   * **How data gets In**
   * **How data gets Out**
   * **Where data is stored inside the system**
-  * **Try to drive the conversation** While designing specific components, start with data. 
-* Detailed Design: While designing specific components, start with data. 
-  * **It's all about data** \(storage, transfer, processing\)
+  * **Try to drive the conversation** While designing specific components, start with data.   Below are the key points that we must dive deeper
+  * **Data Model** \(10 mins\)
+  * **API** \(2 mins\)
+  * **Diagram** \(15-20 mins\)
+  * **Failure** \(remaining time\) 
+* **Detailed Design**: While designing specific components, start with data. 
+  * It's all about data \(storage, transfer, processing\)
   * Use fundamental concepts and then **make small incremental improvements**.
   * **Apply relevant technologies**
-* Bottlenecks and Tradeoffs
+  * Dive deeper on Data Model, API, Diagram  ****
+* **Bottlenecks and Tradeoffs / Failure**
   * **Listen carefully to the interviewer** \(what he wants to focus on\) As he sees bottlenecks of our design, in his questions there will be some hints of what those bottlenecks are
   * **Know the tradeoffs** pick and apply the proper one.
 
