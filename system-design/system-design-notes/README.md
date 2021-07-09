@@ -1878,6 +1878,11 @@ STEP5. **Bottlenecks and Tradeoffs**: At the last important step is to discuss b
 * Functional Requirements \(API\):   
   To define APIs, we discuss with the interviewer what specific behaviors or functions of the system we need to design. 
 
+  * **Ask Q including**
+    * User - who will be the users
+    * Usage - how does this app being used? include UI? periodical request? or interface?
+    * Error - What kind of error would be most unwanted?
+    * Confirm Again - Am I covered all core functions? 
   * **Write down verbs**  we write down verbs characterizing these functions and start thinking about input parameters. 
   * **Define input parameters and return values**
   * **Make several iterations** we then can make several iterations to brush up the APIs.
