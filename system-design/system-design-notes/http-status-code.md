@@ -29,6 +29,13 @@ HTTP uses TCP underneath. \(Request\) TCP breaks down these big messages, into s
 
 ## 3. RPC - Remote Procedure Call  
 
+Ideally, RPC makes a call to a remote function look the same as a local function call. 
+
+### RPC in Enterprise Systems
+
+**Service Oriented Architecture \(SOA\) / "microservices"**  
+SOA meaning splitting a large software application into multiple services \(on multiple nodes\) that communicate via RPC. 
+
 ## HTTP Status Code
 
 1. Informational responses \(`100`–`199`\)
